@@ -1,0 +1,1 @@
+DECLARE <identifier>: ARRAY[:] OF <type>
