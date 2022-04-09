@@ -38,6 +38,7 @@
     + [1. INNER JOIN](#1-inner-join)
     + [2. LEFT/RIGHT JOIN](#2-leftright-join)
     + [3. FULL JOIN](#3-full-join)
+
 <!-- TOC end -->
 
 # SQL Note
@@ -117,10 +118,12 @@
 
 ### 1. INSERT values into a Table
 
-- INSERT INTO `public.todo_item` VALUES (`0, 'New Task', 0, 0, 0, 0, '2022-02-02', null`);
+- INSERT INTO `public.todo_item` VALUES (`0, 'New Task', 0, 0, 0, 0,
+  '2022-02-02', null`);
 
 > 按照创建table的属性顺序  
-> INSERT INTO `public.todo_item(todo_item_id, description, owner_id, priority_id, context_id, project_id, due_date, completion_date)`  
+> INSERT INTO `public.todo_item(todo_item_id, description, owner_id,
+> priority_id, context_id, project_id, due_date, completion_date)`  
 > VALUES (`0, 'New Task', 0, 0, 0, 0, '2022-02-02', null`);  
 > 在前面添加属性顺序后也可以
 
@@ -149,13 +152,15 @@
 
 - DROP TABLE `public.status`;
 
-> When using the DROP command as that will completely remove whatever database structures you set
+> When using the DROP command as that will completely remove whatever
+> database structures you set
 
 ### 2. Remove the data in the database/table
 
 - TRUNCATE TABLE `public.status`;
 
-> DELETE performs the remove row-by-row  TRUNCATE will be much faster than DELETE
+> DELETE performs the remove row-by-row TRUNCATE will be much faster
+> than DELETE
 
 ### 3. .csv file
 
@@ -183,11 +188,13 @@
   ON DELETE CASCADE  
   NOT VALID;
 
-> ALTER command can be used to change almost any part of the structure of a table
+> ALTER command can be used to change almost any part of the structure
+> of a table
 
 ### 2. ALTER a default constraint
 
-- ALTER TABLE `public.todo_item` ALTER COLUMN `due_date` SET DEFAULT `now() + '7days'`;
+- ALTER TABLE `public.todo_item` ALTER COLUMN `due_date` SET DEFAULT
+  `now() + '7days'`;
 
 ### 3. Checking existing constraints and relationships
 
@@ -254,7 +261,8 @@
 - FROM `todo_item`
 - RIGHT JOIN `owner` ON `todo_item.owner_id = owner.owner_id`;
 
-> Note how we now have additional owner, that is not linked to a todo_item
+> Note how we now have additional owner, that is not linked to a
+> todo_item
 
 ### 3. FULL JOIN
 
@@ -262,4 +270,6 @@
 - FROM `todo_item`
 - FULL JOIN `owner` ON `todo_item.owner_id = owner.owner_id`;
 
-> `todo_item` must have an `owner` and our FULL join will not have an additional `todo_item entry`
+> `todo_item` must have an `owner` and our FULL join will not have an
+> additional `todo_item entry`
+
