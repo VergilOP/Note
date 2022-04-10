@@ -28,6 +28,15 @@
     + [7.4 what we want to do](#74-what-we-want-to-do)
     + [7.5 Gradient Descent](#75-gradient-descent)
     + [7.6 Gradient](#76-gradient)
+  * [8. Logistic Regression](#8-logistic-regression)
+    + [8.1 Logistic regression](#81-logistic-regression)
+    + [8.2 Model formulation](#82-model-formulation)
+    + [8.3 Cost function](#83-cost-function)
+    + [8.4 Learning algorithm by gradient descent](#84-learning-algorithm-by-gradient-descent)
+  * [9. Neural Networks](#9-neural-networks)
+    + [9.1 Neural Networks](#91-neural-networks)
+    + [9.2 Overfitting](#92-overfitting)
+
 <!-- TOC end -->
 
 # AI Note
@@ -673,4 +682,249 @@ to test the model
   an arbitrary choice of alpha, it cannot be estimated whether gradient
   descent will converge or not.  
   注：学习率alpha的选择取决于数据集和假设函数。因此，如果没有任何已知细节和给定任意选择，就不能估计梯度下降是否会收敛。
+
+## 8. Logistic Regression
+
+### 8.1 Logistic regression
+
+- It is a linear model for classification (contrary to its name!)  
+  它是一个分类的线性模型（与它的名字相反！）
+
+- In regression, the targets are real values  
+  在回归中，目标是真实的值
+- In classification, the targets are categories, and they are called
+  labels  
+  在分类中，目标是类别，它们被称为标签
+
+### 8.2 Model formulation
+
+- We want to put a boundary between 2 classes  
+  我们想在两个类之间设置一个界限
+- If x has a single attribute, we can do it with a point  
+  如果x有一个单一的属性，我们可以用一个点来完成它  
+  ![Logistic Regression_1.png](Images/Logistic%20Regression_1.png)
+- If x has 2 attributes, we can do it with a line  
+  如果x有两个属性，我们可以用一行来做  
+  ![Logistic Regression_2.png](Images/Logistic%20Regression_2.png)
+- If x has 3 attributes, we can do it with a plane  
+  如果x有3个属性，我们可以用一个平面来做
+- If x has more than 3 attributes, we can do it with a hyperplane (can’t
+  draw it anymore)  
+  如果x有超过3个属性，我们可以用一个超平面来完成它（不能再绘制它了）
+- If the classes are linearly separable, the training error will be 0  
+  如果这些类是线性可分的，则训练误差将为0
+
+![Model formulation_1.png](Images/Model%20formulation_1.png)
+
+![Model formulation_2.png](Images/Model%20formulation_2.png)
+
+- The sigmoid function takes a single argument (note, 𝒘<sup>𝑇</sup>𝒙
+  is one number).  
+  s型函数采用单个参数（注意，𝒘<sup>𝑇</sup>𝒙是一个数字）
+- It always returns a value between 0 and 1. The meaning of this value
+  is the probability that the label is 1  
+  它总是返回一个介于0到1之间的值。这个值的含义是标签为1的概率  
+  ![Model formulation_3.png](Images/Model%20formulation_3.png)
+  - If this is smaller than 0.5 then we predict label 0  
+    如果这小于0.5，那么我们预测标签为0
+  - if this is larger than 0.5 then we predict label 1  
+    如果这大于0.5，那么我们预测标签1
+- There is a slim chance that the sigmoid outputs exactly 0.5. The set
+  of all possible inputs for which this happens is called the decision
+  boundary.  
+  sigmoid 输出恰好为 0.5 的可能性很小。所有可能的集合发生这种情况的输入称为决策边界
+
+### 8.3 Cost function
+
+- each data point contributes a cost, and the overall cost function is
+  the average of these  
+  每个数据点贡献一个成本，总体成本函数是这些成本的平均值
+- the cost is a function of the free parameters of the model  
+  代价是模型的自由参数的函数
+
+![Cost function_1.png](Images/Cost%20function_1.png)
+
+- Given training data  
+  ![Cost function_2.png](Images/Cost%20function_2.png)
+- Fit the model  
+  ![Cost function_4.png](Images/Cost%20function_4.png)
+- By minimising the cross-entropy cost function  
+  ![Cost function_3.png](Images/Cost%20function_3.png)
+
+- When the actual output y=0 and the prediction is 1, the logistic
+  regression cost function assigns a cost of ∞ 当实际输出 y=0 且预测为 1
+  时，逻辑回归成本函数分配的成本为 ∞
+
+### 8.4 Learning algorithm by gradient descent
+
+- We use gradient descent (again!) to minimise the cost function, i.e.
+  to find the best weight values.  
+  我们使用梯度下降（再次如此！）使成本函数最小化，即找到最佳的权重值
+- The gradient vector is:  
+  梯度向量为  
+  ![Learning algorithm by gradient descent_1.png](Images/Learning%20algorithm%20by%20gradient%20descent_1.png)  
+  ![Learning algorithm by gradient descent_2.png](Images/Learning%20algorithm%20by%20gradient%20descent_2.png)
+
+- Learning algorithm for logistic regression  
+  ![Learning algorithm by gradient descent_3.png](Images/Learning%20algorithm%20by%20gradient%20descent_3.png)
+
+- Nonlinear logistic regression: instead of linear function inside the
+  exp in the sigmoid, we can use polynomial functions of the input
+  attributes  
+  非线性逻辑回归：我们可以使用输入属性的多项式函数，而不是s型exp中的线性函数
+- Multi-class logistic regression: uses a multi-valued version of
+  sigmoid  
+  多类逻辑回归：使用多值版本的s型算法
+
+- Examples of application of logistic regression  
+  逻辑回归的应用例子
+  - Face detection: classes consist of images that contain a face and
+    images without a face
+  - Sentiment analysis: classes consist of written product-reviews
+    expressing a positive or a negative opinion
+  - Automatic diagnosis of medical conditions: classes consist of
+    medical data of patients who either do or do not have a specific
+    disease
+
+## 9. Neural Networks
+
+### 9.1 Neural Networks
+
+- Highly nonlinear models having many free parameters  
+  具有许多自由参数的高度非线性模型
+- Can be used for either regression and classification depending on the
+  choice of loss function  
+  可根据损失函数的选择进行回归和分类
+- Can replace nonlinear regression and nonlinear logistic regression
+  which are less practical  
+  可以代替不太实用的非线性回归和非线性逻辑回归
+
+1. Model formulation
+
+- Sometimes called “architecture”  
+  有时也被称为“建筑”
+- Designing this for the problem at hand is the main challenge  
+  针对当前的问题设计这个方案是主要的挑战
+
+2. Cost function
+
+- for regression: Mean square error between predictions and observed
+  targets  
+  回归：预测和观测目标之间的均方误差
+- for classification: Logistic loss (also called cross-entropy)  
+  用于分类：Logistic损失（也称为交叉熵）
+
+3. Learning algorithm by gradient descent
+
+- The update rules are non-trivial, because the models are much more
+  complex  
+  更新规则不简单，因为模型要复杂得多
+- It is performed by an algorithm called “Backpropagation”  
+  它是由一种叫做“反向传播”的算法来执行的
+- Conceptually, each iteration of Backprop takes a gradient descent step  
+  从概念上讲，每一次的后prop迭代都采取一个梯度下降步骤
+- Implementations exist that are able to compute the grandient
+  automatically  
+  存在着能够自动计算宏伟建筑的实现
+- To update the weights of the Neural Network  
+  更新神经网络的权重
+
+- Building blocks of a feedforward neural net  
+  前馈神经网络的构件
+  - Each node is one unit or neuron  
+    每个节点是一个单位或神经元
+  - Each arrow is a connection with a weight  
+    每个箭头都是一个带有一个重量的连接点
+  - Nodes are arranged in layers  
+    节点被分层排列
+    - One input layer
+    - One output layer
+    - Any number of hidden layers (0,1,2,…)
+  - Hidden & output nodes typically apply a sigmoid, or other activation
+    function  
+    隐藏和输出节点通常应用s型节点或其他激活函数
+
+- Simplest neural net  
+  最简单的神经网络
+  - A neural net with 0 hidden layers is called a perceptron  
+    一个具有0个隐藏层的神经网络被称为感知器
+  - If the activation function is the sigmoid, then this model is
+    equivalent to a logistic regression  
+    如果激活函数是s型的，那么这个模型就等价于一个逻辑回归  
+    ![Neural Networks_1.png](Images/Neural%20Networks_1.png)
+    - The type of computation performed by each non-input node is the
+      same in multi-layer networks too.  
+      在多层网络中，每个非输入节点所执行的计算类型也同样相同
+    - The choice of activation function can be different  
+      激活函数的选择可能会有所不同
+
+- Multi-layer perceptron  
+  多层感知机
+  - When we have one hidden layer, the model is called multi-layer
+    perceptron  
+    当我们有一个隐藏层时，该模型被称为多层感知器
+  - It is a truly non-linear model  
+    这是一个真正的非线性模型
+  - Weights = parameters
+  - Number of hidden units, choice of activation function =
+    hyperparameters
+  - Number of output nodes = number of targets or labels we want to
+    predict
+  - MLP is more complex, hence it is more flexible  
+    MLP 更复杂，因此更灵活
+  - MLP can learn a nonlinear curve  
+    MLP 可以学习非线性曲线
+
+- Deep neural networks  
+  深度神经网络
+  - Very simply, deep learning is machine learning using neural networks
+    that have multiple hidden layers  
+    很简单，深度学习是一种使用具有多个隐藏层的神经网络的机器学习
+  - Number of hidden layers is another hyperparameter  
+    隐藏层的数量是另一个超参数
+  - Several hidden layers, several hidden nodes, several hyperparameters  
+    几个隐藏层，几个隐藏节点，几个超参数
+  - Mean square error
+
+### 9.2 Overfitting
+
+- learning every irrelevant detail (noise) in a training data set will
+  not help  
+  在训练数据集中学习每一个不相关的细节（噪声）是没有帮助的
+- Overfitting happens when the model is more complex than required  
+  当模型比要求的更复杂时，就会发生过拟合
+- The error on the test data increases across consecutive epochs whereas
+  that on the training data reduces  
+  测试数据上的误差在连续的时期内增加，而训练数据上的误差减少
+
+- Classification  
+  ![Overfitting_1.png](Images/Overfitting_1.png)
+
+- Regression  
+  ![Overfitting_2.png](Images/Overfitting_2.png)
+
+- Regularisation 规则化
+  - One way to guard against overfitting is regularisation  
+    防止过度拟合的一种方法是规则化
+  - Add a penalty to the cost function to penalise more complex models  
+    在成本函数中添加一个惩罚，以惩罚更复杂的模型
+  - Prune the model  
+    修剪模型
+
+- Early stopping 早停
+  - Stopping the training early is another effective way to guard
+    against overfitting  
+    提前停止训练是防止过度拟合的另一种有效方法
+  - After each gradient update (or Backprop cycle), the training cost
+    will decrease until it reaches 0  
+    在每次梯度更新（或反向循环）后，培训成本将会下降，直到达到0
+  - Set aside a subset of the data (called hold-out set) to use only for
+    monitoring the cost on previously unseen data  
+    留出一个数据子集（称为保留集），仅用于监视以前未见过的数据的成本
+  - The error on hold-out set will decrease at first, but as training
+    continues, it can start increasing  
+    保留集上的错误一开始会减少，但随着训练的继续，它可能会开始增加
+  - Stop training when the error on hold-out set starts increasing  
+    当在保留集上的错误开始增加时，停止训练
+
 
