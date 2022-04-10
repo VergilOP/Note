@@ -16,7 +16,18 @@
   * [5. DBSCAN](#5-dbscan)
     + [5.1 Density-based Clustering - DBSCAN](#51-density-based-clustering---dbscan)
     + [5.2 The algorithm](#52-the-algorithm)
-
+  * [6. Supervised Learning](#6-supervised-learning)
+    + [6.1 Supervised Learning](#61-supervised-learning)
+    + [6.2 Training data](#62-training-data)
+    + [6.3 Terminology in Supervised Learning](#63-terminology-in-supervised-learning)
+    + [6.4 Applications of supervised learning](#64-applications-of-supervised-learning)
+  * [7. Linear Regression](#7-linear-regression)
+    + [7.1 Regression](#71-regression)
+    + [7.2 Univariate linear regression](#72-univariate-linear-regression)
+    + [7.3 Loss functions (or cost functions)](#73-loss-functions-or-cost-functions)
+    + [7.4 what we want to do](#74-what-we-want-to-do)
+    + [7.5 Gradient Descent](#75-gradient-descent)
+    + [7.6 Gradient](#76-gradient)
 <!-- TOC end -->
 
 # AI Note
@@ -458,4 +469,208 @@ to test the model
   may get struck at local optima  
   K-means和EM依赖于聚类初始化，而EM也依赖于梯度下降。因此，它们是非确定性的算法，可能会达到局部最优
 
+- Gaussian mixture model trained using EM is a soft version of K-means,
+  but these two algorithms do not necessarily produce the same cluster
+  centres given the same data set.  
+  使用EM训练的高斯混合模型是K-means的软版本，但这两种算法在相同的数据集下不一定产生相同的聚类中心。
+- DBSCAN is capable to discover clusters of any shapes.  
+  DBSCAN能够发现任何形状的集群
+- Using Gaussian mixture model with Expectation-maximization
+  optimization to cluster a data set, the result is non-deterministic
+  and may get stuck in local optima.  
+  利用高斯混合模型和期望最大化优化对数据集进行聚类，结果是不确定性的，可能会陷入局部最优。
+
+## 6. Supervised Learning
+
+### 6.1 Supervised Learning
+
+- One of the most prevalent forms of ML  
+  ML最普遍的形式之一
+  - Teach a computer to do something, then let it use its knowledge to
+    do it  
+    教电脑去做某件事，然后让它用自己的知识去做
+- Other forms of ML  
+  其他形式的ML
+  - Unsupervised learning  
+    无监督学习
+  - Reinforcement learning  
+    强化学习
+
+- Types of supervised learning  
+  监督学习的类型
+  - Regression  
+    回归
+  - Classification  
+    聚类
+    - Binary
+    - Multi-class
+
+### 6.2 Training data
+
+- Supervised learning needs annotated data for training:  
+  监督学习需要培训的注释数据：  
+  in the form of examples of (Input, Output) pairs  
+  以（输入、输出）对的示例的形式出现
+- After training completed  
+  培训完成后
+  - you present it with new Input that it hasn’t seen before  
+    你用它以前从未见过的新输入来呈现它
+  - It needs to predict the appropriate Output  
+    它需要预测适当的输出
+
+### 6.3 Terminology in Supervised Learning
+
+- Input = attribute(s) = feature(s) = independent variable
+- Output = target = response = dependent variable
+- function = hypothesis = predictor
+
+### 6.4 Applications of supervised learning
+
+- Handwriting recognition  
+  手写识别
+  - When you write an envelope, algorithms can automatically route
+    envelopes through the post  
+    当你写一个信封时，算法可以自动通过邮件发送信封
+- Computer vision & graphics  
+  计算机视觉和图形
+  - When you go out during lockdown, object detection & visual tracking
+    algorithms can automatically detect compliance with the rules  
+    当你在锁定期间外出时，目标检测和视觉跟踪算法可以自动检测到是否符合规则
+- Bioinformatics  
+  生物
+  - Algorithms can predict protein function from sequence  
+    算法可以从序列中预测蛋白质的功能
+- Human-computer interaction  
+  人机互动
+  - Intrusion detection algorithms can recognise speech, gestures,
+    intention  
+    入侵检测算法可以识别语音、手势、意图
+
+## 7. Linear Regression
+
+### 7.1 Regression
+
+- Regression means learning a function that captures the “trend” between
+  input and output  
+  回归意味着学习一个捕获输入和输出之间的“趋势”的函数
+- We then use this function to predict target values for new inputs  
+  然后，我们使用这个函数来预测新输入的目标值
+
+### 7.2 Univariate linear regression
+
+- Visually, there appears to be a trend  
+  从视觉上看，似乎有一种趋势
+- A reasonable **model** seems to be the **class of linear functions
+  (lines)**  
+  一个合理的模型似乎是一类线性函数（线）
+- We have one input attribute (year) - hence the name **univariate**  
+  我们有一个输入属性（年份），因此它被命名为单变量
+
+![LinearRegression_1.png](Images/LinearRegression_1.png)
+
+- Any line is described by this equation by specifying values for 𝑤1,
+  𝑤0.
+
+### 7.3 Loss functions (or cost functions)
+
+- We need a criterion that, given the data, for any given line will tell
+  us how bad is that line.  
+  我们需要一个标准，给定数据，对于任何给定的线都会告诉我们这条线有多糟糕
+- Such criterion is called a loss function. It is a function of the free
+  parameters!  
+  这种准则被称为损失函数。它是一个自由参数的函数
+- Loss function = cost function = loss = cost = error function
+
+![Loss functions_1.png](Images/Loss%20functions_1.png)
+
+- Square loss(L2 loss)
+  - The loss expresses an error, so it must be always non-negative  
+    损失表示一个错误，所以它必须总是是非负的
+  - Square loss is a sensible choice to measure mismatch for regression  
+    平方损失是衡量回归不匹配的合理选择
+  - Mean Square Error (MSE)平均平方误差(MSE)  
+    ![Loss functions_2.png](Images/Loss%20functions_2.png)
+
+![Loss functions_3.png](Images/Loss%20functions_3.png)
+
+### 7.4 what we want to do
+
+- Given training data  
+  ![Loss functions_4.png](Images/Loss%20functions_4.png)
+- Fit the model  
+  ![Loss functions_5.png](Images/Loss%20functions_5.png)
+- By minimising the cost function  
+  ![Loss functions_6.png](Images/Loss%20functions_6.png)
+
+- Every combination of w0 and w1 has an associated cost  
+  w0和w1的每个组合都有一个相关的成本
+- To find the ‘best fit’ we need to find values for w0 and w1 such that
+  the cost is minimum.  
+  为了找到“最佳拟合”，我们需要找到w0和w1的值，从而使成本最小
+
+### 7.5 Gradient Descent
+
+- A general strategy to minimise cost functions  
+  一种最小化成本函数的一般策略
+- Goal: Minimise cost function 𝑔(𝑤), where 𝒘 =(𝑤0, 𝑤1, , …)  
+  目标：最小化成本函数，𝑔(𝑤)  
+  ![Gradient Descent_1.png](Images/Gradient%20Descent_1.png)
+- α is called “learning rate”= “step size”
+
+- If the value of alpha is too high, Gradient Descent will never reach
+  the minimum  
+  如果alpha的值过高，梯度下降将永远不会达到最小值
+
+### 7.6 Gradient
+
+- Partial derivative with respect to 𝑤0
+  is![Gradient_1.png](Images/Gradient_1.png)It means the derivative
+  function of 𝑔(𝑤0, 𝑤1) when 𝑤1 is treated as constant.
+- Partial derivative with respect to 𝑤1
+  is![Gradient_2.png](Images/Gradient_2.png)It means the derivative
+  function of 𝑔(𝑤0, 𝑤1) when 𝑤0 is treated as constant.
+- The vector of partial derivatives is called the gradient  
+  偏导数的向量称为梯度 ![Gradient_3.png](Images/Gradient_3.png)
+- The negative of the gradient evaluated at a location (𝑤0, 𝑤1) gives
+  us the direction of the steepest descent from that location.  
+  在一个位置（𝑤0，𝑤1）上计算的梯度的负值给出了从该位置最陡下降的方向
+
+- Computing the gradient for our L2 loss  
+  计算L2损失的梯度  
+  ![Gradient_4.png](Images/Gradient_4.png)
+- Algorithm for univariate linear regression using GD  
+  基于GD的单变量线性回归算法  
+  ![Gradient_5.png](Images/Gradient_5.png)
+
+- Multivariate linear regression  
+  多元线性回归  
+  ![Gradient_6.png](Images/Gradient_6.png)
+
+- Univariate nonlinear regression  
+  单变量非线性回归  
+  ![Gradient_7.png](Images/Gradient_7.png)
+
+- Advantages of vector notation  
+  矢量符号的优点
+  - Vector notation in concise  
+    向量符号简明
+  - With the vectors 𝒘 and 𝐱 populated appropriately (and differently
+    in each case, as on the previous 2 slides), these models are still
+    linear in the parameter vector.  
+    由于向量𝒘和𝐱适当填充（每种情况下都不同，如前两个幻灯片），这些模型在参数向量中仍然是线性的。
+  - The cost function is the L2 as before  
+    成本函数和前面一样是l2
+  - So the gradient in both cases
+    is:![Gradient_8.png](Images/Gradient_8.png)
+  - Ready to be plugged into the general gradient descent algorithm  
+    准备好被插入到一般的梯度下降算法中
+
+- x is independent variables
+- w is free parameters(weights)
+
+- Note: The choice of learning rate alpha depends upon dataset and
+  hypothesis function. Thus, without any further known details and given
+  an arbitrary choice of alpha, it cannot be estimated whether gradient
+  descent will converge or not.  
+  注：学习率alpha的选择取决于数据集和假设函数。因此，如果没有任何已知细节和给定任意选择，就不能估计梯度下降是否会收敛。
 
