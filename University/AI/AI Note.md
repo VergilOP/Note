@@ -36,7 +36,23 @@
   * [9. Neural Networks](#9-neural-networks)
     + [9.1 Neural Networks](#91-neural-networks)
     + [9.2 Overfitting](#92-overfitting)
-
+  * [10. Evaluation & Hyperparameter Tuning](#10-evaluation--hyperparameter-tuning)
+    + [10.1 Recap](#101-recap)
+    + [10.3 Evaluating models for model choice](#103-evaluating-models-for-model-choice)
+    + [10.4 The holdout validation method](#104-the-holdout-validation-method)
+    + [10.5 k-fold Cross-validation](#105-k-fold-cross-validation)
+    + [10.6 Leave-one-out validation](#106-leave-one-out-validation)
+    + [10.7 Advantages & Disadvantages](#107-advantages--disadvantages)
+  * [11. Naive Bayes](#11-naive-bayes)
+    + [11.1 Fundamental concepts in Probability Theory](#111-fundamental-concepts-in-probability-theory)
+    + [11.2 Bayes' Theorem](#112-bayes-theorem)
+    + [11.3 Naive Bayes for Categorical Independent Variables](#113-naive-bayes-for-categorical-independent-variables)
+    + [11.4 Naive Bayes for Numerical Independent Variables](#114-naive-bayes-for-numerical-independent-variables)
+  * [12. K-Nearest Neighbours](#12-k-nearest-neighbours)
+    + [12.1 Notation](#121-notation)
+    + [12.2 k-Nearest Neighbour](#122-k-nearest-neighbour)
+    + [12.3 k-NN algorithm and pros/cons](#123-k-nn-algorithm-and-proscons)
+    + [12.4 Summary](#124-summary)
 <!-- TOC end -->
 
 # AI Note
