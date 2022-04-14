@@ -53,6 +53,13 @@
     + [12.2 k-Nearest Neighbour](#122-k-nearest-neighbour)
     + [12.3 k-NN algorithm and pros/cons](#123-k-nn-algorithm-and-proscons)
     + [12.4 Summary](#124-summary)
+  * [13. Uninformed Search](#13-uninformed-search)
+    + [13.1 Asymptotic Analysis](#131-asymptotic-analysis)
+    + [13.2 Search Problem Formulation](#132-search-problem-formulation)
+    + [13.3 Breadth-First Search](#133-breadth-first-search)
+    + [13.4 Depth-First Search](#134-depth-first-search)
+    + [13.5 Variations of Depth-First Search](#135-variations-of-depth-first-search)
+
 <!-- TOC end -->
 
 # AI Note
@@ -1248,6 +1255,11 @@ to test the model
     distributions  
     对于离散情况，对于连续随机变量，我们可以有无条件的、条件的和联合概率分布
 
+- A probability mass function for a categorical / ordinal random
+  variable gives the probability of observing each of the possible
+  values of this variable.  
+  分类/有序随机变量的概率质量函数给出了观察该变量每个可能值的概率
+
 ### 11.2 Bayes' Theorem
 
 ![Bayes' Theorem_1.png](Images/Bayes%27%20Theorem_1.png)
@@ -1289,6 +1301,8 @@ to test the model
     n是自变量的数量
   - α is the normalisation factor  
     α是正常化因子
+
+![Bayes' Theorem_3.png](Images/Bayes%27%20Theorem_3.png)
 
 ### 11.3 Naive Bayes for Categorical Independent Variables
 
@@ -1518,4 +1532,385 @@ to test the model
   - Running the algorithm can be slow if we have many training examples
     and many dimensions  
     如果我们有很多训练例子和许多维度，运行算法可能会很慢
+
+## 13. Uninformed Search
+
+### 13.1 Asymptotic Analysis
+
+- Benchmarking is one approach  
+  基准测试是一种方法
+  - We run the algorithms and we measure speed (in seconds) and memory
+    consumption (in bytes)  
+    我们运行这些算法，并测量速度（以秒为单位）和内存消耗（以字节为单位）
+  - Problem: this approach measures the performance of a specific
+    program written in a particular language, on a given computer, with
+    particular input data  
+    问题：这种方法测量在特定的计算机上用特定语言编写的特定程序的性能
+- Asymptotic analysis is the second approach:  
+  渐近分析是第二种方法：
+  - It is a mathematical abstraction over both the exact number of
+    operations (by ignoring constant factors) and exact content of the
+    input (by considering the size of the input, only)  
+    它是对操作的精确数量（通过忽略常数因子）和输入的精确内容（仅通过考虑输入的大小）的一种数学抽象
+  - It is independent of the particular implementation and input  
+    它独立于特定的实现和输入
+
+- The first step in the analysis is to abstract over the input. In
+  practice, we characterise the size of the input, which we call n  
+  分析的第一步是对输入进行抽象。在实践中，我们 表征输入的大小，我们称之为 n
+- The second step is to abstract over the implementation. The idea is to
+  find some measure that reflects the running time of the algorithm  
+  第二步是抽象的实现。其想法是为了找到一些反映算法运行时间的度量方法
+- For asymptotic analysis, we typically use 3 notations:  
+  对于渐近分析，我们通常使用3种符号：
+  - Big O notation: O(·)
+  - Big Omega notation: Ω(·)
+  - Big Theta notation: θ(·)
+
+- Big O
+  - We say that f(n) ∈ O(g(n)) when the following condition holds:  
+    当以下条件成立时，我们说 f(n) ∈ O(g(n))：  
+    ![Asymtotic Analysis_1.png](Images/Asymtotic%20Analysis_1.png)
+  - The above reads: “There exists a positive constant k such that for
+    all n>n<sub>0</sub>, |f(n)|≤ k⋅ g(n)”  
+    上面写着：“存在一个正常数 k，使得对于所有 n>n<sub>0</sub>, |f(n)|≤ k⋅ g(n)”
+  - In simple terms, this is equivalent to saying that |f| is bounded
+    above by a function g(up to a constant factor) asymptotically  
+    简单来说，这相当于说 |f|有界以上 由函数 g（直到一个常数因子）渐近
+
+- Big Theta and Big Omega
+  - We say that f(n) ∈ Ω(g(n)) when the following condition holds:  
+    当以下条件成立时，我们说 f(n) ∈ Ω(g(n))  
+    ![Asymtotic Analysis_2.png](Images/Asymtotic%20Analysis_2.png)
+  - This is equivalent to saying that f is bounded below by g
+    asymptotically  
+    这相当于说 f 渐近地被 g 包围
+  - We say that f(n) ∈ θ(g(n)) when the following condition holds:  
+    当以下条件成立时，我们说 f(n) ∈ θ(g(n))  
+    ![Asymtotic Analysis_3.png](Images/Asymtotic%20Analysis_3.png)
+  - Or f is bounded both above and below by g asymptotically  
+    或者 f 在上面和下面都以 g 渐近为界
+
+- Summary
+  - Asymptotic analysis is a powerful tool to describe the speed and
+    memory consumption of an algorithm  
+    渐近分析是描述算法的速度和内存消耗的有力工具
+  - It is useful as it is independent of a particular implementation and
+    input  
+    它是有用的，因为它独立于特定的实现和输入
+  - It is an approximation as the input n approaches infinity and over
+    the number of steps required  
+    它是一个近似值，因为输入 n 接近无穷大并且超过所需步骤数
+  - Convenient to compare algorithms, e.g., an O(n) algorithm is better
+    than an O(n<sup>2</sup>) algorithm  
+    便于比较算法，例如 O(n) 算法更好 比 O(n<sup>2</sup>) 算法
+
+- An algorithm that works on a tree data structure stores a node for
+  each element of the input at most once. The space complexity for this
+  algorithm is therefore O(n).  
+  一种适用于树数据结构的算法最多为输入的每个元素存储一个节点。因此，该算法的空间复杂度为
+  O(n)。
+- The Big O notation provides an upper bound in the asymptotic limit.  
+  大 O 表示法提供了渐近极限的上限
+- For an algorithm that performs 2n+n<sup>2</sup> operations, the time
+  complexity is O(n<sup>2</sup>).  
+  对于执行 2n+n<sup>2</sup> 次操作的算法，时间复杂度为 O(n<sup>2</sup>)
+- The Big Theta notation provides an upper and lower bound in the
+  asymptotic limit.  
+  Big Theta 表示法提供了渐近极限的上限和下限
+
+- What is(are) the main advantage(s) in using asymptotic analysis rather
+  than benchmarking?  
+  使用渐近分析而不是基准测试的主要优势是什么？
+  - It is independent of any particular programming language.  
+    它独立于任何特定的编程语言
+  - It is independent of any particular data structures used to run the
+    algorithm.  
+    它独立于用于运行算法的任何特定数据结构
+
+
+### 13.2 Search Problem Formulation
+
+- Problem-Solving Agents  
+  解决问题的代理
+  - An agent is something that perceives and acts in an environment  
+    代理是指在一个环境中进行感知和起作用的东西
+  - A problem-solving agent  
+    解决问题的代理
+    - Uses atomic representations (each state of the world is perceived
+      as indivisible)  
+      使用原子表示法（世界上的每个状态都被认为是不可分割的）
+    - Requires a precise definition of the problem and its goal/solution  
+      需要对问题及其目标/解决方案的精确定义
+
+- Problem formulation is the process of deciding what actions and states
+  to consider, given a goal  
+  问题表述是决定在给定目标下要考虑什么行动和状态的过程
+- To this end, we make the following assumptions about the environment:  
+  为此，我们对环境做出了以下假设：
+  - Observable, i.e., the agent knows the current state  
+    可观察的，即代理知道当前状态
+  - Discrete, i.e., there are only finitely many actions at any state  
+    离散的，即在任何状态下只有有限多的动作
+  - Known, i.e., the agent knows which states are reached by each action  
+    已知的，即，代理知道每个动作都达到了哪些状态
+  - Deterministic, i.e., each action has exactly one outcome  
+    确定性的，即每个动作都有一个结果
+- Under these assumptions, the solution to any problem is a fixed
+  sequence of actions  
+  在这些假设下，任何问题的解决方案都是一个固定的行动序列
+
+- The agent’s task is to find out how to act, now and in the future, in
+  order to reach a goal state: namely to determine a sequence of actions  
+  代理的任务是找出现在和将来如何行动，以达到一个目标状态：即确定一系列的行动
+- The process of looking for a sequence of actions is called search
+  寻找一系列动作的过程被称为搜索
+- A solution to a search problem is the sequence of actions from the
+  initial state to the goal state  
+  搜索问题的一个解决方案是从初始状态到目标状态的动作序列
+
+- A problem is defined formally by five components:  
+  一个问题的正式定义为以下五个组成部分：
+  - Initial state, i.e., the state that the agent starts in  
+    初始状态，即代理开始时的状态
+  - Actions, i.e., a description of all possible actions that can be
+    executed in a given state s  
+    操作，即对在给定状态下可以执行的所有可能操作的描述
+  - Transition model, i.e., the states resulting from executing each
+    action a from every state s (a description of what each action does)  
+    转换模型，即从每个状态s中执行每个动作a所产生的状态（对每个动作执行什么的描述）
+  - Goal test to determine if a state is a goal state  
+    目标测试，以确定一个状态是否为目标状态
+  - Path cost function that assigns a value (cost) to each path  
+    为每个路径分配一个值（成本）的路径成本函数
+- The first three components considered together define the state space
+  of the problem, in the form of a directed graph or network  
+  前三个分量一起考虑，以有向图或网络的形式定义了问题的状态空间
+- A path in the state space is a sequence of states connected by a
+  sequence of actions  
+  状态空间中的路径是由一系列动作连接的状态序列
+
+![Search Problem Formulation_1.png](Images/Search%20Problem%20Formulation_1.png)  
+![Search Problem Formulation_2.png](Images/Search%20Problem%20Formulation_2.png)  
+![Search Problem Formulation_3.png](Images/Search%20Problem%20Formulation_3.png)  
+![Search Problem Formulation_4.png](Images/Search%20Problem%20Formulation_4.png)
+
+- A problem-solving agent is an agent that is able to search for a
+  solution in a given problem  
+  解决问题的代理是指能够在给定的问题中寻找解决方案的代理
+- Problem formulation, namely the process of deciding what actions and
+  states to consider, given a goal  
+  问题制定，即决定在给定目标时考虑什么行动和状态的过程
+
+- A solution of a given search problem is a sequence of actions that
+  takes us from the initial state to the goal state.  
+  给定搜索问题的解决方案是一系列将我们从初始状态带到目标状态的动作
+- A goal state is just a state to show us what a solved task looks like.  
+  目标状态只是向我们展示已解决任务是什么样子的状态
+- The cost function evaluates the cost of the solution that takes us
+  from the initial state to a goal state, i.e., the cost of the path
+  from the initial state to a goal state.  
+  成本函数评估将我们从初始状态带到目标状态的解决方案的成本，即从初始状态到目标状态的路径成本
+- The problem formulation (initial state, goal state(s), possible
+  actions and their effects on states, and cost function) is the only
+  thing that the search algorithm needs as the input for uninformed
+  search algorithms.  
+  问题表述（初始状态、目标状态、可能的动作及其对状态的影响以及成本函数）是搜索算法唯一需要作为不知情搜索算法的输入的东西
+
+### 13.3 Breadth-First Search
+
+- A solution is an action sequence from an initial state to a goal state  
+  一个解决方案是一个从一个初始状态到一个目标状态的动作序列
+- Possible action sequences form a search tree with initial state at the
+  root; actions are the branches and nodes correspond to the state space  
+  可能的动作序列形成一个在根处有初始状态的搜索树；动作是与状态空间对应的分支和节点
+- The idea is to expand the current state by applying each possible
+  action: this generates a new set of states  
+  其想法是通过应用每一个可能的动作来扩展当前状态：这将生成一组新的状态
+
+- Uninformed search (also called blind search) means that the strategies
+  have no additional information about states beyond that provided in
+  the problem definition  
+  无知搜索（也称为盲搜索）意味着除了问题定义中提供的信息之外，策略没有关于状态的额外信息
+- Uninformed search strategies can only generate successors and
+  distinguish a goal state from a non-goal state  
+  不知情的搜索策略只能生成后继者，并区分目标状态和非目标状态
+- The key difference between two uninformed search strategies is the
+  order in which nodes are expanded  
+  两种不知情的搜索策略之间的关键区别是节点被扩展的顺序
+
+- Breadth-First search is one of the most common search strategies:  
+  广度-优先搜索是最常见的搜索策略之一：
+  - The root node is expanded first  
+    首先展开根节点
+  - Then, all the successors of the root node are expanded  
+    然后，展开根节点的所有后继节点
+  - Then, the successors of each of these nodes  
+    然后，每个节点的后继者
+- In general, the frontier nodes that are expanded belong to a given
+  depth of the tree  
+  一般来说，被扩展的边界节点属于树的给定深度
+- This is equivalent to expanding the shallowest unexpanded node in the
+  frontier; simply use a queue (FIFO) for expansion  
+  这相当于在边界中扩展最浅的未扩展节点；只需使用一个队列(FIFO)来进行扩展
+
+- We can evaluate the performance of an algorithm based on the
+  following:  
+  我们可以根据以下方法来评估一个算法的性能：
+  - Completeness, i.e., whether the algorithm is guaranteed to find a
+    solution if there is one  
+    完整性，即如果有解，算法是否保证找到解
+  - Optimality, i.e., whether the strategy is able to find the optimal
+    solution  
+    最优性，即该策略是否能够找到最优解
+  - Time complexity, i.e., the time the algorithm takes to find a
+    solution  
+    时间复杂度，即算法找到解决方案所需的时间
+  - Space complexity, i.e., the memory used to perform the search  
+    空间复杂性，即用于执行搜索的内存
+- To measure the performance, the size of the space graph is typically
+  used, i.e., |V|+ |ℰ|, the set of vertices and set of edges,
+  respectively  
+  为了衡量性能，空间图的大小通常是 使用，即|V|+ |ℰ|，分别是顶点集和边集
+
+- In AI, we use an implicit representation of the graph via the initial
+  state, actions and transition model (also the graph could be infinite)  
+  在人工智能中，我们通过初始状态、动作和过渡模型（图也可以是无限的）来使用图的隐式表示
+- Therefore, the following three quantities are used  
+  因此，我们使用了以下三个量
+  - Branching factor, the maximum number of successors of each node: b  
+    分支因子，每个节点的最大后继数：b
+  - Depth of the shallowest goal node (number of steps from the root): d  
+    最浅目标节点的深度（距根的步数）：d
+  - The maximum length of any path in the state space: m  
+    状态空间中任意路径的最大长度：m
+
+- Let us evaluate the performance of the breadth-first search algorithm  
+  让我们来评估宽度优先搜索算法的性能
+  - Completeness: if the goal node is at some finite depth d then the
+    BFS algorithm is complete as it will find it (given that b is
+    finite)  
+    完整性：如果目标节点在某个有限深度 d 处，则 BFS算法是完整的，因为它会找到它（假设
+    b 是有限的）
+  - Optimality: BFS is optimal if the path cost is a nondecreasing
+    function of the depth of the node (e.g., all actions have the same
+    cost)  
+    最优性：如果路径代价是节点深度的非递减函数（例如，所有的动作都具有相同的代价），则BFS是最优的
+  - Time complexity: O(b<sup>d</sup>), assuming a uniform tree where
+    each node has b successors, we generate b+ b<sup>2</sup> + ⋯ +
+    b<sup>d</sup> = O(b<sup>d</sup>)  
+    时间复杂度：O(b<sup>d</sup>)，假设一棵统一树，其中每个节点有b个后继者，我们生成b+
+    b<sup>2</sup> +⋯ + b<sup>d</sup > = O(b<sup>d</sup>)
+  - Space complexity: O(b<sup>d</sup>), if we store all expanded nodes,
+    we have O(b<sup>d-1</sup>) explored nodes in memory and
+    O(b<sup>d</sup>) in the frontier  
+    空间复杂度：O(b<sup>d</sup>)，如果我们存储所有扩展节点，我们在内存中有
+    O(b<sup>d-1</sup>) 个探索节点和 O(b<sup> d</sup>) 在边境
+
+- Summary
+  - Uninformed tree search strategies have no additional information  
+    不知情的树搜索策略没有额外的信息
+  - Breadth-First Search is a search algorithm that expands the nodes in
+    the frontier starting from the shallowest, similar to a queue (FIFO)  
+    广度优先搜索是一种搜索算法，它从最浅的节点开始扩展边界中的节点，类似于队列(FIFO)
+  - This algorithm is complete (for finite b, optimal (if the path cost
+    is nondecreasing), but it has high time and space complexity
+    O(b<sup>d</sup>)  
+    这个算法是完备的（对于有限的b，最优的（如果路径成本是非递减的），但是它的时间和空间复杂度高O(b<sup>d</sup>)
+
+![Breath-first Search_1.png](Images/Breath-first%20Search_1.png)
+
+### 13.4 Depth-First Search
+
+- Depth-First search is another common search strategy:  
+  深度优先搜索是另一种常见的搜索策略：
+  - The root node is expanded first  
+    首先展开根节点
+  - Then, the first (or one at random) successor of the root node is
+    expanded  
+    然后，展开根节点的第一个（或随机的一个）后继者
+  - Then, the deepest node in the current frontier is expanded  
+    然后，扩展当前边界中最深的节点
+- This is equivalent to expanding the deepest unexpanded node in the
+  frontier; simply use a stack (LIFO) for expansion  
+  这相当于在边界中扩展最深的未扩展节点；只需使用一个堆栈(LIFO)来进行扩展
+- Basically, the most recently generated node is chosen for expansion  
+  基本上，选择最近生成的节点进行扩展
+
+- Let us evaluate the performance of the depth-first search algorithm  
+  让我们来评估深度优先搜索算法的性能
+  - Completeness: DFS is not complete if the search space is infinite or
+    if we do not check infinite loops; it is complete if the search
+    space is finite  
+    完整性：如果搜索空间是无限的，或者我们不检查无限的循环，那么DFS就不完整了；如果搜索空间是有限的，那么它是完整的
+  - Optimality: DFS is not optimal as it can expand a left subtree when
+    the goal node is in the first level of the right subtree  
+    最优性：DFS不是最优的，因为当目标节点在右子树的第一层时，它可以展开一个左子树
+  - Time complexity: O(b<sup>m</sup>), as it depends on the maximum
+    length of the path in the search space (in general m can be much
+    larger than d)  
+    时间复杂度：O(b<sup>m</sup>)，因为它取决于搜索空间中路径的最大长度（通常 m
+    可以远大于 d）
+  - Space complexity: O(b<sup>m</sup>), as we store all the nodes from
+    each path from the root node to the leaf node  
+    空间复杂度：O(b<sup>m</sup>)，因为我们存储从根节点到叶节点的每条路径的所有节点
+
+- Summary
+  - Depth-First Search is a search algorithm that expands the nodes in
+    the frontier starting from the deepest, similar to a stack (LIFO)  
+    深度优先搜索是一种搜索算法，它从最深的深度处开始扩展边界中的节点，类似于堆栈(LIFO)
+  - This algorithm is complete (for finite search space), but not
+    optimal; also it has high time complexity and space complexity
+    O(b<sup>m</sup>)  
+    这个算法是完整的（对于有限的搜索空间），但不是最优的；时间复杂度和空间复杂度都很高
+    O(b<sup>m</sup>)
+
+![Depth Search_1.png](Images/Depth%20Search_1.png)
+
+### 13.5 Variations of Depth-First Search
+
+- Depth-First Search comes with several issues  
+  深度优先搜索有几个问题
+  - Not optimal  
+    不是最佳的
+  - High time complexity  
+    高时间复杂度
+  - High space complexity  
+    空间复杂度高
+- DFS with less memory usage (saving space complexity)  
+  DFS可以减少内存使用（节省空间复杂性）
+  - This would reduce the space complexity to O(bm)  
+    这会将空间复杂度降低到 O(bm)
+  - We need to store a single path along with the siblings for each node
+    on the path  
+    我们需要为路径上的每个节点存储单个路径以及兄弟路径
+  - Recall that b is the branching factor and m is the maximum depth of
+    the search tree  
+    回想一下，b 是分支因子，m 是最大值搜索树的深度
+- Depth-Limited Search  
+  深度有限的搜索
+  - The issue related to depth-first search in infinite state spaces can
+    be mitigated by providing a depth limit ℓ  
+    通过提供深度限制ℓ，可以缓解无限状态空间中深度优先搜索的问题
+  - This adds an additional source of incompleteness if we choose ℓ < d
+    namely the shallowest goal is beyond the depth limit  
+    如果我们选择ℓ<d，这就增加了一个额外的不完整的来源，即最浅的目标超出了深度限制
+  - This approach is nonoptimal also in the case ℓ > d  
+    这种方法在ℓ>d的情况下也是非最优的
+  - Time complexity is O(b<sup>ℓ</sup>)  
+    时间复杂度为 O(b<sup>ℓ</sup>)
+
+![Variations of Deptho-First Search_1.png](Images/Variations%20of%20Deptho-First%20Search_1.png)
+
+- Summary
+  - Depth-First Search can be improved in terms of its time and space
+    complexity through some modifications  
+    深度优先搜索可以通过一些修改来提高其时间和空间的复杂性
+  - Depth-First Search with less memory usage only keeps in memory the
+    current path and the siblings of the nodes  
+    深度-优先搜索使用较少的内存，只保留在内存中的当前路径和节点的兄弟姐妹
+  - Depth-Limited Search is another variation, where a depth limit is
+    specified; this adds an additional source of incompleteness  
+    深度有限搜索是另一种变体，其中指定了深度限制；这增加了一个额外的不完整性来源
+
 
