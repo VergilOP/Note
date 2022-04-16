@@ -1,4 +1,5 @@
 <!-- TOC start -->
+
 - [AI Note](#ai-note)
   * [1. Machine Learning Basics](#1-machine-learning-basics)
     + [1.1 Categories of machine learning](#11-categories-of-machine-learning)
@@ -59,6 +60,17 @@
     + [13.3 Breadth-First Search](#133-breadth-first-search)
     + [13.4 Depth-First Search](#134-depth-first-search)
     + [13.5 Variations of Depth-First Search](#135-variations-of-depth-first-search)
+  * [14. Informed Search](#14-informed-search)
+    + [14.1 Informed Search](#141-informed-search)
+    + [14.2 A\* Search](#142-a-search)
+    + [14.3 Summary](#143-summary)
+  * [15. Introduction to Optimisation](#15-introduction-to-optimisation)
+    + [15.1 Optimisation Problems](#151-optimisation-problems)
+    + [15.2 Artificial Intelligence Optimisation Algorithms](#152-artificial-intelligence-optimisation-algorithms)
+    + [15.3 Learning vs Optimisation](#153-learning-vs-optimisation)
+  * [16. Optimisation Problem Formulation](#16-optimisation-problem-formulation)
+    + [16.1 Formulating Optimisation Problems](#161-formulating-optimisation-problems)
+    + [16.2 Summary](#162-summary)
 
 <!-- TOC end -->
 
@@ -1913,4 +1925,318 @@ to test the model
     specified; this adds an additional source of incompleteness  
     深度有限搜索是另一种变体，其中指定了深度限制；这增加了一个额外的不完整性来源
 
+## 14. Informed Search
 
+### 14.1 Informed Search
+
+- Informed search strategies use problem-specific knowledge beyond the
+  definition of the problem itself  
+  知情搜索策略使用超出问题本身定义之外的特定问题的知识
+- Informed search strategies can find solutions more efficiently
+  compared to uninformed search  
+  与无知搜索相比，知情搜索策略可以更有效地找到解决方案
+
+- The general approach, called best-first search, is to determine which
+  node to expand based on an evaluation function  
+  一般的方法称为最佳优先搜索，是根据求值函数确定要扩展哪个节点  
+  f(n):node → cost estimate
+- This function acts as a cost estimate: the node with the lowest cost
+  is the one that is expanded next  
+  这个函数作为一个成本估计：成本最低的节点是下一个扩展的节点  
+  ![Informed Search_1.png](Images/Informed%20Search_1.png)
+
+- The evaluation function f(n) for most best-first algorithms includes a
+  **heuristic** function as a component:  
+  大多数最佳优先算法的评估函数 f(n) 包括 启发式函数作为一个组件：  
+  ℎ(n)= estimated cost of the cheapest path from node n to a goal node  
+  ℎ(n)= 从节点 n 到目标节点的最便宜路径的估计成本
+- Heuristic functions are the most common form in which new knowledge is
+  given to the search algorithm. If n is a goal node, then ℎ(n) = 0  
+  启发式函数是新知识最常见的形式 被赋予搜索算法。如果 n 是目标节点，则 ℎ(n) = 0
+- A heuristic can be a rule of thumb, common knowledge; it is quick to
+  compute, but not guaranteed to work (nor to yield optimal solutions)  
+  启发式可以是经验法则，常识；它计算速度快，但不能保证工作（也不能产生最优解）
+
+### 14.2 A\* Search
+
+- The most widely known informed search strategy is A\*  
+  最广为人知的知情搜索策略是A\*
+- This search strategy evaluates nodes using the following cost function  
+  此搜索策略使用以下成本函数来评估节点  
+  f(n) = g(n) + h(n)  
+  where g(n) is the cost to reach the node and h(n) is the heuristic
+  from the node to the goal  
+  其中 g(n) 是到达节点的成本，h(n) 是从节点到目标的启发式
+- This is equivalent to the cost of the cheapest solution through node n  
+  这相当于通过节点n获得最便宜的解决方案的成本
+
+- A\* search algorithm:  
+  A\*搜索算法
+  - Expand the node in the frontier with smallest cost f(n) = g(n) +
+    h(n)  
+    以最小的代价f(n)=g(n)+h(n)展开边界节点
+  - Do not add children in the frontier if the node is already in the
+    frontier or in the list of visited nodes (to avoid loopy paths)  
+    如果节点已经在边界中或已访问节点列表中，则不要在边界中添加子节点（以避免循环路径）
+  - If the state of a given child is in the frontier  
+    如果一个给定的孩子的状态处于边界状态
+    - If the frontier node has a larger g(n), place the child into the
+      frontier and remove the node with larger g(n) from the frontier  
+      如果边界节点具有较大的g(n)，则将子节点放入边界中，并将g(n)较大的节点从边界中移除
+  - Stop when a goal node is visited  
+    在访问目标节点时停止
+
+- The A\* search is complete and optimal if ℎ(n) is consistent
+- A heuristic is said to be consistent (or monotone), if the estimate is
+  always no greater than the estimated distance from any neighbouring
+  vertex to the goal, plus the cost of reaching that neighbour  
+  如果估计总是不大于从任何相邻顶点到目标的估计距离，加上到达该邻居的成本，则称为启发式是一致的（或单调的）
+  h(n) ≤ cost(n,n') + h(n')
+
+- The number of states for the A\* search is exponential in the length
+  of the solution, namely for constant step costs: O(b<sup>∈d</sup>)  
+  A\*搜索的状态数在解的长度上呈指数级增长，即对于常数的步长代价：O(b<sup>∈d</sup>)
+- When h/* is the actual cost from root node to goal node,
+  ![A Search_1.png](Images/A%20Search_1.png) is the relative error  
+  当ℎ∗是从根节点到目标节点的实际成本时，![A Search_1.png](Images/A%20Search_1.png)是相对误差
+- Space is the main issue with A\*, as it keeps all generated nodes in
+  memory, therefore A\* is not suitable for many large-scale problems  
+  空间是A\*的主要问题，因为它将所有生成的节点都保存在内存中，因此A\*不适用于许多大规模的问题
+
+- Completeness: if the heuristic ℎ(n) is consistent, then the A\*
+  algorithm is complete  
+  完整性：如果启发式的ℎ(n)是一致的，那么A*算法是完整的
+- Optimality: if the heuristic ℎ(n) is consistent, A\* is optimal  
+  最优性：如果启发式 ℎ(n) 是一致的，则 A\* 是最优的
+- Time complexity: O(b<sup>∈d</sup>), where ∈ is the relative error of
+  the heuristic  
+  时间复杂度：O(b<sup>∈d</sup>)，其中 ∈ 是启发式的相对误差
+- Space complexity: O(b<sup>∈d</sup>), since we keep in memory all
+  expanded nodes and all nodes in the frontier  
+  空间复杂度：O(b<sup>∈d</sup>)，因为我们将所有扩展节点都保存在内存中
+  和边界中的所有节点
+
+### 14.3 Summary
+
+- A\* is complete and optimal, given a consistent heuristic
+  A\*是完整的和最优的，给定一个一致的启发式
+- However, A\* has typically high time/space complexity, regardless of
+  the heuristic chosen  
+  然而，A\*通常具有较高的时间/空间复杂度，无论选择什么启发式方法
+- Heuristics have a considerable impact on the performance of informed
+  search algorithms, and they can drastically reduce the time and space
+  complexity in comparison to uninformed search algorithms  
+  启发式算法对知情的搜索算法的性能有相当大的影响，与不知情的搜索算法相比，它们可以大大降低时间和空间的复杂性
+
+- A\* is only complete, optimal and optimally efficient when the
+  heuristic is consistent.  
+  只有当启发式一致时，A\* 才是完整的、最优的和最优效率的
+- Any consistent heuristic guarantees the A\* algorithm is optimally
+  efficient.  
+  任何一致的启发式都可以保证 A\* 算法是最有效的
+
+
+## 15. Introduction to Optimisation
+
+### 15.1 Optimisation Problems
+
+- Optimisation problems: to find a solution that minimises/ maximises
+  one or more pre-defined objective functions.  
+  优化问题：找到一个最小化或最大化一个或多个预定义的目标函数的解决方案。
+- Maximisation / minimisation problems  
+  最大化/最小化问题
+- There may be some constraints that must or should be satisfied for a
+  given solution to be feasible  
+  对于给定的解决方案可行，可能必须或应该满足一些约束
+
+- Optimisation Algorithms from Artificial Intelligence  
+  基于人工智能中的优化算法
+  - Solutions do not correspond to paths built step by step from an
+    initial to a goal state. 解决方案并不对应于从初始状态到目标状态逐步构建的路径
+  - Instead, the algorithms typically maintain whole candidate solutions
+    from the beginning.  
+    相反，这些算法通常从一开始就保持整个候选解决方案。
+  - Candidate solutions may be feasible or infeasible  
+    候选的解决方案可能是可行的或不可行的
+
+- Search and Optimisation  
+  搜索和优化
+  - In search, we are interested in searching for a goal state  
+    在搜索过程中，我们感兴趣的是搜索一个目标状态
+  - In optimisation, we are interested in searching for an optimal
+    solution.  
+    在优化过程中，我们感兴趣的是寻找一个最优解
+  - As many search problems have a cost associated to actions, they can
+    also be formulated as optimisation problems  
+    由于许多搜索问题都有与操作相关的成本，因此它们也可以被表述为优化问题
+  - Similarly, optimisation problems can frequently be formulated as
+    search problems associated to a cost function  
+    类似地，优化问题通常可以表述为与代价函数相关的搜索问题
+  - Many search algorithms will “search” for optimal solutions (see A\*
+    as an example).  
+    许多搜索算法会“搜索”最优解决方案(以A\*为例)
+  - Optimisation algorithms may also be used to solve search problems if
+    they can be associated to an appropriate function to be optimised  
+    优化算法也可以用于解决搜索问题，如果它们可以关联到一个适当的函数来进行优化
+
+### 15.2 Artificial Intelligence Optimisation Algorithms
+
+- Advantages
+  - Usually more space efficient, frequently requiring the same amount
+    of space from the beginning to the end of the optimisation process  
+    通常空间效率更高，从优化过程的开始到结束通常需要相同数量的空间
+    - They do not maintain alternative paths to solutions  
+      他们不维护获得解决方案的替代路径
+    - Frequently able to find reasonable solutions for problems with
+      large state spaces, for which the tree-based search algorithms are
+      unsuitable  
+      对于基于树的搜索算法不适合使用的大状态空间问题，经常能够找到合理的解决方案
+  - Can potentially be more time efficient, depending on the algorithm  
+    根据算法的不同，时间可能会更有效
+  - Do not necessarily require problem-specific heuristics  
+    不一定需要特定于问题的启发式方法
+- Weaknesses
+  - Not guaranteed to retrieve the optimal solution in a reasonable
+    amount of time  
+    不能保证在合理的时间内得到最优解
+  - Depending on the problem formulation and operators, not guaranteed
+    to be complete either  
+    根据问题的公式和算子，也不能保证是完整的
+- Applicability
+  - Can be used for any problem that can be formulated as an
+    optimisation problem  
+    可以用于任何可以表述为优化问题的问题
+
+### 15.3 Learning vs Optimisation
+
+- From an algorithmic perspective, learning can be seen as finding
+  parameters that minimise a loss function  
+  从算法的角度来看，学习可以被看作是寻找最小化损失函数的参数
+- We can compute the loss based on the training set  
+  我们可以根据训练集来计算损失
+
+- From a problem perspective, the goal of machine learning is to create
+  models able to generalise to unseen data  
+  从问题的角度来看，机器学习的目标是创建能够推广到不可见的数据的模型
+  - In supervised learning, we want to minimise the expected loss, i.e.,
+    the loss considering all possible examples, including those that we
+    have not observed yet  
+    在监督学习中，我们希望将预期的损失最小化，即，将损失考虑到所有可能的例子，包括那些我们还没有观察到的例子
+  - We cannot calculate the loss based on unseen data during training
+    time  
+    我们不能根据训练期间看不见的数据来计算损失
+  - So, learning can be essentially seen as trying to optimise a
+    function that cannot be computed  
+    因此，学习本质上可以被看作是试图优化一个无法计算的函数
+  - Therefore, our algorithms may calculate the loss based on the
+    training set, and design a loss function that includes, e.g., a
+    regularisation term, in an attempt to generalise well to unseen data  
+    因此，我们的算法可以根据训练集计算损失，并设计一个损失函数，其中包括，例如，一个正则化项，以试图很好地推广到看不见的数据
+
+- From a problem perspective, optimisation usually really wants to
+  minimise (or maximise) the value of a given (known) objective function  
+  从问题的角度来看，优化通常真的想要最小化（或最大化）一个给定的（已知的）目标函数的值
+- In that sense, learning and optimisation are different  
+  从这个意义上说，学习和优化是不同的
+- However, there will be some optimisation problems where we can’t
+  compute the exact function to be optimised, causing the distinction
+  between learning and optimisation to become more blurry  
+  然而，将会有一些优化问题，我们无法计算出要优化的精确函数，从而导致学习和优化之间的区别变得更加模糊
+
+- Summary
+  - Optimisation problems are problems where we want to minimise (or
+    maximise) one or more objective functions, possibly subject to
+    certain constraints  
+    优化问题是指我们想要最小化（或最大化）一个或多个目标函数的问题，可能会受到一定的约束
+  - Optimisation algorithms can often find good solutions in a
+    reasonable amount of time, but are typically not guaranteed to find
+    optimal solutions in a reasonable amount of time  
+    优化算法通常可以在合理的时间内找到好的解，但通常不能保证在合理的时间内找到最优解
+
+- Optimisation algorithms can be used to build machine learning models
+  if we formulate learning as an optimisation problem where the loss
+  function calculated based on the training set is to be minimised  
+  如果我们将学习表述为一个优化问题，其中基于训练集计算的损失函数将被最小化，则优化算法可用于构建机器学习模型
+- Search and optimisation problems are closely related, because there is
+  frequently a cost associated to the actions in search problems, and
+  such cost should ideally be minimised  
+  搜索和优化问题密切相关，因为搜索问题中的动作经常会产生成本，理想情况下，这种成本应该最小化
+- In some search problems, we may be interested in finding a feasible
+  solution to the problem, without necessarily attempting to optimise
+  this solution.  
+  在某些搜索问题中，我们可能对找到问题的可行解决方案感兴趣，而不必尝试优化该解决方案
+
+## 16. Optimisation Problem Formulation
+
+### 16.1 Formulating Optimisation Problems
+
+- Design variables represent a candidate solution  
+  设计变量代表了一个候选的解决方案
+  - Design variables define the search space of candidate solutions  
+    设计变量定义了候选解的搜索空间
+- Objective function defines the quality (or cost) of a solution  
+  目标函数定义了解决方案的质量（或成本）
+  - Function to be optimised (maximised or minimised)  
+    需要优化的功能（最大化或最小化）
+- Solutions must satisfy certain constraints, which define solution
+  feasibility  
+  解决方案必须满足一定的约束条件，这就定义了解决方案的可行性
+  - Candidate solutions may be feasible or infeasible  
+    候选的解决方案可能是可行的或不可行的
+
+![Optimisation Problem Formulation_1.png](Images/Optimisation%20Problem%20Formulation_1.png)
+
+### 16.2 Summary
+
+- We can formulate an optimisation problem by specifying  
+  我们可以通过指定来制定一个优化问题
+  - Design variables  
+    设计变数
+  - Objective functions  
+    目标功能
+  - Constraints  
+    约束
+
+- Design Variable
+  - The design variable is correctly formulated. As we have assumed that
+    cities 1 and N will always be the city of origin and the city of
+    destination, these two cities do not need to be present in the
+    design variable. The design variable just needs to have the sequence
+    of cities travelled by in between cities 1 and N. There is just one
+    assumption here in that this problem formulation would not allow
+    solutions where we travel straight from the city of origin to the
+    city of destination, without any cities in between.  
+    设计变量的公式是正确的。由于我们假设城市 1 和 N
+    始终是始发城市和目的地城市，因此这两个城市不需要出现在设计变量中。设计变量只需要具有城市
+    1 和 N
+    之间经过的城市序列。这里只有一个假设，即这个问题表述不允许我们直接从起点城市到目的地城市的解决方案，中间没有任何城市
+
+- Objective Function
+  - The objective function is correctly formulated, given the design
+    variable. In particular, it appropriately sums the distance between
+    city 1 and the first city in the design variable, the distances
+    between consecutive cities in the design variable, and the distance
+    between the last city in the design variable and the city of
+    destination  
+    给定设计变量，目标函数是正确制定。特别是，它适当地总结了城市1与设计变量中第一个城市之间的距离，设计变量中连续城市之间的距离，以及设计变量中最后一个城市与目的地城市之间的距离
+
+- Dealing with Contraints
+  - The contraints handling is not entirely correct, given the
+    formulation of the design variable and objective function. This is
+    because it does not check the existence of the direct path between
+    city 1 and x1 and the existance of the direct path between city
+    x<sub>size(x)</sub> and city N. In particular, h<sub>1</sub>(x) will
+    be equal to 0 even when D<sub>1,x1</sub> = -1 or
+    D<sub>xsize(X),N</sub> = -1, innapropriately considering the
+    solution as feasible despite the inexistence of such direct paths.  
+    考虑到设计变量和目标函数的公式化，约束处理并不完全正确。这是因为它没有检查城市 1 和
+    x1 之间是否存在直接路径，以及城市 x<sub>size(x)</sub> 和城市 N
+    之间是否存在直接路径。特别是，h<sub>即使当 D<sub>1,x1</sub> = -1 或
+    D<sub>xsize(X),N</sub> = -1 时，1</sub>(x) 也将等于
+    0，不恰当地考虑尽管不存在这种直接路径，但该解决方案是可行的
+
+![Optimisation Problem Formulation_3.png](Images/Optimisation%20Problem%20Formulation_3.png)
+![Optimisation Problem Formulation_2.png](Images/Optimisation%20Problem%20Formulation_2.png)
+
+![Optimisation Problem Formulation_4.png](Images/Optimisation%20Problem%20Formulation_4.png)
+![Optimisation Problem Formulation_5.png](Images/Optimisation%20Problem%20Formulation_5.png)
