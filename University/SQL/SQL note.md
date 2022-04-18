@@ -1,4 +1,5 @@
 <!-- TOC start -->
+
 - [SQL Note](#sql-note)
   * [1.1 PostgreSQL](#11-postgresql)
     + [1. Check the version of psql postgres](#1-check-the-version-of-psql-postgres)
@@ -38,6 +39,14 @@
     + [1. INNER JOIN](#1-inner-join)
     + [2. LEFT/RIGHT JOIN](#2-leftright-join)
     + [3. FULL JOIN](#3-full-join)
+  * [4 Addition Knowledge](#4-addition-knowledge)
+    + [4.1 ENUM Type](#41-enum-type)
+    + [4.2 Parent/Child Table (inherits)](#42-parentchild-table-inherits)
+    + [4.3 Copy](#43-copy)
+    + [4.4 View](#44-view)
+    + [4.5 Block(DO)](#45-blockdo)
+    + [4.6 Loop](#46-loop)
+    + [4.7 Text type](#47-text-type)
 
 <!-- TOC end -->
 
@@ -272,4 +281,58 @@
 
 > `todo_item` must have an `owner` and our FULL join will not have an
 > additional `todo_item entry`
+
+## 4 Addition Knowledge
+
+### 4.1 ENUM Type
+
+- CREATE TYPE `materialComposition` AS ENUM(`'Yes','No'`);
+
+### 4.2 Parent/Child Table (inherits)
+
+- CREATE TABLE `RawMaterial()` INHERITS (`Product`);
+
+> More attribute can be added in RawMaterial()
+
+### 4.3 Copy
+
+- \cd 'F:/Code/SQL/Assignment2'
+- \copy Dummy FROM './data/TradeRoutes.csv' WITH ( FORMAT CSV , HEADER
+  );
+
+> \cd for folder
+
+### 4.4 View
+
+- CREATE VIEW `EnrichedCallsAt` AS  
+  SELECT `CallsAt.MonitoringKey`,`SpaceStation.PlanetID` AS
+  `"planet"`,`CallsAt.VisitOrder`  
+  FROM `CallsAt` INNER JOIN `SpaceStation` ON `CallsAt.StationID =
+  SpaceStation.StationID`  
+  ORDER BY `CallsAt.MonitoringKey`;
+
+### 4.5 Block(DO)
+
+- DO  
+  $$  
+  DECLARE  
+  BEGIN  
+  END  
+  $$;
+
+### 4.6 Loop
+
+- For `rRoute` IN SELECT `MonitoringKey` FROM `TradingRoute`  
+  LOOP  
+  END LOOP;
+
+### 4.7 Text type
+
+- `query` := 'SELECT Distance.Distance ' || 'FROM Distance ' || 'WHERE
+  Distance.PlanetOrigin = ' || hHop.PlanetOrigin || ' AND
+  Distance.PlanetDestination = ' || hHop.PlanetDestination;
+- EXCUTE `query` INTO `hopDistance`;
+
+> || as same as \n
+
 
