@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+    <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="week-2-math" md-pos="0-13"><span md-pos="2-13">Week 2 Math</span></h1>
+<h2 id="lecture-3-the-rational-numbers" md-pos="15-48"><span md-pos="18-48">Lecture 3 The rational numbers</span></h2>
+<h3 id="a-normal-form-and-the-euclidean-algorithm" md-pos="50-95"><span md-pos="54-95">A normal form and the Euclidean algorithm</span></h3>
+<pre md-pos="97-188"><code md-pos="101-184">x &lt;- a
+y &lt;- b
+while ( y != 0 ) {
+    r &lt;- x mod y
+    x &lt;- y
+    y &lt;- r }
+return x
+</code></pre>
+<h3 id="the-extended-euclidean-algorithm-and-finite-fields" md-pos="189-243"><span md-pos="193-243">The extended Euclidean algorithm and finite fields</span></h3>
+<p md-pos="245-264"><span md-pos="245-263">lcf(a,b) = u×a+v×b</span></p>
+<pre md-pos="265-506"><code md-pos="269-503">x &lt;- a
+y &lt;- b
+u_x &lt;- 1; v_x &lt;- 0
+u_y &lt;- 0; v_y &lt;- 1
+while ( y != 0 ) {
+    r &lt;- x mod y; k &lt;- x div y
+    u &lt;- u_x; v &lt;- v_x
+    u_x &lt;- u_y; v_x &lt;- v_y
+    u_y &lt;- u - k*u_y; v_y &lt;- v - k*v_y
+    x &lt;- y
+    y &lt;- r }
+return x, u_x, v_x
+</code></pre>
+</body>
+</html>

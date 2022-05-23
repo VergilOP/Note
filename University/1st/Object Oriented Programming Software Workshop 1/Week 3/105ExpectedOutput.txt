@@ -1,0 +1,53 @@
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Batman and a surname of Superman
+Your studID is BS08mr
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Hakuna and a surname of Matata
+Your studID is HM06ua
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Jack and a surname of likes
+Your studID is JL05ck
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Brian and a surname of Brain
+Your studID is BB05ia
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Turtles and a surname of are
+Your studID is TA03tr
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+You cannot add any more students to the array
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Goodbye

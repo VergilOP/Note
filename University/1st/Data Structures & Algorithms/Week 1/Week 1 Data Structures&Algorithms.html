@@ -1,0 +1,225 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+  <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="data-structuresalgorithms-week-1" md-pos="0-35"><span md-pos="2-35">Data Structures&amp;Algorithms Week 1</span></h1>
+<h2 id="11-intro" md-pos="37-49"><span md-pos="40-49">1.1 Intro</span></h2>
+<h3 id="programs--algorithms--data-structures" md-pos="51-94"><span md-pos="55-94">Programs = Algorithms + Data Structures</span></h3>
+<ul>
+  <li md-pos="96-163" class="p">
+    <p md-pos="98-163" class="p"><span md-pos="98-162" class="p"><strong>Date Structures</strong> efficiently organise data in computer memory</span></p>
+  </li>
+  <li md-pos="164-232" class="p">
+    <p md-pos="166-232" class="p"><span md-pos="166-231" class="p"><strong>Algorithms</strong> manipulate data structures to achieve a given goal</span></p>
+  </li>
+</ul>
+<h3 id="abstract-data-typesadt" md-pos="233-261"><span md-pos="237-261">Abstract data types(ADT)</span></h3>
+<ul>
+  <li md-pos="263-616" class="p">
+    <p md-pos="265-299" class="p"><span md-pos="265-298" class="p">An <strong>abstract data type(ADT)</strong> is</span></p>
+    <ul>
+      <li md-pos="301-398"><span md-pos="303-313" class="p">a <strong>type</strong></span><br />
+        <span md-pos="320-386">is a collection of values, e.g., integers, Boolean values(true and</span>
+        <span md-pos="391-397">false)</span></li>
+      <li md-pos="400-569"><span md-pos="402-469" class="p">with associate <strong>operations</strong> The operations on ADT might come with</span>
+        <span md-pos="474-535">mathematically specified constraints, for example on the time</span>
+        <span md-pos="540-568">complexity of the operations</span></li>
+      <li md-pos="571-616"><span md-pos="573-615" class="p">whose representation is hidden to the user</span></li>
+    </ul>
+  </li>
+  <li md-pos="618-715" class="p">
+    <p md-pos="620-628" class="p"><span md-pos="620-627" class="p">Example</span></p>
+    <ul>
+      <li md-pos="630-715"><span md-pos="632-682" class="p">Integers are an abstract data type with operations</span>
+        <span md-pos="687-714"><code>+</code>,<code>-</code>,<code>*</code>,<code>mod</code>,<code>div</code>,...</span></li>
+    </ul>
+  </li>
+  <li md-pos="716-901" class="p">
+    <p md-pos="718-755" class="p"><span md-pos="718-754" class="p">List is an ADT; list operations are:</span></p>
+    <ul>
+      <li md-pos="757-799"><span md-pos="759-798" class="p">insert an entry (on a certain position)</span></li>
+      <li md-pos="801-819"><span md-pos="803-818" class="p">delete an entry</span></li>
+      <li md-pos="821-847"><span md-pos="823-846" class="p">access data by position</span></li>
+      <li md-pos="849-858"><span md-pos="851-857" class="p">search</span></li>
+      <li md-pos="860-884"><span md-pos="862-883" class="p">concatenate two lists</span></li>
+      <li md-pos="886-893"><span md-pos="888-892" class="p">sort</span></li>
+      <li md-pos="895-901"><span md-pos="897-900" class="p">...</span></li>
+    </ul>
+  </li>
+  <li md-pos="902-1012" class="p">
+    <p md-pos="904-939" class="p"><span md-pos="904-938" class="p">Different representations of lists</span></p>
+    <ul>
+      <li md-pos="941-950"><span md-pos="943-949" class="p">Arrays</span></li>
+      <li md-pos="952-967"><span md-pos="954-966" class="p">Linked lists</span></li>
+      <li md-pos="969-986"><span md-pos="971-985" class="p">Dynamic arrays</span></li>
+      <li md-pos="988-1012"><span md-pos="990-1011" class="p">Unrolled linked lists</span></li>
+    </ul>
+  </li>
+  <li md-pos="1013-1589" class="p">
+    <p md-pos="1015-1044" class="p"><span md-pos="1015-1041" class="p"><strong>(Simplified)memory model</strong></span></p>
+    <ul>
+      <li md-pos="1046-1188"><span md-pos="1048-1080" class="p">Treat memory as a gigantic array</span><br />
+        <span md-pos="1087-1095"><code>Mem[-]</code></span><br />
+        <span md-pos="1102-1162"># for simplicity we assume that every can contain either an</span>
+        <span md-pos="1167-1187">integer, or a string</span></li>
+      <li md-pos="1190-1589"><span md-pos="1192-1255" class="p">We defined an OS-level pseudocode language, and we call it OS++</span>
+        <ul>
+          <li md-pos="1260-1589"><span md-pos="1262-1293" class="p">Two Operations provided by OS++</span>
+            <ul>
+              <li md-pos="1300-1478"><span md-pos="1302-1365" class="p"><code>allocate_memory(n)</code> - the OS finds a continuous segment of <code>n</code></span>
+                <span md-pos="1374-1435">unused locations, designates that memory as used, and returns</span>
+                <span md-pos="1444-1477">the address of the first location</span></li>
+              <li md-pos="1484-1589"><span md-pos="1486-1548" class="p"><code>free_memory(address,n)</code> - the OS designates the <code>n</code> locations</span>
+                <span md-pos="1557-1588">starting from <code>address</code> as free</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h2 id="12-arrays" md-pos="1590-1603"><span md-pos="1593-1603">1.2 Arrays</span></h2>
+<h3 id="list-as-an-array-of-a-fixed-length" md-pos="1605-1643"><span md-pos="1609-1643">List as an array of a fixed length</span></h3>
+<p md-pos="1645-1651"><span md-pos="1645-1650">Java:</span></p>
+<div md-pos="1652-1720">
+  <pre><code class="java">final int[] nums = new int[4];
+</code></pre>
+</div>
+<p md-pos="1722-1728"><span md-pos="1722-1727">OS++:</span></p>
+<pre md-pos="1729-1772"><code md-pos="1733-1768">final nums = allocate_memory(4*1);
+</code></pre>
+<h3 id="more-complicated-arrays-in-mem-" md-pos="1773-1814"><span md-pos="1777-1814">More complicated arrays in <em>Mem[-]</em></span></h3>
+<p md-pos="1816-1822"><span md-pos="1816-1821">Java:</span></p>
+<div md-pos="1823-1950">
+  <pre><code class="java">class Student {
+    String name;
+    int id;
+}
+final Student[] students = new Student[3];
+</code></pre>
+</div>
+<p md-pos="1952-1958"><span md-pos="1952-1957">OS++:</span></p>
+<div md-pos="1959-2035">
+  <pre><code class="java">final students = allocate_memory(3*2);
+</code></pre>
+</div>
+<h3 id="memory-management" md-pos="2037-2058"><span md-pos="2041-2058">Memory management</span></h3>
+<p md-pos="2060-2068"><span md-pos="2060-2067">In java</span></p>
+<ul>
+  <li md-pos="2068-2105"><span md-pos="2070-2102" class="p">memory allocation is <strong>automatic</strong></span></li>
+  <li md-pos="2105-2166"><span md-pos="2107-2165" class="p">freeing memory is <strong>automatic</strong> (by the garbage collector)</span></li>
+  <li md-pos="2166-2201"><span md-pos="2168-2198" class="p">bounds of arrays <strong>are checked</strong></span></li>
+</ul>
+<p md-pos="2202-2214"><span md-pos="2202-2213">In C or C++</span></p>
+<ul>
+  <li md-pos="2214-2276"><span md-pos="2216-2275" class="p">allocations are <strong>explicit</strong> (similar to OS++ and Mem[-])</span></li>
+  <li md-pos="2276-2339"><span md-pos="2278-2338" class="p">freeing memory is <strong>explicit</strong>(similar to OS++ and Mem[-])</span></li>
+  <li md-pos="2339-2368"><span md-pos="2341-2365" class="p">bounds <strong>are not checked</strong></span></li>
+</ul>
+<p md-pos="2369-2426"><span md-pos="2369-2425">Java is slower and safe, C(or C++) is fast and dangerous</span></p>
+<h3 id="inserting-by-shifting-in-os" md-pos="2427-2460"><span md-pos="2431-2460">Inserting by shifting in OS++</span></h3>
+<p md-pos="2462-2523"><span md-pos="2462-2522">To insert a student at position <code>pos</code>, where 0 ≤ pos ≤ size:</span></p>
+<pre md-pos="2524-2968"><code md-pos="2528-2964">final Student[] students = new Students[maxsize];
+int size = 0;
+
+void insert(int pos, String name, int id){
+    if (size == maxsize){
+        throw new ArrayFullException(&quot;Students_array&quot;);
+    }
+    for (int i = size - 1; i ≥ pos; i--){
+        Mem[student + 2*i + 2] = Mem[student + 2*i];
+        Mem[student + 2*i + 3] = Mem[student + 2*i + 1];
+    }
+    Mem[student + 2*pos] = name;
+    Mem[student + 2*pos + 1] = id;
+    size++;
+}
+</code></pre>
+<h2 id="13-linked-lists" md-pos="2969-2988"><span md-pos="2972-2988">1.3 Linked Lists</span></h2>
+<h3 id="linked-lists-in-mem-" md-pos="2990-3018"><span md-pos="2994-3018">Linked Lists in Mem[-]</span></h3>
+<p md-pos="3020-3135"><span md-pos="3020-3092">The first location of such block stores a number and the second location</span>
+  <span md-pos="3093-3134">stores the address of the following block</span></p>
+<p md-pos="3136-3222"><span md-pos="3136-3208">The constant <code>list</code> is an address pointing to the first node, called the</span>
+  <span md-pos="3209-3221">head pointer</span></p>
+<p md-pos="3223-3292"><span md-pos="3223-3291"><code>END</code> indicates the end of the list (graphically as □ with x inside)</span></p>
+<p md-pos="3293-3355"><span md-pos="3293-3353">A linked list is empty whenever <code>Mem[list]</code> is equal to <code>END</code></span></p>
+<h3 id="deleting-at-the-beginning" md-pos="3356-3385"><span md-pos="3360-3385">Deleting at the beginning</span></h3>
+<pre md-pos="3387-3671"><code md-pos="3391-3667">Boolean is_empty(int list) {
+    return (Mem[list]) == END);
+}
+
+void delet_begin(int list){
+    if is_empty(list) {
+        throw new EmptyListException(&quot;delete_begin&quot;);
+    }
+    final firstnode = Mem[list];
+    Mem[list] = Mem[firstnode + 1];
+    freememory(firstnode,2);
+}
+</code></pre>
+<h3 id="lookup" md-pos="3672-3682"><span md-pos="3676-3682">Lookup</span></h3>
+<pre md-pos="3684-4063"><code md-pos="3688-4059">int value_at(int list, int index){
+    int i = 0;
+    int cursor = list;
+    int nextnode = Mem[cursor];
+    while (true) {
+        if (nextnode == END) {
+            throw OutOfBoundsException;
+        }
+        if (i == index) {
+            break;
+        }
+        cursor = nextnode + 1;
+        nextnode = Mem[cursor];
+        i++;
+    }
+    return Mem [nextnode];
+}
+</code></pre>
+<h3 id="insert-at-the-end" md-pos="4064-4085"><span md-pos="4068-4085">Insert at the end</span></h3>
+<pre md-pos="4087-4362"><code md-pos="4091-4358">void insert_end(int list, int number){
+    final newblock = allocate_memory(2);
+    Mem[newblock] = number;
+    Mem[newblock + 1] = END;
+
+    int cursor = list;
+    while (Mem[cursor] != END){
+        cursor = Mem[cursor] + 1;
+    }
+    Mem[cursor] = newblock;
+}
+</code></pre>
+<h3 id="comparison" md-pos="4363-4377"><span md-pos="4367-4377">Comparison</span></h3>
+<table md-pos="4379-5555">
+  <thead>
+  <tr md-pos="4379-4546" class="thead-first-child"><th align="left" md-pos="4380-4485">                                                                                                         </th><th align="left" md-pos="4486-4514"> Array                      </th><th align="left" md-pos="4515-4545"> Linked List                  </th></tr>
+  </thead>
+  <tbody>
+  <tr md-pos="4715-4882" class="tbody-first-child"><td align="left" md-pos="4716-4821"> access data by position<br>search for an element                                                        </td><td align="left" md-pos="4822-4850"> constant<br>linear         </td><td align="left" md-pos="4851-4881"> linear<br>linear             </td></tr>
+  <tr md-pos="4883-5050" class="tbody-even-child"><td align="left" md-pos="4884-4989"> insert an entry at the beginning<br>inset an entry at the end<br>insert an entry(on a certain position) </td><td align="left" md-pos="4990-5018"> linear<br>linear<br>linear </td><td align="left" md-pos="5019-5049"> constant<br>linear<br>linear </td></tr>
+  <tr md-pos="5051-5218" class="tbody-odd-child"><td align="left" md-pos="5052-5157"> delete first entry                                                                                      </td><td align="left" md-pos="5158-5186"> linear                     </td><td align="left" md-pos="5187-5217"> constant                     </td></tr>
+  <tr md-pos="5219-5386" class="tbody-even-child"><td align="left" md-pos="5220-5325"> delete entry <code>i</code>                                                                                        </td><td align="left" md-pos="5326-5354"> linear                     </td><td align="left" md-pos="5355-5385"> linear                       </td></tr>
+  <tr md-pos="5387-5554" class="tbody-odd-child"><td align="left" md-pos="5388-5493"> concatenate two lists                                                                                   </td><td align="left" md-pos="5494-5522"> linear                     </td><td align="left" md-pos="5523-5553"> linear                       </td></tr>
+  </tbody>
+</table>
+<h3 id="modifications" md-pos="5556-5573"><span md-pos="5560-5573">Modifications</span></h3>
+<p md-pos="5575-5765"><span md-pos="5575-5619">Linked list with a pointer to the last node:</span><br />
+  <span md-pos="5622-5652"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Linked%20List%20with%20one%20pointer.png" alt="Linked List with one pointer" md-pos="5622-5764" /></span></p>
+<p md-pos="5766-5909"><span md-pos="5766-5785">Doubly linked list:</span><br />
+  <span md-pos="5788-5809"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Doubled%20linked%20list.png" alt="Doubled linked list" md-pos="5788-5908" /></span></p>
+<p md-pos="5910-6080"><span md-pos="5910-5938">Circular Singly Linked List:</span><br />
+  <span md-pos="5941-5970"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Circular%20Singly%20Linked%20List.png" alt="Circular Singly Linked List" md-pos="5941-6079" /></span></p>
+<p md-pos="6081-6251"><span md-pos="6081-6109">Circular Doubly Linked List:</span><br />
+  <span md-pos="6112-6141"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Circular%20Doubly%20Linked%20List.png" alt="Circular Doubly Linked List" md-pos="6112-6250" /></span></p>
+</body>
+</html>

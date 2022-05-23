@@ -1,0 +1,308 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+  <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="logic-week-1" md-pos="0-14"><span md-pos="2-14">Logic week 1</span></h1>
+<h2 id="lecture-1" md-pos="16-28"><span md-pos="19-28">Lecture 1</span></h2>
+<h3 id="syllabus-of-the-logic-part-of-this-module-本模块的逻辑部分的教学节" md-pos="30-88"><span md-pos="34-88">Syllabus of the logic part of this module 本模块的逻辑部分的教学节</span></h3>
+<ul>
+  <li md-pos="90-286" class="p">
+    <p md-pos="92-121" class="p"><span md-pos="92-111" class="p">Propositional logic</span><br />
+      <span md-pos="116-120">命题逻辑</span></p>
+    <ul>
+      <li md-pos="123-148"><span md-pos="125-138" class="p">syntax syntax</span><br />
+        <span md-pos="145-147">语法</span></li>
+      <li md-pos="150-217"><span md-pos="152-196" class="p">proofs(natural deduction &amp; sequent calculus)</span><br />
+        <span md-pos="203-216">证明（自然推导和后续演算）</span></li>
+      <li md-pos="219-256"><span md-pos="221-244" class="p">semantics, truth tables</span>
+        <span md-pos="249-255">语义、真值表</span></li>
+      <li md-pos="258-286"><span md-pos="260-274" class="p">satisfiability</span><br />
+        <span md-pos="281-285">可满足性</span></li>
+    </ul>
+  </li>
+  <li md-pos="287-456" class="p">
+    <p md-pos="289-343" class="p"><span md-pos="289-327" class="p">First order logic (predicate calculus)</span><br />
+      <span md-pos="332-342">一阶逻辑（谓词微算）</span></p>
+    <ul>
+      <li md-pos="345-363"><span md-pos="347-353" class="p">syntax</span><br />
+        <span md-pos="360-362">语法</span></li>
+      <li md-pos="365-433"><span md-pos="367-412" class="p">proofs (natural deduction &amp; sequent calculus)</span><br />
+        <span md-pos="419-432">证明（自然推导和后续演算）</span></li>
+      <li md-pos="435-456"><span md-pos="437-446" class="p">semantics</span><br />
+        <span md-pos="453-455">语义</span></li>
+    </ul>
+  </li>
+  <li md-pos="457-610" class="p">
+    <p md-pos="459-484" class="p"><span md-pos="459-474" class="p">Theorem proving</span><br />
+      <span md-pos="479-483">定理证明</span></p>
+    <ul>
+      <li md-pos="486-534"><span md-pos="488-519" class="p">propositional &amp; predicate logic</span><br />
+        <span md-pos="526-533">命题和谓词逻辑</span></li>
+      <li md-pos="536-590"><span md-pos="538-571" class="p">data types, induction &amp; recursion</span><br />
+        <span md-pos="578-589">数据类型、归纳法和递归</span></li>
+      <li md-pos="592-610"><span md-pos="594-601" class="p">numbers</span><br />
+        <span md-pos="608-609">数</span></li>
+    </ul>
+  </li>
+  <li md-pos="611-797" class="p">
+    <p md-pos="613-638" class="p"><span md-pos="613-637" class="p">Constructive logic 构造性逻辑</span></p>
+    <ul>
+      <li md-pos="640-691"><span md-pos="642-674" class="p">classical vs. constructive logic</span><br />
+        <span md-pos="681-690">经典逻辑与构造逻辑</span></li>
+      <li md-pos="693-721"><span md-pos="695-710" class="p">lambda-calculus</span><br />
+        <span md-pos="717-720">λ演算</span></li>
+      <li md-pos="723-750"><span md-pos="725-738" class="p">realizability</span><br />
+        <span md-pos="745-749">可实现性</span></li>
+      <li md-pos="752-797"><span md-pos="754-782" class="p">simply-typed lambda calculus</span><br />
+        <span md-pos="789-796">简单类型λ演算</span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="basic-concepts" md-pos="798-816"><span md-pos="802-816">Basic concepts</span></h3>
+<ul>
+  <li md-pos="818-1138" class="p">
+    <p md-pos="820-845" class="p"><span md-pos="820-837" class="p"><em><strong>Proposition</strong></em></span><br />
+      <span md-pos="842-844">命题</span></p>
+    <ul>
+      <li md-pos="847-1006" class="p">
+        <p md-pos="849-1006" class="p"><span md-pos="849-900" class="p">A <strong>proposition</strong> is a sentence which states a fact</span>
+          <span md-pos="905-919">一个命题是陈述一个事实的句子</span><br />
+          <span md-pos="926-983">i.e. a statement that can (in principle) be true or false</span><br />
+          <span md-pos="990-1005">(原则上)可以是真的或假的陈述</span></p>
+      </li>
+      <li md-pos="1009-1138" class="p">
+        <p md-pos="1011-1019" class="p"><span md-pos="1011-1018" class="p">Example</span></p>
+        <ul>
+          <li md-pos="1023-1085"><span md-pos="1025-1054" class="p">Birmingham is north of London</span><br />
+            <span md-pos="1061-1083"><em>proposition, and true</em></span></li>
+          <li md-pos="1089-1138"><span md-pos="1091-1110" class="p">Please mind the gap</span><br />
+            <span md-pos="1117-1136"><em>not a proposition!</em></span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li md-pos="1139-1511" class="p">
+    <p md-pos="1141-1164" class="p"><span md-pos="1141-1156" class="p"><em><strong>Arguments</strong></em></span><br />
+      <span md-pos="1161-1163">参数</span></p>
+    <ul>
+      <li md-pos="1166-1356" class="p">
+        <p md-pos="1168-1233" class="p"><span md-pos="1168-1209" class="p">An <strong>argument</strong> is a list of propositions</span><br />
+          <span md-pos="1216-1232">一个<strong>论证</strong>是一个命题的列表</span></p>
+        <ul>
+          <li md-pos="1237-1299"><span md-pos="1239-1281" class="p">The last of which is called the conclusion</span><br />
+            <span md-pos="1290-1298">最后一个叫做结论</span></li>
+          <li md-pos="1303-1356"><span md-pos="1305-1339" class="p">and the others are called premises</span><br />
+            <span md-pos="1348-1355">其他的叫做前提</span></li>
+        </ul>
+      </li>
+      <li md-pos="1359-1511" class="p">
+        <p md-pos="1361-1369" class="p"><span md-pos="1361-1368" class="p">Example</span></p>
+        <ul>
+          <li md-pos="1373-1511"><span md-pos="1375-1425" class="p">Premise 1: If there is smoke, then there is a fire</span><br />
+            <span md-pos="1434-1461">Premise 2: There is no fire</span><br />
+            <span md-pos="1470-1510">Conclusion: Therefore, there is no smoke</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li md-pos="1512-1853" class="p">
+    <p md-pos="1514-1553" class="p"><span md-pos="1514-1541" class="p"><em><strong>Validity of Arguments</strong></em></span><br />
+      <span md-pos="1546-1552">参数的有效性</span></p>
+    <ul>
+      <li md-pos="1555-1698" class="p">
+        <p md-pos="1557-1698" class="p"><span md-pos="1557-1657" class="p">An argument is <strong>valid</strong> if (and only if), whenever the premises are true, then so is the conclusion</span><br />
+          <span md-pos="1664-1697">一个论点是有效的如果(和当且仅当),每当前提为真,那么结论就是结论</span></p>
+      </li>
+      <li md-pos="1701-1853" class="p">
+        <p md-pos="1703-1711" class="p"><span md-pos="1703-1710" class="p">Example</span></p>
+        <ul>
+          <li md-pos="1715-1853"><span md-pos="1717-1767" class="p">Premise 1: If there is smoke, then there is a fire</span><br />
+            <span md-pos="1776-1803">Premise 2: There is no fire</span><br />
+            <span md-pos="1812-1852">Conclusion: Therefore, there is no smoke</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h3 id="conclusion" md-pos="1854-1868"><span md-pos="1858-1868">Conclusion</span></h3>
+<ul>
+  <li md-pos="1869-1993"><span md-pos="1871-1895" class="p">What did we cover today?</span>
+    <ul>
+      <li md-pos="1898-1919"><span md-pos="1900-1918" class="p">what and why logic</span></li>
+      <li md-pos="1921-1968"><span md-pos="1923-1967" class="p">organization of the logic part of the module</span></li>
+      <li md-pos="1970-1993"><span md-pos="1972-1992" class="p">basic logic concepts</span></li>
+    </ul>
+  </li>
+</ul>
+<h2 id="lecture-2" md-pos="1994-2006"><span md-pos="1997-2006">Lecture 2</span></h2>
+<h3 id="symbolic-logics-符号逻辑" md-pos="2008-2032"><span md-pos="2012-2032">Symbolic Logics 符号逻辑</span></h3>
+<ul>
+  <li md-pos="2034-2191" class="p">
+    <p md-pos="2036-2191" class="p"><span md-pos="2036-2156" class="p">Symbolic logics are <strong>formal languages</strong> that allow conducting logical reasoning through the <strong>manipulation of symbols</strong></span><br />
+      <span md-pos="2161-2190">符号逻辑是一种形式语言，它允许通过对符号的操作进行逻辑推理</span></p>
+  </li>
+  <li md-pos="2192-2270" class="p">
+    <p md-pos="2194-2203" class="p"><span md-pos="2194-2202" class="p">Example:</span></p>
+    <ul>
+      <li md-pos="2205-2227"><span md-pos="2207-2226" class="p">Propositional logic</span></li>
+      <li md-pos="2229-2247"><span md-pos="2231-2246" class="p">Predicate logic</span></li>
+      <li md-pos="2249-2270"><span md-pos="2251-2269" class="p">Higher-order logic</span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="grammars---bnfs" md-pos="2271-2290"><span md-pos="2275-2290">Grammars - BNFs</span></h3>
+<ul>
+  <li md-pos="2292-2545" class="p">
+    <p md-pos="2294-2334" class="p"><span md-pos="2294-2333" class="p">Two important aspect of a language are:</span></p>
+    <ul>
+      <li md-pos="2336-2463"><span md-pos="2338-2434" class="p">its <strong>syntax</strong> describing the well-formed sequences of symbols denoting objects of the language;</span><br />
+        <span md-pos="2441-2462">它的语法描述表示语言对象的符号序列的语法；</span></li>
+      <li md-pos="2465-2545"><span md-pos="2467-2523" class="p">and its <strong>semantics</strong> assigning meaning to those symbols</span><br />
+        <span md-pos="2530-2544">以及它赋予这些符号意义的语义</span></li>
+    </ul>
+  </li>
+  <li md-pos="2546-2630" class="p">
+    <p md-pos="2548-2630" class="p"><span md-pos="2548-2606" class="p">The syntax of a language is defined through a <strong>grammar</strong>.</span><br />
+      <span md-pos="2611-2629">一种语言的语法是通过一种语法来定义的</span></p>
+  </li>
+  <li md-pos="2631-3519" class="p">
+    <p md-pos="2633-2702" class="p"><span md-pos="2633-2701" class="p"><strong>Backus Naur Form(BNF)</strong> allows defining <strong>context-free</strong> grammars.</span></p>
+    <ul>
+      <li md-pos="2704-2997" class="p">
+        <p md-pos="2706-2997" class="p"><span md-pos="2706-2755" class="p">lhs ::“ rhs<sub>1</sub> | ¨ ¨ ¨ | rhs<sub>n</sub></span><br />
+          <span md-pos="2762-2910"><strong>Meaning</strong>: this rule means that the left-hand-side lhs (a non-terminal symbol) can expand to any of the forms rhs1 to rhsn on the right-hand-side.</span><br />
+          <span md-pos="2930-2996">该规则意味着左侧的lhs（一个非终端符号）可以扩展到右侧的任何形式的rhs<sub>1</sub>到rhs<sub>n</sub>。</span></p>
+      </li>
+      <li md-pos="3000-3120" class="p">
+        <p md-pos="3002-3120" class="p"><span md-pos="3002-3077" class="p">Each <strong>rhs<sub>i</sub></strong> is a sequence of non-terminal and terminal symbols</span><br />
+          <span md-pos="3084-3119">每个rhs<sub>i</sub>都是一个非终端符号和终端符号的序列。</span></p>
+      </li>
+      <li md-pos="3122-3222" class="p">
+        <p md-pos="3124-3222" class="p"><span md-pos="3124-3194" class="p">The <strong>arity</strong> of a terminal symbol is the number of arguments it takes</span><br />
+          <span md-pos="3201-3221">终端符号的统一性是它所需要的参数的数量。</span></p>
+      </li>
+      <li md-pos="3224-3519" class="p">
+        <p md-pos="3226-3330" class="p"><span md-pos="3226-3297" class="p">The <strong>Fixity</strong> of a terminal symbol is the place where it occurs w.r.t.</span><br />
+          <span md-pos="3304-3329">终端符号的固定度是它发生w.r.t.的地方其论点：</span></p>
+        <ul>
+          <li md-pos="3334-3405"><span md-pos="3336-3383" class="p"><strong>infix</strong> if it occurs in-between its arguments</span><br />
+            <span md-pos="3392-3404">插缀，如果发生在参数之间</span></li>
+          <li md-pos="3409-3462"><span md-pos="3411-3441" class="p"><strong>prefix</strong> if it occurs before</span>
+            <span md-pos="3448-3461">前缀，如果它出现在前缀之前</span></li>
+          <li md-pos="3466-3519"><span md-pos="3468-3498" class="p"><strong>postfix</strong> if it occurs after</span><br />
+            <span md-pos="3507-3518">后缀，如果它发生在之后</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h3 id="grammars---abstract-syntax-trees-抽象语法树" md-pos="3520-3562"><span md-pos="3524-3562">Grammars - abstract syntax trees 抽象语法树</span></h3>
+<ul>
+  <li md-pos="3564-3845"><span md-pos="3566-3669" class="p">An expression derived from a BNF grammar can then be seen as a tree, called an <strong>abstract syntax tree</strong></span><br />
+    <span md-pos="3674-3703">从BNF语法派生的表达式可以被视为一个树，称为抽象语法树。</span>
+    <ul>
+      <li md-pos="3706-3845"><span md-pos="3708-3716" class="p">Example:</span><br />
+        <span md-pos="3723-3758">exp ::“ num | exp + exp | exp * exp</span><br />
+        <span md-pos="3765-3797"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Screenshot%202021-09-30%20170222_1.png" alt="Screenshot 2021-09-30 170222_1" md-pos="3765-3844" /></span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="grammars---associativity-结合性" md-pos="3846-3878"><span md-pos="3850-3878">Grammars - associativity 结合性</span></h3>
+<ul>
+  <li md-pos="3880-3981" class="p">
+    <p md-pos="3882-3981" class="p"><span md-pos="3882-3955" class="p">Define the <strong>associativity</strong> of the terminal symbols to avoid ambiguities</span><br />
+      <span md-pos="3960-3980">定义终端符号的<strong>结合性</strong>以避免二义性</span></p>
+  </li>
+  <li md-pos="3982-4076" class="p">
+    <p md-pos="3984-4003" class="p"><span md-pos="3984-4002" class="p">Example: 0 + 1 + 2</span></p>
+    <ul>
+      <li md-pos="4005-4039"><span md-pos="4007-4038" class="p">left associativity: (0 + 1) + 2</span></li>
+      <li md-pos="4041-4076"><span md-pos="4043-4075" class="p">right associativity: 0 + (1 + 2)</span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="grammars---precedence-优先权" md-pos="4077-4106"><span md-pos="4081-4106">Grammars - precedence 优先权</span></h3>
+<ul>
+  <li md-pos="4108-4205" class="p">
+    <p md-pos="4110-4205" class="p"><span md-pos="4110-4180" class="p">Define the <strong>precedence</strong> of the terminal symbols to avoid ambiguities</span><br />
+      <span md-pos="4185-4204">定义终端符号的<strong>优先级</strong>以避免歧义</span></p>
+  </li>
+  <li md-pos="4206-4311" class="p">
+    <p md-pos="4208-4227" class="p"><span md-pos="4208-4226" class="p">example: 0 + 1 * 2</span></p>
+    <ul>
+      <li md-pos="4229-4269"><span md-pos="4231-4268" class="p">* has higher precedence: 0 + (1 * 2)</span></li>
+      <li md-pos="4271-4311"><span md-pos="4273-4310" class="p">+ has higher precedence: (0 + 1) * 2</span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="grammars---associativity-precedence-parentheses-联想性优先级括号" md-pos="4312-4376"><span md-pos="4316-4376">Grammars - associativity, precedence, parentheses 联想性、优先级，括号</span></h3>
+<p md-pos="4378-4412"><span md-pos="4378-4399">To avoid ambiguities:</span><br />
+  <span md-pos="4402-4411">为了避免含糊不清:</span></p>
+<ul>
+  <li md-pos="4412-4463"><span md-pos="4414-4449" class="p">define the associativity of symbols</span><br />
+    <span md-pos="4454-4462">定义符号的结合性</span></li>
+  <li md-pos="4463-4518"><span md-pos="4465-4502" class="p">define the precedence between symbols</span><br />
+    <span md-pos="4507-4517">定义符号之间的优先级</span></li>
+  <li md-pos="4518-4590"><span md-pos="4520-4571" class="p">use parentheses to avoid ambiguities or for clarity</span><br />
+    <span md-pos="4576-4589">使用圆括号以避免歧义或清晰</span></li>
+</ul>
+<p md-pos="4591-4639"><span md-pos="4591-4627">Parentheses are sometimes necessary:</span>
+  <span md-pos="4628-4638">有时需要使用圆括号：</span></p>
+<ul>
+  <li md-pos="4639-4699"><span md-pos="4641-4698" class="p">using left associativity 0 + 1 + 2 stands for (0 + 1) + 2</span></li>
+  <li md-pos="4699-4744"><span md-pos="4701-4743" class="p">we need parentheses to express 0 + (1 + 2)</span></li>
+</ul>
+<h3 id="metavariables-元变量" md-pos="4745-4770"><span md-pos="4749-4770">(Meta)variables （元）变量</span></h3>
+<p md-pos="4772-4927"><span md-pos="4772-4889"><strong>metavariables</strong> or <strong>schematic variables</strong> act as placeholders for any element derivable from a given grammar rule.</span><br />
+  <span md-pos="4892-4926">元变量或示意图变量作为可从给定的语法规则派生出来的任何元素的占位符。</span></p>
+<h3 id="axiom-schemata-公理模式" md-pos="4928-4951"><span md-pos="4932-4951">Axiom schemata 公理模式</span></h3>
+<ul>
+  <li md-pos="4953-5118"><span md-pos="4955-5077" class="p">Axioms can be obtained by instantiating the variable exp with any arithmetic expression. This is called an axiom schemata.</span><br />
+    <span md-pos="5082-5117">公理可以通过用任意算术表达式实例化变量exp来获得。这被称为公理图式。</span></li>
+</ul>
+<h3 id="substitution-替换" md-pos="5119-5138"><span md-pos="5123-5138">Substitution 替换</span></h3>
+<ul>
+  <li md-pos="5140-5257" class="p">
+    <p md-pos="5142-5257" class="p"><span md-pos="5142-5225" class="p">A <strong>substitution</strong> is a mapping, that maps multivariables to arithmetic expressions</span><br />
+      <span md-pos="5230-5256"><strong>替换</strong>是一种映射，它将多个变量映射到算术表达式</span></p>
+  </li>
+  <li md-pos="5257-5407" class="p">
+    <p md-pos="5259-5407" class="p"><span md-pos="5259-5376" class="p">The <strong>substitution operation</strong> is the operation that replaces all occurrences of the keys by the corresponding values</span><br />
+      <span md-pos="5381-5406"><strong>替换操作</strong>是用相应的值替换键的所有出现的操作</span></p>
+  </li>
+  <li md-pos="5408-5470" class="p">
+    <p md-pos="5410-5470" class="p"><span md-pos="5410-5418" class="p">Example:</span><br />
+      <span md-pos="5423-5447">(exp + 0 = exp)[exp\1]</span><br />
+      <span md-pos="5452-5469">returns 1 + 0 = 1</span></p>
+  </li>
+  <li md-pos="5471-5525" class="p">
+    <p md-pos="5473-5525" class="p"><span md-pos="5473-5507" class="p">v[s] = v, if v is not a key of s</span>
+      <span md-pos="5510-5524">v不在s中 所以对结果不影响</span></p>
+  </li>
+  <li md-pos="5525-5572" class="p">
+    <p md-pos="5527-5572" class="p"><span md-pos="5527-5555" class="p">v[s] = e, if s maps v to e</span>
+      <span md-pos="5558-5571">v在s中 所以对结果有影响</span></p>
+  </li>
+</ul>
+<h3 id="conclusion-1" md-pos="5573-5587"><span md-pos="5577-5587">Conclusion</span></h3>
+<ul>
+  <li md-pos="5589-5861"><span md-pos="5591-5615" class="p">What did we cover today?</span>
+    <ul>
+      <li md-pos="5618-5698"><span md-pos="5620-5697" class="p">A formal language such as a symbolic logic has a syntax captured by a grammar</span></li>
+      <li md-pos="5700-5798"><span md-pos="5702-5797" class="p">(Meta)variables are used to capture collections of axioms(as axiom schemata) of symbolic logics</span></li>
+      <li md-pos="5800-5861"><span md-pos="5802-5860" class="p">Substitution is used to derive instances of axiom schemata</span></li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

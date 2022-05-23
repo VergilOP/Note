@@ -1,0 +1,220 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+    <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="logic-week-2" md-pos="0-14"><span md-pos="2-14">Logic week 2</span></h1>
+<h2 id="lecture-3" md-pos="16-28"><span md-pos="19-28">Lecture 3</span></h2>
+<h3 id="propositions-命题" md-pos="30-49"><span md-pos="34-49">Propositions 命题</span></h3>
+<p md-pos="51-239"><span md-pos="51-191"><strong>Propositional logic</strong> is a <strong>symbolic logic</strong> to reason about logical statement called <strong>propositions</strong> that can (in principle) be true or</span><br />
+    <span md-pos="194-238">命题逻辑是一种符号学逻辑，用来对一个逻辑命题进行推理，这个逻辑命题(原则上)可以是真或假</span></p>
+<ul>
+    <li md-pos="240-273"><span md-pos="242-249" class="p">Example</span>
+        <ul>
+            <li md-pos="252-273"><span md-pos="254-270" class="p">8 x 7 = 42 <strong>Yes</strong></span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="arguments-论据" md-pos="274-290"><span md-pos="278-290">Arguments 论据</span></h3>
+<p md-pos="292-432"><span md-pos="292-395">An <strong>argument</strong> is valid if and only if (iff) whenever the premises are true, then so is the conclusion</span><br />
+    <span md-pos="398-431">当且仅当(iff)前提为真时，一个<strong>论证</strong>有效，那么结论也是真</span></p>
+<ul>
+    <li md-pos="433-590"><span md-pos="435-442" class="p">Example</span>
+        <ul>
+            <li md-pos="445-590">
+                <ol>
+                    <li md-pos="447-497"><span md-pos="450-496" class="p">If John is at home, then his television is on.</span></li>
+                    <li md-pos="501-530"><span md-pos="504-529" class="p">His television is not on.</span></li>
+                    <li md-pos="534-590"><span md-pos="537-568" class="p">Therefore, John is not at home.</span><br />
+                        <span md-pos="575-587">Valid? <strong>Yes</strong></span></li>
+                </ol>
+            </li>
+        </ul>
+    </li>
+</ul>
+<h3 id="propositional-logic--命题逻辑" md-pos="591-620"><span md-pos="595-620">Propositional logic  命题逻辑</span></h3>
+<ul>
+    <li md-pos="622-770" class="p">
+        <p md-pos="624-641" class="p"><span md-pos="624-632" class="p">Symbols:</span><br />
+            <span md-pos="637-640">符号：</span></p>
+        <ul>
+            <li md-pos="643-715"><span md-pos="645-695" class="p">atomic propositions (true/false atomic statements)</span><br />
+                <span md-pos="702-714">原子命题（真假原子陈述）</span></li>
+            <li md-pos="717-770"><span md-pos="719-753" class="p">combined using logical connectives</span>
+                <span md-pos="758-769">使用逻辑连接语进行组合</span></li>
+        </ul>
+    </li>
+    <li md-pos="771-1045" class="p">
+        <p md-pos="773-810" class="p"><span md-pos="773-800" class="p">Atomic propositions (atoms)</span><br />
+            <span md-pos="805-809">原子命题</span></p>
+        <ul>
+            <li md-pos="812-889"><span md-pos="814-867" class="p">propositions that cannot be broken into smaller parts</span><br />
+                <span md-pos="874-888">不能被分解成更小的部分的命题</span></li>
+            <li md-pos="891-953"><span md-pos="893-934" class="p">Let p, q, r, . . . be atomic propositions</span><br />
+                <span md-pos="941-952">让pqr…都是原子命题</span></li>
+            <li md-pos="955-1045"><span md-pos="957-1013" class="p">two special atoms: T stands for True, ⊥ stands for False</span><br />
+                <span md-pos="1020-1044">两个特殊的原子：T代表True，⊥代表False</span></li>
+        </ul>
+    </li>
+    <li md-pos="1046-1259" class="p">
+        <p md-pos="1048-1077" class="p"><span md-pos="1048-1067" class="p">Logical Connectives</span><br />
+            <span md-pos="1072-1076">逻辑连接</span></p>
+        <ul>
+            <li md-pos="1079-1111"><span md-pos="1081-1101" class="p">conjunction: ∧ (and)</span><br />
+                <span md-pos="1108-1110">连词</span></li>
+            <li md-pos="1113-1144"><span md-pos="1115-1134" class="p">disjunction: ∨ (or)</span><br />
+                <span md-pos="1141-1143">或词</span></li>
+            <li md-pos="1146-1197"><span md-pos="1148-1187" class="p">implication: → (if .... then / implies)</span><br />
+                <span md-pos="1194-1196">蕴含</span></li>
+            <li md-pos="1199-1259"><span md-pos="1201-1249" class="p">negation: ¬ (not) — can be defined using → and ⊥</span><br />
+                <span md-pos="1256-1258">否认</span></li>
+        </ul>
+    </li>
+    <li md-pos="1260-1381" class="p">
+        <p md-pos="1262-1292" class="p"><span md-pos="1262-1291" class="p">If P and Q are formulas, then</span></p>
+        <ul>
+            <li md-pos="1294-1315"><span md-pos="1296-1314" class="p">P ^ Q is a formula</span></li>
+            <li md-pos="1317-1338"><span md-pos="1319-1337" class="p">P ∨ Q is a formula</span></li>
+            <li md-pos="1340-1361"><span md-pos="1342-1360" class="p">P → Q is a formula</span></li>
+            <li md-pos="1363-1381"><span md-pos="1365-1380" class="p">¬P is a formula</span></li>
+        </ul>
+    </li>
+</ul>
+<p md-pos="1382-1434"><span md-pos="1382-1420">Those are called <strong>compound formulas</strong></span><br />
+    <span md-pos="1423-1433">这些都被称为复合公式</span></p>
+<h3 id="connectives---informal-semantics-连接-非正式语义" md-pos="1435-1480"><span md-pos="1439-1480">Connectives - informal semantics 连接-非正式语义</span></h3>
+<ul>
+    <li md-pos="1482-1606" class="p">
+        <p md-pos="1484-1525" class="p"><span md-pos="1484-1517" class="p">Conjunction: P ^ Q, i.e., P and Q</span><br />
+            <span md-pos="1522-1524">连词</span></p>
+        <ul>
+            <li md-pos="1527-1606"><span md-pos="1529-1582" class="p">true if both individual propositions P and Q are true</span><br />
+                <span md-pos="1589-1605">如果个别命题P和Q都为真，则为真</span></li>
+        </ul>
+    </li>
+    <li md-pos="1607-2050" class="p">
+        <p md-pos="1609-1649" class="p"><span md-pos="1609-1641" class="p">Disjunction: P v Q, i.e., P or Q</span><br />
+            <span md-pos="1646-1648">或词</span></p>
+        <ul>
+            <li md-pos="1651-1743"><span md-pos="1653-1713" class="p">true if one or both individual propositions P and Q are true</span><br />
+                <span md-pos="1720-1742">如果一个或两个单独的命题P和Q都为真，则为真</span></li>
+            <li md-pos="1745-1803"><span md-pos="1747-1783" class="p">also sometimes called “inclusive or”</span><br />
+                <span md-pos="1790-1802">有时也被称为“包容性或”</span></li>
+            <li md-pos="1805-1953"><span md-pos="1807-1905" class="p">Note: Or in English is often an “exclusive or” (i.e. where one or the other is true, but not both)</span><br />
+                <span md-pos="1912-1952">注：或者在英语中通常是“排他性的或”（即其中一个或另一个是真的，但不是两者都是）</span></li>
+            <li md-pos="1955-1995"><span md-pos="1957-1994" class="p">e.g., “Your mark will be pass or fail</span></li>
+            <li md-pos="1997-2050"><span md-pos="1999-2049" class="p">but logical disjunction is always defined as above</span></li>
+        </ul>
+    </li>
+    <li md-pos="2051-2310" class="p">
+        <p md-pos="2053-2098" class="p"><span md-pos="2053-2090" class="p">Implication: P → Q, i.e., P implies Q</span><br />
+            <span md-pos="2095-2097">蕴含</span></p>
+        <ul>
+            <li md-pos="2100-2169"><span md-pos="2102-2145" class="p">means: if P is true then Q must be true too</span><br />
+                <span md-pos="2152-2168">如果P是真的，那么Q也必须是真的</span></li>
+            <li md-pos="2171-2249"><span md-pos="2173-2219" class="p">if P is false, we can conclude nothing about Q</span><br />
+                <span md-pos="2226-2248">如果P是假的，我们就不能得出任何关于Q的结论</span></li>
+            <li md-pos="2251-2310"><span md-pos="2253-2293" class="p">P is the antecedent, Q is the consequent</span><br />
+                <span md-pos="2300-2309">P是前因，Q是结果</span></li>
+        </ul>
+    </li>
+    <li md-pos="2311-2434" class="p">
+        <p md-pos="2313-2346" class="p"><span md-pos="2313-2338" class="p">Negation: ¬P, i.e., not P</span><br />
+            <span md-pos="2343-2345">否认</span></p>
+        <ul>
+            <li md-pos="2348-2377"><span md-pos="2350-2376" class="p">it can be defined as P → ⊥</span></li>
+            <li md-pos="2379-2410"><span md-pos="2381-2409" class="p">if P is true, then ⊥ (False)</span></li>
+            <li md-pos="2412-2434"><span md-pos="2414-2433" class="p">true iff P is false</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="avoiding-ambiguities-避免歧义" md-pos="2435-2464"><span md-pos="2439-2464">Avoiding ambiguities 避免歧义</span></h3>
+<p md-pos="2466-2544"><span md-pos="2466-2522">Precedence: in decreasing order of precedence ¬, ∧, ∨, →</span><br />
+    <span md-pos="2525-2543">优先级：按优先级递减的¬、∧、∨、→</span></p>
+<p md-pos="2545-2618"><span md-pos="2545-2595">Associativity: all operators are right associative</span><br />
+    <span md-pos="2598-2617">关联性：所有操作符都是从右往左的关联性</span></p>
+<h3 id="parse-trees-解析树" md-pos="2619-2638"><span md-pos="2623-2638">Parse Trees 解析树</span></h3>
+<ul>
+    <li md-pos="2640-2903" class="p">
+        <p md-pos="2642-2675" class="p"><span md-pos="2642-2663" class="p">Scope of a connective</span><br />
+            <span md-pos="2668-2674">连接器的范围</span></p>
+        <ul>
+            <li md-pos="2677-2747"><span md-pos="2679-2723" class="p">The connective itself, plus what it connects</span><br />
+                <span md-pos="2730-2746">连接器本身，再加上它所连接的东西</span></li>
+            <li md-pos="2749-2839"><span md-pos="2751-2815" class="p">That is, the sub-tree of the parse tree rooted at the connective</span><br />
+                <span md-pos="2822-2838">连接器本身，再加上它所连接的东西</span></li>
+            <li md-pos="2841-2903"><span md-pos="2843-2881" class="p">The scope of ^ in (P ^ Q) ∨ R is P ^ Q</span>
+                <span md-pos="2886-2902">(P^Q)∨R中的^范围为P^Q</span></li>
+        </ul>
+    </li>
+    <li md-pos="2904-3148" class="p">
+        <p md-pos="2906-2950" class="p"><span md-pos="2906-2934" class="p">Main connective of a formula</span><br />
+            <span md-pos="2939-2949">一个公式的主要连接器</span></p>
+        <ul>
+            <li md-pos="2952-3021"><span md-pos="2954-3001" class="p">The connective whose scope is the whole formula</span><br />
+                <span md-pos="3008-3020">其范围是整个公式的连接器</span></li>
+            <li md-pos="3023-3082"><span md-pos="3025-3065" class="p">That is, the root node of the parse tree</span><br />
+                <span md-pos="3072-3081">即，解析树的根节点</span></li>
+            <li md-pos="3084-3148"><span md-pos="3086-3125" class="p">The main connective of (P ^ Q) ∨ R is ∨</span><br />
+                <span md-pos="3132-3147">(P^Q)∨R的主要连接器是∨</span></li>
+        </ul>
+    </li>
+</ul>
+<h2 id="lecture-4" md-pos="3149-3161"><span md-pos="3152-3161">Lecture 4</span></h2>
+<h3 id="natural-deduction" md-pos="3163-3184"><span md-pos="3167-3184">Natural Deduction</span></h3>
+<ul>
+    <li md-pos="3186-3431" class="p">
+        <p md-pos="3188-3205" class="p"><span md-pos="3188-3197" class="p">Framework</span><br />
+            <span md-pos="3202-3204">框架</span></p>
+        <ul>
+            <li md-pos="3207-3267"><span md-pos="3209-3248" class="p">“natural” style of constructing a proof</span><br />
+                <span md-pos="3255-3266">构建证明的“自然”风格</span></li>
+            <li md-pos="3269-3316"><span md-pos="3271-3300" class="p">start with the given premises</span><br />
+                <span md-pos="3307-3315">从给定的前提开始</span></li>
+            <li md-pos="3318-3381"><span md-pos="3320-3362" class="p">repeatedly apply the given inference rules</span><br />
+                <span md-pos="3369-3380">反复应用给定的推理规则</span></li>
+            <li md-pos="3383-3431"><span md-pos="3385-3416" class="p">until you obtain the conclusion</span><br />
+                <span md-pos="3423-3430">直到你得出结论</span></li>
+        </ul>
+    </li>
+    <li md-pos="3432-3584" class="p">
+        <p md-pos="3434-3460" class="p"><span md-pos="3434-3449" class="p">Two key points:</span><br />
+            <span md-pos="3454-3459">两个关键点</span></p>
+        <ul>
+            <li md-pos="3462-3517"><span md-pos="3464-3500" class="p">Can work both forwards and backwards</span><br />
+                <span md-pos="3507-3516">可以向前和反向工作</span></li>
+            <li md-pos="3519-3584"><span md-pos="3521-3563" class="p">Natural doesn’t mean there is unique proof</span><br />
+                <span md-pos="3570-3583">自然并不意味着有独特的证据</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="comprehensive-set-of-inference-rules-综合的推理规则集" md-pos="3585-3634"><span md-pos="3589-3634">Comprehensive set of inference rules 综合的推理规则集</span></h3>
+<ul>
+    <li md-pos="3636-3749" class="p">
+        <p md-pos="3638-3749" class="p"><span md-pos="3638-3663" class="p">Rules for → (implication)</span><br />
+            <span md-pos="3666-3689"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Rules%20for%20implication.png" alt="Rules for implication" md-pos="3666-3748" /></span></p>
+    </li>
+    <li md-pos="3750-3839" class="p">
+        <p md-pos="3752-3839" class="p"><span md-pos="3752-3769" class="p">Rules for ¬ (not)</span><br />
+            <span md-pos="3772-3787"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Rules%20for%20not.png" alt="Rules for not" md-pos="3772-3838" /></span></p>
+    </li>
+    <li md-pos="3840-3926" class="p">
+        <p md-pos="3842-3926" class="p"><span md-pos="3842-3858" class="p">Rules for ∨ (or)</span><br />
+            <span md-pos="3861-3875"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Rules%20for%20or.png" alt="Rules for or" md-pos="3861-3925" /></span></p>
+    </li>
+    <li md-pos="3927-4016" class="p">
+        <p md-pos="3929-4016" class="p"><span md-pos="3929-3946" class="p">Rules for ∧ (and)</span><br />
+            <span md-pos="3949-3964"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Rules%20for%20and.png" alt="Rules for and" md-pos="3949-4015" /></span></p>
+    </li>
+</ul>
+</body>
+</html>

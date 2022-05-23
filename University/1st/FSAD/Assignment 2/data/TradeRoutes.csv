@@ -1,0 +1,129 @@
+MonitoringKey,FleetSize,OperatingCompany,LastYearRevenue
+1,4,"Sagan Enterprises",15624.05
+2,24,"Sagan Enterprises",14735.05
+3,21,"Correlation and Causality Ltd",17917.05
+4,2,"Navier Stokes Co.",-570.95
+5,12,"Avogadro's Number",13208.05
+6,9,"Correlation and Causality Ltd",-495.95
+7,16,"Navier Stokes Co.",21479.05
+8,7,"Navier Stokes Co.",8015.05
+9,15,"Navier Stokes Co.",22020.05
+10,15,"Correlation and Causality Ltd",5419.05
+11,15,"Correlation and Causality Ltd",14690.05
+12,12,"Fourier transform",24534.05
+13,2,"Avogadro's Number",-60.95
+14,13,"Correlation and Causality Ltd",110.05
+15,11,"Fourier transform",-811.95
+16,4,"Correlation and Causality Ltd",17453.05
+17,12,"Fourier transform",15163.05
+18,12,"Correlation and Causality Ltd",1770.05
+19,14,"Sagan Enterprises",20625.05
+20,20,"Sagan Enterprises",15695.05
+21,18,"Correlation and Causality Ltd",559.05
+22,22,"Avogadro's Number",533.05
+23,2,"Navier Stokes Co.",2377.05
+24,6,"Correlation and Causality Ltd",20422.05
+25,12,"Fourier transform",1172.05
+26,24,"Fourier transform",5192.05
+27,20,"The Wave Function Company",5352.05
+28,12,"Fourier transform",1515.05
+29,9,"Fourier transform",22342.05
+30,2,"Sagan Enterprises",17916.05
+31,19,"Fourier transform",18898.05
+32,13,"Fourier transform",16598.05
+33,6,"Correlation and Causality Ltd",12887.05
+34,11,"Sagan Enterprises",7639.05
+35,5,"Fourier transform",16909.05
+36,19,"Fourier transform",1867.05
+37,10,"Correlation and Causality Ltd",2704.05
+38,24,"Sagan Enterprises",-835.95
+39,1,"Correlation and Causality Ltd",25270.05
+40,21,"Avogadro's Number",25438.05
+41,16,"Fourier transform",2041.05
+42,14,"Avogadro's Number",11537.05
+43,17,"Correlation and Causality Ltd",16768.05
+44,18,"Correlation and Causality Ltd",6638.05
+45,3,"Sagan Enterprises",19473.05
+46,22,"Navier Stokes Co.",14044.05
+47,1,"Navier Stokes Co.",10442.05
+48,8,"Correlation and Causality Ltd",6003.05
+49,5,"Navier Stokes Co.",19451.05
+50,23,"The Wave Function Company",23448.05
+51,3,"Fourier transform",18751.05
+52,15,"Fourier transform",9862.05
+53,16,"Fourier transform",24552.05
+54,17,"Sagan Enterprises",5678.05
+55,22,"The Wave Function Company",13354.05
+56,2,"Fourier transform",25006.05
+57,21,"Sagan Enterprises",6018.05
+58,14,"Fourier transform",5530.05
+59,18,"Correlation and Causality Ltd",24258.05
+60,6,"Fourier transform",514.05
+61,14,"Sagan Enterprises",6893.05
+62,18,"Correlation and Causality Ltd",14969.05
+63,24,"Navier Stokes Co.",4237.05
+64,12,"Fourier transform",16193.05
+65,3,"Sagan Enterprises",20684.05
+66,2,"Sagan Enterprises",12485.05
+67,16,"Navier Stokes Co.",16606.05
+68,20,"Fourier transform",20617.05
+69,18,"Correlation and Causality Ltd",5068.05
+70,9,"Avogadro's Number",15225.05
+71,24,"Correlation and Causality Ltd",1726.05
+72,13,"Navier Stokes Co.",12873.05
+73,24,"Sagan Enterprises",21775.05
+74,3,"Correlation and Causality Ltd",24068.05
+75,6,"Sagan Enterprises",12389.05
+76,20,"Navier Stokes Co.",6291.05
+77,23,"Navier Stokes Co.",16653.05
+78,20,"Sagan Enterprises",23971.05
+79,8,"Avogadro's Number",12709.05
+80,5,"Correlation and Causality Ltd",25544.05
+81,21,"Correlation and Causality Ltd",4071.05
+82,20,"Fourier transform",1691.05
+83,7,"Avogadro's Number",6837.05
+84,6,"Navier Stokes Co.",9575.05
+85,9,"Sagan Enterprises",10247.05
+86,21,"Correlation and Causality Ltd",7227.05
+87,21,"Navier Stokes Co.",17795.05
+88,15,"Sagan Enterprises",1157.05
+89,15,"The Wave Function Company",9731.05
+90,8,"Correlation and Causality Ltd",6777.05
+91,18,"Correlation and Causality Ltd",7089.05
+92,20,"Avogadro's Number",1536.05
+93,12,"Sagan Enterprises",15031.05
+94,12,"Correlation and Causality Ltd",6432.05
+95,12,"Navier Stokes Co.",2908.05
+96,8,"Correlation and Causality Ltd",-1363.95
+97,17,"Navier Stokes Co.",6456.05
+98,23,"Fourier transform",13842.05
+99,23,"Navier Stokes Co.",22689.05
+100,19,"Correlation and Causality Ltd",-213.95
+101,7,"Navier Stokes Co.",23624.05
+102,18,"Navier Stokes Co.",2238.05
+103,4,"Sagan Enterprises",21661.05
+104,4,"Correlation and Causality Ltd",20742.05
+105,6,"Fourier transform",23987.05
+106,4,"Navier Stokes Co.",2413.05
+107,15,"Correlation and Causality Ltd",12568.05
+108,3,"Correlation and Causality Ltd",9811.05
+109,21,"Correlation and Causality Ltd",3415.05
+110,18,"The Wave Function Company",14515.05
+111,23,"Correlation and Causality Ltd",15373.05
+112,13,"Avogadro's Number",4545.05
+113,17,"Avogadro's Number",12988.05
+114,22,"Avogadro's Number",25958.05
+115,14,"Sagan Enterprises",12159.05
+116,8,"Avogadro's Number",17824.05
+117,24,"Fourier transform",9989.05
+118,2,"Fourier transform",-420.95
+119,9,"Navier Stokes Co.",6712.05
+120,24,"The Wave Function Company",20769.05
+121,10,"Sagan Enterprises",8195.05
+122,8,"Fourier transform",921.05
+123,4,"Correlation and Causality Ltd",12744.05
+124,23,"Fourier transform",8757.05
+125,4,"Sagan Enterprises",19056.05
+126,9,"Navier Stokes Co.",13121.05
+127,23,"Correlation and Causality Ltd",20854.05
+128,13,"Fourier transform",21197.05

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ChoiceBox?>
+<!--include a BorderPane here-->
+<BorderPane >
+    <!--include a top section-->
+    <top>
+        <!--include a GridPane<> with a vertical and horizontal gap of 20-->
+        <GridPane > <!--these correspond to the variables in the Controller-->
+            <!--include the labels, textfields and choicebox elements here-->
+            <!--include the Button<> with the onAction="addStudentData", no fx:id is required-->
+            <!--the last element is the <Label> you may not notice this on the image-->
+        </GridPane>
+    </top>
+
+    <left>
+        <VBox >
+            <Label>
+
+            </Label>
+            <ListView fx:id="studentListView" />
+            <Label>
+
+            </Label>
+        </VBox>
+    </left>
+    <!--This section is to show a student modules chosen when the studId is clicked-->
+    <bottom>
+        <VBox>
+            <GridPane hgap="20">
+                <!--include the Labels as well as the fx:id's, see Controller class as well as image-->
+            </GridPane>
+        </VBox>
+    </bottom>
+</BorderPane>

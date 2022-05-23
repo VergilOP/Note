@@ -1,0 +1,23 @@
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Harry and a surname of Weasley
+Your studID is HW07rs
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Java and a surname of Fun
+Your studID is JF03vu
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Goodbye

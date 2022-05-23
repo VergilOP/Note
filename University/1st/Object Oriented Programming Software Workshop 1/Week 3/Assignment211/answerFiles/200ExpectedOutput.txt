@@ -1,0 +1,29 @@
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Daniel and a surname of Fentham
+Your studID is DF07it
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter the studId to capture their marks (Enter 0 to return to main menu)
+Please enter mark 1 for student DF07it
+Please enter mark 2 for student DF07it
+Please enter mark 3 for student DF07it
+Student DF07it has a lowest mark of 10
+A highest mark of 12
+Student ***DF07it*** has an average of 11.00
+Would you like to print a bar chart? [y/n]
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Goodbye

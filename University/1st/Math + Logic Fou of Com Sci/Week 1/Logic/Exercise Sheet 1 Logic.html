@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+<style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+<link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="exercise-sheet-1---logic" md-pos="0-26"><span md-pos="2-26">Exercise Sheet 1 - Logic</span></h1>
+<h2 id="1-consider-the-following-language-for-arithmetic-expressions-that-contains-a-nullary-arity-0-operator-zero-a-unary-arity-1-operator-succ-successor-a-unary-operator-pred-predecessor-a-unary-operator-iszero-is-zero-check-a-ternary-arity-3-infix-operator-if-then-else-a-nullary-operator-true-and-a-nullary-operator-false" md-pos="28-371"><span md-pos="31-371">1. Consider the following language for arithmetic expressions that contains a nullary (arity 0) operator zero, a unary (arity 1) operator succ (successor), a unary operator pred (predecessor), a unary operator iszero (is-zero check), a ternary (arity 3) infix operator if-then-else, a nullary operator true, and a nullary operator false.**</span></h2>
+<ul>
+  <li md-pos="373-591" class="p">
+    <p md-pos="375-492" class="p"><span md-pos="375-489" class="p"><strong>Define a BNF for this language. Your BNF should contain a single rule (of the form lhs ::= rhs1 | · · · | rhsn).</strong></span></p>
+    <ul>
+      <li md-pos="494-591"><span md-pos="496-590" class="p"><em>exp</em> ::= zero|succ(<em>exp</em>)|pred(<em>exp</em>)|iszero(<em>exp</em>)|if <em>exp</em> then <em>exp</em> else <em>exp</em>|true|false</span></li>
+    </ul>
+  </li>
+  <li md-pos="592-680" class="p">
+    <p md-pos="594-649" class="p"><span md-pos="594-646" class="p"><strong>Indicate whether some expressions can be ambiguous</strong></span></p>
+    <ul>
+      <li md-pos="651-680"><span md-pos="653-679" class="p">No expression is ambiguous</span></li>
+    </ul>
+  </li>
+  <li md-pos="681-989" class="p">
+    <p md-pos="683-915" class="p"><span md-pos="683-912" class="p"><strong>Let e be an arithmetic expression. Using this grammar, write down another expression thatreturns zero if e is zero, and otherwise returns e’s predecessor. In addition, write down the parse tree corresponding to this expression.</strong></span></p>
+    <ul>
+      <li md-pos="917-989"><span md-pos="919-958" class="p">if iszero(<em>e</em>) then zero else pred(<em>e</em>)</span><br />
+        <span md-pos="965-971"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Q1_1.png" alt="Q1_1" md-pos="965-988" /></span></li>
+    </ul>
+  </li>
+</ul>
+<h2 id="2-some-language-also-support-if-then-expressions-where-the-infix-if-then-operator-takes-two-arguments-a-condition-and-a-then-branch" md-pos="990-1133"><span md-pos="993-1133">2. Some language also support “if-then” expressions where the infix “if-then” operator takes two arguments: a condition and a “then” branch.</span></h2>
+<ul>
+  <li md-pos="1135-1326" class="p">
+    <p md-pos="1137-1207" class="p"><span md-pos="1137-1204" class="p"><strong>Add an infix binary (arity 2) “if-then” operator to your language</strong></span></p>
+    <ul>
+      <li md-pos="1209-1326"><span md-pos="1211-1324" class="p"><em>exp</em> ::= zero|succ(<em>exp</em>)|pred(<em>exp</em>)|iszero(<em>exp</em>)|if <em>exp</em> then <em>exp</em> else <em>exp</em>|true|false|if <em>exp</em> then <em>exp</em></span></li>
+    </ul>
+  </li>
+  <li md-pos="1327-1461" class="p">
+    <p md-pos="1329-1385" class="p"><span md-pos="1329-1382" class="p"><strong>Indicate whether some expressions can be ambiguous.</strong></span></p>
+    <ul>
+      <li md-pos="1387-1461"><span md-pos="1389-1460" class="p">There is ambiguous as the &quot;if-then-else&quot; can be mixed up with &quot;if-then&quot;</span></li>
+    </ul>
+  </li>
+  <li md-pos="1462-1734" class="p">
+    <p md-pos="1464-1611" class="p"><span md-pos="1464-1608" class="p"><strong>In case some expressions are ambiguous, write down the parse trees corresponding to two different ways an ambiguous expression can be derived.</strong></span></p>
+    <ul>
+      <li md-pos="1613-1734"><span md-pos="1615-1707" class="p">if <em>exp<sub>1</sub></em> then if <em>exp<sub>2</sub></em> then <em>exp<sub>3</sub></em> else <em>exp<sub>4</sub></em></span>
+        <span md-pos="1710-1716"><img src="file:/F:/学习资料/CS/Note%20CS/大一%20笔记/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci/Week%201/Logic/image/Q2_1.png" alt="Q2_1" md-pos="1710-1733" /></span></li>
+    </ul>
+  </li>
+</ul>
+<h2 id="3-to-use-this-language-as-part-of-a-logical-system-we-can-for-example-add-an-equality-operator" md-pos="1735-1835"><span md-pos="1738-1835">3. To use this language as part of a logical system, we can for example add an equality operator.</span></h2>
+<ul>
+  <li md-pos="1837-2078" class="p">
+    <p md-pos="1839-1925" class="p"><span md-pos="1839-1922" class="p"><strong>Add a new rule to your BNF for stating equalities between arithmetic expressions.</strong></span></p>
+    <ul>
+      <li md-pos="1927-2078"><span md-pos="1929-2049" class="p"><em>exp</em> ::= zero|succ(<em>exp</em>)|pred(<em>exp</em>)|iszero(<em>exp</em>)|if <em>exp</em> then <em>exp</em> else <em>exp</em>|true|false|if <em>exp</em> then <em>exp</em>|equal</span><br />
+        <span md-pos="2056-2076">equal ::= <em>exp</em>=<em>exp</em></span></li>
+    </ul>
+  </li>
+  <li md-pos="2079-2445" class="p">
+    <p md-pos="2081-2353" class="p"><span md-pos="2081-2350" class="p"><strong>Define an axiom schema that states that “the expression that given an expression e, checks whether e is zero, and if it is returns zero, else returns e’s predecessor” is equal to “e’s predecessor”, and indicate which variables are metavariables in your axiom, if any.</strong></span></p>
+    <ul>
+      <li md-pos="2355-2445"><span md-pos="2357-2406" class="p">if iszero(<em>e</em>) then zero else pred(<em>e</em>)=pred(<em>e</em>)</span><br />
+        <span md-pos="2413-2444"><em>e</em> should be the metavariables</span></li>
+    </ul>
+  </li>
+  <li md-pos="2446-2628" class="p">
+    <p md-pos="2448-2497" class="p"><span md-pos="2448-2494" class="p"><strong>Provide 2 different instances of this axiom.</strong></span></p>
+    <ul>
+      <li md-pos="2499-2628"><span md-pos="2501-2553" class="p">if iszero(zero) then zero else pred(zero)=pred(zero)</span><br />
+        <span md-pos="2560-2627">if iszero(succ(<em>e</em>)) then zero else pred(succ(<em>e</em>))=pred(succ(<em>e</em>))</span></li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

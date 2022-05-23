@@ -1,0 +1,77 @@
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Toto and a surname of Wolf
+Your studID is TW04tl
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter your given name and surname (Enter 0 to return to main menu)
+You entered a given name of Lewis and a surname of Hamilton
+Your studID is LH08wl
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter the studId to capture their marks (Enter 0 to return to main menu)
+Please enter mark 1 for student TW04tl
+Please enter mark 2 for student TW04tl
+Please enter mark 3 for student TW04tl
+Student TW04tl has a lowest mark of 2
+A highest mark of 5
+Student ***TW04tl*** has an average of  3.33
+Would you like to print a bar chart? [y/n]
+Student id statistics: TW04tl
+   *
+   *
+   *
+   *           *
+   *           *
+Highest     Lowest
+   5           2
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Please enter the studId to capture their marks (Enter 0 to return to main menu)
+Please enter mark 1 for student LH08wl
+Please enter mark 2 for student LH08wl
+Please enter mark 3 for student LH08wl
+Student LH08wl has a lowest mark of 5
+A highest mark of 7
+Student ***LH08wl*** has an average of  6.00
+Would you like to print a bar chart? [y/n]
+Student id statistics: LH08wl
+   *
+   *
+   *           *
+   *           *
+   *           *
+   *           *
+   *           *
+Highest     Lowest
+   7           5
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+| Student ID   1 is TW04tl | Average is  3.33 |
+| Student ID   2 is LH08wl | Average is  6.00 |
+
+Welcome to the Student System. Please enter an option 0 to 3
+0. Exit
+1. Generate a student ID
+2. Capture marks for students
+3. List student IDs and average mark
+Goodbye

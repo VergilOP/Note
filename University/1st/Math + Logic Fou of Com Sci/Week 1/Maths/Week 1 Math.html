@@ -1,0 +1,122 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+  <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+  <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="math-week-1" md-pos="0-13"><span md-pos="2-13">Math Week 1</span></h1>
+<h2 id="lecture-1-the-natural-numbers" md-pos="15-47"><span md-pos="18-47">Lecture 1 The natural numbers</span></h2>
+<h3 id="the-pitfalls-of-computer-arithmetic" md-pos="49-88"><span md-pos="53-88">The pitfalls of computer arithmetic</span></h3>
+<ul>
+  <li md-pos="90-140"><span md-pos="92-139" class="p">10<sup>10</sup> = 1,1410,065,408 (in C program)</span></li>
+</ul>
+<h3 id="11-the-laws-of-arithmetic" md-pos="141-171"><span md-pos="145-171">1.1 The laws of arithmetic</span></h3>
+<ul>
+  <li md-pos="173-215"><span md-pos="175-213" class="p">neutral elements <code>a + 0 = a a × 1 = a</code></span></li>
+  <li md-pos="215-262"><span md-pos="217-260" class="p">commutativity <code>a + b = b + a a × b = b × a</code></span></li>
+  <li md-pos="262-333"><span md-pos="264-331" class="p">associativity <code>(a + b) + c = a + (b + c) (a × b) × c = a × (b × c)</code></span></li>
+  <li md-pos="333-380"><span md-pos="335-378" class="p">distributivity <code>a × (b + c) = a × b + a × c</code></span></li>
+  <li md-pos="380-407"><span md-pos="382-405" class="p">annihilation <code>a × 0 = 0</code></span></li>
+</ul>
+<p md-pos="408-462"><span md-pos="408-459"><strong>These actually hold for computer integers as well</strong></span></p>
+<h3 id="12-beyond-equations" md-pos="463-487"><span md-pos="467-487">1.2 Beyond equations</span></h3>
+<ul>
+  <li md-pos="489-538"><span md-pos="491-536" class="p">additive cancellation <code>a + c = b + c =⇒ a = b</code></span></li>
+  <li md-pos="538-603"><span md-pos="540-601" class="p">multiplicative cancellation <code>c 6 = 0 &amp; a × c = b × c =⇒ a = b</code></span></li>
+</ul>
+<p md-pos="604-737"><span md-pos="604-662"><strong>Additive cancellation also holds for computer integers</strong></span><br />
+  <span md-pos="665-734"><strong>But multiplicative cancellation does not hold for computer integers</strong></span></p>
+<ul>
+  <li md-pos="738-755"><span md-pos="740-754" class="p">Peano's Axioms</span></li>
+</ul>
+<ol>
+  <li md-pos="755-780"><span md-pos="758-779" class="p">0 is a natural number</span></li>
+  <li md-pos="780-828"><span md-pos="783-826" class="p">If <em>a</em> is a natural number then so is <em>s(a)</em></span></li>
+  <li md-pos="828-886"><span md-pos="831-885" class="p">A number of the form <em>s(a)</em> is always different from 0</span></li>
+  <li md-pos="886-948"><span md-pos="889-947" class="p">If <em>s(a)</em> and <em>s(b)</em> are equal, then <em>a</em> and <em>b</em> are equal</span></li>
+  <li md-pos="948-1143"><span md-pos="951-998" class="p">If <em>P(x)</em> is a property of natural numbers that</span>
+    <span md-pos="1006-1035">(ground case) holds of 0, and</span>
+    <span md-pos="1040-1097">(inductive step) holds of <em>s(x)</em> whenever it holds of <em>x</em></span>
+    <span md-pos="1101-1142">then <em>P</em> holds of all the natural numbers</span></li>
+</ol>
+<p md-pos="1144-1249"><span md-pos="1144-1248">The Axiom of Induction can be used to prove that some properties P(a) and true for all natural numbers a</span></p>
+<h3 id="13-place-value-systems" md-pos="1250-1277"><span md-pos="1254-1277">1.3 Place value systems</span></h3>
+<ul>
+  <li md-pos="1278-1440"><span md-pos="1280-1300" class="p"><strong>Place value system</strong></span>
+    <ul>
+      <li md-pos="1305-1440"><span md-pos="1307-1350" class="p"><strong>base</strong> <em>b</em>&gt;0 and <strong>digits</strong> 0,1,...,<em>b</em>-1</span><br />
+        <span md-pos="1355-1395"><code>dn ×bn +dn−1 ×bn−1 +...+d1 ×b1 +d0 ×b0</code></span><br />
+        <span md-pos="1401-1403">or</span><br />
+        <span md-pos="1408-1438"><code>dn bn +dn−1 bn−1 +...+d1 b+d0</code></span></li>
+    </ul>
+  </li>
+</ul>
+<h3 id="14-natural-number-representation-in-a-computer" md-pos="1441-1492"><span md-pos="1445-1492">1.4 Natural number representation in a computer</span></h3>
+<ul>
+  <li md-pos="1494-1562" class="p">
+    <p md-pos="1496-1562" class="p"><span md-pos="1496-1561" class="p">The bit pattern as the digit representation of a number in base 2</span></p>
+  </li>
+  <li md-pos="1563-1786" class="p">
+    <p md-pos="1565-1691" class="p"><span md-pos="1565-1690" class="p">What happens when the result of an operation requires more than 32 digits(There are only 32 bits to represent binary digits)?</span></p>
+    <ol>
+      <li md-pos="1693-1763"><span md-pos="1696-1762" class="p">The excess digits are available for only a short moment in the cpu</span></li>
+      <li md-pos="1765-1786"><span md-pos="1768-1785" class="p">Java ignores them</span></li>
+    </ol>
+  </li>
+</ul>
+<p md-pos="1787-1874"><span md-pos="1787-1828">Left associative: Read from left to right</span><br />
+  <span md-pos="1831-1873">Right associative: Read from right to left</span></p>
+<p md-pos="1875-1929"><span md-pos="1875-1928">Ambiguous: without either Precedence or Associativity</span></p>
+<h2 id="lecture-2-the-integers" md-pos="1930-1955"><span md-pos="1933-1955">Lecture 2 The integers</span></h2>
+<h3 id="21-the-arithmetic-laws-of-integers" md-pos="1957-1996"><span md-pos="1961-1996">2.1 The arithmetic laws of integers</span></h3>
+<ul>
+  <li md-pos="1998-2116"><span md-pos="2000-2115" class="p">We only need to assume that for every integer a there is another integer denoted by -a for which a + (-a) = 0 holds</span></li>
+  <li md-pos="2116-2165"><span md-pos="2118-2164" class="p">From this we can prove (additive) cancellation</span></li>
+  <li md-pos="2165-2203"><span md-pos="2167-2202" class="p">From this we can prove annihilation</span></li>
+  <li md-pos="2203-2255"><span md-pos="2205-2254" class="p">From this we can prove double negation: -(-a) = a</span></li>
+  <li md-pos="2255-2335"><span md-pos="2257-2310" class="p">From this we can prove minus times minus equals plus:</span><br />
+    <span md-pos="2315-2334">(-a) x (-b) = a x b</span></li>
+</ul>
+<h3 id="22-rings" md-pos="2336-2349"><span md-pos="2340-2349">2.2 Rings</span></h3>
+<pre md-pos="2351-2739"><code md-pos="2355-2735">The laws of rings
+      a + 0 = a                   a x 1 = a            (neutral elements)
+      a + b = b + a               a x b = b x a        (commutativity)
+   a + (-a) = 0                                        (additive inverse)
+(a + b) + c = a + (b + c)   (a x b) x c = a x (b x c)  (associativity)
+                 a x (b + c) = a x b + a x c           (distributivity)
+</code></pre>
+<h3 id="23-integers-in-computers" md-pos="2740-2769"><span md-pos="2744-2769">2.3 Integers in computers</span></h3>
+<ul>
+  <li md-pos="2771-2824"><span md-pos="2773-2823" class="p">Java's int variables are based on 32-bit registers</span></li>
+  <li md-pos="2824-2874"><span md-pos="2826-2873" class="p">All calculations are done modulo 2<sup>32</sup></span></li>
+  <li md-pos="2874-2961"><span md-pos="2876-2958" class="p">The bit patterns from 100...000 to 111...111 are interpreted as <strong>negative numbers</strong></span></li>
+</ul>
+<h3 id="24-modulo-arithmetic" md-pos="2962-2987"><span md-pos="2966-2987">2.4 Modulo arithmetic</span></h3>
+<ul>
+  <li md-pos="2989-3107" class="p">
+    <p md-pos="2991-3107" class="p"><span md-pos="2991-3106" class="p">Computng &quot;modulo m&quot; can be done for any m &gt; 1. We get the ring Z<sub>m</sub> which has exactly m different elements</span></p>
+  </li>
+  <li md-pos="3108-3597" class="p">
+    <p md-pos="3110-3181" class="p"><span md-pos="3110-3180" class="p">Calculations in Z<sub>m</sub> can be thought of in two different ways:</span></p>
+    <ol>
+      <li md-pos="3183-3504"><span md-pos="3186-3409" class="p">We can take the numbers from 0 to m - 1 as the standard members of Z<sub>m</sub>, perform calculations with them as we would in Z, then reduce the result to an answer between 0 and m - 1 at the end. Example in Z<sub>7</sub></span><br />
+        <span md-pos="3417-3432">3 x 5 = 15 in Z</span><br />
+        <span md-pos="3446-3458">= 1 modulo 7</span><br />
+        <span md-pos="3466-3503">so in Z<sub>7</sub> we have 3 x 5 = 1</span></li>
+      <li md-pos="3506-3597"><span md-pos="3509-3596" class="p">Alternatively, we can do all calculations in Z and use = for comparisons, instead of =.</span></li>
+    </ol>
+  </li>
+  <li md-pos="3598-3870" class="p">
+    <p md-pos="3600-3870" class="p"><span md-pos="3600-3869" class="p">Computer integers implement calculations in Z<sub>2</sub>32 and adopt the first approach internally, but when reporting the result back to the user, the numbers between 2<sup>31<sup> and 2<sup>32</sup> - 1 are converted to negative numbers by subtracting 2<sup>32</sup></span></p>
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ListView?>
+<GridPane fx:controller="fsd.week1.pizza.Controller"
+          xmlns:fx="http://javafx.com.fxml" alignment="CENTER" hgap="10" vgap="10">
+    <Label text="Please enter your name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+
+    <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+    <fx:define>
+        <ToggleGroup fx:id="choiceToggleGroup"/>
+    </fx:define>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <RadioButton fx:id="thickCrust" text="Thick crust" toggleGroup="$choiceToggleGroup"
+                     onAction="#radioSelect"/>
+        <RadioButton fx:id="thinCrust" text="Thin crust" toggleGroup="$choiceToggleGroup"
+                     onAction="#radioSelect"/>
+    </VBox>
+
+    <ChoiceBox fx:id="choices" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+    <ListView fx:id="myListView" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+
+    <Label fx:id="branchLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Button fx:id="submit" text="Submit Order" GridPane.rowIndex="5" GridPane.columnIndex="0"
+            onAction="#onButtonPressed"/>
+</GridPane>

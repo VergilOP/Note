@@ -1,0 +1,487 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_layout.css">
+    <style>
+
+body.multimarkdown-preview,
+body.multimarkdown-wiki-preview {
+    font-size: 11px;
+}
+</style>
+    <link rel="stylesheet" href="file:/C:/Users/L2002/.markdownNavigator/multimarkdown_darcula.css">
+</head>
+<body class="multimarkdown-preview">
+<h1 id="object-oriented-programming-software-workshop-1" md-pos="0-49"><span md-pos="2-49">Object-Oriented Programming Software Workshop 1</span></h1>
+<h2 id="chapter-2" md-pos="51-63"><span md-pos="54-63">Chapter 2</span></h2>
+<h3 id="what-is-meant-by-a-constant-and-a-variable" md-pos="65-112"><span md-pos="69-112">What is meant by a constant and a variable?</span></h3>
+<ul>
+    <li md-pos="114-168" class="p">
+        <p md-pos="116-129" class="p"><span md-pos="116-126" class="p"><strong>Constant</strong></span></p>
+        <ul>
+            <li md-pos="131-168"><span md-pos="133-167" class="p">A data item that cannot be changed</span></li>
+        </ul>
+    </li>
+    <li md-pos="168-225" class="p">
+        <p md-pos="170-187" class="p"><span md-pos="170-186" class="p">Literal constant</span></p>
+        <ul>
+            <li md-pos="189-225"><span md-pos="191-224" class="p">Value taken literally at each use</span></li>
+        </ul>
+    </li>
+    <li md-pos="225-281" class="p">
+        <p md-pos="227-244" class="p"><span md-pos="227-243" class="p">Numeric constant</span></p>
+        <ul>
+            <li md-pos="246-281"><span md-pos="248-280" class="p">As opposed to a literal constant</span></li>
+        </ul>
+    </li>
+    <li md-pos="281-337" class="p">
+        <p md-pos="283-337" class="p"><span md-pos="283-336" class="p">Unnamed constant -No identifier is associated with it</span></p>
+    </li>
+    <li md-pos="338-470" class="p">
+        <p md-pos="340-353" class="p"><span md-pos="340-350" class="p"><strong>Variable</strong></span></p>
+        <ul>
+            <li md-pos="355-381"><span md-pos="357-380" class="p">A named memory location</span></li>
+            <li md-pos="383-407"><span md-pos="385-406" class="p">Used to store a value</span></li>
+            <li md-pos="409-445"><span md-pos="411-444" class="p">Can hold only one value at a time</span></li>
+            <li md-pos="447-470"><span md-pos="449-469" class="p">Its value can change</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="data-types" md-pos="471-485"><span md-pos="475-485">Data Types</span></h3>
+<ul>
+    <li md-pos="487-523"><span md-pos="489-522" class="p">A type of data that can be stored</span></li>
+    <li md-pos="523-558"><span md-pos="525-557" class="p">How much memory an item occupies</span></li>
+    <li md-pos="558-610"><span md-pos="560-609" class="p">What types of operations can be performed on data</span></li>
+</ul>
+<p md-pos="611-621"><span md-pos="611-620">Primitive</span></p>
+<ul>
+    <li md-pos="621-642"><span md-pos="623-641" class="p">A simple data type</span></li>
+</ul>
+<p md-pos="643-659"><span md-pos="643-658">Reference types</span></p>
+<ul>
+    <li md-pos="659-685" class="p">
+        <p md-pos="661-685" class="p"><span md-pos="661-684" class="p">More complex data types</span></p>
+    </li>
+    <li md-pos="686-711" class="p">
+        <p md-pos="688-711" class="p"><span md-pos="688-710" class="p">8 primitive data types</span></p>
+    </li>
+</ul>
+<table md-pos="712-1172">
+    <thead>
+    <tr md-pos="712-757" class="thead-first-child"><th align="left" md-pos="713-722"> Keyword </th><th align="left" md-pos="723-756"> Description                     </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="804-849" class="tbody-first-child"><td align="left" md-pos="805-814"> byte    </td><td align="left" md-pos="815-848"> Byte-length integer             </td></tr>
+    <tr md-pos="850-895" class="tbody-even-child"><td align="left" md-pos="851-860"> short   </td><td align="left" md-pos="861-894"> Short integer                   </td></tr>
+    <tr md-pos="896-941" class="tbody-odd-child"><td align="left" md-pos="897-906"> int     </td><td align="left" md-pos="907-940"> Integer                         </td></tr>
+    <tr md-pos="942-987" class="tbody-even-child"><td align="left" md-pos="943-952"> long    </td><td align="left" md-pos="953-986"> Long integer                    </td></tr>
+    <tr md-pos="988-1033" class="tbody-odd-child"><td align="left" md-pos="989-998"> float   </td><td align="left" md-pos="999-1032"> Single-precision floating point </td></tr>
+    <tr md-pos="1034-1079" class="tbody-even-child"><td align="left" md-pos="1035-1044"> double  </td><td align="left" md-pos="1045-1078"> Double-precision floating point </td></tr>
+    <tr md-pos="1080-1125" class="tbody-odd-child"><td align="left" md-pos="1081-1090"> char    </td><td align="left" md-pos="1091-1124"> A single character              </td></tr>
+    <tr md-pos="1126-1171" class="tbody-even-child"><td align="left" md-pos="1127-1136"> boolean </td><td align="left" md-pos="1137-1170"> A Boolean value (ture or false) </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="1173-1194"><span md-pos="1175-1193" class="p">Integer Data Types</span></li>
+</ul>
+<table md-pos="1195-1693">
+    <thead>
+    <tr md-pos="1195-1277" class="thead-first-child"><th align="left" md-pos="1196-1203"> Type  </th><th align="left" md-pos="1204-1232"> Minimum Value              </th><th align="left" md-pos="1233-1260"> Maximum Value             </th><th align="left" md-pos="1261-1276"> Size in Bytes </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="1361-1443" class="tbody-first-child"><td align="left" md-pos="1362-1369"> byte  </td><td align="left" md-pos="1370-1398"> -128                       </td><td align="left" md-pos="1399-1426"> 127                       </td><td align="left" md-pos="1427-1442"> 1             </td></tr>
+    <tr md-pos="1444-1526" class="tbody-even-child"><td align="left" md-pos="1445-1452"> short </td><td align="left" md-pos="1453-1481"> -32,768                    </td><td align="left" md-pos="1482-1509"> 32,767                    </td><td align="left" md-pos="1510-1525"> 2             </td></tr>
+    <tr md-pos="1527-1609" class="tbody-odd-child"><td align="left" md-pos="1528-1535"> int   </td><td align="left" md-pos="1536-1564"> -2,147,483,648             </td><td align="left" md-pos="1565-1592"> 2,147,483,647             </td><td align="left" md-pos="1593-1608"> 4             </td></tr>
+    <tr md-pos="1610-1692" class="tbody-even-child"><td align="left" md-pos="1611-1618"> long  </td><td align="left" md-pos="1619-1647"> -9,223,372,036,854,775,808 </td><td align="left" md-pos="1648-1675"> 9,223,372,036,854,775,807 </td><td align="left" md-pos="1676-1691"> 8             </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="1694-1714"><span md-pos="1696-1713" class="p">boolean Data Type</span></li>
+</ul>
+<table md-pos="1715-2035">
+    <thead>
+    <tr md-pos="1715-1754" class="thead-first-child"><th align="left" md-pos="1716-1726"> Operator </th><th align="left" md-pos="1727-1753"> Description              </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="1795-1834" class="tbody-first-child"><td align="left" md-pos="1796-1806"> &lt;        </td><td align="left" md-pos="1807-1833"> Less than                </td></tr>
+    <tr md-pos="1835-1874" class="tbody-even-child"><td align="left" md-pos="1836-1846"> &gt;        </td><td align="left" md-pos="1847-1873"> Greater than             </td></tr>
+    <tr md-pos="1875-1914" class="tbody-odd-child"><td align="left" md-pos="1876-1886"> ==       </td><td align="left" md-pos="1887-1913"> Equal to                 </td></tr>
+    <tr md-pos="1915-1954" class="tbody-even-child"><td align="left" md-pos="1916-1926"> &lt;=       </td><td align="left" md-pos="1927-1953"> Less than or equal to    </td></tr>
+    <tr md-pos="1955-1994" class="tbody-odd-child"><td align="left" md-pos="1956-1966"> &gt;=       </td><td align="left" md-pos="1967-1993"> Greater than or equal to </td></tr>
+    <tr md-pos="1995-2034" class="tbody-even-child"><td align="left" md-pos="1996-2006"> !=       </td><td align="left" md-pos="2007-2033"> Not equal to             </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="2036-2064"><span md-pos="2038-2063" class="p">Floating-Point Data Types</span></li>
+</ul>
+<table md-pos="2065-2377">
+    <thead>
+    <tr md-pos="2065-2142" class="thead-first-child"><th align="left" md-pos="2066-2074"> Type   </th><th align="left" md-pos="2075-2100"> Minimum                 </th><th align="left" md-pos="2101-2125"> Maximum                </th><th align="left" md-pos="2126-2141"> Size in Bytes </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="2221-2298" class="tbody-first-child"><td align="left" md-pos="2222-2230"> float  </td><td align="left" md-pos="2231-2256"> -3.4 * 10<sup>38</sup>  </td><td align="left" md-pos="2257-2281"> 3.4 * 10<sup>38</sup>  </td><td align="left" md-pos="2282-2297"> 4             </td></tr>
+    <tr md-pos="2299-2376" class="tbody-even-child"><td align="left" md-pos="2300-2308"> double </td><td align="left" md-pos="2309-2334"> -1.7 * 10<sup>308</sup> </td><td align="left" md-pos="2335-2359"> 1.7 * 10<sup>308</sup> </td><td align="left" md-pos="2360-2375"> 8             </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="2378-2395"><span md-pos="2380-2394" class="p">Char Data Type</span></li>
+</ul>
+<table md-pos="2396-3242">
+    <thead>
+    <tr md-pos="2396-2489" class="thead-first-child"><th align="left" md-pos="2397-2414"> Escape Sequence </th><th align="left" md-pos="2415-2488"> Description                                                             </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="2584-2677" class="tbody-first-child"><td align="left" md-pos="2585-2602"> \b              </td><td align="left" md-pos="2603-2676"> Backspace;moves the cursor one space to the left                        </td></tr>
+    <tr md-pos="2678-2771" class="tbody-even-child"><td align="left" md-pos="2679-2696"> \t              </td><td align="left" md-pos="2697-2770"> Tab; moves the cursor to the next tab stop                              </td></tr>
+    <tr md-pos="2772-2865" class="tbody-odd-child"><td align="left" md-pos="2773-2790"> \n              </td><td align="left" md-pos="2791-2864"> Newline or linefeed; moves the cursor to the beginning of the next line </td></tr>
+    <tr md-pos="2866-2959" class="tbody-even-child"><td align="left" md-pos="2867-2884"> \r              </td><td align="left" md-pos="2885-2958"> Carriage return; moves the cursor to the beginning of the current line  </td></tr>
+    <tr md-pos="2960-3053" class="tbody-odd-child"><td align="left" md-pos="2961-2978"> \&quot;             </td><td align="left" md-pos="2979-3052"> Double quotation mark; displays a double quotation mark                 </td></tr>
+    <tr md-pos="3054-3147" class="tbody-even-child"><td align="left" md-pos="3055-3072"> \'             </td><td align="left" md-pos="3073-3146"> Single quotation mark; display a single quotation mark                  </td></tr>
+    <tr md-pos="3148-3241" class="tbody-odd-child"><td align="left" md-pos="3149-3166"> \\             </td><td align="left" md-pos="3167-3240"> Backslash; displays a backslash character                               </td></tr>
+    </tbody>
+</table>
+<h3 id="declaring-variables" md-pos="3243-3266"><span md-pos="3247-3266">Declaring variables</span></h3>
+<ul>
+    <li md-pos="3268-3295"><span md-pos="3270-3294" class="p">Provide date type &amp; Name</span></li>
+    <li md-pos="3295-3327"><span md-pos="3297-3308" class="p">For example</span>
+        <ul>
+            <li md-pos="3311-3327"><span md-pos="3313-3326" class="p">int myNumber;</span></li>
+        </ul>
+    </li>
+    <li md-pos="3327-3376"><span md-pos="3329-3353" class="p">Include a starting value</span>
+        <ul>
+            <li md-pos="3356-3376"><span md-pos="3358-3375" class="p">int myNumber = 25</span></li>
+        </ul>
+    </li>
+    <li md-pos="3376-3453"><span md-pos="3378-3406" class="p">= is the assignment operator</span>
+        <ul>
+            <li md-pos="3409-3453"><span md-pos="3411-3452" class="p">Assigning the value 25 to memory location</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="declaring-constants" md-pos="3454-3477"><span md-pos="3458-3477">Declaring constants</span></h3>
+<ul>
+    <li md-pos="3479-3496"><span md-pos="3481-3495" class="p">Use upper case</span></li>
+    <li md-pos="3496-3520"><span md-pos="3498-3519" class="p">Use the keyword final</span></li>
+    <li md-pos="3520-3610"><span md-pos="3522-3533" class="p">For example</span>
+        <ul>
+            <li md-pos="3536-3570"><span md-pos="3538-3569" class="p">final double TAX_RATE = 500.95;</span></li>
+            <li md-pos="3572-3610"><span md-pos="3574-3609" class="p">payAmount = hoursWorked * TAX_RATE;</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="reference-types" md-pos="3611-3630"><span md-pos="3615-3630">Reference types</span></h3>
+<ul>
+    <li md-pos="3632-3657"><span md-pos="3634-3656" class="p">Holds a memory address</span></li>
+    <li md-pos="3657-3670"><span md-pos="3659-3669" class="p">Class name</span></li>
+    <li md-pos="3670-3697"><span md-pos="3672-3696" class="p">String surname = &quot;Smith&quot;</span></li>
+</ul>
+<h3 id="accepting-input-from-the-user" md-pos="3698-3731"><span md-pos="3702-3731">Accepting input from the user</span></h3>
+<ul>
+    <li md-pos="3733-3815"><span md-pos="3735-3767" class="p">2 ways of achieving this for now</span>
+        <ul>
+            <li md-pos="3770-3787"><span md-pos="3772-3786" class="p">Command prompt</span></li>
+            <li md-pos="3789-3815"><span md-pos="3791-3814" class="p">Using a GUI environment</span></li>
+        </ul>
+    </li>
+    <li md-pos="3815-3850"><span md-pos="3817-3831" class="p">Command prompt</span>
+        <ul>
+            <li md-pos="3834-3850"><span md-pos="3836-3849" class="p">Scanner class</span></li>
+        </ul>
+    </li>
+    <li md-pos="3850-3878"><span md-pos="3852-3855" class="p">GUI</span>
+        <ul>
+            <li md-pos="3858-3878"><span md-pos="3860-3877" class="p">JOptionPane class</span></li>
+        </ul>
+    </li>
+</ul>
+<h4 id="scanner-class" md-pos="3879-3897"><span md-pos="3884-3897">Scanner class</span></h4>
+<table md-pos="3899-5889">
+    <thead>
+    <tr md-pos="3899-4097" class="thead-first-child"><th align="left" md-pos="3900-3914"> Method       </th><th align="left" md-pos="3915-4096"> Description                                                                                                                                                                         </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="4297-4495" class="tbody-first-child"><td align="left" md-pos="4298-4312"> nextDouble() </td><td align="left" md-pos="4313-4494"> Retrieves input as a double                                                                                                                                                         </td></tr>
+    <tr md-pos="4496-4694" class="tbody-even-child"><td align="left" md-pos="4497-4511"> nextInt()    </td><td align="left" md-pos="4512-4693"> Retrieves input as an int                                                                                                                                                           </td></tr>
+    <tr md-pos="4695-4893" class="tbody-odd-child"><td align="left" md-pos="4696-4710"> nextLine()   </td><td align="left" md-pos="4711-4892"> Retrieves the next line of data and returns it as a String                                                                                                                          </td></tr>
+    <tr md-pos="4894-5092" class="tbody-even-child"><td align="left" md-pos="4895-4909"> next()       </td><td align="left" md-pos="4910-5091"> Retrieves the next complete token as a String                                                                                                                                       </td></tr>
+    <tr md-pos="5093-5291" class="tbody-odd-child"><td align="left" md-pos="5094-5108"> nextShort()  </td><td align="left" md-pos="5109-5290"> Retrieves input as a short                                                                                                                                                          </td></tr>
+    <tr md-pos="5292-5490" class="tbody-even-child"><td align="left" md-pos="5293-5307"> nextByte()   </td><td align="left" md-pos="5308-5489"> Retrieves input as a byte                                                                                                                                                           </td></tr>
+    <tr md-pos="5491-5689" class="tbody-odd-child"><td align="left" md-pos="5492-5506"> nextFloat()  </td><td align="left" md-pos="5507-5688"> Retrieves input as a float. Note that when you enter an input value that will be stored as a float, you do not type an F. The F is used only with constants coded within a program. </td></tr>
+    <tr md-pos="5690-5888" class="tbody-even-child"><td align="left" md-pos="5691-5705"> nextLong()   </td><td align="left" md-pos="5706-5887"> Retrieves input as a long. Note that when you enter an input value that will be stored as a long, you do not type anL. The L is used only with constants coded within a program.    </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="5890-5900"><span md-pos="5892-5899" class="p">Example</span></li>
+</ul>
+<pre md-pos="5901-6197"><code class="java" md-pos="5909-6193">import java.util.Scanner;
+public class GetUserInfo
+{
+    public static void main(String[] args)
+    { 
+        int num;
+        Scanner userInput = new Scanner(System.in);
+        System.out.println(&quot;Please enter a value for the number&gt;&gt;&quot;);
+        num = userInput.nextInt();
+    }
+}
+</code></pre>
+<pre md-pos="6198-6950"><code class="java" md-pos="6206-6946">import java.util.Scanner;
+
+public class LetsInputScanner{
+    public void inputPrint(){
+        Scanner sc = new Scanner(System.in);
+        
+        int mark = 0;
+        int studId;
+        String name;
+        System.out.printf(&quot;Please enter your student id %n&gt;&gt;&quot;);
+        studId = sc.nextInt();
+        sc.nextLine();
+        System.out.printf(&quot;Please enter your name %n&gt;&gt;&quot;);
+        name = sc.nextLine();
+        System.out.printf(&quot;Please enter the mark %n&gt;&gt;&quot;);
+        mark = sc.nextInt();
+        System.out.printf(&quot;Student %s with student ID %d has %d&quot;, name, studId, mark);
+    }
+    
+    public static void main(String[] args){
+        LetsInputScanner inputting = new LetsInputScanner();
+        inputting.inputPrint();
+    }
+}
+</code></pre>
+<h4 id="using-the-joptionpane-class-for-input" md-pos="6951-6993"><span md-pos="6956-6993">Using the JOptionPane class for input</span></h4>
+<pre md-pos="6995-7465"><code class="java" md-pos="7003-7461">import javax.swing.JOptionPane;
+public class InputJOP{
+    public static void main(String[] args){
+        String theAnswer;
+        int answer;
+        theAnswer = JOptionPane.showInputDialog(null, &quot;Please enter a number&quot;);
+        answer = InputJOP.parseInt(theAnswer);
+        JOptionPane.showMessageDialog(null, &quot; You typed &quot; +theAnswer);
+        JOptionPane.showMessageDialog(null, &quot; You typed in &quot; +answer +&quot; You typed theAnswer &quot; +theAnswer);
+    }
+}
+</code></pre>
+<h3 id="looking-back-the-chapter-2" md-pos="7466-7496"><span md-pos="7470-7496">Looking back the Chapter 2</span></h3>
+<ul>
+    <li md-pos="7498-7544"><span md-pos="7500-7543" class="p">Declaring and using constants and variables</span></li>
+    <li md-pos="7544-7586"><span md-pos="7546-7585" class="p">Learning about the different data types</span></li>
+    <li md-pos="7586-7637"><span md-pos="7588-7636" class="p">Using the Scanner class to accept keyboard input</span></li>
+    <li md-pos="7637-7687"><span md-pos="7639-7686" class="p">Using the JOptionPane class to accept GUI input</span></li>
+    <li md-pos="7687-7728"><span md-pos="7689-7727" class="p">Using calculations within a Java class</span></li>
+    <li md-pos="7728-7760"><span md-pos="7730-7759" class="p">Understanding Type conversion</span></li>
+</ul>
+<h2 id="chapter-5" md-pos="7761-7773"><span md-pos="7764-7773">Chapter 5</span></h2>
+<h3 id="planning-decision-making-logic" md-pos="7775-7809"><span md-pos="7779-7809">Planning Decision-Making Logic</span></h3>
+<ul>
+    <li md-pos="7811-7988" class="p">
+        <p md-pos="7813-7824" class="p"><span md-pos="7813-7823" class="p">Pseudocode</span></p>
+        <ul>
+            <li md-pos="7826-7852"><span md-pos="7828-7851" class="p">Use paper, and a pencil</span></li>
+            <li md-pos="7854-7915"><span md-pos="7856-7914" class="p">Plan a program's logic by writing plain English statements</span></li>
+            <li md-pos="7917-7962"><span md-pos="7919-7961" class="p">Accomplish important steps in a given task</span></li>
+            <li md-pos="7964-7988"><span md-pos="7966-7987" class="p">Use everyday language</span></li>
+        </ul>
+    </li>
+    <li md-pos="7989-8070" class="p">
+        <p md-pos="7991-8001" class="p"><span md-pos="7991-8000" class="p">Flowchart</span></p>
+        <ul>
+            <li md-pos="8003-8027"><span md-pos="8005-8026" class="p">Steps in diagram form</span></li>
+            <li md-pos="8029-8070"><span md-pos="8031-8069" class="p">A series of shapes connected by arrows</span></li>
+        </ul>
+    </li>
+    <li md-pos="8071-8175" class="p">
+        <p md-pos="8073-8092" class="p"><span md-pos="8073-8091" class="p">Sequence structure</span></p>
+        <ul>
+            <li md-pos="8094-8137"><span md-pos="8096-8136" class="p">One-step follows another unconditionally</span></li>
+            <li md-pos="8139-8175"><span md-pos="8141-8174" class="p">Cannot branch away or skip a step</span></li>
+        </ul>
+    </li>
+    <li md-pos="8176-8296" class="p">
+        <p md-pos="8178-8197" class="p"><span md-pos="8178-8196" class="p">Decision structure</span></p>
+        <ul>
+            <li md-pos="8199-8255"><span md-pos="8201-8254" class="p">Involves choosing among alternative courses of acting</span></li>
+            <li md-pos="8257-8296"><span md-pos="8259-8295" class="p">Based on some value within a program</span></li>
+        </ul>
+    </li>
+    <li md-pos="8297-8376" class="p">
+        <p md-pos="8299-8314" class="p"><span md-pos="8299-8313" class="p">Boolean values</span></p>
+        <ul>
+            <li md-pos="8316-8340"><span md-pos="8318-8339" class="p">true and false values</span></li>
+            <li md-pos="8342-8376"><span md-pos="8344-8375" class="p">Used in every computer decision</span></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="the-ifelse-statement" md-pos="8377-8404"><span md-pos="8381-8404">The If...else Statement</span></h3>
+<pre md-pos="8406-8982"><code class="java" md-pos="8414-8978">import java.util.Scanner;
+
+public class IfElse{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.printf(&quot;Please choose 1 - queen, 2 - king, 3 - pullout%n&quot;);
+        int Value = sc.nextInt();
+        sc.nextLine();
+        if (Value == 1){
+            System.out.printf(&quot;You have chosen queen for £120%n&quot;);
+        }else if(Value == 2){
+            System.out.printf(&quot;You have chosen king for £139%n&quot;);
+        }else{
+            System.out.printf(&quot;You have chosen pullout for £190%n&quot;);
+        }
+    }
+}
+</code></pre>
+<h3 id="the-switch-statement" md-pos="8983-9007"><span md-pos="8987-9007">The Switch Statement</span></h3>
+<pre md-pos="9009-9683"><code class="java" md-pos="9017-9679">import java.util.Scanner;
+
+public class Switch_{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.printf(&quot;Please choose 1 - queen, 2 - king, 3 - pullout%n&quot;);
+        int Value = sc.nextInt();
+        sc.nextLine();
+        switch (Value) {
+            case 1:
+                System.out.printf(&quot;You have chosen queen for £120%n&quot;);
+                break; 
+            case 2:
+                System.out.printf(&quot;You have chosen king for £139%n&quot;);
+                break;
+            case 3:
+                System.out.printf(&quot;You have chosen pullout for £190%n&quot;);
+                break;
+        }
+    }
+}
+</code></pre>
+<h3 id="operator-precedence" md-pos="9684-9707"><span md-pos="9688-9707">Operator Precedence</span></h3>
+<table md-pos="9709-10699">
+    <thead>
+    <tr md-pos="9709-9906" class="thead-first-child"><th align="left" md-pos="9710-9724"> Precedence   </th><th align="left" md-pos="9725-9854"> Operator(s)                                                                                                                     </th><th align="left" md-pos="9855-9905"> Symbol(s)                                        </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="10105-10302" class="tbody-first-child"><td align="left" md-pos="10106-10120"> Highest      </td><td align="left" md-pos="10121-10250"> Logical NOT                                                                                                                     </td><td align="left" md-pos="10251-10301"> !                                                </td></tr>
+    <tr md-pos="10303-10500" class="tbody-even-child"><td align="left" md-pos="10304-10318"> Intermediate </td><td align="left" md-pos="10319-10448"> Multiplication, division, modulus<br>Addition,subtraction<br>Relational<br>Equality<br>Logical AND<br>Logical OR<br>Conditional </td><td align="left" md-pos="10449-10499"> */%<br>+-<br>&gt;&lt;&gt;=&lt;=<br>== !=<br>&amp;&amp;<br>||<br>?: </td></tr>
+    <tr md-pos="10501-10698" class="tbody-odd-child"><td align="left" md-pos="10502-10516"> Lowest       </td><td align="left" md-pos="10517-10646"> Assignment                                                                                                                      </td><td align="left" md-pos="10647-10697"> =                                                </td></tr>
+    </tbody>
+</table>
+<h2 id="chapter-7" md-pos="10700-10712"><span md-pos="10703-10712">Chapter 7</span></h2>
+<h3 id="string" md-pos="10714-10724"><span md-pos="10718-10724">String</span></h3>
+<ul>
+    <li md-pos="10726-10734"><span md-pos="10728-10733" class="p">Class</span></li>
+    <li md-pos="10734-10759"><span md-pos="10736-10758" class="p">Sequence of characters</span></li>
+    <li md-pos="10759-10855"><span md-pos="10761-10780" class="p">Examples of strings</span>
+        <ul>
+            <li md-pos="10783-10839"><span md-pos="10785-10838" class="p">System.out.println(&quot;This is a string of characters&quot;);</span></li>
+            <li md-pos="10841-10855"><span md-pos="10843-10854" class="p">&quot;John Smit&quot;</span></li>
+        </ul>
+    </li>
+    <li md-pos="10855-10896"><span md-pos="10857-10895" class="p">String myString = &quot;This is my string&quot;;</span></li>
+    <li md-pos="10896-10957"><span md-pos="10898-10956" class="p">String otherString = new String(&quot;This is another string&quot;);</span></li>
+</ul>
+<h3 id="comparing-strings" md-pos="10958-10979"><span md-pos="10962-10979">Comparing strings</span></h3>
+<ul>
+    <li md-pos="10981-11030"><span md-pos="10983-11029" class="p">Understanding how strings are stored in memory</span></li>
+    <li md-pos="11030-11055"><span md-pos="11032-11054" class="p">String name1 = &quot;John&quot;;</span></li>
+    <li md-pos="11055-11079"><span md-pos="11057-11078" class="p">Strings are immutable</span></li>
+</ul>
+<h3 id="comparisons-between-strings" md-pos="11080-11111"><span md-pos="11084-11111">Comparisons between strings</span></h3>
+<pre md-pos="11113-11331"><code class="java" md-pos="11121-11327">public class CompareString{
+    public static void main(String[] args){
+        String name1 = &quot;John&quot;;
+        String name2 = &quot;John&quot;;
+        if (name1 == name2){}
+        if (name1.equal(name2)){}
+    }
+}
+</code></pre>
+<h3 id="other-useful-methods" md-pos="11332-11356"><span md-pos="11336-11356">Other useful methods</span></h3>
+<table md-pos="11358-12938">
+    <thead>
+    <tr md-pos="11358-11515" class="thead-first-child"><th align="left" md-pos="11359-11378"> Method            </th><th align="left" md-pos="11379-11514"> Description                                                                                                                           </th></tr>
+    </thead>
+    <tbody>
+    <tr md-pos="11674-11831" class="tbody-first-child"><td align="left" md-pos="11675-11694"> isUpperCase()     </td><td align="left" md-pos="11695-11830"> Tests if character is uppercase                                                                                                       </td></tr>
+    <tr md-pos="11832-11989" class="tbody-even-child"><td align="left" md-pos="11833-11852"> toUpperCase()     </td><td align="left" md-pos="11853-11988"> Returns the uppercase equivalent of the argument; no change is made if the argument is not a lowercase letter                         </td></tr>
+    <tr md-pos="11990-12147" class="tbody-odd-child"><td align="left" md-pos="11991-12010"> islowerCase()     </td><td align="left" md-pos="12011-12146"> Tests if character is lowercase                                                                                                       </td></tr>
+    <tr md-pos="12148-12305" class="tbody-even-child"><td align="left" md-pos="12149-12168"> tolowerCase()     </td><td align="left" md-pos="12169-12304"> Returns the lowercase equivalent of the argument; no change is made if the argument is not an uppercase letter                        </td></tr>
+    <tr md-pos="12306-12463" class="tbody-odd-child"><td align="left" md-pos="12307-12326"> isDigit()         </td><td align="left" md-pos="12327-12462"> Returns true if the argument is a digit (0- 9) and false otherwise                                                                    </td></tr>
+    <tr md-pos="12464-12621" class="tbody-even-child"><td align="left" md-pos="12465-12484"> isletter()        </td><td align="left" md-pos="12485-12620"> Returns true if the argument is a letter and false otherwise                                                                          </td></tr>
+    <tr md-pos="12622-12779" class="tbody-odd-child"><td align="left" md-pos="12623-12642"> isletterOrDigit() </td><td align="left" md-pos="12643-12778"> Returns true if the argument is a letter or digit and false otherwise                                                                 </td></tr>
+    <tr md-pos="12780-12937" class="tbody-even-child"><td align="left" md-pos="12781-12800"> isWhitespace()    </td><td align="left" md-pos="12801-12936"> Returns true if the argument is whitespace and false otherwise; this includes the space, tab, newline, carriage return, and form feed </td></tr>
+    </tbody>
+</table>
+<ul>
+    <li md-pos="12939-12987"><span md-pos="12941-12949" class="p">length()</span>
+        <ul>
+            <li md-pos="12952-12987"><span md-pos="12954-12986" class="p">Determine the length of a string</span></li>
+        </ul>
+    </li>
+    <li md-pos="12987-13018"><span md-pos="12989-13017" class="p">Starting position? John 0123</span></li>
+    <li md-pos="13018-13045"><span md-pos="13020-13044" class="p">int sl = name1.length();</span></li>
+    <li md-pos="13045-13067"><span md-pos="13047-13066" class="p">name1.indexOf('J');</span></li>
+    <li md-pos="13067-13099"><span md-pos="13069-13098" class="p">int ind = name1.indexOf('J');</span></li>
+    <li md-pos="13099-13164"><span md-pos="13101-13163" class="p">System.out,println(&quot;The index of J is &quot; + name1,indexOf('J'));</span></li>
+    <li md-pos="13164-13198"><span md-pos="13166-13197" class="p">char theChar = name1.charAt(3);</span></li>
+    <li md-pos="13198-13254"><span md-pos="13200-13247" class="p">What would that character be for the name John?</span>
+        <ul>
+            <li md-pos="13250-13254"><span md-pos="13252-13253" class="p">n</span></li>
+        </ul>
+    </li>
+    <li md-pos="13254-13335"><span md-pos="13256-13314" class="p">System.out.println(&quot;The first character in the name is &quot; +</span>
+        <span md-pos="13317-13334">name1.charAt(0));</span></li>
+    <li md-pos="13335-13357"><span md-pos="13337-13356" class="p">toUpper()/toLower()</span></li>
+    <li md-pos="13357-13388"><span md-pos="13359-13387" class="p">name1 = name1.toUpperCase();</span></li>
+</ul>
+<h3 id="summary" md-pos="13389-13400"><span md-pos="13393-13400">Summary</span></h3>
+<ul>
+    <li md-pos="13402-13436" class="p">
+        <p md-pos="13404-13421" class="p"><span md-pos="13404-13420" class="p">String variables</span></p>
+        <ul>
+            <li md-pos="13423-13436"><span md-pos="13425-13435" class="p">References</span></li>
+        </ul>
+    </li>
+    <li md-pos="13437-13503" class="p">
+        <p md-pos="13439-13455" class="p"><span md-pos="13439-13454" class="p">Character class</span></p>
+        <ul>
+            <li md-pos="13457-13503"><span md-pos="13459-13502" class="p">Instances can hold a single character value</span></li>
+        </ul>
+    </li>
+    <li md-pos="13504-13568" class="p">
+        <p md-pos="13506-13531" class="p"><span md-pos="13506-13530" class="p">Each String class object</span></p>
+        <ul>
+            <li md-pos="13533-13548"><span md-pos="13535-13547" class="p">Is immutable</span></li>
+            <li md-pos="13550-13568"><span md-pos="13552-13567" class="p">equals() method</span></li>
+        </ul>
+    </li>
+    <li md-pos="13569-13624" class="p">
+        <p md-pos="13571-13589" class="p"><span md-pos="13571-13588" class="p">toString() method</span></p>
+        <ul>
+            <li md-pos="13591-13624"><span md-pos="13593-13623" class="p">Convert any object to a String</span></li>
+        </ul>
+    </li>
+    <li md-pos="13625-13710" class="p">
+        <p md-pos="13627-13653" class="p"><span md-pos="13627-13652" class="p">Integer.parseInt() method</span></p>
+        <ul>
+            <li md-pos="13655-13710"><span md-pos="13657-13709" class="p">Takes a String argument and returns an integer value</span></li>
+        </ul>
+    </li>
+    <li md-pos="13711-13796" class="p">
+        <p md-pos="13713-13741" class="p"><span md-pos="13713-13740" class="p">Double.parseDouble() method</span></p>
+        <ul>
+            <li md-pos="13743-13796"><span md-pos="13745-13795" class="p">Takes a String argument and returns a double value</span></li>
+        </ul>
+    </li>
+    <li md-pos="13797-13897" class="p">
+        <p md-pos="13799-13835" class="p"><span md-pos="13799-13834" class="p">StringBuilder or StringBuffer class</span></p>
+        <ul>
+            <li md-pos="13837-13897"><span md-pos="13839-13896" class="p">improves performance when a string's contents must change</span></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

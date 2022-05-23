@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<!--create a DialogPane and include the appropriate controller-->
+<DialogPane >
+    <content>
+        <GridPane vgap="20" hgap="20">
+            <Label text="Year of Study" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label text="Module Option 1" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Module Option 2" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <Label text="Module Option 3" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+            <!--make use of the EditStudentController to complete the rest of the fxml-->
+        </GridPane>
+    </content>
+</DialogPane>
+
