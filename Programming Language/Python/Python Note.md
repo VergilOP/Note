@@ -1152,6 +1152,7 @@ sort修改x且不返回任何值
 ### 3.1 字符串基本操作
 
 所有标准序列操作（索引、切片、乘法、成员资格检查、长度、最小值和最大值）都适用于字符串，但别忘了字符串是不可变的，因此所有的元素赋值和切片赋值都是非法的
+
 ```
 >>> website = 'http://www.python.org' 
 >>> website[-3:] = 'com' 
@@ -1164,6 +1165,7 @@ TypeError: object doesn't support slice assignment
 ### 3.2 设置字符串的格式: 精简版
 
 使用字符串格式设置运算符——百分号
+
 ```
 >>> format = "Hello, s. s enough for ya?" % %
 >>> values = ('world', 'Hot') 
@@ -1176,6 +1178,7 @@ s意味着将值视为字符串进行格式设置
 %.3f将值的格式设置为包含3位小数的浮点数
 
 另一种解决方案是所谓的模板字符串
+
 ```
 >>> from string import Template 
 >>> tmpl = Template("Hello, $who! $what enough for ya?") 
@@ -1184,6 +1187,7 @@ s意味着将值视为字符串进行格式设置
 ```
 
 在最简单的情况下，替换字段没有名称或将索引用作名称
+
 ```
 >>> "{}, {} and {}".format("first", "second", "third") 
 'first, second and third' 
@@ -1200,6 +1204,7 @@ s意味着将值视为字符串进行格式设置
 >>> "{name} is approximately {value:.2f}.".format(value=pi, name="π") 
 'π is approximately 3.14.'
 ```
+
 关键字参数的排列顺序无关紧要  
 指定了格式说明符.2f，并使用冒号将其与字段名隔开
 
@@ -1209,6 +1214,7 @@ s意味着将值视为字符串进行格式设置
 ```
 
 如果变量与替换字段同名，还可使用一种简写
+
 ```
 >>> from math import e 
 >>> f"Euler's constant is roughly {e}." 
@@ -1220,9 +1226,331 @@ s意味着将值视为字符串进行格式设置
 
 ### 3.3 设置字符串的格式: 完整版
 
+每个值都被插入字符串中，以替换用花括号括起的替换字段
 
+```
+>>> "{{ceci n'est pas une replacement field}}".format() 
+"{ceci n'est pas une replacement field}"
+```
 
+- **字段名**：索引或标识符，指出要设置哪个值的格式并使用结果来替换该字段。除指定值外，还可指定值的特定部分，如列表的元素
+- **转换标志**：跟在叹号后面的单个字符。当前支持的字符包括r（表示repr）、s（表示str）
+  和a（表示ascii）。如果你指定了转换标志，将不使用对象本身的格式设置机制，而是使用指定的函数将对象转换为字符串，再做进一步的格式设置
+- **格式说明符**：跟在冒号后面的表达式（这种表达式是使用微型格式指定语言表示的）。格式说明符让我们能够详细地指定最终的格式，包括格式类型（如字符串、浮点数或十六进制数），字段宽度和数的精度，如何显示符号和千位分隔符，以及各种对齐和填充方式
 
+#### 3.3.1 替换字段名
 
+```
+>>> "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3) 
+'3 1 4 2'
 
+>>> "{foo} {1} {bar} {0}".format(1, 2, bar=4, foo=3) 
+'3 2 4 1'
+
+>>> fullname = ["Alfred", "Smoketoomuch"] 
+>>> "Mr {name[1]}".format(name=fullname) 
+'Mr Smoketoomuch' 
+
+>>> import math 
+>>> tmpl = "The {mod.__name__} module defines the value {mod.pi} for π" 
+>>> tmpl.format(mod=math) 
+'The math module defines the value 3.141592653589793 for π'
+```
+
+#### 3.3.2 基本转换
+
+```
+>>> print("{pi!s} {pi!r} {pi!a}".format(pi="π")) 
+π 'π' '\u03c0'
+```
+
+上述三个标志（s、r和a）指定分别使用str、repr和ascii进行转换
+
+可在格式说明（即冒号后面）使用字符f(表示定点数)
+
+```
+>>> "The number is {num}".format(num=42) 
+'The number is 42' 
+
+>>> "The number is {num:f}".format(num=42) 
+'The number is 42.000000'
+
+>>> "The number is {num:b}".format(num=42) 
+'The number is 101010'
+```
+
+| 类型 | 含 义                                                                          |
+|:----|:-------------------------------------------------------------------------------|
+| b   | 将整数表示为二进制数                                                              |
+| c   | 将整数解读为Unicode码点                                                           |
+| d   | 将整数视为十进制数进行处理，这是整数默认使用的说明符                                    |
+| e   | 使用科学表示法来表示小数（用e来表示指数）                                             |
+| E   | 与e相同，但使用E来表示指数                                                         |
+| f   | 将小数表示为定点数                                                                |
+| F   | 与f相同，但对于特殊值（nan和inf），使用大写表示                                       |
+| g   | 自动在定点表示法和科学表示法之间做出选择。这是默认用于小数的说明符，但在默认情况下至少有1位小数 |
+| G   | 与g相同，但使用大写来表示指数和特殊值                                                |
+| n   | 与g相同，但插入随区域而异的数字分隔符                                                |
+| o   | 将整数表示为八进制数                                                              |
+| s   | 保持字符串的格式不变，这是默认用于字符串的说明符                                        |
+| x   | 将整数表示为十六进制数并使用小写字母                                                 |
+| X   | 与x相同，但使用大写字母                                                            |
+| %   | 将数表示为百分比值（乘以100，按说明符f设置格式，再在后面加上%）                          |
+
+#### 3.3.3 宽度、精度和千位分隔符
+
+```
+>>> "{num:10}".format(num=3) 
+' 3' 
+
+>>> "{name:10}".format(name="Bob") 
+'Bob '
+```
+
+数和字符串的对齐方式不同
+
+精度也是使用整数指定的，但需要在它前面加上一个表示小数点的句点
+
+```
+>>> "Pi day is {pi:.2f}".format(pi=pi) 
+'Pi day is 3.14'
+```
+
+可同时指定宽度和精度
+
+```
+>>> "{pi:10.2f}".format(pi=pi) 
+' 3.14'
+```
+
+可使用逗号来指出你要添加千位分隔符
+
+```
+>>> 'One googol is {:,}'.format(10**100) 
+'One googol is 10,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,00 
+0,000,000,000,000,000,000,000,000,000,000,000,000,000,000'
+```
+
+#### 3.3.4 符号、对齐和用 0 填充
+
+在指定宽度和精度的数前面，可添加一个标志  
+这个标志可以是零、加号、减号或空格，其中零表示使用0来填充数字
+
+```
+>>> '{:010.2f}'.format(pi) 
+'0000003.14'
+```
+
+要指定左对齐、右对齐和居中，可分别使用<、>和^
+
+```
+>>> print('{0:<10.2f}\n{0:^10.2f}\n{0:>10.2f}'.format(pi)) 
+3.14 
+ 3.14 
+  3.14
+```
+
+可以使用填充字符来扩充对齐说明符，这样将使用指定的字符而不是默认的空格来填充
+
+```
+>>> "{:$^15}".format(" WIN BIG ") 
+'$$$ WIN BIG $$$'
+```
+
+说明符=，它指定将填充字符放在符号和数字之间
+
+```
+>>> print('{0:10.2f}\n{1:10.2f}'.format(pi, -pi)) 
+    3.14 
+   -3.14 
+   
+>>> print('{0:10.2f}\n{1:=10.2f}'.format(pi, -pi)) 
+    3.14 
+-   3.14
+```
+
+正数加上符号，可使用说明符+
+
+```
+>>> print('{0:-.2}\n{1:-.2}'.format(pi, -pi)) #默认设置
+3.1 
+-3.1 
+
+>>> print('{0:+.2}\n{1:+.2}'.format(pi, -pi)) 
++3.1 
+-3.1 
+
+>>> print('{0: .2}\n{1: .2}'.format(pi, -pi)) 
+ 3.1 
+-3.1
+```
+
+井号（#）选项，你可将其放在符号说明符和宽度之间（如果指定了这两种设置）。这个选项将触发另一种转换方式，转换细节随类型而异
+
+```
+>>> "{:b}".format(42) 
+'101010' 
+
+>>> "{:#b}".format(42) 
+'0b101010'
+```
+
+对于各种十进制数，它要求必须包含小数点
+
+```
+>>> "{:g}".format(42) 
+'42' 
+
+>>> "{:#g}".format(42) 
+'42.0000'
+```
+
+### 3.4 字符串方法
+
+跳过SKIP
+
+#### 3.4.1 center
+
+方法center通过在两边添加填充字符（默认为空格）让字符串居中
+
+```
+>>> "The Middle by Jimmy Eat World".center(39) 
+' The Middle by Jimmy Eat World ' 
+>>> "The Middle by Jimmy Eat World".center(39, "*") 
+'*****The Middle by Jimmy Eat World*****'
+```
+
+#### 3.4.2 find
+
+方法find在字符串中查找子串。如果找到，就返回子串的第一个字符的索引，否则返回-1
+
+```
+>>> 'With a moo-moo here, and a moo-moo there'.find('moo') 
+7 
+
+>>> title = "Monty Python's Flying Circus" 
+>>> title.find('Monty') 
+0 
+
+>>> title.find('Python')
+6 
+
+>>> title.find('Flying') 
+15 
+
+>>> title.find('Zirquss') 
+-1
+
+>>> subject = '$$$ Get rich now!!! $$$' 
+>>> subject.find('$$$') 
+0
+
+>>> subject = '$$$ Get rich now!!! $$$' 
+>>> subject.find('$$$') 
+0 
+
+>>> subject.find('$$$', 1) # 只指定了起点
+20 
+
+>>> subject.find('!!!') 
+16 
+
+>>> subject.find('!!!', 0, 16) # 同时指定了起点和终点
+-1
+```
+
+#### 3.4.3 join
+
+join是一个非常重要的字符串方法，其作用与split相反，用于合并序列的元素
+
+```
+>>> seq = [1, 2, 3, 4, 5] 
+>>> sep = '+' 
+>>> sep.join(seq) # 尝试合并一个数字列表
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+TypeError: sequence item 0: expected string, int found 
+>>> seq = ['1', '2', '3', '4', '5'] 
+>>> sep.join(seq) # 合并一个字符串列表
+'1+2+3+4+5' 
+>>> dirs = '', 'usr', 'bin', 'env' 
+>>> '/'.join(dirs) 
+'/usr/bin/env' 
+>>> print('C:' + '\\'.join(dirs)) 
+C:\usr\bin\env
+```
+
+#### 3.4.4 lower
+
+方法lower返回字符串的小写版本
+
+```
+>>> 'Trondheim Hammer Dance'.lower() 
+'trondheim hammer dance'
+```
+
+#### 3.4.5 replace
+
+方法replace将指定子串都替换为另一个字符串，并返回替换后的结果
+
+```
+>>> 'This is a test'.replace('is', 'eez') 
+'Theez eez a test'
+```
+
+#### 3.4.6 split
+
+split是一个非常重要的字符串方法，其作用与join相反，用于将字符串拆分为序列
+
+```
+>>> '1+2+3+4+5'.split('+') 
+['1', '2', '3', '4', '5'] 
+
+>>> '/usr/bin/env'.split('/') 
+['', 'usr', 'bin', 'env'] 
+
+>>> 'Using the default'.split() 
+['Using', 'the', 'default']
+```
+
+#### 3.4.7 strip
+
+方法strip将字符串开头和末尾的空白（但不包括中间的空白）删除，并返回删除后的结果
+
+```
+>>> ' internal whitespace is kept '.strip() 
+'internal whitespace is kept'
+
+>>> '*** SPAM * for * everyone!!! ***'.strip(' *!') 
+'SPAM * for * everyone'
+```
+
+#### 3.4.8 translate
+
+使用translate前必须创建一个转换表
+
+```
+>>> table = str.maketrans('cs', 'kz')
+
+>>> 'this is an incredible test'.translate(table) 
+'thiz iz an inkredible tezt'
+```
+
+#### 3.4.9 判断字符串是否满足特定的条件
+
+很多字符串方法都以is打头，如isspace、isdigit和isupper，它们判断字符串是否具有特定的性质（如包含的字符全为空白、数字或大写）。如果字符串具备特定的性质，这些方法就返回True，否则返回False。
+
+### 3.5 小结
+
+- **字符串格式设置**：求模运算符（%）可用于将值合并为包含转换标志（如%s）的字符串，这让你能够以众多方式设置值的格式，如左对齐或右对齐，指定字段宽度和精度，添加符号（正号或负号）以及在左边填充0等。
+- **字符串方法**：字符串有很多方法，有些很有用（如split和join），有些很少用到（如istitle和capitalize）。
+
+#### 3.5.1 本章介绍的新函数
+
+| 函 数                      | 描 述                                                         |
+|:--------------------------|:--------------------------------------------------------------|
+| string.capwords(s\[, sep\]) | 使用split根据sep拆分s，将每项的首字母大写，再以空格为分隔符将它们合并起来 |
+| ascii(obj)                | 创建指定对象的ASCII表示                                          |
+
+## 第4章 当索引行不通时
 
