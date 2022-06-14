@@ -1,4 +1,4 @@
-# <center>Note of Python</center>
+# Note of Python
 
 ---
 
@@ -541,4 +541,688 @@ bytearray(b'Hullo!')
 跳过SKIP
 
 ## 第2章 列表与元组
+
+### 2.1 序列概述
+
+列表和元组的主要不同在于，列表是可以修改的，而元组不可以
+
+这意味着列表适用于需要中途添加元素的情形，而元组适用于出于某种考虑需要禁止修改序列的情形
+
+```
+>>> edward = ['Edward Gumby', 42]
+>>> john = ['John Smith', 50] 
+>>> database = [edward, john] 
+>>> database 
+[['Edward Gumby', 42], ['John Smith', 50]]
+```
+
+> Python支持一种数据结构的基本概念，名为容器（container）。容器基本上就是可包含其他对象的对象。两种主要的容器是序列（如列表和元组）和映射（如字典）。在序列中，每个元素都有编号，而在映射中，每个元素都有名称（也叫键）。
+
+### 2.2 通用的序列操作
+
+有几种操作适用于所有序列，包括索引、切片、相加、相乘和成员资格检查
+
+#### 2.2.1 索引
+
+```
+>>> greeting = 'Hello' 
+>>> greeting[0] 
+'H'
+```
+
+当你使用负数索引时，Python将从右（即从最后一个元素）开始往左数，因此1是最后一个元素的位置
+
+```
+>>> greeting[-1] 
+'o'
+```
+
+如果函数调用返回一个序列，可直接对其执行索引操作
+
+```
+>>> fourth = input('Year: ')[3] 
+Year: 2005 
+
+>>> fourth 
+'5'
+```
+
+#### 2.2.2 切片
+
+使用切片（slicing）来访问特定范围内的元素
+
+```
+>>> tag = '<a href="http://www.python.org">Python web site</a>' 
+>>> tag[9:30] 
+'http://www.python.org' 
+
+>>> tag[32:-4] 
+'Python web site'
+```
+
+1.绝妙的简写
+
+```
+>>> numbers[-3:-1] 
+[8, 9]
+
+>>> numbers[-3:0] 
+[]
+
+>>> numbers[-3:] 
+[8, 9, 10]
+
+>>> numbers[:3] 
+[1, 2, 3]
+
+>>> numbers[:] 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+2. 更大的步长
+
+在普通切片中，步长为1
+
+```
+>>> numbers[0:10:1] 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+>>> numbers[0:10:2] 
+[1, 3, 5, 7, 9] 
+
+>>> numbers[3:6:3] 
+[4]
+```
+
+```
+>>> numbers[::4] 
+[1, 5, 9]
+```
+
+负数步长
+
+```
+>>> numbers[8:3:-1] 
+[9, 8, 7, 6, 5] 
+
+>>> numbers[10:0:-2] 
+[10, 8, 6, 4, 2] 
+
+>>> numbers[0:10:-2] 
+[] 
+
+>>> numbers[::-2] 
+[10, 8, 6, 4, 2]
+
+>>> numbers[5::-2] 
+[6, 4, 2]
+ 
+>>> numbers[:5:-2] 
+[10, 8]
+```
+
+#### 2.2.3 序列相加
+
+```
+>>> [1, 2, 3] + [4, 5, 6] 
+[1, 2, 3, 4, 5, 6] 
+
+>>> 'Hello,' + 'world!' 
+'Hello, world!' 
+
+>>> [1, 2, 3] + 'world!' 
+Traceback (innermost last): 
+ File "<pyshell>", line 1, in ? 
+ [1, 2, 3] + 'world!' 
+TypeError: can only concatenate list (not "string") to list
+```
+
+#### 2.2.4 乘法
+
+```
+>>> 'python' * 5 
+'pythonpythonpythonpythonpython' 
+
+>>> [42] * 10 
+[42, 42, 42, 42, 42, 42, 42, 42, 42, 42]
+```
+
+要将列表的长度初始化为10
+
+```
+>>> sequence = [None] * 10 
+>>> sequence 
+[None, None, None, None, None, None, None, None, None, None]
+```
+
+#### 2.2.5 成员资格
+
+```
+>>> permissions = 'rw' 
+>>> 'w' in permissions 
+True 
+
+>>> 'x' in permissions 
+False 
+
+>>> users = ['mlh', 'foo', 'bar'] 
+>>> input('Enter your user name: ') in users 
+Enter your user name: mlh 
+True 
+
+>>> subject = '$$$ Get rich now!!! $$$' 
+>>> '$$$' in subject 
+True
+```
+
+长度、最小值和最大值
+
+```
+>>> numbers = [100, 34, 678] 
+>>> len(numbers) 
+3 
+
+>>> max(numbers) 
+678 
+
+>>> min(numbers)
+34 
+
+>>> max(2, 3) 
+3 
+
+>>> min(9, 3, 2, 5) 
+2
+```
+
+### 2.3 列表: Python的主力
+
+SKIP跳过
+
+#### 2.3.1 函数list
+
+```
+>>> list('Hello') 
+['H', 'e', 'l', 'l', 'o']
+```
+
+#### 2.3.2 基本的列表操作
+
+1. 修改列表: 给元素赋值
+
+```
+>>> x = [1, 1, 1] 
+>>> x[1] = 2 
+>>> x 
+[1, 2, 1]
+```
+
+2. 删除元素
+
+```
+>>> names = ['Alice', 'Beth', 'Cecil', 'Dee-Dee', 'Earl'] 
+>>> del names[2] 
+>>> names 
+['Alice', 'Beth', 'Dee-Dee', 'Earl']
+```
+
+3. 给切片赋值
+
+```
+>>> name = list('Perl') 
+>>> name 
+['P', 'e', 'r', 'l'] 
+
+>>> name[2:] = list('ar') 
+>>> name 
+['P', 'e', 'a', 'r']
+
+>>> name = list('Perl') 
+>>> name[1:] = list('ython') 
+>>> name 
+['P', 'y', 't', 'h', 'o', 'n']
+```
+
+切片赋值还可在不替换原有元素的情况下插入新元素。
+
+```
+>>> numbers = [1, 5] 
+>>> numbers[1:1] = [2, 3, 4] 
+>>> numbers 
+[1, 2, 3, 4, 5]
+```
+
+采取相反的措施来删除切片
+
+```
+>>> numbers 
+[1, 2, 3, 4, 5] 
+
+>>> numbers[1:4] = [] 
+>>> numbers 
+[1, 5]
+```
+
+#### 2.3.3 列表方法
+
+1. append
+
+方法append用于将一个对象附加到列表末尾
+
+```
+>>> lst = [1, 2, 3] 
+>>> lst.append(4) 
+>>> lst 
+[1, 2, 3, 4]
+```
+
+2. clear
+
+方法clear就地清空列表的内容
+
+```
+>>> lst = [1, 2, 3] 
+>>> lst.clear() 
+>>> lst 
+[]
+```
+
+3. copy
+
+方法 copy 复制列表. 常规复制只是将另一个名称关联到列表
+
+```
+>>> a = [1, 2, 3] 
+>>> b = a 
+>>> b[1] = 4 
+>>> a 
+[1, 4, 3]
+```
+
+```
+>>> a = [1, 2, 3] 
+>>> b = a.copy() 
+>>> b[1] = 4 
+>>> a 
+[1, 2, 3]
+```
+
+4. count
+
+方法count计算指定的元素在列表中出现了多少次
+
+```
+>>> ['to', 'be', 'or', 'not', 'to', 'be'].count('to') 
+2 
+
+>>> x = [[1, 2], 1, 1, [2, 1, [1, 2]]] 
+>>> x.count(1) 
+2 
+
+>>> x.count([1, 2]) 
+1
+```
+
+5. extend
+
+方法extend让你能够同时将多个值附加到列表末尾
+
+```
+>>> a = [1, 2, 3] 
+>>> b = [4, 5, 6] 
+>>> a.extend(b) 
+>>> a 
+[1, 2, 3, 4, 5, 6]
+```
+
+这可能看起来类似于拼接，但存在一个重要差别，那就是将修改被扩展的序列（这里是a）。  
+在常规拼接中，情况是返回一个全新的序列。
+
+```
+>>> a = [1, 2, 3] 
+>>> b = [4, 5, 6] 
+>>> a + b 
+[1, 2, 3, 4, 5, 6] 
+
+>>> a 
+[1, 2, 3]
+```
+
+要获得与extend相同的效果
+
+```
+>>> a = [1, 2, 3] 
+>>> b = [4, 5, 6] 
+>>> a[len(a):] = b 
+>>> a 
+[1, 2, 3, 4, 5, 6]
+```
+
+虽然可行，但*可读性不是很高*
+
+6. index
+
+方法index在列表中查找指定值第一次出现的索引
+
+```
+>>> knights = ['We', 'are', 'the', 'knights', 'who', 'say', 'ni'] 
+>>> knights.index('who') 
+4 
+
+>>> knights.index('herring') 
+Traceback (innermost last): 
+ File "<pyshell>", line 1, in ? 
+ knights.index('herring') 
+ValueError: list.index(x): x not in list
+```
+
+然而，搜索'herring'时引发了异常，因为根本就没有找到这个单词
+
+7. insert
+
+方法insert用于将一个对象插入列表。
+
+```
+>>> numbers = [1, 2, 3, 5, 6, 7] 
+>>> numbers.insert(3, 'four') 
+>>> numbers 
+[1, 2, 3, 'four', 5, 6, 7]
+```
+
+与extend一样，也可使用切片赋值来获得与insert一样的效果
+
+```
+>>> numbers = [1, 2, 3, 5, 6, 7] 
+>>> numbers[3:3] = ['four'] 
+>>> numbers 
+[1, 2, 3, 'four', 5, 6, 7]
+```
+
+虽然可行，但*可读性不是很高*
+
+8. pop
+
+方法pop从列表中删除一个元素（末尾为最后一个元素），并返回这一元素
+
+```
+>>> x = [1, 2, 3] 
+>>> x.pop() 
+3 
+
+>>> x 
+[1, 2] 
+
+>>> x.pop(0) 
+1 
+
+>>> x 
+[2]
+```
+
+> pop是唯一既修改列表又返回一个非None值的列表方法。
+
+使用pop可实现一种常见的数据结构——栈（stack）  
+后进先出（LIFO） - Python没有提供push，但可使用append来替代  
+先进先出（FIFO） - 可使用insert(0, ...)代替append
+
+9. remove
+
+方法remove用于删除第一个为指定值的元素
+
+```
+>>> x = ['to', 'be', 'or', 'not', 'to', 'be'] 
+>>> x.remove('be') 
+>>> x 
+['to', 'or', 'not', 'to', 'be'] 
+
+>>> x.remove('bee') 
+Traceback (innermost last): 
+ File "<pyshell>", line 1, in ? 
+ x.remove('bee') 
+ValueError: list.remove(x): x not in list
+```
+
+不同于pop的是，它修改列表，但不返回任何值
+
+10. reverse
+
+方法reverse按相反的顺序排列列表中的元素
+
+```
+>>> x = [1, 2, 3] 
+>>> x.reverse() 
+>>> x 
+[3, 2, 1]
+```
+
+注意到reverse修改列表，但不返回任何值
+
+11. sort
+
+方法sort用于对列表就地排序
+
+```
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> x.sort() 
+>>> x 
+[1, 2, 4, 6, 7, 9]
+```
+
+```
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> y = x.sort() # Don't do this! 
+>>> print(y) 
+None
+```
+
+sort修改x且不返回任何值
+
+正确方法
+
+```
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> y = x.copy() 
+>>> y.sort() 
+>>> x 
+[4, 6, 2, 1, 7, 9] 
+
+>>> y 
+[1, 2, 4, 6, 7, 9]
+```
+
+为获取排序后的列表的副本，另一种方式是使用函数sorted
+
+```
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> y = sorted(x) 
+>>> x 
+[4, 6, 2, 1, 7, 9] 
+
+>>> y 
+[1, 2, 4, 6, 7, 9]
+```
+
+这个函数可用于任何序列，但总是返回一个列表
+
+```
+>>> sorted('Python') 
+['P', 'h', 'n', 'o', 't', 'y']
+```
+
+12. 高级排序
+
+要根据长度对元素进行排序，可将参数key设置为函数len
+
+```
+>>> x = ['aardvark', 'abalone', 'acme', 'add', 'aerate'] 
+>>> x.sort(key=len) 
+>>> x 
+['add', 'acme', 'aerate', 'abalone', 'aardvark']
+```
+
+对于另一个关键字参数reverse，只需将其指定为一个真值，以指出是否要按相反的顺序对列表进行排序
+
+```
+>>> x = [4, 6, 2, 1, 7, 9] 
+>>> x.sort(reverse=True) 
+>>> x 
+[9, 7, 6, 4, 2, 1]
+```
+
+### 2.4 元组：不可修改的序列
+
+元组也是序列，唯一的差别在于元组是不能修改的
+
+只要将一些值用逗号分隔，就能自动创建一个元组
+
+```
+>>> 1, 2, 3 
+(1, 2, 3)
+
+>>> (1, 2, 3) 
+(1, 2, 3)
+
+>>> () 
+()
+
+>>> 42 
+42 
+
+>>> 42, 
+(42,)
+
+>>> (42,) 
+(42,)
+
+>>> 3 * (40 + 2) 
+126 
+>>> 3 * (40 + 2,) 
+(42, 42, 42)
+```
+
+函数tuple的工作原理与list很像：它将一个序列作为参数，并将其转换为元组
+
+```
+>>> tuple([1, 2, 3]) 
+(1, 2, 3) 
+
+>>> tuple('abc') 
+('a', 'b', 'c') 
+
+>>> tuple((1, 2, 3)) 
+(1, 2, 3)
+```
+
+```
+>>> x = 1, 2, 3 
+>>> x[1] 
+2 
+
+>>> x[0:2] 
+(1, 2)
+```
+
+元组的切片也是元组，就像列表的切片也是列表一样
+
+### 2.5 小结
+
+- **序列**：序列是一种数据结构，其中的元素带编号（编号从0开始）。列表、字符串和元组都属于序列，其中列表是可变的（你可修改其内容），而元组和字符串是不可变的（一旦创建，内容就是固定的）。要访问序列的一部分，可使用切片操作：提供两个指定切片起始和结束位置的索引。要修改列表，可给其元素赋值，也可使用赋值语句给切片赋值。
+- **成员资格**：要确定特定的值是否包含在序列（或其他容器）中，可使用运算符in。将运算符in用于字符串时情况比较特殊——这样可查找子串。
+- **方法**：一些内置类型（如列表和字符串，但不包括元组）提供了很多有用的方法。方法有点像函数，只是与特定的值相关联。方法是面向对象编程的一个重要方面，这将在第7
+  章介绍
+
+#### 2.5.1 本章介绍的新函数
+
+| 函 数          | 描 述                                  |
+|:--------------|:--------------------------------------|
+| len(seq)      | 返回序列的长度                           |
+| list(seq)     | 将序列转换为列表                         |
+| max(args)     | 返回序列或一组参数中的最大值                |
+| min(args)     | 返回序列和一组参数中的最小值                |
+| reversed(seq) | 让你能够反向迭代序列                      |
+| sorted(seq)   | 返回一个有序列表，其中包含指定序列中的所有元素 |
+| tuple(seq)    | 将序列转换为元组                         |
+
+#### 2.5.2 预告
+
+跳过SKIP
+
+## 第3章 使用字符串
+
+### 3.1 字符串基本操作
+
+所有标准序列操作（索引、切片、乘法、成员资格检查、长度、最小值和最大值）都适用于字符串，但别忘了字符串是不可变的，因此所有的元素赋值和切片赋值都是非法的
+```
+>>> website = 'http://www.python.org' 
+>>> website[-3:] = 'com' 
+Traceback (most recent call last): 
+ File "<pyshell#19>", line 1, in ? 
+ website[-3:] = 'com' 
+TypeError: object doesn't support slice assignment
+```
+
+### 3.2 设置字符串的格式: 精简版
+
+使用字符串格式设置运算符——百分号
+```
+>>> format = "Hello, s. s enough for ya?" % %
+>>> values = ('world', 'Hot') 
+>>> format values %
+'Hello, world. Hot enough for ya?'
+```
+
+%s称为转换说明符，指出了要将值插入什么地方  
+s意味着将值视为字符串进行格式设置  
+%.3f将值的格式设置为包含3位小数的浮点数
+
+另一种解决方案是所谓的模板字符串
+```
+>>> from string import Template 
+>>> tmpl = Template("Hello, $who! $what enough for ya?") 
+>>> tmpl.substitute(who="Mars", what="Dusty") 
+'Hello, Mars! Dusty enough for ya?'
+```
+
+在最简单的情况下，替换字段没有名称或将索引用作名称
+```
+>>> "{}, {} and {}".format("first", "second", "third") 
+'first, second and third' 
+
+>>> "{0}, {1} and {2}".format("first", "second", "third") 
+'first, second and third'
+
+>>> "{3} {0} {2} {1} {3} {0}".format("be", "not", "or", "to") 
+'to be or not to be'
+```
+
+```
+>>> from math import pi 
+>>> "{name} is approximately {value:.2f}.".format(value=pi, name="π") 
+'π is approximately 3.14.'
+```
+关键字参数的排列顺序无关紧要  
+指定了格式说明符.2f，并使用冒号将其与字段名隔开
+
+```
+>>> "{name} is approximately {value}.".format(value=pi, name="π") 
+'π is approximately 3.141592653589793.'
+```
+
+如果变量与替换字段同名，还可使用一种简写
+```
+>>> from math import e 
+>>> f"Euler's constant is roughly {e}." 
+"Euler's constant is roughly 2.718281828459045."
+
+>>> "Euler's constant is roughly {e}.".format(e=e) 
+"Euler's constant is roughly 2.718281828459045."
+```
+
+### 3.3 设置字符串的格式: 完整版
+
+
+
+
+
+
 
