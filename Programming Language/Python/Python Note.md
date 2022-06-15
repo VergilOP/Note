@@ -1547,10 +1547,949 @@ split是一个非常重要的字符串方法，其作用与join相反，用于�
 
 #### 3.5.1 本章介绍的新函数
 
-| 函 数                      | 描 述                                                         |
-|:--------------------------|:--------------------------------------------------------------|
+| 函 数                        | 描 述                                                         |
+|:----------------------------|:--------------------------------------------------------------|
 | string.capwords(s\[, sep\]) | 使用split根据sep拆分s，将每项的首字母大写，再以空格为分隔符将它们合并起来 |
-| ascii(obj)                | 创建指定对象的ASCII表示                                          |
+| ascii(obj)                  | 创建指定对象的ASCII表示                                          |
 
 ## 第4章 当索引行不通时
 
+### 4.1 字典的用途
+
+下面是Python字典的一些用途：
+- 表示棋盘的状态，其中每个键都是由坐标组成的元组；
+- 存储文件修改时间，其中的键为文件名；
+- 数字电话/地址簿。
+
+### 4.2 创建和使用字典
+
+```python
+phonebook = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
+```
+
+字典由**键**及其相应的**值**组成，这种键值对称为**项**（item）  
+每个键与其值之间都用冒号（:）分隔，项之间用逗号分隔，而整个字典放在花括号内  
+空字典（没有任何项）用两个花括号表示，类似于下面这样：{}
+
+#### 4.2.1 函数 dict
+
+可使用函数dict从其他映射（如其他字典）或键值对序列创建字典
+
+```
+>>> items = [('name', 'Gumby'), ('age', 42)] 
+>>> d = dict(items) 
+>>> d 
+{'age': 42, 'name': 'Gumby'} 
+
+>>> d['name'] 
+'Gumby'
+```
+
+还可使用关键字实参来调用这个函数
+
+```
+>>> d = dict(name='Gumby', age=42) 
+>>> d 
+{'age': 42, 'name': 'Gumby'}
+```
+
+#### 4.2.2 基本的字典操作
+
+字典的基本行为在很多方面都类似于序列。
+- len(d)返回字典d包含的项（键值对）数。
+- d\[k\]返回与键k相关联的值。
+- d\[k\] = v将值v关联到键k。
+- del d\[k\]删除键为k的项。
+- k in d检查字典d是否包含键为k的项
+
+虽然字典和列表有多个相同之处，但也有一些重要的不同之处
+- 键的类型：字典中的键可以是整数，但并非必须是整数。字典中的键可以是任何不可变的类型，如浮点数（实数）、字符串或元组。
+- 自动添加：即便是字典中原本没有的键，也可以给它赋值，这将在字典中创建一个新项。然而，如果不使用append或其他类似的方法，就不能给列表中没有的元素赋值。
+- 成员资格：表达式k in d（其中d是一个字典）查找的是键而不是值，而表达式v in
+  l（其中l是一个列表）查找的是值而不是索引。这看似不太一致，但你习惯后就会觉得相当自然。毕竟如果字典包含指定的键，检查相应的值就很容易。
+
+```
+>>> x = [] 
+>>> x[42] = 'Foobar' 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+IndexError: list assignment index out of range 
+
+>>> x = {} 
+>>> x[42] = 'Foobar' 
+>>> x 
+{42: 'Foobar'}
+```
+
+#### 4.2.3 将字符串格式设置功能用于字典
+
+```
+>>> phonebook 
+{'Beth': '9102', 'Alice': '2341', 'Cecil': '3258'} 
+
+>>> "Cecil's phone number is {Cecil}.".format_map(phonebook) 
+"Cecil's phone number is 3258."
+```
+
+#### 4.2.4 字典方法
+
+1. clear
+
+方法clear删除所有的字典项，这种操作是就地执行的（就像list.sort一样），因此什么都不返回（或者说返回None）
+
+```
+>>> d = {} 
+>>> d['name'] = 'Gumby' 
+>>> d['age'] = 42 
+>>> d 
+{'age': 42, 'name': 'Gumby'} 
+
+>>> returned_value = d.clear() 
+>>> d 
+{} 
+
+>>> print(returned_value) 
+None
+```
+
+看两个场景
+
+```
+>>> x = {} 
+>>> y = x 
+>>> x['key'] = 'value' 
+>>> y 
+{'key': 'value'} 
+>>> x = {} 
+>>> x = {} 
+{'key': 'value'}
+
+>>> x = {} 
+>>> y = x 
+>>> x['key'] = 'value' 
+>>> y 
+{'key': 'value'} 
+>>> x.clear() 
+>>> y 
+{}
+```
+
+在这两个场景中，x和y最初都指向同一个字典。在第一个场景中，我通过将一个空字典赋给x来“清空”它。这对y没有任何影响，它依然指向原来的字典。这种行为可能正是你想要的，但要删除原来字典的所有元素，必须使用clear。如果这样做，y也将是空的，如第二个场景所示
+
+2. copy
+
+方法copy返回一个新字典，其包含的键值对与原来的字典相同（这个方法执行的是浅复制，因为值本身是原件，而非副本）
+
+```
+>>> x = {'username': 'admin', 'machines': ['foo', 'bar', 'baz']} 
+>>> y = x.copy() 
+>>> y['username'] = 'mlh' 
+>>> y['machines'].remove('bar') 
+>>> y 
+{'username': 'mlh', 'machines': ['foo', 'baz']} 
+>>> x 
+{'username': 'admin', 'machines': ['foo', 'baz']}
+```
+
+如你所见，当替换副本中的值时，原件不受影响。然而，如果修改副本中的值（就地修改而不是替换），原件也将发生变化，因为原件指向的也是被修改的值（如这个示例中的'machines'列表所示）
+
+为避免这种问题，一种办法是执行深复制，即同时复制值及其包含的所有值，等等。为此，可使用模块copy中的函数deepcopy
+
+```
+>>> from copy import deepcopy 
+>>> d = {} 
+>>> d['names'] = ['Alfred', 'Bertrand'] 
+>>> c = d.copy() 
+>>> dc = deepcopy(d) 
+>>> d['names'].append('Clive') 
+>>> c 
+{'names': ['Alfred', 'Bertrand', 'Clive']} 
+>>> dc 
+{'names': ['Alfred', 'Bertrand']}
+```
+
+3. fromkeys
+
+方法fromkeys创建一个新字典，其中包含指定的键，且每个键对应的值都是None
+
+```
+>>> {}.fromkeys(['name', 'age']) 
+{'age': None, 'name': None}
+
+>>> dict.fromkeys(['name', 'age'], '(unknown)') 
+{'age': '(unknown)', 'name': '(unknown)'}
+```
+
+4. get
+
+方法get为访问字典项提供了宽松的环境。  
+通常，如果你试图访问字典中没有的项，将引发错误
+
+```
+>>> d = {} 
+>>> print(d['name']) 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+KeyError: 'name'
+```
+
+而使用get不会这样
+
+```
+>>> print(d.get('name')) 
+None
+
+>>> d.get('name', 'N/A') 
+'N/A'
+```
+
+5. items
+
+方法items返回一个包含所有字典项的列表，其中每个元素都为(key,
+value)的形式。字典项在列表中的排列顺序不确定
+
+```
+>>> d = {'title': 'Python Web Site', 'url': 'http://www.python.org', 'spam': 0} 
+>>> d.items() 
+dict_items([('url', 'http://www.python.org'), ('spam', 0), ('title', 'Python Web Site')])
+```
+
+返回值属于一种名为字典视图的特殊类型
+
+可确定其长度以及对其执行成员资格检查
+
+```
+>>> it = d.items() 
+>>> len(it) 
+3 
+
+>>> ('spam', 0) in it 
+True
+```
+
+视图的一个优点是不复制，它们始终是底层字典的反映，即便你修改了底层字典亦如此
+
+```
+>>> d['spam'] = 1 
+>>> ('spam', 0) in it 
+False 
+
+>>> d['spam'] = 0 
+>>> ('spam', 0) in it 
+True
+```
+
+要将字典项复制到列表中
+
+```
+>>> list(d.items()) 
+[('spam', 0), ('title', 'Python Web Site'), ('url', 'http://www.python.org')]
+```
+
+6. keys
+
+方法keys返回一个字典视图，其中包含指定字典中的键
+
+7. pop
+
+方法pop可用于获取与指定键相关联的值，并将该键值对从字典中删除。
+
+```
+>>> d = {'x': 1, 'y': 2} 
+>>> d.pop('x') 
+1 
+>>> d 
+{'y': 2}
+```
+
+8. popitem
+
+方法popitem类似于list.pop，但list.pop弹出列表中的最后一个元素，而popitem随机地弹出一个字典项，因为字典项的顺序是不确定的，没有“最后一个元素”的概念。如果你要以高效地方式逐个删除并处理所有字典项，这可能很有用，因为这样无需先获取键列表
+
+```
+>>> d = {'url': 'http://www.python.org', 'spam': 0, 'title': 'Python Web Site'} 
+>>> d.popitem() 
+('url', 'http://www.python.org') 
+
+>>> d 
+{'spam': 0, 'title': 'Python Web Site'}
+```
+
+虽然popitem类似于列表方法pop，但字典没有与append（它在列表末尾添加一个元素）对应
+的方法。这是因为字典是无序的，类似的方法毫无意义
+
+> 如果希望方法popitem以可预测的顺序弹出字典项，请参阅模块collections中的OrderedDict类
+
+9. setdefault
+
+方法setdefault有点像get，因为它也获取与指定键相关联的值，但除此之外，setdefault
+还在字典不包含指定的键时，在字典中添加指定的键值对
+
+```
+>>> d = {} 
+>>> d.setdefault('name', 'N/A') 
+'N/A' 
+>>> d 
+{'name': 'N/A'} 
+>>> d['name'] = 'Gumby' 
+>>> d.setdefault('name', 'N/A') 
+'Gumby' 
+>>> d 
+{'name': 'Gumby'}
+```
+
+指定的键不存在时，setdefault返回指定的值并相应地更新字典
+
+如果指定的键存在，就返回其值，并保持字典不变。与get一样，值是可选的；如果没有指定，默认为None
+
+```
+>>> d = {} 
+>>> print(d.setdefault('name')) 
+None 
+
+>>> d 
+{'name': None}
+```
+
+10. update
+
+方法update使用一个字典中的项来更新另一个字典
+
+```
+>>> d = { 
+... 'title': 'Python Web Site', 
+... 'url': 'http://www.python.org', 
+... 'changed': 'Mar 14 22:09:15 MET 2016' 
+... }
+
+>>> x = {'title': 'Python Language Website'} 
+>>> d.update(x) 
+>>> d 
+{'url': 'http://www.python.org', 'changed': 
+'Mar 14 22:09:15 MET 2016', 'title': 'Python Language Website'}
+```
+
+对于通过参数提供的字典，将其项添加到当前字典中。如果当前字典包含键相同的项，就替换它
+
+11. values
+
+方法values返回一个由字典中的值组成的字典视图。不同于方法keys，方法values返回的视图可能包含重复的值
+
+```
+>>> d = {} 
+>>> d[1] = 1 
+>>> d[2] = 2 
+>>> d[3] = 3 
+>>> d[4] = 1 
+>>> d.values() 
+dict_values([1, 2, 3, 1])
+```
+
+### 4.3 小结
+
+- 映射：映射让你能够使用任何不可变的对象（最常用的是字符串和元组）来标识其元素。Python只有一种内置的映射类型，那就是字典。
+- 将字符串格式设置功能用于字典：要对字典执行字符串格式设置操作，不能使用format和命名参数，而必须使用format_map。
+- 字典方法：字典有很多方法，这些方法的调用方式与列表和字符串的方法相同
+
+#### 4.3.1 本章介绍的新函数
+
+| 函 数      | 描 述                        |
+|:----------|:-----------------------------|
+| dict(seq) | 从键值对、映射或关键字参数创建字典 |
+
+## 第5章 条件、循环及其他语句
+
+### 5.1 再谈 print 和 import
+
+#### 5.1.1 打印多个参数
+
+```
+>>> print('Age:', 42) 
+Age: 42
+
+>>> name = 'Gumby' 
+>>> salutation = 'Mr.' 
+>>> greeting = 'Hello,' 
+>>> print(greeting, salutation, name) 
+Hello, Mr. Gumby
+```
+
+可自定义分隔符
+
+```
+>>> print("I", "wish", "to", "register", "a", "complaint", sep="_") 
+I_wish_to_register_a_complaint
+```
+
+可自定义结束字符串，以替换默认的换行符
+
+```
+print('Hello,', end='') 
+print('world!')
+
+Hello, world!
+```
+
+#### 5.1.2 导入时重命名
+
+```
+>>> import math as foobar 
+>>> foobar.sqrt(4) 
+2.0
+
+>>> from math import sqrt as foobar 
+>>> foobar(4) 
+2.0
+
+from module1 import open as open1 
+from module2 import open as open2
+```
+
+### 5.2 赋值魔法
+
+#### 5.2.1 序列解包
+
+可同时（并行）给多个变量赋值
+
+```
+>>> x, y, z = 1, 2, 3 
+>>> print(x, y, z) 
+1 2 3
+```
+
+交换多个变量的值
+
+```
+>>> x, y = y, x 
+>>> print(x, y, z) 
+2 1 3
+```
+
+这里执行的操作称为序列解包（或可迭代对象解包）：将一个序列（或任何可迭代对象）解包，并将得到的值存储到一系列变量中
+
+```
+>>> values = 1, 2, 3 
+>>> values 
+(1, 2, 3) 
+>>> x, y, z = values 
+>>> x 
+1
+```
+
+假设要从字典中随便获取（或删除）一个键值对，可使用方法popitem，它随便获取一个键值对并以元组的方式返回。接下来，可直接将返回的元组解包到两个变量中
+
+```
+>>> scoundrel = {'name': 'Robin', 'girlfriend': 'Marion'} 
+>>> key, value = scoundrel.popitem() 
+>>> key 
+'girlfriend' 
+>>> value 
+'Marion'
+```
+
+解包的序列包含的元素个数必须与你在等号左边列出的目标个数相同，否则Python将引发异常
+
+```
+>>> x, y, z = 1, 2 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+ValueError: need more than 2 values to unpack 
+
+>>> x, y, z = 1, 2, 3, 4 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+ValueError: too many values to unpack
+```
+
+可使用星号运算符（*）来收集多余的值，这样无需确保值和变量的个数相同
+
+```
+>>> a, b, *rest = [1, 2, 3, 4] 
+>>> rest 
+[3, 4]
+
+>>> name = "Albus Percival Wulfric Brian Dumbledore" 
+>>> first, *middle, last = name.split() 
+>>> middle 
+['Percival', 'Wulfric', 'Brian']
+
+>>> a, *b, c = "abc" 
+>>> a, b, c 
+('a', ['b'], 'c')
+```
+
+#### 5.2.2 链式赋值
+
+链式赋值是一种快捷方式，用于将多个变量关联到同一个值
+
+```python
+x = y = somefunction()
+
+#等价
+y = somefunction() 
+x = y
+
+#不等价
+x = somefunction() 
+y = somefunction()
+```
+
+#### 5.2.3 增强赋值
+
+```
+>>> x = 2 
+>>> x += 1 
+>>> x *= 2 
+>>> x 
+6
+
+>>> fnord = 'foo' 
+>>> fnord += 'bar' 
+>>> fnord *= 2 
+>>> fnord 
+'foobarfoobar'
+```
+
+### 5.3 代码块：缩进的乐趣
+
+```
+this is a line 
+this is another line: 
+ this is another block 
+ continuing the same block 
+ the last line of this block 
+phew, there we escaped the inner block
+```
+
+### 5.4 条件和条件语句
+
+#### 5.4.1 这正是布尔值的用武之地
+
+下面的值都将被解释器视为假：  
+False None 0 "" () \[\] {}
+
+```
+>>> True 
+True 
+>>> False 
+False 
+>>> True == 1 
+True 
+>>> False == 0 
+True 
+>>> True + False + 42 
+43
+
+>>> bool('I think, therefore I am') 
+True 
+>>> bool(42) 
+True 
+>>> bool('') 
+False 
+>>> bool(0) 
+False
+```
+
+> 虽然[]和""都为假（即bool([]) == bool("") == False），但它们并不相等（即[] !=
+> ""）。对其他各种为假的对象来说，情况亦如此（一个更显而易见的例子是() != False）
+
+#### 5.4.2 有条件地执行和 if 语句
+
+```python
+name = input('What is your name? ') 
+if name.endswith('Gumby'): 
+ print('Hello, Mr. Gumby')
+```
+
+#### 5.4.3 else 子句
+
+```python
+name = input('What is your name?') 
+if name.endswith('Gumby'): 
+ print('Hello, Mr. Gumby') 
+else: 
+ print('Hello, stranger')
+ 
+status = "friend" if name.endswith("Gumby") else "stranger"
+```
+
+#### 5.4.4 elif 子句
+
+```python
+num = int(input('Enter a number: ')) 
+if num > 0: 
+ print('The number is positive') 
+elif num < 0: 
+ print('The number is negative') 
+else: 
+ print('The number is zero')
+```
+
+#### 5.4.5 代码块嵌套
+
+```python
+name = input('What is your name? ') 
+if name.endswith('Gumby'): 
+ if name.startswith('Mr.'): 
+ print('Hello, Mr. Gumby') 
+ elif name.startswith('Mrs.'): 
+ print('Hello, Mrs. Gumby') 
+ else: 
+ print('Hello, Gumby') 
+else: 
+ print('Hello, stranger')
+```
+
+#### 5.4.6 更复杂的条件
+
+1. 比较运算符
+
+在条件表达式中，最基本的运算符可能是比较运算符，它们用于执行比较
+
+| 表 达 式    | 描 述                  |
+|:-----------|:----------------------|
+| x == y     | x 等于y                |
+| x < y      | x小于y                 |
+| x > y      | x大于y                 |
+| x >= y     | x大于或等于y            |
+| x <= y     | x小于或等于y            |
+| x != y     | x不等于y                |
+| x is y     | x和y是同一个对象         |
+| x is not y | x和y是不同的对象         |
+| x in y     | x是容器（如序列）y的成员   |
+| x not in y | x不是容器（如序列）y的成员 |
+
+2. 布尔运算符
+
+```python
+number = int(input('Enter a number between 1 and 10: ')) 
+if number <= 10 and number >= 1: 
+ print('Great!') 
+else: 
+ print('Wrong!')
+```
+
+#### 5.4.7 断言
+
+```python
+if not condition: 
+ crash program
+```
+
+程序在错误条件出现时立即崩溃
+
+```
+>>> age = 10 
+>>> assert 0 < age < 100 
+>>> age = -1 
+>>> assert 0 < age < 100 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+AssertionError
+```
+
+```
+>>> age = -1 
+>>> assert 0 < age < 100, 'The age must be realistic' 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+AssertionError: The age must be realistic
+```
+
+### 5.5 循环
+
+#### 5.5.1 while 循环
+
+```python
+x = 1 
+while x <= 100: 
+ print(x) 
+ x += 1
+ 
+name = '' 
+while not name: 
+ name = input('Please enter your name: ') 
+print('Hello, {}!'.format(name))
+```
+
+#### 5.5.2 for 循环
+
+```python
+words = ['this', 'is', 'an', 'ex', 'parrot'] 
+for word in words: 
+ print(word)
+ 
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+for number in numbers: 
+ print(number)
+```
+
+#### 5.5.3 迭代字典
+
+```python
+d = {'x': 1, 'y': 2, 'z': 3} 
+for key in d: 
+ print(key, 'corresponds to', d[key])
+ 
+for key, value in d.items(): 
+ print(key, 'corresponds to', value)
+```
+
+#### 5.5.4 一些迭代工具
+
+1. 并行迭代
+
+```python
+names = ['anne', 'beth', 'george', 'damon'] 
+ages = [12, 45, 32, 102]
+for i in range(len(names)): 
+ print(names[i], 'is', ages[i], 'years old')
+```
+
+置函数zip将两个序列“缝合”起来，并返回一个由元组组成的序列
+
+```
+>>> list(zip(names, ages)) 
+[('anne', 12), ('beth', 45), ('george', 32), ('damon', 102)]
+```
+
+“缝合”后，可在循环中将元组解包
+
+```python
+for name, age in zip(names, ages): 
+ print(name, 'is', age, 'years old')
+```
+
+当序列的长度不同时，函数zip将在最短的序列用完后停止“缝合”
+
+```
+>>> list(zip(range(5), range(100000000))) 
+[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+```
+
+2. 迭代时获取索引
+
+```python
+for string in strings: 
+ if 'xxx' in string: 
+ index = strings.index(string) # 在字符串列表中查找字符串
+ strings[index] = '[censored]'
+
+index = 0 
+for string in strings: 
+ if 'xxx' in string: 
+ strings[index] = '[censored]' 
+ index += 1
+ 
+for index, string in enumerate(strings): 
+ if 'xxx' in string: 
+ strings[index] = '[censored]'
+```
+
+3. 反向迭代和排序后再迭代
+
+```
+>>> sorted([4, 3, 6, 8, 3]) 
+[3, 3, 4, 6, 8] 
+>>> sorted('Hello, world!') 
+[' ', '!', ',', 'H', 'd', 'e', 'l', 'l', 'l', 'o', 'o', 'r', 'w'] 
+>>> list(reversed('Hello, world!')) 
+['!', 'd', 'l', 'r', 'o', 'w', ' ', ',', 'o', 'l', 'l', 'e', 'H'] 
+>>> ''.join(reversed('Hello, world!')) 
+'!dlrow ,olleH'
+```
+
+#### 5.5.5 跳出循环
+
+1. break
+
+```python
+from math import sqrt 
+for n in range(99, 0, -1): 
+ root = sqrt(n) 
+ if root == int(root): 
+ print(n) 
+ break
+```
+
+2. continue
+
+```python
+for x in seq: 
+ if condition1: continue 
+ if condition2: continue 
+ if condition3: continue 
+ do_something() 
+ do_something_else() 
+ do_another_thing() 
+ etc()
+```
+
+3. while True/break成例
+
+```python
+word = 'dummy' 
+while word: 
+ word = input('Please enter a word: ') 
+ # 使用这个单词做些事情：
+ print('The word was', word)
+ 
+while True: 
+ word = input('Please enter a word: ') 
+ if not word: break 
+ # 使用这个单词做些事情：
+ print('The word was ', word)
+```
+
+#### 5.5.6 循环中的 else 子句
+
+```python
+broke_out = False 
+for x in seq: 
+ do_something(x) 
+ if condition(x): 
+ broke_out = True 
+ break 
+ do_something_else(x) 
+if not broke_out: 
+ print("I didn't break out!")
+ 
+from math import sqrt 
+for n in range(99, 81, -1): 
+ root = sqrt(n) 
+ if root == int(root): 
+ print(n) 
+ break 
+else: 
+ print("Didn't find it!")
+```
+
+### 5.6 简单推导
+
+```
+>>> [x * x for x in range(10)] 
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+>>> [x*x for x in range(10) if x 3 == 0] %
+[0, 9, 36, 81]
+
+>>> [(x, y) for x in range(3) for y in range(3)] 
+[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+```
+
+```python
+result = [] 
+for x in range(3): 
+ for y in range(3) 
+ result.append((x, y))
+```
+
+```
+>>> girls = ['alice', 'bernice', 'clarice'] 
+>>> boys = ['chris', 'arnold', 'bob'] 
+>>> [b+'+'+g for b in boys for g in girls if b[0] == g[0]] 
+['chris+clarice', 'arnold+alice', 'bob+bernice']
+```
+
+### 5.7 三人行
+
+#### 5.7.1 什么都不做
+
+```python
+if name == 'Ralph Auldus Melish': 
+ print('Welcome!') 
+elif name == 'Enid': 
+ # 还未完成……
+ pass 
+elif name == 'Bill Gates': 
+ print('Access Denied')
+```
+
+#### 5.7.2 使用 del 删除
+
+```
+>>> x = 1 
+>>> del x 
+>>> x 
+Traceback (most recent call last): 
+ File "<pyshell#255>", line 1, in ? 
+ x 
+NameError: name 'x' is not defined
+```
+
+#### 5.7.3 使用 exec 和 eval 执行字符串及计算其结果
+
+1. exec
+
+函数exec将字符串作为代码执行
+
+```
+>>> exec("print('Hello, world!')") 
+Hello, world!
+
+>>> from math import sqrt 
+>>> exec("sqrt = 1") 
+>>> sqrt(4) 
+Traceback (most recent call last): 
+ File "<pyshell#18>", line 1, in ? 
+ sqrt(4) 
+TypeError: object is not callable: 1
+```
+
+添加第二个参数——字典，用作代码字符串的命名空间
+
+```
+>>> from math import sqrt 
+>>> scope = {} 
+>>> exec('sqrt = 1', scope) 
+>>> sqrt(4) 
+2.0 
+>>> scope['sqrt'] 
+1
+
+>>> len(scope) 
+2 
+>>> scope.keys() 
+['sqrt', '__builtins__']
+```
+
+2. eval
+
+eval计算用字符串表示的Python表达式的值，并返回结果
+
+```
+>>> eval(input("Enter an arithmetic expression: ")) 
+Enter an arithmetic expression: 6 + 18 * 2 
+42
+```
+
+### 5.8 小结
+
+- **打印语句**：你可使用print语句来打印多个用逗号分隔的值。如果print语句以逗号结尾，后续print语句将在当前行接着打印。
+- **导入语句**：有时候，你不喜欢要导入的函数的名称——可能是因为你已将这个名称用作他用。在这种情况下，可使用import
+  ... as ...语句在本地重命名函数。
+- **赋值语句**：通过使用奇妙的序列解包和链式赋值，可同时给多个变量赋值；而通过使用增强赋值，可就地修改变量。
+- **代码块**：代码块用于通过缩进将语句编组。代码块可用于条件语句和循环中，还可用于函数和类定义中（这将在本书后面介绍）。
+- **条件语句**：条件语句根据条件（布尔表达式）决定是否执行后续代码块。通过使用if/elif/else，可将多个条件语句组合起来。条件语句的一个变种是条件表达式，如a
+  if b else c。
+- **断言**：断言断定某件事（一个布尔表达式）为真，可包含说明为何必须如此的字符串。如果指定的表达式为假，断言将导致程序停止执行（或引发第8章将介绍的异常）。最好尽早将错误揪出来，免得它潜藏在程序中，直到带来麻烦。
+- **循环**：你可针对序列中的每个元素（如特定范围内的每个数）执行代码块，也可在条件为真时反复执行代码块。要跳过代码块中余下的代码，直接进入下一次迭代，可使用continue语句；要跳出循环，可使用break语句。另外，你还可在循环末尾添加一个else子句，它将在没有执行循环中的任何break语句时执行。
+- **推导**：推导并不是语句，而是表达式。它们看起来很像循环，因此我将它们放在循环中讨论。通过列表推导，可从既有列表创建出新列表，这是通过对列表元素调用函数、剔除不想要的函数等实现的。推导功能强大，但在很多情况下，使用普通循环和条件语句也可完成任务，且代码的可读性可能更高。使用类似于列表推导的表达式可创建出字典。
+- **pass、del、exec和eval**：pass语句什么都不做，但适合用作占位符。del语句用于删除变量或数据结构的成员，但不能用于删除值。函数exec用于将字符串作为Python程序执行。函数eval计算用字符串表示的表达式并返回结果
+
+#### 5.8.1 本章介绍的新函数
+
+| 函 数                                    | 描 述                                                             |
+|:----------------------------------------|:------------------------------------------------------------------|
+| chr(n)                                  | 返回一个字符串，其中只包含一个字符，这个字符对应于传入的顺序值n（0 ≤n < 256） |
+| eval(source\[,globals\[,locals\]\])     | 计算并返回字符串表示的表达式的结果                                      |
+| exec(source\[, globals\[, locals\]\])   | 将字符串作为语句执行                                                 |
+| enumerate(seq)                          | 生成可迭代的索引值对                                               |
+| ord(c)                                  | 接受一个只包含一个字符的字符串，并返回这个字符的顺序值（一个整数）            |
+| range(\[start,\] stop\[, step\])        | 创建一个由整数组成的列表                                              |
+| reversed(seq)                           | 按相反的顺序返回seq中的值，以便用于迭代                                 |
+| sorted(seq\[,cmp\]\[,key\]\[,reverse\]) | 返回一个列表，其中包含seq中的所有值且这些值是经过排序的                    |
+| xrange(\[start,\] stop\[, step\])       | 创建一个用于迭代的xrange对象                                          |
+| zip(seq1, seq2,...)                     | 创建一个适合用于并行迭代的新序列                                        |
+
+## 第6章 抽象
