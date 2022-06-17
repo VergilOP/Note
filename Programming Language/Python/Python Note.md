@@ -2992,3 +2992,342 @@ def search(sequence, number, lower, upper):
 
 ## 第7章 再谈抽象
 
+### 7.1 对象魔法
+
+- 多态：可对不同类型的对象执行相同的操作，而这些操作就像“被施了魔法”一样能够正常运行。
+- 封装：对外部隐藏有关对象工作原理的细节。
+- 继承：可基于通用类创建出专用类。
+
+#### 7.1.1 多态
+
+这大致意味着即便你不知道变量指向的是哪种对象，也能够对其执行操作，且操作的行为将随对象所属的类型（类）而异
+
+#### 7.1.2 多态和方法
+
+每当无需知道对象是什么样的就能对其执行操作时，都是多态在起作用
+
+```
+>>> 1 + 2 
+3 
+>>> 'Fish' + 'license' 
+'Fishlicense'
+```
+
+上述代码表明，加法运算符（+）既可用于数（这里是整数），也可用于字符串（以及其他类型的序列）  
+重点在于参数可以是任何支持加法的对象
+
+#### 7.1.3 封装
+
+封装（encapsulation）指的是向外部隐藏不必要的细节  
+属性是归属于对象的变量，就像方法一样。实际上，方法差不多就是与函数相关联的属性
+
+#### 7.1.4 继承
+
+程序员总是想避免多次输入同样的代码
+
+### 7.2 类
+
+#### 7.2.1 类到底是什么
+
+本书前面反复提到了类，并将其用作类型的同义词。从很多方面来说，这正是类的定义——一种对象。每个对象都属于特定的类，并被称为该类的实例。
+
+“云雀”为“鸟类”的子类，而“鸟类”为“云雀”的超类
+
+#### 7.2.2 创建自定义类
+
+```python
+__metaclass__ = type # 如果你使用的是Python 2，请包含这行代码
+class Person: 
+    def set_name(self, name): 
+        self.name = name 
+    def get_name(self): 
+        return self.name 
+    def greet(self): 
+        print("Hello, world! I'm {}.".format(self.name))
+```
+
+```
+>>> foo = Person() 
+>>> bar = Person() 
+>>> foo.set_name('Luke Skywalker') 
+>>> bar.set_name('Anakin Skywalker') 
+>>> foo.greet() 
+Hello, world! I'm Luke Skywalker. 
+>>> bar.greet() 
+Hello, world! I'm Anakin Skywalker.
+```
+
+#### 7.2.3 属性、函数和方法
+
+```
+>>> class Class: 
+... def method(self): 
+... print('I have a self!') 
+... 
+>>> def function(): 
+... print("I don't...") 
+... 
+>>> instance = Class() 
+>>> instance.method() I have a self! 
+>>> instance.method = function 
+>>> instance.method() I don't...
+
+>>> class Bird: 
+... song = 'Squaawk!' 
+... def sing(self): 
+... print(self.song) 
+... 
+>>> bird = Bird() 
+>>> bird.sing() 
+Squaawk! 
+>>> birdsong = bird.sing 
+>>> birdsong() 
+Squaawk!
+```
+
+#### 7.2.4 再谈隐藏
+
+要让方法或属性成为私有的（不能从外部访问），只需让其名称以两个下划线打头即可
+
+```python
+class Secretive: 
+    def __inaccessible(self): 
+        print("Bet you can't see me ...") 
+    def accessible(self): 
+        print("The secret message is:") 
+        self.__inaccessible()
+```
+
+```
+>>> s = Secretive() 
+>>> s.__inaccessible() 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+AttributeError: Secretive instance has no attribute '__inaccessible' 
+>>> s.accessible() 
+The secret message is: 
+Bet you can't see me ...
+```
+
+#### 7.2.5 类的命名空间
+
+在class语句中定义的代码都是在一个特殊的命名空间（类的命名空间）内执行的，而类的所有成员都可访问这个命名空间
+
+#### 7.2.6 指定超类
+
+```python
+class Filter: 
+    def init(self): 
+        self.blocked = [] 
+    def filter(self, sequence): 
+        return [x for x in sequence if x not in self.blocked] 
+class SPAMFilter(Filter): # SPAMFilter是Filter的子类
+    def init(self): # 重写超类Filter的方法init 
+        self.blocked = ['SPAM']
+```
+
+#### 7.2.7 深入探讨继承
+
+要确定一个类是否是另一个类的子类，可使用内置方法issubclass
+
+```
+>>> issubclass(SPAMFilter, Filter) 
+True 
+>>> issubclass(Filter, SPAMFilter) 
+False
+```
+
+如果你有一个类，并想知道它的基类，可访问其特殊属性__bases__
+
+```
+>>> SPAMFilter.__bases__ 
+(<class __main__.Filter at 0x171e40>,) 
+>>> Filter.__bases__ 
+(<class 'object'>,)
+```
+
+同样，要确定对象是否是特定类的实例，可使用isinstance
+
+```
+>>> s = SPAMFilter() 
+>>> isinstance(s, SPAMFilter) 
+True 
+>>> isinstance(s, Filter)
+True 
+>>> isinstance(s, str) 
+False
+```
+
+如果你要获悉对象属于哪个类，可使用属性__class__。
+
+```
+>>> s.__class__ 
+<class __main__.SPAMFilter at 0x1707c0>
+```
+
+#### 7.2.8 多个超类
+
+```python
+class Calculator: 
+    def calculate(self, expression): 
+    self.value = eval(expression) 
+class Talker: 
+    def talk(self): 
+    print('Hi, my value is', self.value) 
+class TalkingCalculator(Calculator, Talker): 
+    pass
+```
+
+```
+>>> tc = TalkingCalculator() 
+>>> tc.calculate('1 + 2 * 3') 
+>>> tc.talk() 
+Hi, my value is 7
+```
+
+这被称为多重继承，是一个功能强大的工具。然而，除非万不得已，否则应避免使用多重继承，因为在有些情况下，它可能带来意外的“并发症
+
+多个超类的超类相同时，查找特定方法或属性时访
+问超类的顺序称为方法解析顺序（MRO），它使用的算法非常复杂
+
+#### 7.2.9 接口和内省
+
+通常，你要求对象遵循特定的接口（即实现特定的方法），但如果需要，也可非常灵活地提出要求：不是直接调用方法并期待一切顺利，而是检查所需的方法是否存在；如果不存在，就改弦易辙。
+
+```
+>>> hasattr(tc, 'talk') 
+True 
+>>> hasattr(tc, 'fnord') 
+False
+```
+
+还可以检查属性talk是否是可调用的。
+
+```
+>>> callable(getattr(tc, 'talk', None)) 
+True 
+>>> callable(getattr(tc, 'fnord', None)) 
+False
+```
+
+请注意，这里没有在if语句中使用hasattr并直接访问属性，而是使用了getattr（它让我能
+够指定属性不存在时使用的默认值，这里为None），然后对返回的对象调用callable
+
+#### 7.2.10 抽象基类
+
+Python几乎都只依赖于鸭子类型，即假设所有对象都能完成其工作，同时偶尔使用hasattr来检查所需的方法是否存在  
+Python通过引入模块abc提供了官方解决方案
+
+```python
+from abc import ABC, abstractmethod 
+class Talker(ABC): 
+    @abstractmethod 
+    def talk(self): 
+    pass
+```
+
+形如@this的东西被称为装饰器
+
+抽象类（即包含抽象方法的类）最重要的特征是不能实例化
+
+```
+>>> Talker() 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+TypeError: Can't instantiate abstract class Talker with abstract methods talk
+```
+
+可重新编写这个类，使其实现要求的方法
+
+```python
+class Knigget(Talker): 
+    def talk(self): 
+    print("Ni!")
+```
+
+```
+>>> k = Knigget()
+>>> isinstance(k, Talker) 
+True 
+>>> k.talk() 
+Ni!
+```
+
+可将Herring注册为Talker（而不从Herring和Talker派生出子类），这样所有的Herring对象都将被视为Talker对象
+
+```python
+class Herring: 
+    def talk(self): 
+    print("Blub.")
+```
+
+```
+>>> Talker.register(Herring) 
+<class '__main__.Herring'> 
+>>> isinstance(h, Talker) 
+True 
+>>> issubclass(Herring, Talker) 
+True
+
+>>> class Clam: 
+... pass 
+... 
+>>> Talker.register(Clam) 
+<class '__main__.Clam'> 
+>>> issubclass(Clam, Talker) 
+True 
+>>> c = Clam() 
+>>> isinstance(c, Talker) 
+True 
+>>> c.talk() 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+AttributeError: 'Clam' object has no attribute 'talk'
+```
+
+这种做法存在一个缺点，就是直接从抽象类派生提供的保障没有了
+
+### 7.3 关于面向对象设计的一些思考
+
+- 将相关的东西放在一起。如果一个函数操作一个全局变量，最好将它们作为一个类的属性和方法。
+- 不要让对象之间过于亲密。方法应只关心其所属实例的属性，对于其他实例的状态，让它们自己去管理就好了。
+- 慎用继承，尤其是多重继承。继承有时很有用，但在有些情况下可能带来不必要的复杂性。要正确地使用多重继承很难，要排除其中的bug更难。
+- 保持简单。让方法短小紧凑。一般而言，应确保大多数方法都能在30秒内读完并理解。对于其余的方法，尽可能将其篇幅控制在一页或一屏内。
+
+确定需要哪些类以及这些类应包含哪些方法时
+1. 将有关问题的描述（程序需要做什么）记录下来，并给所有的名词、动词和形容词加上标记。
+2. 在名词中找出可能的类。
+3. 在动词中找出可能的方法。
+4. 在形容词中找出可能的属性。
+5. 将找出的方法和属性分配给各个类。
+
+有了面向对象模型的草图后，还需考虑类和对象之间的关系（如继承或协作）以及它们的职责
+1. 记录（或设想）一系列用例，即使用程序的场景，并尽力确保这些用例涵盖了所有的功能。
+2. 透彻而仔细地考虑每个场景，确保模型包含了所需的一切。如果有遗漏，就加上；如果有不太对的地方，就修改。不断地重复这个过程，直到对模型满意为止。
+
+### 7.4 小结
+
+- **对象**：对象由属性和方法组成。属性不过是属于对象的变量，而方法是存储在属性中的函数。相比于其他函数，（关联的）方法有一个不同之处，那就是它总是将其所属的对象作为第一个参数，而这个参数通常被命名为self。
+- **类**：类表示一组（或一类）对象，而每个对象都属于特定的类。类的主要任务是定义其实例将包含的方法。
+- **多态**：多态指的是能够同样地对待不同类型和类的对象，即无需知道对象属于哪个类就可调用其方法。
+- **封装**：对象可能隐藏（封装）其内部状态。在有些语言中，这意味着对象的状态（属性）只能通过其方法来访问。在Python中，所有的属性都是公有的，但直接访问对象的状态时程序员应谨慎行事，因为这可能在不经意间导致状态不一致。
+- **继承**：一个类可以是一个或多个类的子类，在这种情况下，子类将继承超类的所有方法。你可指定多个超类，通过这样做可组合正交（独立且不相关）的功能。为此，一种常见的做法是使用一个核心超类以及一个或多个混合超类。
+- **接口和内省**：一般而言，你无需过于深入地研究对象，而只依赖于多态来调用所需的方法。然而，如果要确定对象包含哪些方法或属性，有一些函数可供你用来完成这种工作。
+- **抽象基类**：使用模块abc可创建抽象基类。抽象基类用于指定子类必须提供哪些功能，却不实现这些功能。
+- **面向对象设计**：关于该如何进行面向对象设计以及是否该采用面向对象设计，有很多不同的观点。无论你持什么样的观点，都必须深入理解问题，进而创建出易于理解的设计。
+
+#### 7.4.1 本章介绍的新函数
+
+| 函 数                             | 描 述                                |
+|:---------------------------------|:-------------------------------------|
+| callable(object)                 | 判断对象是否是可调用的（如是否是函数或方法） |
+| getattr(object,name\[,default\]) | 获取属性的值，还可提供默认值              |
+| hasattr(object, name)            | 确定对象是否有指定的属性                 |
+| isinstance(object, class)        | 确定对象是否是指定类的实例                |
+| issubclass(A, B)                 | 确定A是否是B的子类                      |
+| random.choice(sequence)          | 从一个非空序列中随机地选择一个元素         |
+| setattr(object, name, value)     | 将对象的指定属性设置为指定的值            |
+| type(object)                     | 返回对象的类型                         |
+
+## 第8章 异常
+
