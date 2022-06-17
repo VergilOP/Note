@@ -2493,3 +2493,502 @@ Enter an arithmetic expression: 6 + 18 * 2
 | zip(seq1, seq2,...)                     | 创建一个适合用于并行迭代的新序列                                        |
 
 ## 第6章 抽象
+
+### 6.1 懒惰是一种美德
+
+斐波那契数
+
+```python
+fibs = [0, 1] 
+for i in range(8): 
+ fibs.append(fibs[-2] + fibs[-1])
+```
+
+### 6.2 抽象和结构
+
+如下载网页、计算使用频率、打印每个单词的使用频率
+
+```python
+page = download_page() 
+freqs = compute_frequencies(page) 
+for word, freq in freqs: 
+ print(word, freq)
+```
+
+### 6.3 自定义函数
+
+使用def（表示定义函数）语句
+
+```python
+def hello(name): 
+ return 'Hello, ' + name + '!'
+ 
+def fibs(num): 
+ result = [0, 1] 
+ for i in range(num-2): 
+ result.append(result[-2] + result[-1]) 
+ return result
+```
+
+#### 6.3.1 给函数编写文档
+
+文档字符串
+
+```python
+def square(x): 
+ 'Calculates the square of the number x.' 
+ return x * x
+
+>>> square.__doc__ 
+'Calculates the square of the number x.'
+```
+
+> __doc__是函数的一个属性
+
+#### 6.3.2 其实并不是函数的函数
+
+```python
+def test(): 
+ print('This is printed') 
+ return 
+ print('This is not')
+ 
+>>> print(x) 
+None
+```
+
+所有的函数都返回值。如果你没有告诉它们该返回什么，将返回None
+
+### 6.4 参数魔法
+
+#### 6.4.1 值从哪里来
+
+> 在def语句中，位于函数名后面的变量通常称为形参，而调用函数时提供的值称为实参，但本书基本不对此做严格的区分。在很重要的情况下，我会将实参称为值，以便将其与类似于变量的形参区分开来
+
+#### 6.4.2 我能修改参数吗
+
+在函数内部重新关联参数（即给它赋值）时，函数外部的变量不受影响
+
+> 参数存储在局部作用域内
+
+```
+>>> names = ['Mrs. Entity', 'Mrs. Thing'] 
+>>> n = names[:]
+```
+
+现在n和names包含两个**相等**但**不同**的列表。
+
+```
+>>> n is names 
+False 
+>>> n == names 
+True
+```
+
+1. 为何要修改参数
+
+编写一个程序，让它存储姓名，并让用户能够根据名字、中间名或姓找人
+
+```python
+storage = {} 
+storage['first'] = {} 
+storage['middle'] = {} 
+storage['last'] = {}
+```
+
+要将作者加入这个数据结构中，可以像下面这样做
+
+```python
+me = 'Magnus Lie Hetland' 
+storage['first']['Magnus'] = [me] 
+storage['middle']['Lie'] = [me] 
+storage['last']['Hetland'] = [me]
+```
+
+要获取中间名为Lie的人员名单
+
+```
+>>> storage['middle']['Lie'] 
+['Magnus Lie Hetland']
+```
+
+添加我的妹妹
+
+```python
+>>> my_sister = 'Anne Lie Hetland' 
+>>> storage['first'].setdefault('Anne', []).append(my_sister) 
+>>> storage['middle'].setdefault('Lie', []).append(my_sister) 
+>>> storage['last'].setdefault('Hetland', []).append(my_sister) 
+>>> storage['first']['Anne'] 
+['Anne Lie Hetland'] 
+>>> storage['middle']['Lie'] 
+['Magnus Lie Hetland', 'Anne Lie Hetland']
+```
+
+来创建一个初始化数据结构的函数
+
+```python
+def init(data): 
+ data['first'] = {} 
+ data['middle'] = {} 
+ data['last'] = {}
+ 
+>>> storage = {} 
+>>> init(storage) 
+>>> storage 
+{'middle': {}, 'last': {}, 'first': {}}
+```
+
+> 在字典中，键的排列顺序是不固定的，因此打印字典时，每次的顺序都可能不同。如果你在解释器中打印出来的顺序不同，请不用担心
+
+编写获取人员姓名的函数，再接着编写存储人员姓名的函数
+
+```python
+def lookup(data, label, name): 
+ return data[label].get(name)
+ 
+>>> lookup(storage, 'middle', 'Lie') 
+['Magnus Lie Hetland']
+```
+
+编写将人员存储到数据结构中的函数
+
+```python
+def store(data, full_name): 
+    names = full_name.split() 
+    if len(names) == 2: names.insert(1, '') 
+    labels = 'first', 'middle', 'last' 
+    for label, name in zip(labels, names): 
+        people = lookup(data, label, name) 
+        if people: 
+            people.append(full_name) 
+        else: 
+            data[label][name] = [full_name]
+            
+>>> MyNames = {} 
+>>> init(MyNames) 
+>>> store(MyNames, 'Magnus Lie Hetland') 
+>>> lookup(MyNames, 'middle', 'Lie') 
+['Magnus Lie Hetland']
+>>> store(MyNames, 'Robin Hood') 
+>>> store(MyNames, 'Robin Locksley') 
+>>> lookup(MyNames, 'first', 'Robin') 
+['Robin Hood', 'Robin Locksley'] 
+>>> store(MyNames, 'Mr. Gumby') 
+>>> lookup(MyNames, 'middle', '') 
+['Robin Hood', 'Robin Locksley', 'Mr. Gumby']
+```
+
+```
+1. 将参数data和full_name提供给这个函数。这些参数被设置为从外部获得的值。
+2. 通过拆分full_name创建一个名为names的列表。
+3. 如果names的长度为2（只有名字和姓），就将中间名设置为空字符串。
+4. 将'first'、'middle'和'last'存储在元组labels中（也可使用列表，这里使用元组只是为了省略方括号）。
+5. 使用函数zip将标签和对应的名字合并，以便对每个标签名字对执行如下操作：
+   - 获取属于该标签和名字的列表；
+   - 将full_name附加到该列表末尾或插入一个新列表
+```
+
+2. 如果参数是不可变的
+
+在有些语言（如C++、Pascal和Ada）中，经常需要给参数赋值并让这种修改影响函数外部的变量。在Python中，没法直接这样做，只能修改参数对象本身
+
+```
+>>> def inc(x): return x + 1 
+... 
+>>> foo = 10 
+>>> foo = inc(foo) 
+>>> foo 
+11
+
+>>> def inc(x): x[0] = x[0] + 1 
+... 
+>>> foo = [10] 
+>>> inc(foo) 
+>>> foo 
+[11]
+```
+
+#### 6.4.3 关键字参数和默认值
+
+有时候，参数的排列顺序可能难以记住，尤其是参数很多时。为了简化调用工作，可指定参数的名称
+
+```python
+def hello_1(greeting, name): 
+ print('{}, {}!'.format(greeting, name))
+
+>>> hello_1(greeting='Hello', name='world') 
+Hello, world!
+```
+
+像这样使用名称指定的参数称为**关键字参数**，主要优点是有助于澄清各个参数的作用
+
+```
+>>> store('Mr. Brainsample', 10, 20, 13, 5)
+
+>>> store(patient='Mr. Brainsample', hour=10, minute=20, day=13, month=5)
+```
+
+关键字参数最大的优点在于，可以指定默认值
+
+```python
+def hello_3(greeting='Hello', name='world'): 
+ print('{}, {}!'.format(greeting, name))
+```
+
+像这样给参数指定默认值后，调用函数时可不提供它！可以根据需要，一个参数值也不提供、提供部分参数值或提供全部参数值
+
+```
+>>> hello_3() 
+Hello, world! 
+
+>>> hello_3('Greetings') 
+Greetings, world! 
+
+>>> hello_3('Greetings', 'universe') 
+Greetings, universe!
+
+>>> hello_3(name='Gumby') 
+Hello, Gumby!
+```
+
+#### 6.4.4 收集参数
+
+```python
+def print_params(*params): 
+ print(params)
+```
+
+参数前面的星号将提供的所有值都放在一个元组中  
+如果没有可供收集的参数，params将是一个空元组
+
+```
+>>> print_params('Testing') 
+('Testing',)
+
+>>> print_params(1, 2, 3) 
+(1, 2, 3)
+```
+
+带星号的参数也可放在其他位置（而不是最后），但不同的是，在这种情况下你需要做些额外的工作：使用名称来指定后续参数
+
+```
+>>> def in_the_middle(x, *y, z): 
+... print(x, y, z) 
+... 
+
+>>> in_the_middle(1, 2, 3, 4, 5, z=7) 
+1 (2, 3, 4, 5) 7 
+
+>>> in_the_middle(1, 2, 3, 4, 5, 7) 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+TypeError: in_the_middle() missing 1 required keyword-only argument: 'z'
+```
+
+要收集关键字参数，可使用两个星号。
+
+```
+>>> def print_params_3(**params): 
+... print(params) 
+... 
+
+>>> print_params_3(x=1, y=2, z=3) 
+{'z': 3, 'x': 1, 'y': 2}
+```
+
+```python
+def print_params_4(x, y, z=3, *pospar, **keypar): 
+ print(x, y, z) 
+ print(pospar) 
+ print(keypar)
+
+>>> print_params_4(1, 2, 3, 5, 6, 7, foo=1, bar=2) 
+1 2 3 
+(5, 6, 7) 
+{'foo': 1, 'bar': 2} 
+>>> print_params_4(1, 2) 
+1 2 3 
+() 
+{}
+```
+
+在姓名存储示例中使用这种技术
+
+```python
+def store(data, *full_names): 
+    for full_name in full_names: 
+        names = full_name.split() 
+        if len(names) == 2: names.insert(1, '') 
+        labels = 'first', 'middle', 'last' 
+        for label, name in zip(labels, names): 
+            people = lookup(data, label, name) 
+            if people: 
+                people.append(full_name) 
+            else: 
+                data[label][name] = [full_name]
+```
+
+#### 6.4.5 分配参数
+
+不是收集参数，而是分配参数。这是通过在调用函数（而不是定义函数）时使用运算符*实现的
+
+```python
+def add(x, y): 
+    return x + y
+params = (1, 2)
+
+>>> add(*params) 
+3
+```
+
+```
+>>> params = {'name': 'Sir Robin', 'greeting': 'Well met'} 
+>>> hello_3(**params) 
+Well met, Sir Robin!
+```
+
+如果在定义和调用函数时都使用*或**，将只传递元组或字典。因此还不如不使用它们，还可省却些麻烦。
+
+```
+>>> def with_stars(**kwds): 
+... print(kwds['name'], 'is', kwds['age'], 'years old') 
+... 
+>>> def without_stars(kwds): 
+... print(kwds['name'], 'is', kwds['age'], 'years old') 
+... 
+>>> args = {'name': 'Mr. Gumby', 'age': 42} 
+>>> with_stars(**args) 
+Mr. Gumby is 42 years old 
+>>> without_stars(args) 
+Mr. Gumby is 42 years old
+```
+
+#### 6.4.6 练习使用参数
+
+```python
+def story(**kwds): 
+    return 'Once upon a time, there was a ' \ 
+        '{job} called {name}.'.format_map(kwds) 
+def power(x, y, *others): 
+    if others: 
+        print('Received redundant parameters:', others) 
+    return pow(x, y) 
+def interval(start, stop=None, step=1): 
+    'Imitates range() for step > 0' 
+    if stop is None: # 如果没有给参数stop指定值，
+        start, stop = 0, start # 就调整参数start和stop的值
+    result = [] 
+    i = start # 从start开始往上数
+    while i < stop: # 数到stop位置
+        result.append(i) # 将当前数的数附加到result末尾
+        i += step # 增加到当前数和step（> 0）之和
+    return result
+```
+
+下面来尝试调用这些函数
+
+```
+>>> print(story(job='king', name='Gumby')) 
+Once upon a time, there was a king called Gumby. 
+>>> print(story(name='Sir Robin', job='brave knight')) 
+Once upon a time, there was a brave knight called Sir Robin. 
+>>> params = {'job': 'language', 'name': 'Python'} 
+>>> print(story(**params)) 
+Once upon a time, there was a language called Python. 
+>>> del params['job'] 
+>>> print(story(job='stroke of genius', **params)) 
+Once upon a time, there was a stroke of genius called Python. 
+>>> power(2, 3) 
+8 
+>>> power(3, 2) 
+9 
+>>> power(y=3, x=2) 
+8 
+>>> params = (5,) * 2 
+>>> power(*params) 
+3125 
+>>> power(3, 3, 'Hello, world') 
+Received redundant parameters: ('Hello, world',) 
+27 
+>>> interval(10) 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+>>> interval(1, 5) 
+[1, 2, 3, 4] 
+>>> interval(3, 12, 4) 
+[3, 7, 11] 
+>>> power(*interval(3, 7)) 
+Received redundant parameters: (5, 6) 
+81
+```
+
+### 6.5 作用域
+
+将变量视为指向值的名称  
+几乎与使用字典时一样（字典中的键指向值），只是你使用的是“看不见”的字典  
+这种“看不见的字典”称为命名空间或作用域
+
+```
+>>> def foo(): x = 42 
+... 
+>>> x = 1 
+>>> foo() 
+>>> x 
+1
+```
+
+在这里，函数foo修改（重新关联）了变量x，但当你最终查看时，它根本没变
+
+### 6.6 递归
+
+这个函数中的递归称为无穷递归（就像以while
+True打头且不包含break和return语句的循环被称为无限循环一样），因为它从理论上说永远不会结束
+- **基线条件**（针对最小的问题）：满足这种条件时函数将直接返回一个值。
+- **递归条件**：包含一个或多个调用，这些调用旨在解决问题的一部分
+
+#### 6.6.1 两个经典案例：阶乘和幂
+
+```python
+def factorial(n): 
+ if n == 1: 
+ return 1 
+ else: 
+ return n * factorial(n - 1)
+```
+
+#### 6.6.2 另一个经典案例：二分查找
+
+```python
+def search(sequence, number, lower, upper): 
+    if lower == upper: 
+        assert number == sequence[upper] 
+        return upper 
+    else: 
+        middle = (lower + upper) // 2 
+        if number > sequence[middle]: 
+            return search(sequence, number, middle + 1, upper) 
+        else: 
+            return search(sequence, number, lower, middle)
+```
+
+### 6.7 小结
+
+- **抽象**：抽象是隐藏不必要细节的艺术。通过定义处理细节的函数，可让程序更抽象。
+- **函数定义**：函数是使用def语句定义的。函数由语句块组成，它们从外部接受值（参数），并可能返回一个或多个值（计算结果）。
+- **参数**：函数通过参数（调用函数时被设置的变量）接收所需的信息。在Python中，参数有两类：位置参数和关键字参数。通过给参数指定默认值，可使其变成可选的。
+- **作用域**：变量存储在作用域（也叫命名空间）中。在Python中，作用域分两大类：全局作用域和局部作用域。作用域可以嵌套。
+- **递归**：函数可调用自身，这称为递归。可使用递归完成的任何任务都可使用循环来完成，但有时使用递归函数的可读性更高。
+- **函数式编程**：Python提供了一些函数式编程工具，其中包括lambda表达式以及函数map、filter和reduce。
+
+### 6.7.1 本章介绍的新函数
+
+| 函 数                              | 描 述                                                     |
+|:----------------------------------|:----------------------------------------------------------|
+| map(func, seq\[, seq, ...\])      | 对序列中的所有元素执行函数                                     |
+| filter(func, seq)                 | 返回一个列表，其中包含对其执行函数时结果为真的所有元素              |
+| reduce(func, seq\[, initial\])    | 等价于 func(func(func(seq\[0\], seq\[1\]), seq\[2\]), ...) |
+| sum(seq)                          | 返回 seq 中所有元素的和                                      |
+| apply(func\[, args\[, kwargs\]\]) | 调用函数（还提供要传递给函数的参数）                             |
+
+## 第7章 再谈抽象
+
