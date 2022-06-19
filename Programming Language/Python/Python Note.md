@@ -3331,3 +3331,382 @@ AttributeError: 'Clam' object has no attribute 'talk'
 
 ## 第8章 异常
 
+### 8.1 异常是什么
+
+Python使用异常对象来表示异常状态，并在遇到错误时引发异常。异常对象未被处理（或捕
+获）时，程序将终止并显示一条错误消息（traceback）
+
+```
+>>> 1 / 0 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+ZeroDivisionError: integer division or modulo by zero
+```
+
+### 8.2 让事情沿你指定的轨道出错
+
+#### 8.2.1 raise 语句
+
+要引发异常，可使用raise语句，并将一个类（必须是Exception的子类）或实例作为参数。将类作为参数时，将自动创建一个实例  
+下面的示例使用的是内置异常类Exception
+
+```
+>>> raise Exception
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+Exception 
+
+>>> raise Exception('hyperdrive overload') 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+Exception: hyperdrive overload
+```
+
+一些内置的异常类
+
+| 类 名              | 描 述                                                |
+|:------------------|:-----------------------------------------------------|
+| Exception         | 几乎所有的异常类都是从它派生而来的                         |
+| AttributeError    | 引用属性或给它赋值失败时引发                              |
+| OSError           | 操作系统不能执行指定的任务（如打开文件）时引发，有多个子类      |
+| IndexError        | 使用序列中不存在的索引时引发，为LookupError的子类           |
+| KeyError          | 使用映射中不存在的键时引发，为LookupError的子类             |
+| NameError         | 找不到名称（变量）时引发                                 |
+| SyntaxError       | 代码不正确时引发                                        |
+| TypeError         | 将内置操作或函数用于类型不正确的对象时引发                   |
+| ValueError        | 将内置操作或函数用于这样的对象时引发：其类型正确但包含的值不合适 |
+| ZeroDivisionError | 在除法或求模运算的第二个参数为零时引发                      |
+
+#### 8.2.2 自定义的异常类
+
+```
+class SomeCustomException(Exception): pass
+```
+
+### 8.3 捕获异常
+
+异常比较有趣的地方是可对其进行处理，通常称之为捕获异常
+
+```python
+try: 
+ x = int(input('Enter the first number: ')) 
+ y = int(input('Enter the second number: ')) 
+ print(x / y) 
+except ZeroDivisionError: 
+ print("The second number can't be zero!")
+```
+
+#### 8.3.1 不用提供参数
+
+```python
+class MuffledCalculator: 
+    muffled = False 
+    def calc(self, expr): 
+        try: 
+            return eval(expr) 
+        except ZeroDivisionError: 
+            if self.muffled: 
+                print('Division by zero is illegal') 
+            else: 
+                raise
+```
+
+> 发生除零行为时，如果启用了“抑制”功能，方法calc将（隐式地）返回None。换而言之，如果启用了“抑制”功能，就不应依赖返回值。
+
+```
+>>> calculator = MuffledCalculator() 
+>>> calculator.calc('10 / 2') 
+5.0 
+
+>>> calculator.calc('10 / 0') # 关闭了抑制功能
+Traceback (most recent call last): File "<stdin>", line 1, in ? 
+ File "MuffledCalculator.py", line 6, in calc 
+ return eval(expr) 
+ File "<string>", line 0, in ? 
+ZeroDivisionError: integer division or modulo by zero
+ 
+>>> calculator.muffled = True 
+>>> calculator.calc('10 / 0') 
+Division by zero is illegal
+```
+
+```
+>>> try: 
+... 1/0 
+... except ZeroDivisionError: 
+... raise ValueError 
+... 
+Traceback (most recent call last): 
+ File "<stdin>", line 2, in <module> 
+ZeroDivisionError: division by zero
+Traceback (most recent call last): 
+ File "<stdin>", line 4, in <module> 
+ValueError
+
+>>> try: 
+... 1/0 
+... except ZeroDivisionError: 
+... raise ValueError from None 
+... 
+Traceback (most recent call last): 
+ File "<stdin>", line 4, in <module> 
+ValueError
+```
+
+#### 8.3.2 多个 except 子句
+
+```python
+try: 
+ x = int(input('Enter the first number: ')) 
+ y = int(input('Enter the second number: ')) 
+ print(x / y) 
+except ZeroDivisionError: 
+ print("The second number can't be zero!") 
+except TypeError: 
+ print("That wasn't a number, was it?")
+```
+
+#### 8.3.3 一箭双雕
+
+```python
+try: 
+ x = int(input('Enter the first number: ')) 
+ y = int(input('Enter the second number: ')) 
+ print(x / y) 
+except (ZeroDivisionError, TypeError, NameError): 
+ print('Your numbers were bogus ...')
+```
+
+#### 8.3.4 捕获对象
+
+```python
+try: 
+ x = int(input('Enter the first number: ')) 
+ y = int(input('Enter the second number: ')) 
+ print(x / y) 
+except (ZeroDivisionError, TypeError) as e: 
+ print(e)
+```
+
+#### 8.3.5 一网打尽
+
+例如，对于前面执行除法运算的程序，如果用户在提示时不输入任何内容就按回车键，将出现一条错误消息，还有一些相关问题出在什么地方的信息（栈跟踪）
+
+```
+Traceback (most recent call last): 
+ ... 
+ValueError: invalid literal for int() with base 10: ''
+```
+
+```python
+try: 
+ x = int(input('Enter the first number: ')) 
+ y = int(input('Enter the second number: ')) 
+ print(x / y) 
+except: 
+ print('Something wrong happened ...')
+```
+
+#### 8.3.6 万事大吉时
+
+```python
+try: 
+    print('A simple task') 
+except: 
+    print('What? Something went wrong?') 
+else: 
+    print('Ah ... It went as planned.')
+```
+
+```python
+while True: 
+    try: 
+        x = int(input('Enter the first number: ')) 
+        y = int(input('Enter the second number: ')) 
+        value = x / y 
+        print('x / y is', value) 
+    except: 
+        print('Invalid input. Please try again.') 
+    else: 
+        break
+```
+
+下面是这些代码的运行情况
+
+```
+Enter the first number: 1 
+Enter the second number: 0 
+Invalid input. Please try again. 
+Enter the first number: 'foo' 
+Enter the second number: 'bar' 
+Invalid input. Please try again. 
+Enter the first number: baz 
+Invalid input. Please try again. 
+Enter the first number: 10 
+Enter the second number: 2 
+x / y is 5
+```
+
+```python
+while True: 
+    try: 
+        x = int(input('Enter the first number: ')) 
+        y = int(input('Enter the second number: ')) 
+        value = x / y 
+        print('x / y is', value) 
+    except Exception as e: 
+        print('Invalid input:', e) 
+        print('Please try again') 
+    else: 
+        break
+```
+
+下面是这个程序的运行情况
+
+```
+Enter the first number: 1 
+Enter the second number: 0 
+Invalid input: integer division or modulo by zero 
+Please try again 
+Enter the first number: 'x' Enter the second number: 'y' 
+Invalid input: unsupported operand type(s) for /: 'str' and 'str' 
+Please try again 
+Enter the first number: quuux 
+Invalid input: name 'quuux' is not defined 
+Please try again 
+Enter the first number: 10 
+Enter the second number: 2 
+x / y is 5
+```
+
+#### 8.3.7 最后
+
+```python
+x = None 
+try: 
+    x = 1 / 0 
+finally: 
+    print('Cleaning up ...') 
+    del x
+```
+
+在上述示例中，不管try子句中发生什么异常，都将执行finally子句  
+为何在try子句之前初始化x呢？因为如果不这样做，ZeroDivisionError将导致根本没有机会给它赋值，进而导致在finally子句中对其执行del时引发未捕获的异常。
+
+```
+Cleaning up ... 
+Traceback (most recent call last): 
+ File "C:\python\div.py", line 4, in ? 
+ x = 1 / 0 
+ZeroDivisionError: integer division or modulo by zero
+```
+
+```python
+try: 
+    1 / 0 
+except NameError: 
+    print("Unknown variable") 
+else: 
+    print("That went well!") 
+finally: 
+    print("Cleaning up.")
+```
+
+### 8.4 异常和函数
+
+```
+>>> def faulty(): 
+... raise Exception('Something is wrong') 
+... 
+>>> def ignore_exception(): 
+... faulty() 
+... 
+>>> def handle_exception(): 
+... try: 
+... faulty() 
+... except: 
+... print('Exception handled') 
+... 
+>>> ignore_exception() 
+Traceback (most recent call last): 
+ File '<stdin>', line 1, in ? 
+ File '<stdin>', line 2, in ignore_exception 
+ File '<stdin>', line 2, in faulty 
+Exception: Something is wrong 
+>>> handle_exception() 
+Exception handled
+```
+
+如果不处理函数中引发的异常，它将向上传播到调用函数的地方。如果在那里也未得到处理，异常将继续传播，直至到达主程序（全局作用域）
+
+### 8.5 异常之禅
+
+```python
+def describe_person(person): 
+    print('Description of', person['name']) 
+    print('Age:', person['age']) 
+    try: 
+        print('Occupation:', person['occupation']) 
+    except KeyError: pass
+    
+try: 
+    obj.write 
+except AttributeError: 
+    print('The object is not writeable') 
+else: 
+    print('The object is writeable')
+```
+
+### 8.6 不那么异常的情况
+
+如果你只想发出警告，指出情况偏离了正轨，可使用模块warnings中的函数warn
+
+```
+>>> from warnings import warn 
+>>> warn("I've got a bad feeling about this.") 
+__main__:1: UserWarning: I've got a bad feeling about this. 
+>>>
+
+>>> from warnings import filterwarnings 
+>>> filterwarnings("ignore") 
+>>> warn("Anyone out there?") 
+>>> filterwarnings("error") 
+>>> warn("Something is very wrong!") 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+UserWarning: Something is very wrong!
+
+>>> filterwarnings("error") 
+>>> warn("This function is really old...", DeprecationWarning) 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+DeprecationWarning: This function is really old... 
+>>> filterwarnings("ignore", category=DeprecationWarning) 
+>>> warn("Another deprecation warning.", DeprecationWarning)
+>>> warn("Something else.") 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+UserWarning: Something else.
+```
+
+### 8.7 小结
+
+- 异常对象：异常情况（如发生错误）是用异常对象表示的。对于异常情况，有多种处理方式；如果忽略，将导致程序终止。
+- 引发异常：可使用raise语句来引发异常。它将一个异常类或异常实例作为参数，但你也可提供两个参数（异常和错误消息）。如果在except子句中调用raise时没有提供任何参数，它将重新引发该子句捕获的异常。
+- 自定义的异常类：你可通过从Exception派生来创建自定义的异常。
+- 捕获异常：要捕获异常，可在try语句中使用except子句。在except子句中，如果没有指定异常类，将捕获所有的异常。你可指定多个异常类，方法是将它们放在元组中。如果向except提供两个参数，第二个参数将关联到异常对象。在同一条try/except语句中，可包含多个except子句，以便对不同的异常采取不同的措施。
+- else子句：除except子句外，你还可使用else子句，它在主try块没有引发异常时执行。
+- finally：要确保代码块（如清理代码）无论是否引发异常都将执行，可使用try/finally，并将代码块放在finally子句中。
+- 异常和函数：在函数中引发异常时，异常将传播到调用函数的地方（对方法来说亦如此）。
+- 警告：警告类似于异常，但（通常）只打印一条错误消息。你可指定警告类别，它们是Warning的子类。
+
+#### 8.7.1 本章介绍的新函数
+
+| 函 数                                                  | 描 述      |
+|:------------------------------------------------------|:-----------|
+| warnings.filterwarnings(action,category=Warning, ...) | 用于过滤警告 |
+| warnings.warn(message, category=None)                 | 用于发出警告 |
+
+## 第9章
+
+
