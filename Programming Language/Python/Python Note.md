@@ -3707,6 +3707,654 @@ UserWarning: Something else.
 | warnings.filterwarnings(action,category=Warning, ...) | 用于过滤警告 |
 | warnings.warn(message, category=None)                 | 用于发出警告 |
 
-## 第9章
+## 第9章 魔法方法、特性和迭代器
 
+### 9.1 如果你使用的不是 Python 3(略)
 
+```python
+class NewStyle(object): 
+    more_code_here
+class OldStyle: 
+    more_code_here
+```
+
+### 9.2 构造函数
+
+构造函数不同于普通方法的地方在于，将在对象创建后自动调用它们
+
+在Python中，创建构造函数很容易，只需将方法init的名称从普通的init改为魔法版__init__即可
+
+```python
+class FooBar: 
+    def __init__(self): 
+    self.somevar = 42
+    
+class FooBar: 
+    def __init__(self, value=42): 
+    self.somevar = value
+```
+
+```
+>>> f = FooBar('This is a constructor argument') 
+>>> f.somevar 
+'This is a constructor argument'
+```
+
+> Python提供了魔法方法__del__，也称作析构函数（destructor）。这个方法在对象被销毁（作为垃圾被收集）前被调用，但鉴于你无法知道准确的调用时间，建议尽可能不要使用__del__。
+
+#### 9.2.1 重写普通方法和特殊的构造函数
+
+```python
+class A: 
+    def hello(self): 
+    print("Hello, I'm A.") 
+class B(A): 
+    pass
+```
+
+```
+>>> a = A() 
+>>> b = B() 
+>>> a.hello() 
+Hello, I'm A. 
+
+>>> b.hello() 
+Hello, I'm A.
+```
+
+B可以重写方法hello
+
+```python
+class B(A): 
+ def hello(self): 
+ print("Hello, I'm B.")
+```
+
+```
+>>> b = B() 
+>>> b.hello() 
+Hello, I'm B.
+```
+
+重写构造函数时，必须调用超类（继承的类）的构造函数，否则可能无法正确地初始化对象
+
+```python
+class Bird: 
+    def __init__(self): 
+        self.hungry = True 
+    def eat(self):
+        if self.hungry: 
+            print('Aaaah ...') 
+            self.hungry = False 
+        else: 
+            print('No, thanks!')
+ 
+class SongBird(Bird): 
+    def __init__(self): 
+        self.sound = 'Squawk!' 
+    def sing(self): 
+        print(self.sound)
+```
+
+```
+>>> sb = SongBird() 
+>>> sb.sing() 
+Squawk!
+
+>>> sb.eat() 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+ File "birds.py", line 6, in eat 
+ if self.hungry: 
+AttributeError: SongBird instance has no attribute 'hungry'
+```
+
+异常清楚地指出了问题出在什么地方：SongBird没有属性hungry
+
+#### 9.2.2 调用未关联的超类构造函数
+
+```python
+class SongBird(Bird): 
+    def __init__(self): 
+        Bird.__init__(self) 
+        self.sound = 'Squawk!' 
+    def sing(self): 
+        print(self.sound)
+```
+
+```
+>>> sb = SongBird() 
+>>> sb.sing() 
+Squawk! 
+>>> sb.eat() 
+Aaaah ... 
+>>> sb.eat() 
+No, thanks!
+```
+
+对实例调用方法时，方法的参数self将自动关联到实例
+
+#### 9.2.3 使用函数 super
+
+```python
+class Bird: 
+    def __init__(self): 
+        self.hungry = True 
+    def eat(self): 
+        if self.hungry: 
+            print('Aaaah ...') 
+            self.hungry = False 
+        else: 
+            print('No, thanks!') 
+class SongBird(Bird): 
+    def __init__(self): 
+        super().__init__()
+        self.sound = 'Squawk!' 
+    def sing(self): 
+        print(self.sound)
+```
+
+```
+>>> sb = SongBird() 
+>>> sb.sing() 
+Squawk! 
+>>> sb.eat() 
+Aaaah ... 
+>>> sb.eat() 
+No, thanks!
+```
+
+### 9.3 元素访问
+
+#### 9.3.1 基本的序列和映射协议
+
+- \_\_len__(self)：这个方法应返回集合包含的项数，对序列来说为元素个数，对映射来说为键-值对数。如果__len__返回零（且没有实现覆盖这种行为的__nonzero__），对象在布尔上下文中将被视为假（就像空的列表、元组、字符串和字典一样）。
+- \_\_getitem__(self,
+  key)：这个方法应返回与指定键相关联的值。对序列来说，键应该是0~n
+  -1的整数（也可以是负数，这将在后面说明），其中n为序列的长度。对映射来说，键可以是任何类型。
+- \_\_setitem__(self, key,
+  value)：这个方法应以与键相关联的方式存储值，以便以后能够使用__getitem__来获取。当然，仅当对象可变时才需要实现这个方法。
+- \_\_delitem__(self,
+  key)：这个方法在对对象的组成部分使用__del__语句时被调用，应删除与key相关联的值。同样，仅当对象可变（且允许其项被删除）时，才需要实现这个方法。
+
+对于这些方法，还有一些额外的要求。
+- 对于序列，如果键为负整数，应从末尾往前数。换而言之，x\[-n\]应与x\[len(x)-n\]等效。
+- 如果键的类型不合适（如对序列使用字符串键），可能引发TypeError异常。
+- 对于序列，如果索引的类型是正确的，但不在允许的范围内，应引发IndexError异常。
+
+创建一个无穷序列
+
+```python
+def check_index(key): 
+    """ 
+    指定的键是否是可接受的索引？
+    键必须是非负整数，才是可接受的。如果不是整数，
+    将引发TypeError异常；如果是负数，将引发Index 
+    Error异常（因为这个序列的长度是无穷的）
+    """ 
+    if not isinstance(key, int): raise TypeError 
+    if key < 0: raise IndexError 
+class ArithmeticSequence: 
+    def __init__(self, start=0, step=1): 
+        """ 
+        始化这个算术序列
+        start -序列中的第一个值
+        step -两个相邻值的差
+        changed -一个字典，包含用户修改后的值
+        """ 
+        self.start = start # 存储起始值
+        self.step = step # 存储步长值
+        self.changed = {} # 没有任何元素被修改
+    def __getitem__(self, key): 
+        """ 
+        算术序列中获取一个元素
+        """ 
+        check_index(key) 
+        try: return self.changed[key] # 修改过？
+        except KeyError: # 如果没有修改过，
+            return self.start + key * self.step # 就计算元素的值
+    def __setitem__(self, key, value): 
+        """ 
+        修改算术序列中的元素
+        """ 
+        check_index(key) 
+        self.changed[key] = value # 存储修改后的值
+```
+
+#### 9.3.2 从 list、dict 和 str 派生
+
+一个带访问计数器的列表
+
+```python
+class CounterList(list): 
+    def __init__(self, *args): 
+        super().__init__(*args) 
+        self.counter = 0 
+    def __getitem__(self, index): 
+        self.counter += 1 
+        return super(CounterList, self).__getitem__(index)
+```
+
+CounterList的行为在大多数方面都类似于列表，但它有一个counter属性
+
+### 9.4 其他魔法方法
+
+### 9.5 特性
+
+```python
+class Rectangle: 
+    def __init__(self): 
+        self.width = 0 
+        self.height = 0 
+    def set_size(self, size): 
+        self.width, self.height = size 
+    def get_size(self): 
+        return self.width, self.height
+```
+
+```
+>>> r = Rectangle() 
+>>> r.width = 10 
+>>> r.height = 5 
+>>> r.get_size() 
+(10, 5) 
+>>> r.set_size((150, 100)) 
+>>> r.width 
+150
+```
+
+get_size和set_size是假想属性size的存取方法，这个属性是一个由width和height组成的元组
+
+#### 9.5.1 函数 property
+
+```python
+class Rectangle: 
+    def __init__ (self): 
+        self.width = 0 
+        self.height = 0 
+    def set_size(self, size): 
+        self.width, self.height = size 
+    def get_size(self): 
+        return self.width, self.height 
+    size = property(get_size, set_size)
+```
+
+```
+>>> r = Rectangle() 
+>>> r.width = 10 
+>>> r.height = 5 
+>>> r.size 
+(10, 5) 
+>>> r.size = 150, 100 
+>>> r.width 
+150
+```
+
+如你所见，属性size依然受制于get_size和set_size执行的计算，但看起来就像普通属性一样
+
+#### 9.5.2 静态方法和类方法
+
+静态方法的定义中没有参数self，可直接通过类来调用  
+类方法的定义中包含类似于self的参数，通常被命名为cls.
+对于类方法，也可通过对象直接调用，但参数cls将自动关联到类
+
+```python
+class MyClass: 
+    def smeth():
+        print('This is a static method') 
+    smeth = staticmethod(smeth) 
+    
+    def cmeth(cls): 
+        print('This is a class method of', cls) 
+    cmeth = classmethod(cmeth)
+```
+
+```
+>>> MyClass.smeth() 
+This is a static method 
+>>> MyClass.cmeth() 
+This is a class method of <class '__main__.MyClass'>
+```
+
+#### 9.5.3 __getattr__、__setattr__等方法
+
+- \_\_getattribute__(self, name)：在属性被访问时自动调用（只适用于新式类）。
+- \_\_getattr__(self, name)：在属性被访问而对象没有这样的属性时自动调用。
+- \_\_setattr__(self, name, value)：试图给属性赋值时自动调用。
+- \_\_delattr__(self, name)：试图删除属性时自动调用。
+
+```python
+class Rectangle: 
+    def __init__ (self): 
+        self.width = 0 
+        self.height = 0 
+    def __setattr__(self, name, value): 
+        if name == 'size': 
+            self.width, self.height = value 
+        else: 
+            self. __dict__[name] = value 
+    def __getattr__(self, name): 
+        if name == 'size': 
+            return self.width, self.height 
+        else: 
+            raise AttributeError()
+```
+
+- 即便涉及的属性不是size，也将调用方法__setattr__。因此这个方法必须考虑如下两种情形：如果涉及的属性为size，就执行与以前一样的操作；否则就使用魔法属性__dict__。/_/_dict__属性是一个字典，其中包含所有的实例属性。之所以使用它而不是执行常规属性赋值，是因为旨在避免再次调用__setattr__，进而导致无限循环。
+- 仅当没有找到指定的属性时，才会调用方法__getattr__。这意味着如果指定的名称不是size，这个方法将引发AttributeError异常。这在要让类能够正确地支持hasattr和getattr等内置函数时很重要。如果指定的名称为size，就使用前一个实现中的表达式。
+
+### 9.6 迭代器
+
+介绍__iter__
+
+#### 9.6.1 迭代器协议
+
+迭代（iterate）意味着重复多次，就像循环那样
+
+方法__iter__返回一个迭代器，它是包含方法__next__的对象，而调用这个方法时可不提供任何参数  
+当你调用方法__next__时，迭代器应返回其下一个值  
+如果迭代器没有可供返回的值，应引发StopIteration异常  
+你还可使用内置的便利函数next，在这种情况下，next(it)与it.__next__()等效
+
+```python
+class Fibs: 
+    def __init__(self): 
+        self.a = 0 
+        self.b = 1 
+    def __next__(self): 
+        self.a, self.b = self.b, self.a + self.b 
+        return self.a 
+    def __iter__(self): 
+        return self
+```
+
+注意到这个迭代器实现了方法__iter__，而这个方法返回迭代器本身。在很多情况下，都在另一个对象中实现返回迭代器的方法__iter__，并在for循环中使用这个对象。但推荐在迭代器中也实现方法__iter__（并像刚才那样让它返回self），这样迭代器就可直接用于for循环中
+
+> 更正规的定义是，实现了方法__iter__的对象是可迭代的，而实现了方法__next__的对象是迭代器。
+
+```python
+fibs = Fibs()
+for f in fibs: 
+    if f > 1000: 
+    print(f) 
+    break
+```
+
+#### 9.6.2 从迭代器创建序列
+
+```
+>>> class TestIterator: 
+... value = 0 
+... def __next__(self): 
+... self.value += 1 
+... if self.value > 10: raise StopIteration 
+... return self.value 
+... def __iter__(self): 
+... return self 
+... 
+>>> ti = TestIterator() 
+>>> list(ti) 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+### 9.7 生成器
+
+生成器是一种使用普通函数语法定义的迭代器
+
+#### 9.7.1 创建生成器
+
+```python
+def flatten(nested): 
+    for sublist in nested: 
+        for element in sublist: 
+            yield element
+```
+
+```
+>>> nested = [[1, 2], [3, 4], [5]] 
+>>> for num in flatten(nested): 
+... print(num) 
+... 
+1 
+2 
+3 
+4 
+5
+>>> list(flatten(nested)) 
+[1, 2, 3, 4, 5]
+```
+
+#### 9.7.2 递归式生成器
+
+```python
+def flatten(nested): 
+    try: 
+        for sublist in nested: 
+            for element in flatten(sublist): 
+                yield element 
+    except TypeError: 
+        yield nested
+```
+
+调用flatten时，有两种可能性（处理递归时都如此）：基线条件和递归条件  
+在基线条件下，要求这个函数展开单个元素（如一个数）。在这种情况下，for循环将引发TypeError异常（因为你试图迭代一个数），而这个生成器只生成一个元素。  
+然而，如果要展开的是一个列表（或其他任何可迭代对象），你就需要做些工作：遍历所有的子列表（其中有些可能并不是列表）并对它们调用flatten，然后使用另一个for循环生成展开后的子列表中的所有元素
+
+```python
+def flatten(nested): 
+    try: 
+        # 不迭代类似于字符串的对象：
+        try: nested + '' 
+        except TypeError: pass 
+        else: raise TypeError 
+        for sublist in nested:
+            for element in flatten(sublist): 
+                yield element 
+    except TypeError: 
+        yield nested
+```
+
+如果表达式nested +
+''引发了TypeError异常，就忽略这种异常；如果没有引发TypeError异常，内部try语句中的else子句将引发TypeError异常，这样将在外部的excpet子句中原封不动地生成类似于字符串的对象
+
+#### 9.7.3 通用生成器
+
+生成器由两个单独的部分组成：生成器的函数和生成器的迭代器。  
+生成器的函数是由def语句定义的，其中包含yield。  
+生成器的迭代器是这个函数返回的结果。  
+用不太准确的话说，这两个实体通常被视为一个，通称为生成器
+
+```
+>>> def simple_generator(): 
+ yield 1 
+... 
+>>> simple_generator 
+<function simple_generator at 153b44> 
+>>> simple_generator() 
+<generator object at 1510b0>
+```
+
+#### 9.7.4 生成器的方法
+
+- 外部世界：外部世界可访问生成器的方法send，这个方法类似于next，但接受一个参数（要发送的“消息”，可以是任何对象）。
+- 生成器：在挂起的生成器内部，yield可能用作表达式而不是语句。换而言之，当生成器重新运行时，yield返回一个值——通过send从外部世界发送的值。如果使用的是next，yield将返回None。
+
+请注意，仅当生成器被挂起（即遇到第一个yield）后，使用send（而不是next）才有意义。要在此之前向生成器提供信息，可使用生成器的函数的参数。
+
+> 如果一定要在生成器刚启动时对其调用方法send，可向它传递参数None。
+
+```python
+def repeater(value): 
+    while True: 
+        new = (yield value) 
+        if new is not None: value = new
+```
+
+```
+>>> r = repeater(42) 
+>>> next(r) 
+42 
+>>> r.send("Hello, world!") 
+"Hello, world!"
+```
+
+注意到使用圆括号将yield表达式括起来了,
+如果要以某种方式使用返回值，就不管三七二十一，将其用圆括号括起吧
+
+- 方法throw：用于在生成器中（yield表达式处）引发异常，调用时可提供一个异常类型、一个可选值和一个traceback对象。
+- 方法close：用于停止生成器，调用时无需提供任何参数
+
+#### 9.7.5 模拟生成器
+
+如果你使用的是较老的Python版本，就无法使用生成器。下面是一个简单的解决方案，让你能够使用普通函数模拟生成器
+
+```python
+def flatten(nested): 
+    result = [] 
+    try: 
+        # 不迭代类似于字符串的对象：
+        try: nested + '' 
+        except TypeError: pass 
+        else: raise TypeError 
+        for sublist in nested: 
+            for element in flatten(sublist): 
+                result.append(element) 
+    except TypeError: 
+        result.append(nested) 
+    return result
+```
+
+### 9.8 八皇后问题
+
+#### 9.8.1 生成器的回溯
+
+```python
+for each possibility at level 1: 
+    for each possibility at level 2: 
+        ... 
+            for each possibility at level n: 
+                is it viable?
+```
+
+要直接使用for循环来实现，必须知道有多少层。如果无法知道，可使用递归
+
+#### 9.8.2 问题
+
+你需要将8个皇后放在棋盘上，条件是任何一个皇后都不能威胁其他皇后，即任何两个皇后都不能吃掉对方
+
+#### 9.8.3 状态表示
+
+可简单地使用元组（或列表）来表示可能的解（或其一部分），其中每个元素表示相应行中皇后所在的位置（即列）。因此，如果state\[0\]==3，就说明第1行的皇后放在第4列（还记得吧，我们从0开始计数）。在特定的递归层级（特定的行），你只知道上面各皇后的位置，因此状态元组的长度小于8（即皇后总数）
+
+> 完全可以使用列表（而不是元组）来表示状态，具体使用哪个完全取决于你的喜好。一般而言，如果序列较小且是静态的，使用元组可能是不错的选择
+
+#### 9.8.4 检测冲突
+
+```python
+def conflict(state, nextX): 
+    nextY = len(state) 
+    for i in range(nextY): 
+        if abs(state[i] - nextX) in (0, nextY - i): 
+            return True 
+    return False
+```
+
+参数nextX表示下一个皇后的水平位置（x坐标，即列），而nextY为下一个皇后的垂直位置（y坐标，即行）。这个函数对既有的每个皇后执行简单的检查：如果下一个皇后与当前皇后的x坐标相同或在同一条对角线上，将发生冲突，因此返回True；如果没有发生冲突，就返回False
+
+#### 9.8.5 基线条件
+
+```python
+def queens(num, state): 
+    if len(state) == num-1: 
+        for pos in range(num): 
+            if not conflict(state, pos): 
+                yield pos
+```
+
+这段代码的意思是，如果只剩下最后一个皇后没有放好，就遍历所有可能的位置，并返回那些不会引发冲突的位置
+
+#### 9.8.6 递归条件
+
+处理好基线条件后，可在递归条件中假设来自更低层级（编号更大的皇后）的结果都是正确的。因此，只需在函数queens的前述实现中给if语句添加一个else子句。
+
+```python
+else: 
+    for pos in range(num): 
+        if not conflict(state, pos): 
+            for result in queens(num, state + (pos,)): 
+                yield (pos,) + result
+```
+
+```python
+def queens(num=8, state=()): 
+    for pos in range(num): 
+        if not conflict(state, pos): 
+            if len(state) == num-1: 
+                yield (pos,) 
+            else: 
+                for result in queens(num, state + (pos,)): 
+                    yield (pos,) + result
+```
+
+```
+>>> list(queens(3)) 
+[] 
+>>> list(queens(4)) 
+[(1, 3, 0, 2), (2, 0, 3, 1)] 
+>>> for solution in queens(8): 
+... print solution 
+... 
+(0, 4, 7, 5, 2, 6, 1, 3) 
+(0, 5, 7, 2, 6, 3, 1, 4) 
+... 
+(7, 2, 0, 5, 1, 4, 6, 3) 
+(7, 3, 0, 2, 5, 1, 6, 4) 
+>>>
+```
+
+#### 9.8.7 扫尾工作
+
+```python
+def prettyprint(solution): 
+    def line(pos, length=len(solution)): 
+        return '. ' * (pos) + 'X ' + '. ' * (length-pos-1) 
+    for pos in solution: 
+        print(line(pos))
+```
+
+```
+>>> import random 
+>>> prettyprint(random.choice(list(queens(8)))) 
+. . . . . X . . 
+. X . . . . . . 
+. . . . . . X . 
+X . . . . . . . 
+. . . X . . . . 
+. . . . . . . X 
+. . . . X . . . 
+. . X . . . . .
+```
+
+### 9.9 小结
+
+- 新式类和旧式类：Python类的工作方式在不断变化。较新的Python
+  2版本有两种类，其中旧式类正在快速退出舞台。新式类是Python
+  2.2引入的，提供了一些额外的功能，如支持函数super和property，而旧式类不支持。要创建新式类，必须直接或间接地继承object或设置__metaclass__。
+- 魔法方法：Python中有很多特殊方法，其名称以两个下划线开头和结尾。这些方法的功能各不相同，但大都由Python在特定情况下自动调用。例如__init__是在对象创建后调用的。
+- 构造函数：很多面向对象语言中都有构造函数，对于你自己编写的每个类，都可能需要为它实现一个构造函数。构造函数名为__init__，在对象创建后被自动调用。
+- 重写：类可重写其超类中定义的方法（以及其他任何属性），为此只需实现这些方法即可。要调用被重写的版本，可直接通过超类调用未关联版本（旧式类），也可使用函数super来调用（新式类）。
+- 序列和映射：要创建自定义的序列或映射，必须实现序列和映射协议指定的所有方法，其中包括__getitem__和__setitem__等魔法方法。通过从list（或UserList）和dict（或UserDict）派生，可减少很多工作量。
+- 迭代器：简单地说，迭代器是包含方法__next__的对象，可用于迭代一组值。没有更多的值可供迭代时，方法__next__应引发StopIteration异常。可迭代对象包含方法__iter__，它返回一个像序列一样可用于for循环中的迭代器。通常，迭代器也是可迭代的，即包含返回迭代器本身的方法__iter__。
+- 生成器：生成器的函数是包含关键字yield的函数，它在被调用时返回一个生成器，即一种特殊的迭代器。要与活动的生成器交互，可使用方法send、throw和close。
+- 八皇后问题：八皇后问题是个著名的计算机科学问题，使用生成器可轻松地解决它。这个问题要求在棋盘上放置8个皇后，并确保任何两个皇后都不能相互攻击。
+
+#### 9.9.1 本章介绍的新函数
+
+| 函 数                            | 描 述                      |
+|:--------------------------------|:---------------------------|
+| iter(obj)                       | 从可迭代对象创建一个迭代器      |
+| next(it)                        | 让迭代器前进一步并返回下一个元素 |
+| property(fget, fset, fdel, doc) | 返回一个特性；所有参数都是可选的 |
+| super(class, obj)               | 返回一个超类的关联实例         |
+
+## 第10章 开箱即用
