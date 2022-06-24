@@ -4358,3 +4358,1027 @@ X . . . . . . .
 | super(class, obj)               | 返回一个超类的关联实例         |
 
 ## 第10章 开箱即用
+
+### 10.1 模块
+
+```
+>>> import math 
+>>> math.sin(0) 
+0.0
+```
+
+#### 10.1.1 模块就是程序
+
+要告诉解释器去哪里查找这个模块，可执行如下命令
+
+```
+>>> import sys 
+>>> sys.path.append('C:/python')
+```
+
+> 在UNIX中，不能直接将字符串'~/python'附加到sys.path末尾，而必须使用完整的路径（如'/home/yourusername/python'）。如果你要自动创建完整的路径，可使用sys.path.
+> expanduser('~/python')。
+
+因为模块并不是用来执行操作（如打印文本）的，而是用于定义变量、函数、类等。鉴于定义只需做一次，因此导入模块多次和导入一次的效果相同
+
+#### 10.1.2 模块是用来下定义的
+
+1. 在模块中定义函数
+
+代码清单10-2 只包含一个函数的简单模块
+
+```python
+# hello2.py 
+def hello(): 
+    print("Hello, world!")
+```
+
+```
+>>> import hello2
+
+>>> hello2.hello() 
+Hello, world!
+```
+
+主要是为了重用代码。通过将代码放在模块中，就可在多个程序中使用它们
+
+2. 在模块中添加测试代码
+
+代码清单10-3 一个简单的模块，其中的测试代码有问题
+
+```python
+# hello3.py 
+def hello(): 
+    print("Hello, world!") 
+    
+# 一个测试：
+hello()
+```
+
+```
+>>> import hello3 
+Hello, world!   # 不应该出现
+>>> hello3.hello() 
+Hello, world!
+
+>>> __name__ 
+'__main__' 
+>>> hello3.__name__ 
+'hello3'
+```
+
+在主程序中（包括解释器的交互式提示符），变量__name__的值是'__main__'，而在导入的模块中，这个变量被设置为该模块的名称。因此，要让模块中测试代码的行为更合理，可将其放在一条if语句中
+
+代码清单10-4 一个包含有条件地执行的测试代码的模块
+
+```python
+# hello4.py 
+def hello(): 
+    print("Hello, world!") 
+def test(): 
+    hello() 
+if __name__ == '__main__': test()
+```
+
+```
+>>> import hello4 
+>>> hello4.hello() 
+Hello, world!
+
+>>> hello4.test() 
+Hello, world!
+```
+
+#### 10.1.3 让模块可用
+
+1. 将模块放在正确的位置
+
+可在模块sys的变量path中找到目录列表（即搜索路径）
+
+```
+>>> import sys, pprint 
+>>> pprint.pprint(sys.path) 
+['C:\\Python35\\Lib\\idlelib', 
+ 'C:\\Python35', 
+ 'C:\\Python35\\DLLs', 
+ 'C:\\Python35\\lib', 
+ 'C:\\Python35\\lib\\plat-win', 
+ 'C:\\Python35\\lib\\lib-tk', 
+ 'C:\\Python35\\lib\\site-packages']
+```
+
+> 如果要打印的数据结构太大，一行容纳不下，可使用模块pprint中的函数pprint（而不是普通print语句）。pprint是个卓越的打印函数，能够更妥善地打印输出
+
+目录site-packages是最佳的选择，因为它就是用来放置模块的
+
+2. 告诉解释器到哪里去查找
+
+将模块放在正确的位置可能不是合适的解决方案，其中的原因很多
+- 不希望Python解释器的目录中充斥着你编写的模块。
+- 没有必要的权限，无法将文件保存到Python解释器的目录中。
+- 想将模块放在其他地方。
+
+要告诉解释器到哪里去查找模块，办法之一是直接修改sys.path，但这种做法不常见。标准做法是将模块所在的目录包含在环境变量PYTHONPATH中
+
+环境变量PYTHONPATH的内容随操作系统而异（参见旁注“环境变量”），但它基本上类似于sys.path，也是一个目录列表
+
+#### 10.1.4 包
+
+为组织模块，可将其编组为包（package）。  
+包其实就是另一种模块，但有趣的是它们可包含其他模块。  
+模块存储在扩展名为.py的文件中，而包则是一个目录。
+
+表10-1 一种简单的包布局
+
+| 文件/目录                     | 描 述                |
+|:-----------------------------|:-------------------|
+| ~/python/                    | PYTHONPATH中的目录   |
+| ~/python/drawing/            | 包目录（包drawing）   |
+| ~/python/drawing/__init__.py | 包代码（模块drawing） |
+| ~/python/drawing/colors.py   | 模块colors          |
+| ~/python/drawing/shapes.py   | 模块shapes          |
+
+```python
+import drawing # (1) 导入drawing包
+import drawing.colors # (2) 导入drawing包中的模块colors 
+from drawing import shapes # (3) 导入模块shapes
+```
+
+### 10.2 探索模块
+
+#### 10.2.1 模块包含什么
+
+1. 使用dir
+
+要查明模块包含哪些东西，可使用函数dir，它列出对象的所有属性（对于模块，它列出所有的函数、类、变量等）
+
+如果将dir(copy)的结果打印出来，将是一个很长的名称列表（请试试看）
+
+在这些名称中，有几个以下划线打头根据约定，这意味着它们并非供外部使用
+
+```
+>>> [n for n in dir(copy) if not n.startswith('_')] 
+['Error', 'PyStringMap', 'copy', 'deepcopy', 'dispatch_table', 'error', 'name', 't', 'weakref']
+```
+
+结果包含dir(copy)返回的不以下划线打头的名称，这比完整清单要好懂些
+
+2. 变量__all__
+
+```
+>>> copy.__all__ 
+['Error', 'copy', 'deepcopy']
+```
+
+旨在定义模块的公有接口
+
+```
+from copy import *
+```
+
+将只能得到变量__all__中列出的3个函数
+
+要导入PyStringMap，必须显式地：导入copy并使用copy.PyStringMap；或者使用from
+copy import PyStringMap
+
+#### 10.2.2 使用 help 获取帮助
+
+有一个标准函数可提供你通常需要的所有信息，它就是help
+
+```
+>>> help(copy.copy) 
+Help on function copy in module copy: 
+copy(x) 
+ Shallow copy operation on arbitrary Python objects. 
+ See the module's __doc__ string for more info.
+ 
+>>> print(copy.copy.__doc__) 
+Shallow copy operation on arbitrary Python objects. 
+ See the module's __doc__ string for more info.
+```
+
+相比于直接查看文档字符串，使用help的优点是可获取更多的信息，如函数的特征标（即它接受的参数）
+
+#### 10.2.3 文档
+
+与其在Python图书或标准Python文档中查找对range的描述，不如直接检查这个函数
+
+```
+>>> print(range.__doc__) 
+range(stop) -> range object 
+range(start, stop[, step]) -> range object 
+Return an object that produces a sequence of integers from start (inclusive) 
+to stop (exclusive) by step. range(i, j) produces i, i+1, i+2, ..., j-1. 
+start defaults to 0, and stop is omitted! range(4) produces 0, 1, 2, 3. 
+These are exactly the valid indices for a list of 4 elements. 
+When step is given, it specifies the increment (or decrement).
+```
+
+#### 10.2.4 使用源代码
+
+一种办法是像解释器那样通过sys.path来查找，但更快捷的方式是查看模块的特性__file__
+
+```
+>>> print(copy.__file__) 
+C:\Python35\lib\copy.py
+```
+
+> 在文本编辑器中打开标准库文件时，存在不小心修改它的风险。这可能会破坏文件。因此关闭文件时，千万不要保存你可能对其所做的修改。
+
+### 10.3 标准库：一些深受欢迎的模块
+
+#### 10.3.1 sys
+
+模块sys让你能够访问与Python解释器紧密相关的变量和函数
+
+表10-2 模块sys中一些重要的函数和变量
+
+| 函数/变量      | 描 述                                    |
+|:--------------|:----------------------------------------|
+| argv          | 命令行参数，包括脚本名                      |
+| exit(\[arg\]) | 退出当前程序，可通过可选参数指定返回值或错误消息 |
+| modules       | 一个字典，将模块名映射到加载的模块            |
+| path          | 一个列表，包含要在其中查找模块的目录的名称      |
+| platform      | 一个平台标识符，如sunos5或win32             |
+| stdin         | 标准输入流——一个类似于文件的对象              |
+| stdout        | 标准输出流——一个类似于文件的对象              |
+| stderr        | 标准错误流——一个类似于文件的对象              |
+
+- 变量sys.argv包含传递给Python解释器的参数，其中包括脚本名
+- 函数sys.exit退出当前程序你可向它提供一个整数，指出程序是否成功，这是一种UNIX约定。在大多数情况下，使用该参数的默认值（0，表示成功）即可。也可向它提供一个字符串，这个字符串将成为错误消息，对用户找出程序终止的原因很有帮助。在这种情况下，程序退出时将显示指定的错误消息以及一个表示失败的编码
+- 映射sys.modules将模块名映射到模块（仅限于当前已导入的模块）。
+- 变量sys.path在本章前面讨论过，它是一个字符串列表，其中的每个字符串都是一个目录名，执行import语句时将在这些目录中查找模块。
+- 变量sys.platform（一个字符串）是运行解释器的“平台”名称。这可能是表示操作系统的名称（如sunos5或win32），也可能是表示其他平台类型（如Java虚拟机）的名称（如java1.4.0）——如果你运行的是Jython。
+- 变量sys.stdin、sys.stdout和sys.stderr是类似于文件的流对象，表示标准的UNIX概念：标准输入、标准输出和标准错误。简单地说，Python从sys.stdin获取输入（例如，用于input中），并将输出打印到sys.stdout。
+
+#### 10.3.2 os
+
+表10-3 模块os中一些重要的函数和变量
+
+| 函数/变量        | 描 述                        |
+|:----------------|:----------------------------|
+| environ         | 包含环境变量的映射             |
+| system(command) | 在子shell中执行操作系统命令     |
+| sep             | 路径中使用的分隔符             |
+| pathsep         | 分隔不同路径的分隔符            |
+| linesep         | 行分隔符（'\n'、'\r'或'\r\n'） |
+| urandom(n)      | 返回n个字节的强加密随机数据      |
+
+- 映射os.environ包含本章前面介绍的环境变量。例如，要访问环境变量PYTHONPATH，可使用表达式os.environ\['PYTHONPATH'\]。这个映射也可用于修改环境变量，但并非所有的平台都支持这样做。
+- 函数os.system用于运行外部程序。还有其他用于执行外部程序的函数，如execv和popen。前者退出Python解释器，并将控制权交给被执行的程序，而后者创建一个到程序的连接（这个连接类似于文件）。
+- 变量os.sep是用于路径名中的分隔符。在UNIX（以及macOS的命令行Python版本）中，标准分隔符为/。在Windows中，标准分隔符为\\（这种Python语法表示单个反斜杠）。在旧式macOS中，标准分隔符为:。（在有些平台中，os.altsep包含替代路径分隔符，如Windows中的/。）
+- 可使用os.pathsep来组合多条路径，就像PYTHONPATH中那样。pathsep用于分隔不同的路径名：在UNIX/macOS中为:，而在Windows中为;。
+- 变量os.linesep是用于文本文件中的行分隔符：在UNIX/OS
+  X中为单个换行符（\n），在Windows中为回车和换行符（\r\n）。
+- 函数urandom使用随系统而异的“真正”（至少是强加密）随机源。如果平台没有提供这样的随机源，将引发NotImplementedError异常
+
+#### 10.3.3 fileinput
+
+表10-4 模块fileinput中一些重要的函数
+
+| 函 数                                      | 描 述                      |
+|:------------------------------------------|:--------------------------|
+| input(\[files\[, inplace\[, backup\]\]\]) | 帮助迭代多个输入流中的行       |
+| filename()                                | 返回当前文件的名称            |
+| lineno()                                  | 返回（累计的）当前行号        |
+| filelineno()                              | 返回在当前文件中的行号        |
+| isfirstline()                             | 检查当前行是否是文件中的第一行  |
+| isstdin()                                 | 检查最后一行是否来自sys.stdin |
+| nextfile()                                | 关闭当前文件并移到下一个文件   |
+| close()                                   | 关闭序列                    |
+
+- fileinput.input是其中最重要的函数，它返回一个可在for循环中进行迭代的对象。如果要覆盖默认行为（确定要迭代哪些文件），可以序列的方式向这个函数提供一个或多个文件名。还可将参数inplace设置为True（inplace=True），这样将就地进行处理。对于你访问的每一行，都需打印出替代内容，这些内容将被写回到当前输入文件中。就地进行处理时，可选参数backup用于给从原始文件创建的备份文件指定扩展名。
+- 函数fileinput.filename返回当前文件（即当前处理的行所属文件）的文件名。
+- 函数fileinput.lineno返回当前行的编号。这个值是累计的，因此处理完一个文件并接着处理下一个文件时，不会重置行号，而是从前一个文件最后一行的行号加1开始。
+- 函数fileinput.filelineno返回当前行在当前文件中的行号。每次处理完一个文件并接着处理下一个文件时，将重置这个行号并从1重新开始。
+- 函数fileinput.isfirstline在当前行为当前文件中的第一行时返回True，否则返回False。
+- 函数fileinput.isstdin在当前文件为sys.stdin时返回True，否则返回False。
+- 函数fileinput.nextfile关闭当前文件并跳到下一个文件，且计数时忽略跳过的行。这在你知道无需继续处理当前文件时很有用。例如，如果每个文件包含的单词都是按顺序排列的，而你要查找特定的单词，则过了这个单词所在的位置后，就可放心地跳到下一个文件。
+- 函数fileinput.close关闭整个文件链并结束迭代
+
+```python
+# numberlines.py 
+import fileinput 
+for line in fileinput.input(inplace=True): 
+    line = line.rstrip() 
+    num = fileinput.lineno() 
+     print('{:<50} # {:2d}'.format(line, num))
+```
+
+```python
+# numberlines.py                                # 1 
+                                                # 2 
+import fileinput                                # 3 
+                                                # 4 
+for line in fileinput.input(inplace=True):      # 5 
+    line = line.rstrip()                        # 6 
+    num = fileinput.lineno()                    # 7 
+    print('{:<50} # {:2d}'.format(line, num))   # 8
+```
+
+> 务必慎用参数inplace，因为这很容易破坏文件。你应在不设置inplace的情况下仔细测试程序（这样将只打印结果），确保程序能够正确运行后再让它修改文件。
+
+#### 10.3.4 集合、堆和双端队列
+
+1. 集合
+
+在较新的版本中，集合是由内置类set实现的，这意味着你可直接创建集合，而无需导入模块sets。
+
+```
+>>> set(range(10)) 
+{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+>>> type({}) 
+<class 'dict'>
+
+>>> {0, 1, 2, 3, 0, 1, 2, 3, 4, 5} 
+{0, 1, 2, 3, 4, 5}
+
+>>> {'fee', 'fie', 'foe'} 
+{'foe', 'fee', 'fie'}
+
+>>> a = {1, 2, 3} 
+>>> b = {2, 3, 4} 
+>>> a.union(b) 
+{1, 2, 3, 4} 
+>>> a | b 
+{1, 2, 3, 4}
+
+>>> c = a & b 
+>>> c.issubset(a) 
+True 
+>>> c <= a 
+True 
+>>> c.issuperset(a) 
+False 
+>>> c >= a 
+False 
+>>> a.intersection(b) 
+{2, 3} 
+>>> a & b 
+{2, 3} 
+>>> a.difference(b) 
+{1} 
+>>> a - b 
+{1} 
+>>> a.symmetric_difference(b) 
+{1, 4} 
+>>> a ^ b 
+{1, 4} 
+>>> a.copy()
+{1, 2, 3} 
+>>> a.copy() is a 
+False
+```
+
+有frozenset类型，它表示不可变（可散列）的集合
+
+```
+>>> a = set() 
+>>> b = set() 
+>>> a.add(b) 
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in ? 
+TypeError: set objects are unhashable 
+>>> a.add(frozenset(b))
+```
+
+2. 堆
+
+另一种著名的数据结构是堆（heap），它是一种优先队列。优先队列让你能够以任意顺序添加对象，并随时（可能是在两次添加对象之间）找出（并删除）最小的元素。相比于列表方法min，这样做的效率要高得多
+
+表10-5 模块heapq中一些重要的函数
+
+| 函 数                 | 描 述                    |
+|:---------------------|:-------------------------|
+| heappush(heap, x)    | 将x压入堆中                |
+| heappop(heap)        | 从堆中弹出最小的元素        |
+| heapify(heap)        | 让列表具备堆特征            |
+| heapreplace(heap, x) | 弹出最小的元素，并将x压入堆中 |
+| nlargest(n, iter)    | 返回iter中n个最大的元素     |
+| nsmallest(n, iter)   | 返回iter中n个最小的元素     |
+
+```
+>>> from heapq import * 
+>>> from random import shuffle 
+>>> data = list(range(10)) 
+>>> shuffle(data) 
+>>> heap = [] 
+>>> for n in data: 
+... heappush(heap, n) 
+... 
+>>> heap 
+[0, 1, 3, 6, 2, 8, 4, 7, 9, 5] 
+>>> heappush(heap, 0.5) 
+>>> heap 
+[0, 0.5, 3, 6, 1, 8, 4, 7, 9, 5, 2]
+```
+
+位置i处的元素总是大于位置i // 2处的元素（反过来说就是小于位置2 * i和2 * i
++1处的元素）  
+这是底层堆算法的基础，称为堆特征（heap property）。
+
+```
+>>> heappop(heap) 
+0 
+>>> heappop(heap) 
+0.5 
+>>> heappop(heap) 
+1 
+>>> heap 
+[2, 5, 3, 6, 9, 8, 4, 7]
+
+>>> heap = [5, 8, 0, 3, 6, 7, 9, 1, 4, 2] 
+>>> heapify(heap) 
+>>> heap 
+[0, 1, 5, 3, 2, 7, 9, 8, 4, 6]
+
+>>> heapreplace(heap, 0.5) 
+0 
+>>> heap 
+[0.5, 1, 5, 3, 2, 7, 9, 8, 4, 6] 
+>>> heapreplace(heap, 10) 
+0.5 
+>>> heap 
+[1, 2, 5, 3, 6, 7, 9, 8, 4, 10]
+```
+
+3. 双端队列（及其他集合）
+
+在需要按添加元素的顺序进行删除时，双端队列很有用。在模块collections中，包含类型deque以及其他几个集合（collection）类型。
+
+```
+>>> from collections import deque 
+>>> q = deque(range(5)) 
+>>> q.append(5) 
+>>> q.appendleft(6) 
+>>> q 
+deque([6, 0, 1, 2, 3, 4, 5]) 
+>>> q.pop() 
+5 
+>>> q.popleft() 
+6 
+>>> q.rotate(3) 
+>>> q 
+deque([2, 3, 4, 0, 1]) 
+>>> q.rotate(-1) 
+>>> q 
+deque([3, 4, 0, 1, 2])
+```
+
+#### 10.3.5 time
+
+表10-6 Python日期元组中的字段
+
+| 索 引 | 字 段  | 值                   |
+|:-----|:------|:---------------------|
+| 0    | 年    | 如2000、2001等         |
+| 1    | 月    | 范围1~12              |
+| 2    | 日    | 范围1~31              |
+| 3    | 时    | 范围0~23              |
+| 4    | 分    | 范围0~59              |
+| 5    | 秒    | 范围0~61              |
+| 6    | 星期   | 范围0~6，其中0表示星期一 |
+| 7    | 儒略日 | 范围1~366             |
+| 8    | 夏令时 | 0、1或-1              |
+
+表10-7 模块time中一些重要的函数
+
+| 函 数                         | 描 述                                |
+|:-----------------------------|:------------------------------------|
+| asctime(\[tuple\])           | 将时间元组转换为字符串                   |
+| localtime(\[secs\])          | 将秒数转换为表示当地时间的日期元组         |
+| mktime(tuple)                | 将时间元组转换为当地时间                 |
+| sleep(secs)                  | 休眠（什么都不做）secs秒                |
+| strptime(string\[, format\]) | 将字符串转换为时间元组                   |
+| time()                       | 当前时间（从新纪元开始后的秒数，以UTC为准） |
+
+- 函数time.asctime将当前时间转换为字符串，如下所示：
+
+  ```
+  >>> time.asctime() 
+  'Mon Jul 18 14:06:07 2016'
+  ```
+
+  如果不想使用当前时间，也可向它提供一个日期元组（如localtime创建的日期元组）。要设置更复杂的格式，可使用函数strftime，标准文档对此做了介绍。
+- 函数time.localtime将一个实数（从新纪元开始后的秒数）转换为日期元组（本地时间）。如果要转换为国际标准时间，应使用gmtime。
+- 函数time.mktime将日期元组转换为从新纪元后的秒数，这与localtime的功能相反。
+- 函数time.sleep让解释器等待指定的秒数。
+- 函数time.strptime将一个字符串（其格式与asctime所返回字符串的格式相同）转换为日期元组。（可选参数format遵循的规则与strftime相同，详情请参阅标准文档。）
+- 函数time.time返回当前的国际标准时间，以从新纪元开始的秒数表示。虽然新纪元随平台而异，但可这样进行可靠的计时：存储事件（如函数调用）发生前后time的结果，再计算它们的差。
+
+#### 10.3.6 random
+
+表10-8 模块random中一些重要的函数
+
+| 函 数                                 | 描 述                                     |
+|:-------------------------------------|:-----------------------------------------|
+| random()                             | 返回一个0~1（含）的随机实数                   |
+| getrandbits(n)                       | 以长整数方式返回n个随机的二进制位              |
+| uniform(a, b)                        | 返回一个a~b（含）的随机实数                   |
+| randrange(\[start\], stop, \[step\]) | 从range(start, stop, step)中随机地选择一个数 |
+| choice(seq)                          | 从序列seq中随机地选择一个元素                 |
+| shuffle(seq\[, random\])             | 就地打乱序列seq                            |
+| sample(seq, n)                       | 从序列seq中随机地选择n个值不同的元素           |
+
+- 函数random.random是最基本的随机函数之一，它返回一个0~1（含）的伪随机数。除非这正是你需要的，否则可能应使用其他提供了额外功能的函数。函数random.getrandbits以一个整数的方式返回指定数量的二进制位。
+- 向函数random.uniform提供了两个数字参数a和b时，它返回一个a~b（含）的随机（均匀分布的）实数。例如，如果你需要一个随机角度，可使用uniform(0,
+  360)。
+- 函数random.randrange是生成随机整数的标准函数。为指定这个随机整数所在的范围，你可像调用range那样给这个函数提供参数。例如，要生成一个1~10（含）的随机整数，可使用randrange(1,
+  11)或randrange(10) + 1。要生成一个小于20的随机正奇数，可使用randrange(1,20,
+  2)。
+- 函数random.choice从给定序列中随机（均匀）地选择一个元素。
+- 函数random.shuffle随机地打乱一个可变序列中的元素，并确保每种可能的排列顺序出现的概率相同。
+- 函数random.sample从给定序列中随机（均匀）地选择指定数量的元素，并确保所选择元素的值各不相同
+
+```
+from random import * 
+from time import * 
+date1 = (2016, 1, 1, 0, 0, 0, -1, -1, -1) 
+time1 = mktime(date1) 
+date2 = (2017, 1, 1, 0, 0, 0, -1, -1, -1) 
+time2 = mktime(date2)
+
+>>> random_time = uniform(time1, time2)
+
+>>> print(asctime(localtime(random_time)))
+Tue Aug 16 10:11:04 2016
+
+from random import randrange 
+num = int(input('How many dice? ')) 
+sides = int(input('How many sides per die? ')) 
+sum = 0 
+for i in range(num): sum += randrange(sides) + 1 
+print('The result is', sum)
+
+How many dice? 3 
+How many sides per die? 6 
+The result is 10
+
+# fortune.py 
+import fileinput, random 
+fortunes = list(fileinput.input()) 
+print random.choice(fortunes)
+
+$ python fortune.py /usr/share/dict/words 
+dodge
+
+>>> values = list(range(1, 11)) + 'Jack Queen King'.split() 
+>>> suits = 'diamonds clubs hearts spades'.split() 
+>>> deck = ['{} of {}'.format(v, s) for v in values for s in suits]
+
+>>> from pprint import pprint 
+>>> pprint(deck[:12]) 
+['1 of diamonds', 
+ '1 of clubs', 
+ '1 of hearts', 
+ '1 of spades', 
+ '2 of diamonds', 
+ '2 of clubs', 
+ '2 of hearts', 
+ '2 of spades', 
+ '3 of diamonds', 
+ '3 of clubs', 
+ '3 of hearts', 
+ '3 of spades']
+ 
+>>> from random import shuffle 
+>>> shuffle(deck) 
+>>> pprint(deck[:12]) 
+['3 of spades', 
+ '2 of diamonds', 
+ '5 of diamonds', 
+ '6 of spades', 
+ '8 of diamonds', 
+ '1 of clubs', 
+ '5 of hearts', 
+ 'Queen of diamonds', 
+ 'Queen of hearts', 
+ 'King of hearts', 
+ 'Jack of diamonds', 
+ 'Queen of clubs']
+```
+
+#### 10.3.7 shelve 和 json
+
+如果需要的是简单的存储方案，模块shelve可替你完成大部分工作——你只需提供一个文件名即可  
+对于模块shelve，你唯一感兴趣的是函数open。这个函数将一个文件名作为参数，并返回一个Shelf对象，供你用来存储数据。你可像操作普通字典那样操作它（只是键必须为字符串），操作完毕（并将所做的修改存盘）时，可调用其方法close。
+
+1. 一个潜在的陷阱
+
+   ```
+   >>> import shelve 
+   >>> s = shelve.open('test.dat') 
+   >>> s['x'] = ['a', 'b', 'c'] 
+   >>> s['x'].append('d') 
+   >>> s['x'] 
+   ['a', 'b', 'c']
+   ```
+
+   - 列表\['a', 'b', 'c'\]被存储到s的'x'键下。
+   - 获取存储的表示，并使用它创建一个新列表，再将'd'附加到这个新列表末尾，但这个修改后的版本未被存储！
+   - 最后，再次获取原来的版本——其中没有'd'。
+
+   ```
+   >>> temp = s['x'] 
+   >>> temp.append('d') 
+   >>> s['x'] = temp 
+   >>> s['x'] 
+   ['a', 'b', 'c', 'd']
+   ```
+
+2. 一个简单的数据库示例
+
+   ```python
+   # database.py 
+   import sys, shelve 
+   def store_person(db): 
+       """ 
+       让用户输入数据并将其存储到shelf对象中
+       """ 
+       pid = input('Enter unique ID number: ') 
+       person = {} 
+       person['name'] = input('Enter name: ') 
+       person['age'] = input('Enter age: ') 
+       person['phone'] = input('Enter phone number: ') 
+       db[pid] = person 
+   def lookup_person(db): 
+       """ 
+       让用户输入ID和所需的字段，并从shelf对象中获取相应的数据
+       """ 
+       pid = input('Enter ID number: ') 
+       field = input('What would you like to know? (name, age, phone) ') 
+       field = field.strip().lower() 
+       print(field.capitalize() + ':', db[pid][field]) 
+   def print_help(): 
+       print('The available commands are:') 
+       print('store : Stores information about a person') 
+       print('lookup : Looks up a person from ID number') 
+       print('quit : Save changes and exit') 
+       print('? : Prints this message') 
+   def enter_command(): 
+       cmd = input('Enter command (? for help): ') 
+       cmd = cmd.strip().lower() 
+       return cmd 
+   def main(): 
+       database = shelve.open('C:\\database.dat') # 你可能想修改这个名称
+       try: 
+           while True: 
+               cmd = enter_command() 
+               if cmd == 'store': 
+                   store_person(database) 
+               elif cmd == 'lookup': 
+                   lookup_person(database) 
+               elif cmd == '?': 
+                   print_help() 
+               elif cmd == 'quit': 
+                   return
+           finally: 
+               database.close()
+       if name == '__main__': main()
+   ```
+
+   - 所有代码都放在函数中，这提高了程序的结构化程度（一个可能的改进是将这些函数作为一个类的方法）。
+   - 主程序位于函数main中，这个函数仅在__name__==
+     '__main__'时才会被调用。这意味着可在另一个程序中将这个程序作为模块导入，再调用函数main。
+   - 在函数main中，我打开一个数据库（shelf），再将其作为参数传递给其他需要它的函数。由于这个程序很小，我原本可以使用一个全局变量，但在大多数情况下，最好不要使用全局变量——除非你有理由这样做。
+   - 读入一些值后，我调用strip和lower来修改它们，因为仅当提供的键与存储的键完全相同时，它们才匹配。如果对用户输入的内容都调用strip和lower，用户输入时就无需太关心大小写，且在输入开头和末尾有多余的空白也没有关系。另外，注意到打印字段名时使用了capitalize。
+   - 为确保数据库得以妥善的关闭，我使用了try和finally。不知道什么时候就会出现问题，进而引发异常。如果程序终止时未妥善地关闭数据库，数据库文件可能受损，变得毫无用处。通过使用try和finally，可避免这样的情况发生。我原本也可像第11章介绍的那样，将shelf用作上下文管理器。
+
+   ```
+   Enter command (? for help): ? 
+   The available commands are: 
+   store : Stores information about a person 
+   lookup : Looks up a person from ID number 
+   quit : Save changes and exit 
+   ? : Prints this message 
+   Enter command (? for help): store 
+   Enter unique ID number: 001 
+   Enter name: Mr. Gumby 
+   Enter age: 42 
+   Enter phone number: 555-1234 
+   Enter command (? for help): lookup 
+   Enter ID number: 001 
+   What would you like to know? (name, age, phone) phone 
+   Phone: 555-1234 
+   Enter command (? for help): quit
+
+   Enter command (? for help): lookup 
+   Enter ID number: 001
+   What would you like to know? (name, age, phone) name 
+   Name: Mr. Gumby 
+   Enter command (? for help): quit
+   ```
+
+#### 10.3.8 re
+
+1. 正则表达式是什么
+
+   正则表达式是可匹配文本片段的模式。最简单的正则表达式为普通字符串，与它自己匹配。换而言之，正则表达式'python'与字符串'python'匹配
+
+   你可使用这种匹配行为来完成如下工作：
+   在文本中查找模式，将特定的模式替换为计算得到的值，以及将文本分割成片段
+
+   - 通配符
+     正则表达式可与多个字符串匹配，你可使用特殊字符来创建这种正则表达式。例如，句点与除换行符外的其他字符都匹配，因此正则表达式'.ython'与字符串'python'和'jython'都匹配。它还与'qython'、'+ython'和'
+     ython'（第一个字符为空格）等字符串匹配，但不与'cpython'、'ython'等字符串匹配，因为句点只与一个字符匹配，而不与零或两个字符匹配。
+     句点与除换行符外的任何字符都匹配，因此被称为通配符（wildcard）。
+
+   - 对特殊字符进行转义
+     普通字符只与自己匹配，但特殊字符的情况完全不同。例如，假设要匹配字符串'python.org'，可以直接使用模式'python.org'吗？可以，但它也与'pythonzorg'匹配（还记得吗？句点与除换行符外的其他字符都匹配），这可能不是你想要的结果。要让特殊字符的行为与普通字符一样，可对其进行转义：像第1章对字符串中的引号进行转义时所做的那样，在它前面加上一个反斜杠。因此，在这个示例中，可使用模式'python\\.org'，它只与'python.org'匹配。
+
+   - 字符集
+     匹配任何字符很有用，但有时你需要更细致地控制。为此，可以用方括号将一个子串括起，创建一个所谓的字符集。这样的字符集与其包含的字符都匹配，例如'\[pj\]ython'与'python'和'jython'都匹配，但不与其他字符串匹配。你还可使用范围，例如'\[a-z\]'与a~z的任何字母都匹配。你还可组合多个访问，方法是依次列出它们，例如'\[a-zA-Z0-9\]'与大写字母、小写字母和数字都匹配。请注意，字符集只能匹配一个字符。  
+     要指定排除字符集，可在开头添加一个^字符，例如'\[^abc\]'与除a、b和c外的其他任何字符都匹配
+
+   - 二选一和子模式
+     需要以不同的方式处理每个字符时，字符集很好，但如果只想匹配字符串'python'和'perl'，该如何办呢？使用字符集或通配符无法指定这样的模式，而必须使用表示二选一的特殊字符：管道字符（|）。所需的模式为'python|perl'。  
+     然而，有时候你不想将二选一运算符用于整个模式，而只想将其用于模式的一部分。为此，可将这部分（子模式）放在圆括号内。对于前面的示例，可重写为'p(ython|erl)'。请注意，单个字符也可称为子模式。
+
+   - 可选模式和重复模式
+     通过在子模式后面加上问号，可将其指定为可选的，即可包含可不包含。例如，下面这个不太好懂的模式：
+
+     ```
+     r'(http://)?(www\.)?python\.org'
+         只与下面这些字符串匹配
+     'http://www.python.org' 
+     'http://python.org' 
+     'www.python.org' 
+     'python.org'
+     ```
+
+     - 我对句点进行了转义，以防它充当通配符。
+     - 为减少所需的反斜杠数量，我使用了原始字符串。
+     - 每个可选的子模式都放在圆括号内。
+     - 每个可选的子模式都可以出现，也可以不出现。
+       问号表示可选的子模式可出现一次，也可不出现。还有其他几个运算符用于表示子模式可重
+       复多次。
+     - (pattern)*：pattern可重复0、1或多次。
+     - (pattern)+：pattern可重复1或多次。
+     - (pattern){m,n}：模式可从父m~n次。
+
+   - 字符串的开头和末尾
+     到目前为止，讨论的都是模式是否与整个字符串匹配，但也可查找与模式匹配的子串，如字符串'www.python.org'中的子串'www'与模式'w+'匹配。像这样查找字符串时，有时在整个字符串开头或末尾查找很有用。例如，你可能想确定字符串的开头是否与模式'ht+p'匹配，为此可使用脱字符（'^'）来指出这一点。例如，'^ht+p'与'http://python.org'和'htttttp://python.org'匹配，但与'www.http.org'不匹配。同样，要指定字符串末尾，可使用美元符号（$）。
+
+2. 模块re的内容
+
+   表10-9 模块re中一些重要的函数
+
+   | 函 数                                   | 描 述                                     |
+   |:---------------------------------------|:------------------------------------------|
+   | compile(pattern\[, flags\])            | 根据包含正则表达式的字符串创建模式对象           |
+   | search(pattern, string\[, flags\])     | 在字符串中查找模式                           |
+   | match(pattern, string\[, flags\])      | 在字符串开头匹配模式                         |
+   | split(pattern, string\[, maxsplit=0\]) | 根据模式来分割字符串                         |
+   | findall(pattern, string)               | 返回一个列表，其中包含字符串中所有与模式匹配的子串 |
+   | sub(pat, repl, string\[, count=0\])    | 将字符串中与模式pat匹配的子串都替换为repl       |
+   | escape(string)                         | 对字符串中所有的正则表达式特殊字符都进行转义      |
+
+   - 函数re.compile将用字符串表示的正则表达式转换为模式对象，以提高匹配效率。调用search、match等函数时，如果提供的是用字符串表示的正则表达式，都必须在内部将它们转换为模式对象。通过使用函数compile对正则表达式进行转换后，每次使用它时都无需再进行转换。模式对象也有搜索/匹配方法，因此re.search(pat,
+     string)（其中pat是一个使用字符串表示的正则表达式）等价于pat.search(string)（其中pat是使用compile创建的模式对象）。编译后的正则表达式对象也可用于模块re中的普通函数中。
+   - 函数re.search在给定字符串中查找第一个与指定正则表达式匹配的子串。如果找到这样的子串，将返回MatchObject（结果为真），否则返回None（结果为假）。鉴于返回值的这种特征，可在条件语句中使用这个函数，如下所示：
+
+     ```python
+     if re.search(pat, string):
+         print('Found it!')
+     ```
+
+     然而，如果你需要获悉有关匹配的子串的详细信息，可查看返回的MatchObject。下一节将更详细地介绍MatchObject。
+   - 函数re.match尝试在给定字符串开头查找与正则表达式匹配的子串，因此re.match('p',
+     'python')返回真（MatchObject），而re.match('p',
+     'www.python.org')返回假（None）。
+   - 函数re.split根据与模式匹配的子串来分割字符串。这类似于字符串方法split，但使用正则表达式来指定分隔符，而不是指定固定的分隔符。例如，使用字符串方法split时，可以字符串',
+     '为分隔符来分割字符串，但使用re. split时，可以空格和逗号为分隔符来分割字符串。
+
+     ```
+     >>> some_text = 'alpha, beta,,,,gamma delta'
+     >>> re.split('[, ]+', some_text) 
+     ['alpha', 'beta', 'gamma', 'delta']  
+     ```
+
+     从这个示例可知，返回值为子串列表。参数maxsplit指定最多分割多少次
+
+     ```
+     >>> re.split('[, ]+', some_text, maxsplit=2)
+     ['alpha', 'beta', 'gamma delta'] 
+     >>> re.split('[, ]+', some_text, maxsplit=1) 
+     ['alpha', 'beta,,,,gamma delta']
+     ```
+   - 函数re.findall返回一个列表，其中包含所有与给定模式匹配的子串。例如，要找出字符串包含的所有单词，可像下面这样做：
+
+     ```
+     >>> pat = '[a-zA-Z]+'
+     >>> text = '"Hm... Err -- are you sure?" he said, sounding insecure.' 
+     >>> re.findall(pat, text) 
+     ['Hm', 'Err', 'are', 'you', 'sure', 'he', 'said', 'sounding', 'insecure'] 
+     ```
+
+     要查找所有的标点符号，可像下面这样做：
+
+     ```
+     >>> pat = r'[.?\-",]+'
+     >>> re.findall(pat, text) 
+     ['"', '...', '--', '?"', ',', '.'] 
+     ```
+
+     请注意，这里对连字符（-）进行了转义，因此Python不会认为它是用来指定字符范围的（如a-z）。
+   - 函数re.sub从左往右将与模式匹配的子串替换为指定内容。请看下面的示例：
+
+     ```
+     >>> pat = '{name}'
+     >>> text = 'Dear {name}...' 
+     >>> re.sub(pat, 'Mr. Gumby', text) 
+     'Dear Mr. Gumby...'
+     ```
+   - re.escape是一个工具函数，用于对字符串中所有可能被视为正则表达式运算符的字符进行转义。使用这个函数的情况有：字符串很长，其中包含大量特殊字符，而你不想输入大量的反斜杠；你从用户那里获取了一个字符串（例如，通过函数input），想将其用于正则表达式中。下面的示例说明了这个函数的工作原理：
+
+     ```
+     >>> re.escape('www.python.org')
+     'www\\.python\\.org' 
+     >>> re.escape('But where is the ambiguity?') 
+     'But\\ where\\ is\\ the\\ ambiguity\\?'  
+     ```
+
+3. 匹配对象和编组
+
+   在模块re中，查找与模式匹配的子串的函数都在找到时返回MatchObject对象。这种对象包含与模式匹配的子串的信息，还包含模式的哪部分与子串的哪部分匹配的信息。这些子串部分称为编组（group）。
+
+   编组就是放在圆括号内的子模式，它们是根据左边的括号数编号的，其中编组0指的是整个模式。
+
+   ```
+   'There (was a (wee) (cooper)) who (lived in Fyfe)'
+   ```
+
+   包含如下编组：
+
+   ```
+   0 There was a wee cooper who lived in Fyfe 
+   1 was a wee cooper 
+   2 wee 
+   3 cooper 
+   4 lived in Fyfe
+   ```
+
+   表10-10 re匹配对象的重要方法
+
+   | 方 法                   | 描 述                                                |
+   |:-----------------------|:-----------------------------------------------------|
+   | group(\[group1, ...\]) | 获取与给定子模式（编组）匹配的子串                         |
+   | start(\[group\])       | 返回与给定编组匹配的子串的起始位置                         |
+   | end(\[group\])         | 返回与给定编组匹配的子串的终止位置（与切片一样，不包含终止位置） |
+   | span(\[group\])        | 返回与给定编组匹配的子串的起始和终止位置                    |
+
+   方法group返回与模式中给定编组匹配的子串。如果没有指定编组号，则默认为0。如果只指定了一个编组号（或使用默认值0），将只返回一个字符串；否则返回一个元组，其中包含与给定编组匹配的子串
+   方法start返回与给定编组（默认为0，即整个模式）匹配的子串的起始索引。
+   方法end类似于start，但返回终止索引加1
+   方法span返回一个元组，其中包含与给定编组（默认为0，即整个模式）匹配的子串的起始索引和终止索引。
+
+   ```
+   >>> m = re.match(r'www\.(.*)\..{3}', 'www.python.org') 
+   >>> m.group(1) 
+   'python' 
+   >>> m.start(1) 
+   4 
+   >>> m.end(1) 
+   10 
+   >>> m.span(1) 
+   (4, 10)
+   ```
+
+4. 替换中的组号和函数
+
+   ```
+   >>> emphasis_pattern = r'\*([^\*]+)\*'
+
+   >>> re.sub(emphasis_pattern, r'<em>\1</em>', 'Hello, *world*!') 
+   'Hello, <em>world</em>!'
+   ```
+
+5. 找出发件人
+
+   ```python
+   # find_sender.py 
+   import fileinput, re 
+   pat = re.compile('From: (.*) <.*?>$') 
+   for line in fileinput.input(): 
+       m = pat.match(line) 
+       if m: print(m.group(1))
+   ```
+
+   ```
+   $ python find_sender.py message.eml 
+   Foo Fie
+   ```
+
+   - 为提高处理效率，我编译了正则表达式。
+   - 我将用于匹配要提取文本的子模式放在圆括号内，使其变成了一个编组。
+   - 我使用了一个非贪婪模式，使其只匹配最后一对尖括号（以防姓名也包含尖括号）。
+   - 我使用了美元符号指出要使用这个模式来匹配整行（直到行尾）。
+   - 我使用了if语句来确保匹配后才提取与特定编组匹配的内容。
+
+   ```python
+   import fileinput, re 
+   pat = re.compile(r'[a-z\-\.]+@[a-z\-\.]+', re.IGNORECASE) 
+   addresses = set() 
+   for line in fileinput.input(): 
+       for address in pat.findall(line): 
+       addresses.add(address) 
+   for address in sorted(addresses): 
+       print address
+   ```
+
+   ```
+   Mr.Gumby@bar.baz 
+   foo@bar.baz 
+   foo@baz.com 
+   magnus@bozz.floop
+   ```
+
+6. 模板系统示例
+
+   模板（template）是一种文件，可在其中插入具体的值来得到最终的文本
+
+   - 可使用正则表达式来匹配字段并提取其内容。
+   - 可使用eval来计算表达式字符串，并提供包含作用域的字典。可在try/except语句中执行这种操作。如果出现SyntaxError异常，就说明你处理的可能是语句（如赋值语句）而不是表达式，应使用exec来执行它。
+   - 可使用exec来执行语句字符串（和其他语句），并将模板的作用域存储到字典中。
+   - 可使用re.sub将被处理的字符串替换为计算得到的结果。突然间，这看起来并不那么吓人了，不是吗？
+
+   ```python
+   # templates.py 
+   import fileinput, re 
+   # 与使用方括号括起的字段匹配
+   field_pat = re.compile(r'\[(.+?)\]') 
+   # 我们将把变量收集到这里：
+   scope = {} 
+   # 用于调用re.sub：
+   def replacement(match): 
+       code = match.group(1) 
+       try: 
+           # 如果字段为表达式，就返回其结果：
+           return str(eval(code, scope)) 
+       except SyntaxError: 
+           # 否则在当前作用域内执行该赋值语句
+           # 并返回一个空字符串
+           return '' 
+   # 获取所有文本并合并成一个字符串：
+   #（还可采用其他办法来完成这项任务，详情请参见第11章）
+   lines = [] 
+   for line in fileinput.input(): 
+       lines.append(line) 
+   text = ''.join(lines) 
+   # 替换所有与字段模式匹配的内容：
+   print(field_pat.sub(replacement, text))  
+   ```
+
+   - 定义一个用于匹配字段的模式。
+   - 创建一个用作模板作用域的字典。
+   - 定义一个替换函数，其功能如下。
+     - 从match中获取与编组1匹配的内容，并将其存储到变量code中。
+     - 将作用域字典作为命名空间，并尝试计算code，再将结果转换为字符串并返回它。如果成功，就说明这个字段是表达式，因此万事大吉；否则（即引发了SyntaxError异常），就进入下一步。
+     - 在对表达式进行求值时使用的命名空间（作用域字典）中执行这个字段，并返回一个空字符串（因为赋值语句没有结果）。
+   - 使用fileinput读取所有的行，将它们放在一个列表中，再将其合并成一个大型字符串。
+   - 调用re.sub来使用替换函数来替换所有与模式field_pat匹配的字段，并将结果打印出来。
+
+#### 10.3.9 其他有趣的标准模块
+
+- argparse：在UNIX中，运行命令行程序时常常需要指定各种选项（开关），Python解释器就是这样的典范。这些选项都包含在sys.argv中，但要正确地处理它们绝非容易。模块argparse使得提供功能齐备的命令行界面易如反掌。
+- cmd：这个模块让你能够编写类似于Python交互式解释器的命令行解释器。你可定义命令，让用户能够在提示符下执行它们。或许可使用这个模块为你编写的程序提供用户界面？
+- csv：CSV指的是逗号分隔的值（comma-seperated
+  values），很多应用程序（如很多电子表格程序和数据库程序）都使用这种简单格式来存储表格数据。这种格式主要用于在不同的程序之间交换数据。模块csv让你能够轻松地读写CSV文件，它还以非常透明的方式处理CSV格式的一些棘手部分。
+- datetime：如果模块time不能满足你的时间跟踪需求，模块datetime很可能能够满足。datetime支持特殊的日期和时间对象，并让你能够以各种方式创建和合并这些对象。相比于模块time，模块datetime的接口在很多方面都更加直观。
+- difflib：这个库让你能够确定两个序列的相似程度，还让你能够从很多序列中找出与指定序列最为相似的序列。例如，可使用difflib来创建简单的搜索程序。
+- enum：枚举类型是一种只有少数几个可能取值的类型。很多语言都内置了这样的类型，如果你在使用Python时需要这样的类型，模块enum可提供极大的帮助。
+- functools：这个模块提供的功能是，让你能够在调用函数时只提供部分参数（部分求值，partial
+  evaluation），以后再填充其他的参数。在Python
+  3.0中，这个模块包含filter和reduce。
+- hashlib：使用这个模块可计算字符串的小型“签名”（数）。计算两个不同字符串的签名时，几乎可以肯定得到的两个签名是不同的。你可使用它来计算大型文本文件的签名，这个模块在加密和安全领域有很多用途①。
+- itertools：包含大量用于创建和合并迭代器（或其他可迭代对象）的工具，其中包括可以串接可迭代对象、创建返回无限连续整数的迭代器（类似于range，但没有上限）、反复遍历可迭代对象以及具有其他作用的函数。
+- logging：使用print语句来确定程序中发生的情况很有用。要避免跟踪时出现大量调试输出，可将这些信息写入日志文件中。这个模块提供了一系列标准工具，可用于管理一个或多个中央日志，它还支持多种优先级不同的日志消息。
+- statistics：计算一组数的平均值并不那么难，但是要正确地获得中位数，以确定总体标准偏差和样本标准偏差之间的差别，即便对于偶数个元素来说，也需要费点心思。在这种情况下，不要手工计算，而应使用模块statistics！
+- timeit、profile和trace：模块timeit（和配套的命令行脚本）是一个测量代码段执行时间的工具。这个模块暗藏玄机，度量性能时你可能应该使用它而不是模块time。模块profile（和配套模块pstats）可用于对代码段的效率进行更全面的分析。模块trace可帮助你进行覆盖率分析（即代码的哪些部分执行了，哪些部分没有执行），这在编写测试代码时很有用。
+
+### 10.4 小结
+
+- 模块：模块基本上是一个子程序，主要作用是定义函数、类和变量等。模块包含测试代码时，应将这些代码放在一条检查name=='__main__'的if语句中。如果模块位于环境变量PYTHONPATH包含的目录中，就可直接导入它；要导入存储在文件foo.py中的模块，可使用语句import
+  foo。
+- 包：包不过是包含其他模块的模块。包是使用包含文件__init__.py的目录实现的。
+- 探索模块：在交互式解释器中导入模块后，就可以众多不同的方式对其进行探索，其中包括使用dir、查看变量__all__以及使用函数help。文档和源代码也是获取信息和洞见的极佳来源。
+- 标准库：Python自带多个模块，统称为标准库。本章介绍了其中的几个。
+  - sys：这个模块让你能够访问多个与Python解释器关系紧密的变量和函数。
+  - os：这个模块让你能够访问多个与操作系统关系紧密的变量和函数。
+  - fileinput：这个模块让你能够轻松地迭代多个文件或流的内容行。
+  - sets、heapq和deque：这三个模块提供了三种很有用的数据结构。内置类型set也实现了集合。
+  - time：这个模块让你能够获取当前时间、操作时间和日期以及设置它们的格式。
+  - random：这个模块包含用于生成随机数，从序列中随机地选择元素，以及打乱列表中元素的函数。
+  - shelve：这个模块用于创建永久性映射，其内容存储在使用给定文件名的数据库中。
+  - re：支持正则表达式的模块。
+
+#### 10.4.1 本章介绍的新函数
+
+| 函 数               | 描 述                           |
+|:-------------------|:--------------------------------|
+| dir(obj)           | 返回一个按字母顺序排列的属性名列表    |
+| help(\[obj\])      | 提供交互式帮助或有关特定对象的帮助信息 |
+| imp.reload(module) | 返回已导入的模块的重载版本           |
+
+
