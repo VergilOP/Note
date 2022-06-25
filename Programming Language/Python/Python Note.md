@@ -212,6 +212,20 @@
       - [10.4.1 本章介绍的新函数](#1041-本章介绍的新函数)
   - [第11章 文件](#第11章-文件)
     - [11.1 打开文件](#111-打开文件)
+    - [11.2 文件的基本方法](#112-文件的基本方法)
+      - [11.2.1 读取和写入](#1121-读取和写入)
+      - [11.2.2 使用管道重定向输出](#1122-使用管道重定向输出)
+      - [11.2.3 读取和写入行](#1123-读取和写入行)
+      - [11.2.4 关闭文件](#1124-关闭文件)
+      - [11.2.5 使用文件的基本方法](#1125-使用文件的基本方法)
+    - [11.3 迭代文件内容](#113-迭代文件内容)
+      - [11.3.1 每次一个字符（或字节）](#1131-每次一个字符或字节)
+      - [11.3.2 每次一行](#1132-每次一行)
+      - [11.3.3 读取所有内容](#1133-读取所有内容)
+      - [11.3.4 使用 fileinput 实现延迟行迭代](#1134-使用-fileinput-实现延迟行迭代)
+      - [11.3.5 文件迭代器](#1135-文件迭代器)
+    - [11.4 小结](#114-小结)
+      - [11.4.1 本章介绍的新函数](#1141-本章介绍的新函数)
 
 # Note of Python
 
@@ -5618,4 +5632,337 @@ dodge
 ## 第11章 文件
 
 ### 11.1 打开文件
+
+要打开文件，可使用函数open，它位于自动导入的模块io中
+
+函数open将文件名作为唯一必不可少的参数，并返回一个文件对象
+
+如果当前目录中有一个名为somefile.txt的文本文件（可能是使用文本编辑器创建的），则可像下面这样打开它
+```
+>>> f = open('somefile.txt')
+```
+如果指定的文件不存在，将看到类似于下面的异常
+```
+Traceback (most recent call last): 
+ File "<stdin>", line 1, in <module> 
+FileNotFoundError: [Errno 2] No such file or directory: 'somefile.txt'
+```
+
+**文件模式**
+
+表11-1 函数open的参数mode的最常见取值
+
+| 值  | 描 述                                  |
+| :-- | -------------------------------------- |
+| 'r' | 读取模式（默认值）                     |
+| 'w' | 写入模式                               |
+| 'x' | 独占写入模式                           |
+| 'a' | 附加模式                               |
+| 'b' | 二进制模式（与其他模式结合使用）       |
+| 't' | 文本模式（默认值，与其他模式结合使用） |
+| '+' | 读写模式（与其他模式结合使用）         |
+
+显式地指定读取模式的效果与根本不指定模式相同
+
+写入模式让你能够写入文件，并在文件不存在时创建它。  
+独占写入模式更进一步，在文件已存在时引发FileExistsError异常
+
+在写入模式下打开文件时，既有内容将被删除（截断），并从文件开头处开始写入；如果要在既有文件末尾继续写入，可使用附加模式。
+
+'+'可与其他任何模式结合起来使用，表示既可读取也可写入。例如，要打开一个文本文件进行读写，可使用'r+'
+
+'r+'和'w+'之间有个重要差别：后者截断文件，而前者不会这样做。
+
+默认模式为'rt'，这意味着将把文件视为经过编码的Unicode文本，因此将自动执行解码和编码，且默认使用UTF-8编码
+
+如果文件包含非文本的二进制数据，如声音剪辑片段或图像，你肯定不希望执行上述自动转换。为此，只需使用二进制模式（如'rb'）来禁用与文本相关的功能。
+
+### 11.2 文件的基本方法
+
+#### 11.2.1 读取和写入
+
+```
+>>> f = open('somefile.txt', 'w') 
+>>> f.write('Hello, ') 
+7 
+>>> f.write('World!') 
+6 
+>>> f.close()
+
+>>> f = open('somefile.txt', 'r') 
+>>> f.read(4) 
+'Hell' 
+>>> f.read() 
+'o, World!'
+```
+
+#### 11.2.2 使用管道重定向输出
+
+在bash等shell中，可依次输入多个命令，并使用管道将它们链接起来，如下所示
+```
+$ cat somefile.txt | python somescript.py | sort
+```
+
+- cat somefile.txt：将文件somefile.txt的内容写入到标准输出（sys.stdout）。
+- python somescript.py：执行Python脚本somescript。这个脚本从其标准输入中读取，并将结果写入到标准输出。
+- sort：读取标准输入（sys.stdin）中的所有文本，将各行按字母顺序排序，并将结果写入到标准输出。
+
+代码清单11-1 计算sys.stdin中包含多少个单词的简单脚本
+```
+# somescript.py 
+import sys 
+text = sys.stdin.read() 
+words = text.split() 
+wordcount = len(words) 
+print('Wordcount:', wordcount)
+```
+
+代码清单11-2 一个内容荒谬的文本文件
+```
+Your mother was a hamster and your 
+father smelled of elderberries. 
+```
+cat somefile.txt | python somescript.py的结果如下：
+```
+Wordcount: 11
+```
+
+#### 11.2.3 读取和写入行
+
+要读取一行（从当前位置到下一个分行符的文本），可使用方法readline
+
+如果some_file. readline()返回的是'Hello, World!\n'，那么some_file.readline(5)返回的将是'Hello'。
+
+方法writelines与readlines相反：接受一个字符串列表（实际上，可以是任何序列或可迭代对象），并将这些字符串都写入到文件（或流）中。
+
+#### 11.2.4 关闭文件
+
+对于写入过的文件，一定要将其关闭，因为Python可能缓冲你写入的数据（将数据暂时存储在某个地方，以提高效率）
+
+要确保文件得以关闭，可使用一条try/finally语句，并在finally子句中调用close
+```python
+# 在这里打开文件
+try: 
+ # 将数据写入到文件中
+finally: 
+ file.close()
+```
+
+实际上，有一条专门为此设计的语句，那就是with语句。
+```py
+with open("somefile.txt") as somefile: 
+    do_something(somefile)
+```
+
+with语句让你能够打开文件并将其赋给一个变量（这里是somefile）。在语句体中，你将数据写入文件（还可能做其他事情）。到达该语句末尾时，将自动关闭文件，即便出现异常亦如此
+
+#### 11.2.5 使用文件的基本方法
+
+代码清单11-3 一个简单的文本文件
+
+```
+Welcome to this file 
+There is nothing here except 
+This stupid haiku
+```
+
+```
+>>> f = open(r'C:\text\somefile.txt') 
+>>> f.read(7) 
+'Welcome' 
+>>> f.read(4) 
+' to ' 
+>>> f.close()
+
+>>> f = open(r'C:\text\somefile.txt') 
+>>> print(f.read()) 
+Welcome to this file 
+There is nothing here except 
+This stupid haiku 
+>>> f.close()
+
+>>> f = open(r'C:\text\somefile.txt') 
+>>> for i in range(3): 
+ print(str(i) + ': ' + f.readline(), end='') 
+0: Welcome to this file 
+1: There is nothing here except 
+2: This stupid haiku 
+>>> f.close()
+
+>>> import pprint 
+>>> pprint.pprint(open(r'C:\text\somefile.txt').readlines()) 
+['Welcome to this file\n', 
+'There is nothing here except\n', 
+'This stupid haiku']
+
+>>> f = open(r'C:\text\somefile.txt', 'w') 
+>>> f.write('this\nis no\nhaiku') 
+13 
+>>> f.close()
+```
+
+代码清单11-4 修改后的文本文件
+
+```
+this 
+is no 
+haiku
+```
+
+```
+>>> f = open(r'C:\text\somefile.txt') 
+>>> lines = f.readlines() 
+>>> f.close() 
+>>> lines[1] = "isn't a\n" 
+>>> f = open(r'C:\text\somefile.txt', 'w') 
+>>> f.writelines(lines) 
+>>> f.close()
+```
+
+```
+this 
+isn't a 
+haiku
+```
+
+### 11.3 迭代文件内容
+
+#### 11.3.1 每次一个字符（或字节）
+
+一种最简单（也可能是最不常见）的文件内容迭代方式是，在while循环中使用方法read
+
+代码清单11-6 使用read遍历字符
+```py
+with open(filename) as f: 
+    char = f.read(1) 
+    while char: 
+    process(char) 
+    char = f.read(1)
+```
+
+到达文件末尾时，方法read将返回一个空字符串，但在此之前，返回的字符串都只包含一个字符（对应于布尔值True）。只要char为True，你就知道还没结束
+
+代码清单11-7 以不同的方式编写循环
+```
+with open(filename) as f: 
+    while True:
+    char = f.read(1) 
+    if not char: break 
+    process(char)
+```
+
+#### 11.3.2 每次一行
+
+处理文本文件时，通常想做的是迭代其中的行，而不是每个字符
+
+代码清单11-8 在while循环中使用readline
+```py
+with open(filename) as f: 
+    while True: 
+    line = f.readline() 
+    if not line: break 
+    process(line)
+```
+
+#### 11.3.3 读取所有内容
+
+如果文件不太大，可一次读取整个文件；为此，可使用方法read并不提供任何参数（将整个文件读取到一个字符串中），也可使用方法readlines（将文件读取到一个字符串列表中，其中每个字符串都是一行）。
+
+代码清单11-9 使用read迭代字符
+```py
+with open(filename) as f: 
+    for char in f.read(): 
+    process(char)
+```
+
+代码清单11-10 使用readlines迭代行
+```py
+with open(filename) as f: 
+    for line in f.readlines(): 
+    process(line)
+```
+
+#### 11.3.4 使用 fileinput 实现延迟行迭代
+
+代码清单11-11 使用fileinput迭代行
+```py
+import fileinput 
+for line in fileinput.input(filename): 
+    process(line)
+```
+
+#### 11.3.5 文件迭代器
+
+代码清单11-12 迭代文件
+```py
+with open(filename) as f: 
+    for line in f: 
+    process(line)
+```
+
+代码清单11-13 在不将文件对象赋给变量的情况下迭代文件
+```py
+for line in open(filename): 
+     process(line)
+```
+
+sys.stdin也是可迭代的，因此要迭代标准输入中的所有行，可像下面这样做
+```py
+import sys 
+for line in sys.stdin: 
+    process(line)
+```
+
+```
+>>> f = open('somefile.txt', 'w') 
+>>> print('First', 'line', file=f) 
+>>> print('Second', 'line', file=f) 
+>>> print('Third', 'and final', 'line', file=f) 
+>>> f.close() 
+>>> lines = list(open('somefile.txt')) 
+>>> lines 
+['First line\n', 'Second line\n', 'Third and final line\n'] 
+>>> first, second, third = open('somefile.txt') 
+>>> first
+'First line\n' 
+>>> second 
+'Second line\n' 
+>>> third 
+'Third and final line\n'
+```
+
+- 使用了print来写入文件，这将自动在提供的字符串后面添加换行符。
+- 对打开的文件进行序列解包，从而将每行存储到不同的变量中。（这种做法不常见，因为通常不知道文件包含多少行，但这演示了文件对象是可迭代的。）
+- 写入文件后将其关闭，以确保数据得以写入磁盘。（如你所见，读取文件后并没有将其关闭。这可能有点粗糙，但并非致命的。）
+
+### 11.4 小结
+
+- 类似于文件的对象：类似于文件的对象是支持read和readline（可能还有write和writelines）等方法的对象。
+- 打开和关闭文件：要打开文件，可使用函数open，并向它提供一个文件名。如果要确保即便发生错误时文件也将被关闭，可使用with语句。
+- 模式和文件类型：打开文件时，还可指定模式，如'r'（读取模式）或'w'（写入模式）。通过在模式后面加上'b'，可将文件作为二进制文件打开，并关闭Unicode编码和换行符替换。
+- 标准流：三个标准流（模块sys中的stdin、stdout和stderr）都是类似于文件的对象，它们实现了UNIX标准I/O机制（Windows也提供了这种机制）。
+- 读取和写入：要从文件或类似于文件的对象中读取，可使用方法read；要执行写入操作，可使用方法write。
+- 读取和写入行：要从文件中读取行，可使用readline和readlines；要写入行，可使用write-lines。
+- 迭代文件内容：迭代文件内容的方法很多，其中最常见的是迭代文本文件中的行，这可通过简单地对文件本身进行迭代来做到。还有其他与较旧Python版本兼容的方法，如使用readlines。
+
+#### 11.4.1 本章介绍的新函数
+
+| 函数            | 描述                       |
+| :-------------- | -------------------------- |
+| open(name, ...) | 打开文件并返回一个文件对象 |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
