@@ -167,7 +167,7 @@
     - [9.5 特性](#95-特性)
       - [9.5.1 函数 property](#951-函数-property)
       - [9.5.2 静态方法和类方法](#952-静态方法和类方法)
-      - [9.5.3 __getattr__、__setattr__等方法](#953-getattr__setattr__等方法)
+      - [9.5.3 \_\_getattr\_\_、__setattr__等方法](#953-__getattr____setattr__等方法)
     - [9.6 迭代器](#96-迭代器)
       - [9.6.1 迭代器协议](#961-迭代器协议)
       - [9.6.2 从迭代器创建序列](#962-从迭代器创建序列)
@@ -4247,7 +4247,7 @@ This is a static method
 This is a class method of <class '__main__.MyClass'>
 ```
 
-#### 9.5.3 __getattr__、__setattr__等方法
+#### 9.5.3 \_\_getattr\_\_、__setattr__等方法
 
 - \_\_getattribute__(self, name)：在属性被访问时自动调用（只适用于新式类）。
 - \_\_getattr__(self, name)：在属性被访问而对象没有这样的属性时自动调用。
