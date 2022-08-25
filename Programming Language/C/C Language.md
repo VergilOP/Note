@@ -68,6 +68,16 @@
       - [8.8.2 怎样建立内存的动态分配](#882-怎样建立内存的动态分配)
     - [8.9 有关指针的小结](#89-有关指针的小结)
   - [第九章 用户自己建立数据类型](#第九章-用户自己建立数据类型)
+    - [9.1 定义和使用结构体变量](#91-定义和使用结构体变量)
+      - [9.1.1 自己建立结构体类型](#911-自己建立结构体类型)
+      - [9.1.2 定义结构体类型变量](#912-定义结构体类型变量)
+      - [9.1.3 结构体变量的初始化的引用](#913-结构体变量的初始化的引用)
+    - [9.2 使用结构体数组](#92-使用结构体数组)
+      - [9.2.1 定义结构体数组](#921-定义结构体数组)
+    - [9.3 结构体指针](#93-结构体指针)
+      - [9.3.1 指向结构体变量的指针](#931-指向结构体变量的指针)
+      - [9.3.2 指向结构体数组的指针](#932-指向结构体数组的指针)
+      - [9.3.3 用结构体变量和结构体变量的指针作为函数参数](#933-用结构体变量和结构体变量的指针作为函数参数)
 
 # Note of Python
 
@@ -1143,3 +1153,155 @@ int main()
 
 ## 第九章 用户自己建立数据类型
 
+### 9.1 定义和使用结构体变量
+
+#### 9.1.1 自己建立结构体类型
+
+```C
+struct Date
+{
+    int month;
+    int day;
+    int year;
+};
+struct Student
+{
+    int num;
+    char name[20];
+    char sex;
+    int age;
+    struct Date birthday;
+    char addr[30];
+};
+```
+
+#### 9.1.2 定义结构体类型变量
+
+1. 先声明结构体类型,再定义该类型的变量
+
+    ```
+    struct Student student1,student2;
+    结构体类型名    结构体    变量名
+    ```
+
+2. 在声明类型的同时定义变量
+
+    ```
+    struct 结构体名
+    {
+        成员表列
+    }变量名表列;
+    ```
+
+3. 不指定类型名而直接定义结构体类型变量
+
+    ```
+    struct
+    {
+        成员表列;
+    }变量名表列
+    ```
+
+#### 9.1.3 结构体变量的初始化的引用
+
+```C
+#include <stdio.h>
+int main()
+{
+    struct Student
+    {
+        int num;
+        char name[20];
+        float score;
+    }student1,student2;
+    scanf("%d%s%f",&student1.num,student1.name,&student1.score);
+    scanf("%d%s%f",&student2.num,student2.name,&student2.score);
+    printf("The higher score is:\n");
+    if(student1.score>student2.score)
+        printf("%d %s %6.2f\n", student1.num,student1.name,student1.score);
+    else if (student1.score<student2.score)
+        printf("%d %s %6.2f\n", student2.num,student2.name,student2.score);
+    else
+    {
+        printf("%d %s %6.2f\n", student1.num,student1.name,student1.score);
+        printf("%d %s %6.2f\n", student2.num,student2.name,student2.score);
+    }
+    return 0;
+}
+```
+
+1. student1和student2是struct Student类型的变量.在3个成员中分别存放学号,姓名和成绩.
+2. 用scanf函数输入结构体变量时,必须分别输入他们的成员的值,不能在scanf函数中使用结构体变量名一揽子输入全部成员的值.注意在scanf函数中在成员student1.num和student1.score的前面都有地址符&,而在student1.name前面没有&,这是因为name是数组名,本身就代表地址,古不能画蛇添足地再加一个&.
+3. 根据student.score和student2.score的比较结构,输入不同学生的信息.从这里可以看到利用结构体变量的好处:由于student1是一个"组合项",内放有关联的一组数据,student1.score是属于student1变量的一部分
+
+### 9.2 使用结构体数组
+
+#### 9.2.1 定义结构体数组
+
+1. 定义结构体数组一般形式是
+   
+    1. struct 结构名
+
+        {成员表列}数据名\[数组长度\];
+    
+    2. 先声明一个结构体类型,然后在用此类型定义结构体数组
+   
+        结构体类型 数组名\[数组长度\];  
+        sturct Person leader\[3\];
+    
+2. 对结构体数组初始化的形式是在定义数组的后面加上
+
+    ={初值表列};
+
+    sturct Person leader\[3\] = {"Li",0,"Zhang",0,"Sun",0};
+
+### 9.3 结构体指针
+
+#### 9.3.1 指向结构体变量的指针
+
+struct Student *pt;
+
+#### 9.3.2 指向结构体数组的指针
+
+```C
+#include <stdio.h>
+stuct Student
+{
+    int num;
+    char name[20];
+    char sex;
+    int age;
+};
+struct Student stu[3]={{10101,"Li Lin",'M',18},{10102,"Zhang Fang",'M',19},{10104,"Wang Min",'F',20}};
+int main()
+{
+    struct Student *p;
+    printf("No.    Name              sex age\n");
+    for(p=stu;p<stu+3;p++)
+        printf("%5d &-20s %2c %4d\n",p->num,p->name,p->sex,p->age);
+    return 0;
+}
+```
+
+1. 如果p的初值为stu，即指向stu的第1个元素，p加1后，p就指向下一个元素。例如  
+
+    (++p)->num 先使p自加1，然后得到p指向的元素中的num成员值（即10102）  
+    (p++)->num 先求得p一>num的值（即10101），然后再使p自加1，指向stu\[1\]  
+    请注意以上二者的不同。  
+
+2. 程序定义了p是一个指向struct Student类型对象的指针变量，它用来指向一个struct Student类型的对象（在例9.6中的p的值是stu数组的一个元素（如stu\[0\]或stu\[1\]）的起始地址），不应用来指向stu 数组元素中的某一成员。例如，下面的用法是不对的
+
+    p=stu[1].name;      //stu\[1\].name是stu\[1\]元素中的成员name的首字符的地址
+
+    编译时将给出“警告”信息，表示地址的类型不匹配。不要认为反正p是存放地址的，可以将任何地址赋给它。如果要将某一成员的地址赋给p，可以用强制类型转换，先将成员的地址转换成p的类型。例如∶
+    
+    p=(struct Student * )stu\[0\].name;
+
+    此时，p的值是stu\[0\]元素的name成员的起始地址。可以用"printf（"%s"，p）；"输出stu\[0\]中成员name的值。但是，p仍保持原来的类型。如果执行"printf（"%s"，p＋1）；"，则会输出stu\[1\]中 name 的值。执行p＋＋时，p 的值增加了结构体 struct Student的长度。
+
+#### 9.3.3 用结构体变量和结构体变量的指针作为函数参数
+
+将一个结构体变量的值传递给另一个函数，有3个方法∶
+1. 用结构体变量的成员作参数。例如，用stu【1】.num或stu【2】.name作函数实参，将实参值传给形参。用法和用普通变量作实参是一样的，属于"值传递"方式。应当注意实参与形参的类型保持一致。
+2. 用结构体变量作实参。用结构体变量作实参时，采取的也是“值传递”的方式，将结构体变量所占的内存单元的内容全部按顺序传递给形参，形参也必须是同类型的结构体变量。在函数调用期间形参也要占用内存单元。这种传递方式在空间和时间上开销较大，如果结构体的规模很大时，开销是很可观的。此外，由于采用值传递方式，如果在执行被调用函数期间改变了形参（也是结构体变量）的值，该值不能返回主调函数，这往往造成使用上的不便。因此一般较少用这种方法。
+3. 用指向结构体变量（或数组元素）的指针作实参，将结构体变量（或数组元素）的地址传给形参。
