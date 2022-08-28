@@ -78,6 +78,17 @@
       - [9.3.1 指向结构体变量的指针](#931-指向结构体变量的指针)
       - [9.3.2 指向结构体数组的指针](#932-指向结构体数组的指针)
       - [9.3.3 用结构体变量和结构体变量的指针作为函数参数](#933-用结构体变量和结构体变量的指针作为函数参数)
+    - [9.4 用指针处理链表](#94-用指针处理链表)
+      - [9.4.1 什么是链表](#941-什么是链表)
+      - [9.4.2 建立简单的静态链表](#942-建立简单的静态链表)
+      - [9.4.3 建立动态链表](#943-建立动态链表)
+    - [9.4.4 输出链表](#944-输出链表)
+    - [9.5 共用体类型](#95-共用体类型)
+      - [9.5.3 共用体类型数据的特点](#953-共用体类型数据的特点)
+    - [9.6 使用枚举类型](#96-使用枚举类型)
+      - [9.7 用typedef声明新类型名](#97-用typedef声明新类型名)
+  - [第十章 对文件的输入输出](#第十章-对文件的输入输出)
+    - [10.1 C文件的有关基本知识](#101-c文件的有关基本知识)
 
 # Note of Python
 
@@ -1305,3 +1316,253 @@ int main()
 1. 用结构体变量的成员作参数。例如，用stu【1】.num或stu【2】.name作函数实参，将实参值传给形参。用法和用普通变量作实参是一样的，属于"值传递"方式。应当注意实参与形参的类型保持一致。
 2. 用结构体变量作实参。用结构体变量作实参时，采取的也是“值传递”的方式，将结构体变量所占的内存单元的内容全部按顺序传递给形参，形参也必须是同类型的结构体变量。在函数调用期间形参也要占用内存单元。这种传递方式在空间和时间上开销较大，如果结构体的规模很大时，开销是很可观的。此外，由于采用值传递方式，如果在执行被调用函数期间改变了形参（也是结构体变量）的值，该值不能返回主调函数，这往往造成使用上的不便。因此一般较少用这种方法。
 3. 用指向结构体变量（或数组元素）的指针作实参，将结构体变量（或数组元素）的地址传给形参。
+
+### 9.4 用指针处理链表
+
+#### 9.4.1 什么是链表
+
+链表是一种常见的重要的数据结构.它是动态的进行储存分配的一种结构.
+
+链表有一个"头指针"变量,它存放一个地址,该地址指向一个元素.链表中每一个元素称为"结点",每个结点都应包括两个部分:
+- 用户需要的实际数据
+- 下一个节点的地址
+
+最后一个元素不再指向其他元素,它称为"表尾",它的地址部分放一个"NULL"表示空地址,链表到此结束
+
+#### 9.4.2 建立简单的静态链表
+
+```C
+#include <stdio.h>
+struct Student
+{
+    int num;
+    float score;
+    struct Student* next;
+};
+int main()
+{
+    struct Student a,b,c,*head,*p;
+    a.num = 10101; a.score = 89.5;
+    b.num = 10103; b.score = 90;
+    c.num = 10107; c.score = 85;
+    head =&a;
+    a.next = &b;
+    b.next = &c;
+    c.next = NULL;
+    p = head;
+    do
+    {
+        printf(%ld %5.1f\n",p->num,p->score);
+        p = p->next;
+    }while(p! = NULL);
+    return 0;
+}
+```
+
+#### 9.4.3 建立动态链表
+
+```C
+#include<stdio.h>
+#include<stdlib.h>
+#define LEN sizeof(struct Student)
+struct Student
+{
+    long num;
+    float score;
+    struct Student * next;
+};
+int n;
+struct Student* creat(void)
+{
+    struct Student *head;
+    struct Student *p1,*p2;
+    n = 0;
+    p1 = p2 = (struct Student*) malloc(LEN);
+    scanf("%1d,%f", &p1->num,&p1->score);
+    head = NULL;
+    while(p1->num! = 0)
+    {
+        n = n + 1;
+        if(n == 1)head = p1;
+        else p2->next = p1;
+        p2 = p1;
+        p1 = (struct Student* ) malloc(LEN);
+        scanf("%1d,%f",&p1->num,&p1->score);
+    }
+    p2->next = NULL;
+    return(head);
+}
+```
+
+### 9.4.4 输出链表
+
+```C
+#include<stdio.h>
+#include<stdlib.h>
+#define LEN sizeof(struct Student)
+struct Student
+{
+    long num;
+    float score;
+    struct Student *next;
+};
+int n;
+void print(struct Student * head)
+{
+    struct Student *p;
+    printf("\nNow,These %d records are: \n",n);
+    p = head;
+    ifhead != NULL)
+        do
+        {
+            printf("%1d %5.1f\n",p->num,p->score);
+            p = p->next;
+        }while(p!=NULL);
+}
+```
+
+### 9.5 共用体类型
+
+用同一段内存单元存放不同类型的变量
+
+```C
+union 共用体名
+{
+    成员表列
+}变量表列;
+
+union Data
+{
+    int i;
+    char ch;
+    float f;
+}a,b,c;
+```
+
+#### 9.5.3 共用体类型数据的特点
+
+```C
+union Date
+{
+    int i;
+    char ch;
+    float f;
+}a;
+a.i = 97;
+
+printf("%d",a.i);
+printf("%c",a.ch);
+printf("%f",a.f);
+```
+
+由于97是赋给a.i的,因此按整数形式存储在变量单元中,最后一个字节是"01100001".  
+如果用"%d"格式符输出a.i就会输出整数97.  
+按"%c"格式符输出就是字符a.  
+01100001作为浮点数是0
+
+```C
+union Data a={16}; //初始化第一个
+union Data a={.ch='j'}; //对指定的成员初始化
+```
+
+```C
+#include <stdio.h>
+struct
+{
+    int num;
+    char name[10];
+    char sex;
+    char jon;
+    union
+    {
+        int clas;
+        char position[10];
+    }caregory;
+}person[2];
+
+int main()
+{
+    int i;
+    for(i = 0;i < 2; i++)
+    {
+        printf("please enter the data of person;\n");
+        scanf("%d%s%c%c",&person[i].num,&person[i],&person[i].name,&person[i].sex,&person[i].job);
+        if(person[i],job=='s')
+            scanf("%d",&person[i].category.clas);
+        else if(person[i].job=='t')
+            scanf("%s",&person[i].category.position);
+        else
+            printf("Input error!");
+    }
+    printf("\n");
+    printf("No.    name    sex    job    class/position\n");
+    for(i = 0;i<2;i++)
+    {
+        if(person[i],job=='s')
+            printf("%-6d%-10s%-4c%-4c%-10d\n",person[i].num,person[i].name,person[i].sex,person[i].job,person[i].category.clas);
+        else
+            printf("%-6d%-10s%-4c%-4c%-10s\n",person[i].num,person[i].name,person[i].sex,person[i].job,person[i].category.position);
+    }
+    return 0;
+}
+```
+
+### 9.6 使用枚举类型
+
+```C
+enum Weekday{sun,mon,tue,wed,thu,fri,sat};
+
+enum Weekday workday,weekend;
+
+enum{sun,mon,tue,wed,thu,fri,sat} workday,weekend;
+
+enum [枚举名] {枚举元素列表} 
+```
+#### 9.7 用typedef声明新类型名
+
+```C
+typedef int Integer;    //指定用Integer为类型名,作用与int相同
+typedef float Real;     //指定用Real为类型名,作用与float相同
+```
+
+1. 命名一个新的类型名代表结构体类型
+
+    ```C
+    typedef struct
+    {
+        int month;
+        int day;
+        int year;
+    }Date;
+
+    Date birthday;
+    Date* p;
+    ```
+
+2. 命名一个新的类型名代表数组类型
+
+    ```C
+    typedef int Num[100];
+    Num a;
+    ```
+
+3. 命名一个新的类型名代表指针类型
+
+    ```C
+    typedef char* String;
+    String p,s[10];
+    ```
+
+4. 命名一个新的类型名代表指向函数的指针类型
+
+    ```C
+    typedef int (*Pointer)();
+    Pointer p1,p2;
+    ```
+
+## 第十章 对文件的输入输出
+
+### 10.1 C文件的有关基本知识
+
+
+
