@@ -1,4 +1,4 @@
-- [Note of Python](#note-of-python)
+- [Note of C](#note-of-c)
   - [第一章 程序设计和C语言](#第一章-程序设计和c语言)
     - [习题](#习题)
   - [第二章 算法--程序的灵魂](#第二章-算法--程序的灵魂)
@@ -107,7 +107,7 @@
       - [10.4.2 随机读写](#1042-随机读写)
     - [10.5 文件读写的出错检测](#105-文件读写的出错检测)
 
-# Note of Python
+# Note of C
 
 > 参考链接 https://github.com/WangSong2017/Answer-for-C-Program-Designing-Fifth-Edition-  
 > 侵权删
