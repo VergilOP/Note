@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0088)http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html -->
+<html data-redeviation-bs-uid="17415" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Requirements Document Example</title>
+  <style class="redeviation-bs-style" data-name="content">/*! (c) Philipp König under GPL-3.0 */
+body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-sidebar.redeviation-bs-visible,body>#redeviation-bs-overlay.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-24px, 0, 0);top:0;left:0;width:24px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity 0.3s, transform 0.3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/24px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos='right']{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos='right']>div{transform:translate3d(24px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div{background:transparent}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:250px;max-width:none;height:0;z-index:2147483646;background-color:rgba(0,0,0,0.6) !important;color-scheme:normal !important;speak:none;border:none;display:block !important;transform:translate3d(-250px, 0, 0);transition:width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar[data-pos='right']{left:auto;right:0;transform:translate3d(250px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 250px);height:100%;transform:translate3d(0, 0, 0);transition:opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(250px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;transition:opacity 0.3s}
+</style><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Requirements Document Example_files/translateelement.css"></head>
+<body bgcolor="#FFFFFF">
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+
+1.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Intro"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简介</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+2.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Func"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能性目标</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+3.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Nonfunc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非功能性目标</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+4.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#ContextModel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上下文模型</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Goal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目标陈述</font></font></a>&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#CD"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上下文图</font></font></a>&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Externals"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">系统外部</font></font></a>&nbsp;&nbsp;&nbsp;<br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+5.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#UseCaseModel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用例模型</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#UCD"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">系统用例图</font></font></a>&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#UCDesc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用例描述</font></font></a>&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Login"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录 用户</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Register"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注册 用户</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Preferences"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注册 偏好</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+订单 &nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#CustPlace"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（客户）</font></font></a>
+&nbsp;<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#SAPlace"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（销售代理）</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Charge"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收费 客户</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Bill"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">账单 客户</font></font></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Request"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请求协助</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+6.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#ClassModel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类别模型</font></font></a><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+7.&nbsp;</font></font><a href="http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html#Appendix"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">附录</font></font></a><br>
+<a name="Intro"><h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一、简介</font></font></h1></a>
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.1 文件目的</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+这是 Solar Based Energy, Inc. (SBE) 的基于 Web 的新销售系统的需求规范文档。</font><font style="vertical-align: inherit;">SBE 是替代能源产品的分销商，包括风车、光伏和燃料电池。</font><font style="vertical-align: inherit;">新系统将升级现有网站，为客户和员工提供产品目录的定制浏览和在线完成产品订单的能力。</font><font style="vertical-align: inherit;">本文件描述了新系统的范围、目标和目的。</font><font style="vertical-align: inherit;">除了描述非功能性需求外，本文档还使用用例、交互图和类模型对功能性需求进行建模。</font><font style="vertical-align: inherit;">本文档旨在指导目标系统在面向对象语言中的设计和实现。
+</font></font><h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.2 项目总结</font></font></h2>
+<table>
+<tbody><tr><th align="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目名称：</font></font></th><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SBE销售系统</font></font></td></tr>
+<tr><th align="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">专案经理：</font></font></th>
+                  <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">独联体 616 咨询公司首席执行官 Mary Beth Lohse</font></font></td></tr>
+<tr><th align="left" valign="top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目分析师：</font></font></th>
+      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Benjamin B. Bolz，首席分析师</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          Cynthia C. Caldwell，高级分析师</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          David D. Dreese，分析师</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          Helen H. Hitchcock，分析师</font></font></td></tr>
+<tr><th align="left" valign="top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">负责任的用户：</font></font></th>
+                   <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Imogene I. Ives，SBE 总裁</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                       Benjamin B. Baker，销售副总裁</font></font></td>
+            
+</tr></tbody></table>
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.3 背景</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+SBE 销售利用风能和太阳能的最先进的替代能源系统。</font><font style="vertical-align: inherit;">SBE 客户包括有兴趣将风能或太阳能资源整合到新建筑或现有建筑中的个人和企业。</font><font style="vertical-align: inherit;">SBE 已经确定了两个趋势，他们认为这将导致对其产品的需求出现爆炸性增长。</font><font style="vertical-align: inherit;">首先是美国西部持续的能源危机。</font><font style="vertical-align: inherit;">二是燃料电池技术的成熟，这为储存多余的电力以备后用提供了可行的系统。</font><font style="vertical-align: inherit;">SBE 销售利用风能和太阳能的最先进的替代能源系统。</font><font style="vertical-align: inherit;">SBE 客户包括有兴趣将风能或太阳能资源整合到新建筑或现有建筑中的个人和企业。</font><font style="vertical-align: inherit;">SBE 已经确定了几个趋势，他们认为这些趋势将导致对其产品的需求出现爆炸性增长。</font><font style="vertical-align: inherit;">其中包括越来越多的消费者对放松管制的能源市场感到不安、能源进口中断的可能性以及燃料电池技术的成熟，该技术为储存多余的电力以供以后使用提供了一个可行的系统。 
+</font></font><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+由于其产品的创新性和技术性，SBE 聘请了可以指导客户选择替代能源系统的销售代理。</font><font style="vertical-align: inherit;">其他 SBE 员工被确定为产品“所有者”。</font><font style="vertical-align: inherit;">产品负责人是特定产品或产品线的专家。</font><font style="vertical-align: inherit;">作为产品信息的权威来源，他制作了白皮书——关于产品规格的技术含量高且重点突出的文档。
+</font></font></p><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+随着替代能源变得越来越主流，SBE 预计客户需求会发生变化。</font><font style="vertical-align: inherit;">一些客户知识渊博，需要销售代理的帮助更少。</font><font style="vertical-align: inherit;">扩大美国以外的销售将推动以英语以外的语言为客户提供服务的需求。
+</font></font></p><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+目前有两个独立的网站。</font><font style="vertical-align: inherit;">公共网站 (www.sbe.com) 是静态 HTML。</font><font style="vertical-align: inherit;">它提供了有关 SBE 及其产品的一般信息。</font><font style="vertical-align: inherit;">有兴趣订购的客户将获得最近的 SBE 销售办事处的联系信息。</font><font style="vertical-align: inherit;">内部网站 (www.sbesales.com) 仅限 SBE 员工使用，并提供详细的产品信息。</font><font style="vertical-align: inherit;">销售订单由代理商在本网站下达。</font><font style="vertical-align: inherit;">这些站点下有两个不同的 Oracle 数据库。
+</font></font></p><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+当前系统的问题包括
+</font></font></p><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">公共网站上可用的信息太有限，用户无法立即下订单
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">两个数据库的存在意味着信息经常不一致或不正确
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要更多技术信息的用户难以访问相关白皮书
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">销售代理难以联系到产品所有者
+</font></font></li></ul><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+SBE 总裁 Imogene I. Ives 要求进行分析，以重新设计当前的销售系统。</font><font style="vertical-align: inherit;">新系统应允许客户直接访问产品信息和订购，并继续为现有的销售代理网络提供支持。
+</font></font><h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.4 项目范围</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该项目的范围是一个基于网络的系统，支持直接向客户以及通过现有的销售代理网络营销 SBE 产品。</font><font style="vertical-align: inherit;">产品广告、库存控制和帐户计费不属于该项目的一部分。
+</font></font><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+现有的两个网站将被这个新系统取代。</font><font style="vertical-align: inherit;">此外，预计当前数据库的逻辑和物理设计会发生变化。</font><font style="vertical-align: inherit;">新数据库系统的实际实施不是该项目的一部分。</font><font style="vertical-align: inherit;">网络搜索引擎和语言翻译器将作为新系统的购买组件获得。</font><font style="vertical-align: inherit;">他们的内部细节不是这个项目的一部分。</font><font style="vertical-align: inherit;">除了网站内的密码保护之外，网站安全问题不属于本项目的一部分。
+
+</font></font></p><h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5 系统目的</font></font></h2>
+<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5.1 用户</font></font></h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+主要受益于新制度和受新制度影响的人包括
+</font></font><dl>
+<dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">顾客：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新系统实施后，客户会发现网站导航、产品识别和产品订购更容易。</font><font style="vertical-align: inherit;">客户将能够选择是直接从 SBE 购买还是与销售代理合作。
+         
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">销售代理：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新系统将为销售代理提供更详细、准确和最新的产品信息。</font><font style="vertical-align: inherit;">他们将更快地被告知潜在客户，并且他们将更快地访问产品所有者。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">产品所有者：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">产品所有者将被允许直接维护有关其产品的数据。</font><font style="vertical-align: inherit;">这将消除将新产品或更改的产品规格引入系统的延迟。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户服务部：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新系统应该可以减少客户服务的工作量，因为客户可以从网站上找到他们需要的信息。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">营销部门：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">站点导航数据可以发送到市场部。</font><font style="vertical-align: inherit;">了解客户如何使用网站进行购买将改善获得和留住客户。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会计部：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">购买信息将直接发送到会计，以便更准确和及时地计费。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运输部门：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">采购信息将直接发送到 Shipping 以进行库存控制和订单处理。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">信息技术部：
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该部门将负责实施新数据库、托管网站和维护系统。
+</font></font></dd></dl>
+<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5.2 位置</font></font></h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+任何使用互联网的潜在客户都可以使用该系统。</font><font style="vertical-align: inherit;">SBE 员工还可以从任何位置使用该系统，并且能够通过密码保护方案访问该站点的受限区域。 
+</font></font><h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5.3 职责</font></font></h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+新系统的主要职责：
+</font></font><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">让客户可以直接访问最新、准确的产品信息，并据此做出购买决定
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为特定用户定制产品
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许根据用户类型对网页进行不同的访问
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许客户通过网站下订单
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许客户请求销售代理的帮助
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为销售代理提供更好的产品信息和产品所有者访问权限
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许产品所有者直接维护有关其产品的信息
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许按需访问白皮书
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将订单信息直接发送到会计和运输
+</font></font></li></ul><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+新系统的其他所需功能：
+
+</font></font><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">整个网站一致的“外观和感觉”
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户有权访问的网页的全文搜索
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站导航的在线帮助
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非公开网页的密码保护方案
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将网页翻译成另一种语言
+</font></font></li></ul><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该系统将不负责应收账款或库存控制。
+</font></font><h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5.4 需要</font></font></h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+为了满足对替代能源产品的预期增长需求，需要该系统。</font><font style="vertical-align: inherit;">更换现有网站将消除这些网站的缺点。</font><font style="vertical-align: inherit;">新系统将使 SBE 能够快速增加销售额，而无需大量增加销售代理和其他客户支持员工的数量。
+</font></font><h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.6 文件概述</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+本文档的其余部分提供了新销售系统的详细规范。</font><font style="vertical-align: inherit;">它的组织如下：
+</font></font><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第 2 部分：功能目标</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+每个目标都给出了系统所需的行为、业务理由以及确定最终系统是否成功满足目标的度量。</font><font style="vertical-align: inherit;">这些目标是按优先级组织的。</font><font style="vertical-align: inherit;">为了使新系统被认为是成功的，必须满足所有高优先级目标。
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第 3 节：非功能性目标</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+本节按类别组织。</font><font style="vertical-align: inherit;">每个目标都指定了对系统整体特性的技术要求或约束。</font><font style="vertical-align: inherit;">每个目标都是可衡量的。
+</font></font></li><li>Section 4: Context Model<br>
+This section gives a text description of the goal of the system, and a
+pictorial description of the scope of the system in a context diagram.
+Those entities outside the system that interact with the system are described.
+</li><li>Section 5: Use Case Model<br>
+The specific behavioral requirements of the system are detailed in
+a series of use cases.  Each use case accomplishes a business task
+and shows the interaction between the system and some outside actor.
+Each use case is described with both text and an interaction diagram.
+An interface prototype is also shown.
+The system use case diagram depicts the interactions between all
+use cases and system actors.
+</li><li>Section 6: Class Model<br>
+A class is a collection of objects in the system that have the
+same data and behavior.
+All analysis classes and their relationships are shown on the
+class diagram.
+</li><li>Section 7: An appendix containing a glossary that<br>
+defines terms specific to this project
+
+</li></ul>
+<a name="Func"><h1>2. Functional Objectives</h1></a>
+
+<h2>2.1 High Priority</h2>
+<ol>
+<li>The system shall allow for on-line product ordering by either
+the customer or the sales agent.  For customers, this will eliminate
+the current delay between their decision to buy and the placement
+of the order.  This will
+reduce the time a sales agent spends on an order by x%.
+The cost to process an order will be reduced to $y. 
+</li><li>The system shall reflect a new and changed product description within
+x minutes of the database being updated by the product owner.  This will 
+reduce the number of incidents of incorrectly displayed information by x%.  
+This
+eliminates the current redundant update of information, saving $y dollars
+annually.
+ 
+</li><li>The system shall display information that is customized based
+on the user's company, job function, application and locale.  This feature will
+improve service by reducing the mean number of web pages a user
+must navigate per session to x.  It should reduce unnecessary phone
+calls to sales agents and staff by x%.
+
+</li><li>The system shall allow employees to view the owner of any product.  
+An employee should be able to contact the correct owner
+in one phone call x% of the time.
+</li><li>The system shall allow a customer to directly contact the nearest sales 
+office in his region.  This will improve service by reducing the time
+to respond to a customer request to no more than x days.
+</li><li>The system shall provide accounting with accurate purchase transaction 
+data.  This will improve customer service by reducing billing complaints
+by x% and save $y in correcting inaccurate accounts.
+</li><li>The system shall provide shipping with accurate order data.  This will
+allow the order to be processed in x days and inventory to be updated 
+within y hours.
+</li></ol>
+<h2>2.2 Medium Priority</h2>
+<ol>
+<li>The system shall provide a search facility that will allow full-text
+searching of all web pages that the user is permitted to access.  The
+system must support the following searches:
+<ul>
+<li>find all words specified
+</li><li>find any word specified
+</li><li>find the exact phrase
+</li><li>Boolean search
+</li></ul>
+</li><li>The system shall make whitepapers available from the product page.  
+This will allow customers to
+answer product questions themselves, reducing customer support
+costs by $x annually. 
+</li></ol>
+<h2>2.3 Low Priority</h2>
+<ol>
+<li>The system shall allow the user's status to be stored for the
+next time he returns to the web site.  This will save the user x minutes
+per visit by not having to reenter already supplied data.
+</li><li>The system shall provide marketing with customer navigation
+information.  This information will allow marketing to determine
+what information prompts a purchase and help target potential
+customers more effectively.  This will increase annual revenue
+by $x in additional sales.
+</li><li>The system shall translate web pages into the languages of
+the countries where the company's products are available.  This
+will improve customer service and reduce the number of support
+calls from foreign customers by x%.
+</li></ol>
+<a name="Nonfunc"><h1>3. Non-Functional Objectives</h1></a>
+<h2>3.1 Reliability</h2>
+<ul>
+<li>The system shall be completely operational at least x% of
+the time.
+</li><li>Down time after a failure shall not exceed x hours.
+</li></ul>
+<h2>3.2 Usability</h2>
+<ul>
+<li>A sales agent should be able to use the system in his
+job after x days of training.
+</li><li>A user who already knows what product he is interested in should
+be able to locate and view that page in x seconds.
+</li><li>The number of web pages navigated to access product information
+ from the top page should not exceed x.
+</li></ul>
+<h2>3.3 Performance</h2>
+<ul>
+<li>The system should be able to support x simultaneous users.
+</li><li>The mean time to view a web page over a 56Kbps modem connection
+shall not exceed x seconds.
+</li><li>The mean time to download and view and whitepaper in PDF format
+for a 56Kbps modem shall not exceed x seconds.
+</li></ul>
+<h2>3.4 Security</h2>
+<ul>
+<li>The system shall provide password protected access to web pages that
+are to be viewed  only by employees.
+</li><li>Transaction data must be transmitted in encrypted form.
+</li></ul>
+<h2>3.5 Supportability</h2>
+<ul>
+<li>The system should be able to accommodate new products and
+product lines without major reengineering.
+</li><li>The system web site shall be viewable from Internet Explorer 4.0
+or later, Netscape Navigator/Communicator 3.0 or later and the America Online
+web browser version 3.0 or later.
+</li></ul>
+<h2>3.6 Online user Documentation and Help</h2>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">系统应提供一个网页，说明如何浏览网站。</font><font style="vertical-align: inherit;">此页面应根据允许用户访问的页面进行定制。
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该帮助页面应该可以从所有其他页面访问。
+</font></font></li></ul>
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.7 外购组件</font></font></h2>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将需要从英语到法语和英语到德语的语言翻译工具。
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要一个网站搜索引擎。
+</font></font></li></ul>
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.8 接口</font></font></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该系统必须与
+</font></font><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于产品和订单信息的当前 Oracle 数据库系统
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前的 Oracle 财务会计系统
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前的 AccountPro 库存系统
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获得的语言翻译工具 
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被收购的网站搜索引擎
+</font></font></li></ul>
+<a name="ContextModel"><h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4. 上下文模型</font></font></h1></a>
+<h2><a name="Goal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4.1 目标声明</font></font></a></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该系统的目标是允许 SBE 在未来 y 年将销售收入增加 x%，而销售和客户服务人员仅增加 az%
+</font></font><ul>
+<li>allowing complete and accurate customer and order information
+    to be captured directly from the customer as well as from
+    sales agents
+</li><li>providing customers and sales agents fast access to up-to-date and 
+    accurate product information and whitepapers.
+</li></ul>
+<h2><a name="CD">4.2 Context Diagram</a></h2>
+<center>
+<img src="./Requirements Document Example_files/ContextDiagram.gif">
+</center>
+<h2><a name="Externals">4.3 System Externals</a></h2>
+<dl>
+<dt>Customer</dt>
+   <dd>A customer is any user of the system that has not identified
+       himself as an SBE employee.  A customer may search for public
+       product information by keyword, access whitepapers for a
+       particular product, order a product or request assistance
+       from a sales agent.  
+       A customer who provides personal information
+       will get search and query results customized to his preferences.
+</dd><dt>Sales Agent</dt>
+    <dd>A sales agent is a user who has been verified as an SBE
+       employee.  A sales agent  may access all available product
+       information and whitepapers, including the product owner.
+       A sales agent may place an order on behalf of a customer.  
+       He will be informed by the
+       system of any customers in his region who have requested
+       assistance.
+</dd><dt>Product Owner</dt>
+    <dd>The product owner is a user who has been verified as an
+       SBE employee.  The product owner may update product information
+       and whitepapers for those products for which he is responsible.
+</dd><dt>Accounting</dt>
+    <dd>The Accounting department is responsible for all SBE financial
+       transactions.  The Accounting department is informed of
+       all purchases and is responsible for later collection of
+       accounts receivable.
+</dd><dt>Shipping</dt>
+    <dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运输部门收到采购通知，以便处理订单和更新库存。
+</font></font></dd><dt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">营销
+    </font></font></dt><dd><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">营销部门负责创造对 SBE 产品的需求。</font><font style="vertical-align: inherit;">它将接收用于规划营销策略的网站导航数据。
+</font></font></dd></dl>
+    <hr>
+<a name="UseCaseModel"><h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5.用例模型</font></font></h1>
+</a><h2><a name="UseCaseModel"></a><a name="UCD"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5.1 系统用例图</font></font></a></h2>
+<img src="./Requirements Document Example_files/SystemUseCase.gif">
+<h2><a name="UCDesc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5.2 用例描述（针对选定的案例）</font></font></a></h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+笔记：
+</font></font><ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于所有用例，用户可以在需要用户输入的任何步骤取消用例。</font><font style="vertical-align: inherit;">此操作结束用例。</font><font style="vertical-align: inherit;">在该用例期间收集的任何数据都将丢失。
+</font></font></li><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于所有需要登录用户的用例，当前登录会话在用例期间更新，以反映通过用例的导航路径。
+</font></font></li></ul>
+    
+<h3><a name="Login"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录用户</font></font></a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用例名称：</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录用户  </font></font></td>
+</tr>
+<tr valign="top">
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概括：</font></font></td>
+<td>In order to get personalized or restricted information, place orders
+or do other specialized transactions a user must login so that
+that the system can determine his access level. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case starts when a user indicates that he wants to login.
+</li><li>The system requests the username and password.
+</li><li>The user enters his username and password.
+</li><li>The system verifies the username and password against all registered
+    users.
+</li><li>The system starts a login session and displays a welcome message based on 
+    the user's preferences.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td><dl>
+<dt>Step 4:</dt> <dd>if username is invalid, the use case goes back to step 2.
+    </dd>
+<dt>Step 4:</dt> <dd> if the password is invalid the system requests that the
+    user re-enter the password.  When the user enters another password
+    the use case continues with step 4 using the
+    original username and new password.</dd>
+</dl>  </td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td>The user is registered.</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td> The user can now obtain data and perform functions according
+to his registered access level.  </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td> Some data and functions are restricted to certain types of users
+     or users with a particular access level. </td>
+</tr>
+</tbody></table>
+    
+<h3><a name="Register">Register User</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Register User  </td>
+</tr>
+<tr valign="top">
+<td> Summary:</td>
+<td>In order to get personalized or restricted information, place orders
+or do other specialized transactions a new user must register a username and password. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case start when a user indicates that he wants to register.
+</li><li>The system requests a username and password.
+</li><li>The user enters a username and password.
+</li><li>The system checks that the username does not duplicate any
+    existing registered usernames.
+</li><li> The system requests a name (*),
+     street, city, state, zipcode(*), phone and email address.  Items
+     marked by (*) are required.
+</li><li> The user enters the information.
+</li><li> The system determines the user's location and access level and
+     stores all user information.
+</li><li> The system executes use case <em>Register Preferences.</em>
+</li><li>The system starts a login session and displays a welcome message based on 
+    the user's preferences.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td><ul>
+<li>Step 4: If the username duplicates an existing username
+       the system displays a message and the use case goes back to step 2.
+</li><li>Step 5:  If the user does not enter a required field, a message
+       is displayed and the use case repeats step 4.
+</li></ul>  </td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> <em>Register Preferences</em>  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td> none</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td> The user can now obtain data and perform functions according
+to his registered access level.  </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td> <ul>
+<li>A registered user's location is the SBE location nearest his
+     zip code. 
+</li><li>Access levels are
+<ul>
+    <li>0: A user can access only data classification 0
+    </li><li>1: The user can access data classification &lt;= 1
+    </li><li>2: The user can access data classification &lt;= 2
+</li></ul>
+The default access level is 0.
+</li></ul></td>
+</tr>
+</tbody></table>
+    
+<h3><a name="Preferences">Register Preferences</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Register Preferences  </td>
+</tr>
+<tr valign="top">
+<td> Summary:</td>
+<td>This use case allows a registered user to enter or change his 
+preferences. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case start when a user indicates that he wants to enter
+    or modify his preferences.
+</li><li>The system displays all current product lines.  It indicates
+    any product lines that the user has currently selected.
+</li><li>The user selects/deselects product lines.
+</li><li>The system displays current language preferences. It indicates
+    the language preference currently selected.
+</li><li>The user may select a different language preference.
+</li><li> The system stores any change to language preference.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td>
+none
+</td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td> The user is logged in.</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td> The system can customize a welcome message based
+     on the user's revised preferences. </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td> Language selections allowed are are English (default),
+     French and German.</td>
+</tr>
+</tbody></table>
+    
+<h3><a name="CustPlace">Place Order (Customer)</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Place Order<br>
+    Scenario: Customer places his own order. </td>
+</tr>
+<tr valign="top">
+<td> Summary:</td>
+<td>This use case allows a registered customer to place
+an order for a product. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case start when a customer indicates he wants to
+    place an order for the current product being displayed.
+</li><li>The system displays the customer's information: name,
+street, city, zip, phone, email.
+</li><li>The customer may add or change any of the information.
+</li><li>The system stores any changes.  If the zipcode has changed,
+    the system modifies the customer's location.
+</li><li>The system requests the quantity to order and the shipping address.
+</li><li>The customer enters quantity and shipping address.
+</li><li>The system displays the payment options available to
+    this customer.
+</li><li>The customer selects a payment option.
+</li><li>The system completes the payment by executing
+    use case <em> Charge Customer</em> or <em>Bill Customer</em>
+    depending on which option was selected.
+</li><li>The system stores the order information, decreases the
+    quantity on hand for the product and sends the
+    order details to Shipping.
+</li><li>The system displays a order completion message and sends
+    a receipt to the user.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td>
+<dl>
+<dt>Step 9:</dt>  <dd>If the selected payment method could not be
+         validated, go to step 8 to get
+         another payment option.</dd>
+<dt>Step 10:</dt> <dd>If the quantity on hand is not sufficient for
+         this order, a message is sent to the customer
+         and the use case is canceled.</dd>
+
+</dl>
+</td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> <em>Charge Customer</em>; <em>Bill Customer</em>  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td> The customer is logged in and has completed a
+     search for the product to be ordered</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td> The product is sold.</td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td> If a customer has been previously authorized for billing by a 
+     sales agent, the customer may billed for the order.  Otherwise
+     the customer must pay in full by credit card at the time
+     of the order.</td>
+</tr>
+</tbody></table>
+    
+<h3><a name="SAPlace">Place Order (Sales Agent)</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Place Order<br>
+    Scenario: Sales agent places an order for a customer. </td>
+</tr>
+<tr valign="top">
+<td> Summary:</td>
+<td>This use case allows a sales agent to place
+an order for a registered customer. It also allows the
+sales agent to change the customers access level and
+payment options. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case starts when a sales agent indicates he wants to
+    place an order for a customer.
+</li><li>The system requests the customers username.
+</li><li>The sales agent enters the username.
+</li><li>The system displays the registered customer's information,
+    including access level and payment options.
+</li><li>The sales agent makes changes to the customer information.
+</li><li>The system stores any updated information.
+</li><li>The system requests the product id, quantity and shipping address.
+</li><li>The sales agent enters the product id, quantity and shipping address.
+</li><li>The system displays payment options for this customer.
+</li><li>The sales agent selects a payment option.
+</li><li>The system completes the payment by executing
+    use case <em>Charge Customer</em> or <em>Bill Customer</em>
+</li><li>The system stores the order information, decreases the
+    quantity on hand for the product, sends the
+    order details to Shipping.
+</li><li>The system displays a order completion message and sends
+    a receipt to the customer.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td>
+<dl>
+<dt>Step 11:</dt> <dd>If the selected payment method could not be
+         validated, go to step 10 to get
+         another payment option.</dd>
+<dt>Step 12:</dt><dd>If the quantity on hand is not sufficient for
+         this order, a message is sent to the sales agent
+         and the use case is canceled.</dd>
+</dl>
+</td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> <em>Charge Customer</em>; <em>Bill Customer</em>  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td> The sales agent is logged in, knows the username
+     of the customer, his payment method and the product
+     to be ordered.</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td> The product is sold and the sales agent is credited with
+     the sale.</td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td> Sales agent have the authority to allow a customer to be
+     billed.  They may also increase the customer's access
+     level to product data.</td>
+</tr>
+</tbody></table>
+    
+<h3><a name="Charge">Charge Customer</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Charge Customer</td>
+</tr>
+<tr valign="top">
+<td> Summary: </td>
+<td>This use case charges the order currently being
+     placed to a credit card. </td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case begins when a user selects "Credit Card" as
+    a payment option, while in use case <em>Place Order</em>
+</li><li>The system requests the credit card number, type and expiration
+    date.
+</li><li>The user enters the information.
+</li><li>The system verifies that the credit card is valid for the
+    amount to be charged and completes the credit card
+    transaction.
+</li><li>The system stores the payment details and returns a
+    success message
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td>Step 4: If the credit card cannot be validated the
+    use case ends, returning a failure message</td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td>The system is executing use case <em>Place Order</em>.</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td>The customer has been charged for the order. </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td>Credit cards accepted are Visa, MasterCard and Discover.  </td>
+</tr>
+</tbody></table>
+    
+<h3><a name="Bill">Bill Customer</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Bill Customer</td>
+</tr>
+<tr valign="top">
+<td> Summary: </td>
+<td>This system gets the billing details for the
+     order.  They will be part of the Daily Transactions
+     Report sent to Accounting in use case <em>Report Daily
+     Transactions</em>.  Billing and collection is handled
+     outside this system by Accounting.</td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>The use case begins when a user selects "Bill me" as
+    a payment option, while in use case <em>Place Order</em>
+</li><li>The system requests the billing address.
+</li><li>The user enters the billing address.
+</li><li>The system stores the payment details.
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td>none</td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td>The system is executing use case <em>Place Order</em> and the
+    customer is authorized for billing.</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td>Accounting can bill the customer for this order. </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td>Customers can be billed if it was previously authorized
+    by a sales agent.</td>
+</tr>
+</tbody></table>
+    
+<h3><a name="Request">Request Assistance</a></h3>
+<table border="1">
+<tbody><tr valign="top">
+<td> Use Case Name:</td>
+<td>Request assistance</td>
+</tr>
+<tr valign="top">
+<td> Summary: </td>
+<td> This use case allows anyone using the web site to request
+    a contact from a sales agent.</td>
+</tr>
+<tr valign="top">
+<td> Basic Flow:</td>
+<td> <ol>
+<li>  The use case starts when the customer asks for assistance.
+</li><li>  The system displays all
+      product lines, and provides space for the customer to
+      type a (optional) question.
+</li><li>  The customer selects the product line(s) he is interested in
+      and may enter a question.
+</li><li>  The system asks for a name, email address and zip code.
+</li><li>  The customer enters name, email address and zip code.
+</li><li>  The system selects a sales agent based on the customer's
+      location and product lines selected in step 3.
+</li><li>  The system displays message informing the customer
+      of which agent will be in contact.
+</li><li>  The system sends the request information to the selected sales agent.
+      It stores the request information for registered customers.
+
+</li></ol>
+</td>
+</tr>
+<tr valign="top">
+<td> Alternative Flows:</td>
+<td><dl>
+<dt>Step 4:</dt>  <dd>If the customer  is registered and
+    has previously provided his name, email address and zip code
+    the use case skips to Step 6.</dd>
+<dt>Step 6:</dt> <dd>If the customer is registered and has previously
+    been assisted by a sales agent, that same agent is selected.</dd>
+</dl>  </td>
+</tr>
+<tr valign="top">
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign="top">
+<td> Preconditions:</td>
+<td>none</td>
+</tr>
+<tr valign="top">
+<td> Postconditions:</td>
+<td>The sales agent has the customer contact information. </td>
+</tr>
+<tr valign="top">
+<td> Business Rules:</td>
+<td>Customers are assigned to a sales agent at the closest
+    SBE location whose specialties most closely match the
+    the product lines the customer has indicated.  If there is more 
+    than one such sales agent, the one with the fewest customer
+    assistance requests is selected.  That sales agent continues to be
+    assigned to that customer for any future requests.
+    The actual contact between the sales
+    agent and the customer is outside the system.  </td>
+</tr>
+</tbody></table>
+<!-- use case template 
+<h3>????</h3>
+<table border=1>
+<tr  valign=top>
+<td> Use Case Name:</td>
+<td></td>
+</tr>
+<tr  valign=top>
+<td> Summary:</td>
+<td></td>
+</tr>
+<tr  valign=top>
+<td> Basic Flow:</td>
+<td> <ol>
+<li>
+<li>
+<li>
+<li>
+<li>
+</ol>
+</td>
+</tr>
+<tr  valign=top>
+<td> Alternative Flows:</td>
+<td><ul>
+<li>
+<li>
+    
+    
+</ul>  </td>
+</tr>
+<tr valign=top>
+<td> Extension Points:</td>
+<td> none  </td>
+</tr>
+<tr valign=top>
+<td> Preconditions:</td>
+<td></td>
+</tr>
+<tr valign=top >
+<td> Postconditions:</td>
+<td> </td>
+</tr>
+<tr valign=top >
+<td> Business Rules:</td>
+<td>  </td>
+</tr>
+</table>
+-->
+<a name="ClassModel"><h1>6. The Class Model</h1>
+<img src="./Requirements Document Example_files/Class.gif">
+</a><p><a name="ClassModel">
+</a><a name="Appendix"></a></p><h1><a name="Appendix">7. Appendix</a></h1><a name="Appendix">
+<h2>Glossary</h2>
+<dl>
+<dt>Whitepaper</dt>
+<dd>Technical paper containing detailed product specifications.</dd>
+</dl>
+  
+
+</a><app-frame-17415 id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"></app-frame-17415><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight" style="height: 100%; top: 0%;"></div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Requirements Document Example_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div id="forest-ext-shadow-host"></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
