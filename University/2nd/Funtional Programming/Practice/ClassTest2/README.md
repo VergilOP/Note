@@ -22,7 +22,7 @@ You will need to sign a declaration on Canvas, before submission, that you under
 - The corresponding type appears in the file `ClassTest2-Template.hs` (to be copied by you).
 - Replace the default function implementation of `undefined` with your own function.
 
-## Exercise 1 - find the first position an element occurs in a list
+## Exercise 1 - Decimal to Factorial and Back
 
 ### Implementation Task
 
