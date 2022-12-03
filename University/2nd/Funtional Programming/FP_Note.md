@@ -41,20 +41,29 @@
       - [The Foldr Function](#the-foldr-function)
       - [The Foldl Function](#the-foldl-function)
       - [The Composition Operator](#the-composition-operator)
-  - [Week 4](#week-4)
+  - [Week 4\&5](#week-45)
     - [User defined data types - part 1](#user-defined-data-types---part-1)
       - [User defined data types](#user-defined-data-types)
       - [Some important type constructors](#some-important-type-constructors)
       - [Lists revisited](#lists-revisited)
       - [Binary tree](#binary-tree)
     - [Lazy natural numbers](#lazy-natural-numbers)
-  - [Week5\&6](#week56)
+  - [Week7](#week7)
     - [User defined data types - part 2](#user-defined-data-types---part-2)
       - [Binary search trees](#binary-search-trees)
       - [Different Trees](#different-trees)
       - [Permutation trees, list permutations, and paths in such trees (hard)](#permutation-trees-list-permutations-and-paths-in-such-trees-hard)
       - [Expression trees](#expression-trees)
       - [Types with a single constructor](#types-with-a-single-constructor)
+  - [Week 8\&9](#week-89)
+    - [Monad](#monad)
+  - [Week 10](#week-10)
+    - [Overview](#overview)
+    - [Concrete syntax](#concrete-syntax)
+    - [Abstract syntax](#abstract-syntax)
+    - [Parser](#parser)
+    - [Interpreter](#interpreter)
+    - [Command line interface](#command-line-interface)
   - [Usable Functions](#usable-functions)
 
 # Note of FP
@@ -644,7 +653,7 @@ foldl f v (x:xs) = foldl f (f v x) xs
 
 主要是`.`,`map`.`filter`,`and`,`or`,`any`,`takeWhile`,`dropWhile`等的应用
 
-## Week 4
+## Week 4&5
 
 ### User defined data types - part 1
 
@@ -982,7 +991,7 @@ checkLengthBiggerThan''' :: [a] -> Int -> Bool
 checkLengthBiggerThan''' xs n = length' xs > toNat n
 ```
 
-## Week5&6
+## Week7
 
 ### User defined data types - part 2
 
@@ -1302,9 +1311,498 @@ data Point = Pt {pointx, pointy :: Float}
 norm (Pt {pointx = x, pointy = y}) = sqrt (x*x+y*y).
 ```
 
-## Usable Functions
+## Week 8&9
+
+### Monad
+
+导入库
+```hs
+{-# LANGUAGE MonadComprehensions #-}
+
+import Control.Monad.Writer
+import Control.Monad.State
+
+import Control.Applicative
+import Data.Char
+```
+
+## Week 10
+
+### Overview
+
+- The input is in the variable `x` and the output is in the variable `y`. Hence we call our language `xy`. 
+  ```hs
+  $ runhaskell Runxy.hs fibonacci.xy 11
+  89
+  ```
+
+### Concrete syntax
+
+xy文件定义
+```
+{
+ y := 0;
+ z := 1;
+ while (x > 0)
+  {
+   x := x - 1;
+   t := y + z;
+   y := z;
+   z := t;
+  }
+}
+```
+
+基本语法(概念)
+```hs
+Program ::= Identifier := Expr;
+          | { [Program] }
+          | while (Expr) Program
+          | if (Expr) Program
+          | if (Expr) Program else Program
+
+Expr  ::= Expr1 | Expr1 OrOp   Expr
+Expr1 ::= Expr2 | Expr2 AndOp  Expr1
+Expr2 ::= Expr3 | Expr3 EqOp   Expr2
+Expr3 ::= Expr4 | Expr4 CompOp Expr3
+Expr4 ::= Expr5 | Expr5 AddOp  Expr4
+Expr5 ::= Expr6 | Expr6 MulOp  Expr5
+Expr6 ::= Expr7 | NotOp Expr6
+Expr7 ::= Constant | Identifier | (Expr)
+
+OrOp   ::=  ||
+AndOp  ::=  &&
+EqOp   ::=  ==
+CompOp ::=  <=  |  <  |  >=  |  >
+AddOp  ::=  +   |  -
+MulOp  ::=  *   |  /  |  %
+NotOp  ::=  !
+```
+
+> We resolve the ambiguity by associating else's to the closest if's to the left.
+> 
+> 通过else与最近左if绑定解决歧义
+
+### Abstract syntax
+
+用在haskell里面的概念
+```hs
+module AbstractSyntax where
+
+type Identifier = String
+
+data OpName = Or                                 --  ||
+            | And                                --  &&
+            | Eq                                 --  ==
+            | Leq | Less | Geq | Greater         --  <=  <  >=  >
+            | Add | Sub                          --  +  -
+            | Mul | Div | Mod                    --  *  /  %
+            | Not                                --  !
+            deriving (Show)
+
+data Expr = Constant Integer
+          | Var Identifier
+          | Op OpName [Expr]
+          deriving (Show)
+
+data Program = Identifier := Expr
+             | Block [Program]
+             | While Expr Program
+             | If Expr Program
+             | IfElse Expr Program Program
+             deriving (Show)
+```
+
+### Parser
+代码的运行
+
+导入库
+```hs
+module Parser where
+
+import Data.Char
+import Control.Monad
+
+import AbstractSyntax
+import Parsing
+```
+
+结构
+```hs
+program :: Parser Program
+```
+
+基本计算式
+```hs
+expr, expr1, expr2, expr3, expr4, expr5, expr6, expr7 :: Parser Expr
+```
+
+基本计算符
+```hs
+orOp, andOp, eqOp, compOp, addOp, mulOp, notOp :: Parser ([Expr] -> Expr)
+```
+
+基本结构
+```hs
+program =
+      assignment
+  <|> block
+  <|> whileStatement
+  <|> ifStatement
+```
+
+Assignment
+```hs
+assignment =
+  do
+    i <- identif
+    symbol ":="
+    e <- expr
+    symbol ";"
+    return (i := e)
+```
+
+Block
+```hs
+block =
+  do
+    symbol "{"
+    ps <- many program
+    symbol "}"
+    return (Block ps)
+```
+
+While
+```hs
+whileStatement =
+  do
+    symbol "while"
+    symbol "("
+    e <- expr
+    symbol ")"
+    p <- program
+    return (While e p)
+```
+
+If/If else
+```hs
+     If (Expr) Program
+   | If (Expr) Program else Program
+
+ifStatement =
+  do
+    symbol "if"
+    symbol "("
+    e <- expr
+    symbol ")"
+    p1 <- program
+    ((do
+        symbol "else"
+        p2 <- program
+        return (IfElse e p1 p2))
+      <|>
+       (return (If e p1)))
+```
+
+Expr定义
+```hs
+  expr := expr' | expr' op expr
+binExpr :: Parser e -> Parser ([e] -> e) -> Parser e -> Parser e
+binExpr expr' op expr =
+  do
+    e' <- expr'
+    ((do
+        o <- op
+        e <- expr
+        return (o [e',e]))
+      <|>
+        return e')
+```
+
+算式定义
+```hs
+expr  = binExpr expr1 orOp   expr
+expr1 = binExpr expr2 andOp  expr1
+expr2 = binExpr expr3 eqOp   expr2
+expr3 = binExpr expr4 compOp expr3
+expr4 = binExpr expr5 addOp  expr4
+expr5 = binExpr expr6 mulOp  expr5
+
+expr6 = expr7
+     <|>
+        do
+          op <- notOp
+          e <- expr6
+          return (op [e])
+
+expr7 = constant
+    <|> do
+          i <- identif
+          return (Var i)
+    <|> do
+          symbol "("
+          e <- expr
+          symbol ")"
+          return e
+```
+
+计算符定义
+```hs
+parseOp :: String -> OpName -> Parser ([Expr] -> Expr)
+parseOp s op = do
+                 symbol s
+                 return (Op op)
+
+orOp   = parseOp "||" Or
+
+andOp  = parseOp "&&" And
+
+eqOp   = parseOp "==" Eq
+
+compOp = parseOp "<=" Leq
+     <|> parseOp "<"  Less
+     <|> parseOp ">=" Geq
+     <|> parseOp ">"  Greater
+
+addOp  = parseOp "+"  Add
+     <|> parseOp "-"  Sub
+
+mulOp  = parseOp "*"  Mul
+     <|> parseOp "/"  Div
+     <|> parseOp "%"  Mod
+
+notOp  = parseOp "!"  Not
+```
+
+常数的定义
+```hs
+constant :: Parser Expr
+constant = do
+             n <- integer
+             return (Constant(toInteger n))
+```
+
+检查变量名不为while/if/else
+```hs
+keywords = ["if", "else", "while"]
+
+identif :: Parser String
+identif =
+  do
+   cs <- token identifier
+   guard (not (elem cs keywords))
+   return cs
+```
+
+检查语法正确性
+```hs
+parseProgram :: String -> Program
+parseProgram xs = case parse program xs of
+                   [(p , [])] -> p
+                   [(_ , s)]  -> error ("syntax: unparsed string " ++ s)
+                   _          -> error "syntax: failed to parse program"
 
 ```
+
+### Interpreter
+代码的储存
+
+导入库
+```hs
+module Interpreter where
+
+import AbstractSyntax
+```
+
+寻找某个定义?
+```hs
+lookup i m
+-- [("a", 11),("b", 12)]
+```
+
+值的调用?
+```hs
+m :: Identifier -> Integer
+m i
+`` m "a" = 11
+```
+
+储存的定义
+```hs
+type Storage = Identifier -> Integer
+```
+
+空储存/未初始化
+```hs
+emptyStorage :: Storage
+emptyStorage i = error ("Uninitialized variable " ++ i)
+```
+
+更新储存
+```hs
+update :: Identifier -> Integer -> Storage -> Storage
+update i x m = m'
+ where
+   m' :: Storage
+   m' j | i == j    = x
+        | otherwise = m j
+```
+
+数字与Boolean的转换
+```hs
+number :: Bool -> Integer
+number False = 0
+number True  = 1
+
+boolean :: Integer -> Bool
+boolean 0 = False
+boolean _ = True
+```
+
+执行运算
+```hs
+eval :: Storage -> Expr -> Integer
+eval m (Constant x) = x
+eval m (Var i)      = m i
+eval m (Op o es)    = opEval o [eval m e | e <- es]
+
+opEval :: OpName -> [Integer] -> Integer
+opEval Add     [x, y] = x + y
+opEval Sub     [x, y] = x - y
+opEval Mul     [x, y] = x * y
+opEval Div     [x, y] = x `div` y
+opEval Mod     [x, y] = x `mod` y
+opEval Eq      [x, y] = number(x == y)
+opEval Leq     [x, y] = number(x <= y)
+opEval Less    [x, y] = number(x <  y)
+opEval Geq     [x, y] = number(x >= y)
+opEval Greater [x, y] = number(x >  y)
+opEval And     [x, y] = number(boolean x && boolean y)
+opEval Or      [x, y] = number(boolean x || boolean y)
+opEval Not     [x]    = number(not(boolean x))
+opEval op      xs     = error ("Interpreter bug. "
+                            ++ "Please contact the software maintainer. "
+                            ++ "Tried to apply " ++ show op
+                            ++ " to " ++ show xs)
+```
+
+运行程序
+```hs
+run :: Program -> Storage -> Storage
+
+run (i := e) m = update i (eval m e) m
+
+run (IfElse e p q) m
+    | boolean(eval m e) = run p m
+    | otherwise         = run q m
+
+run (If e p) m
+    | boolean(eval m e) = run p m
+    | otherwise         = m
+
+run (While e p) m
+    | boolean(eval m e) = m''
+    | otherwise         = m
+    where
+      m'  = run p m
+      m'' = run (While e p) m'
+
+run (Block []) m = m
+
+run (Block (p : ps)) m = m''
+    where
+      m'  = run p m
+      m'' = run (Block ps) m'
+```
+
+另一种执行方式 (本意是一样的)
+```hs
+assign :: Identifier -> Expr -> Storage -> Storage
+assign i e = \m -> update i (eval m e) m
+
+ifElse :: (Storage -> Bool) -> (Storage -> Storage) -> (Storage -> Storage) -> (Storage -> Storage)
+ifElse p f g = h
+ where
+   h m = if p m then f m else g m
+
+ifElse :: (s -> Bool) -> (s -> s) -> (s -> s) -> (s -> s)
+ifElse p f g = h
+ where
+   h m = if p m then f m else g m
+
+while :: (s -> Bool) -> (s -> s) -> (s -> s)
+while p f = g
+ where
+   g m = if p m then g(f m) else m
+
+block :: [s -> s] -> s -> s
+block []     m = m
+block (f:fs) m = block fs (f m)
+
+booleanValue :: Expr -> (Storage -> Bool)
+booleanValue e = \m -> boolean(eval m e)
+
+run' :: Program -> Storage -> Storage
+run' (i := e)       = assign i e
+run' (IfElse e p q) = ifElse (booleanValue e) (run' p) (run' q)
+run' (If e p)       = ifElse (booleanValue e) (run' p) id
+run' (While e p)    = while  (booleanValue e) (run' p)
+run' (Block ps)     = block  (map run' ps)
+```
+
+### Command line interface
+
+运行xy文件(输入x 和 输出y)
+
+`Runxy.hs`文件
+
+导入库
+```hs
+module Main where
+
+import System.Environment
+
+import AbstractSyntax
+import Parser
+import Interpreter
+```
+
+初始化储存
+```
+initialStorage :: Integer -> Storage
+initialStorage x = update "x" x emptyStorage
+```
+
+运行(输出)y
+```hs
+runxy :: Program -> Integer -> Integer
+runxy p x = m' "y"
+  where
+    m  = initialStorage x
+    m' = run p m
+```
+
+主程序(程序的汇总与打印出来)
+```hs
+main :: IO()
+main =
+  do
+    args <- getArgs
+    if length args == 2
+       then
+         do
+           concreteProgram <- readFile (args !! 0)
+           let abstractProgram = parseProgram concreteProgram
+           let x = read(args !! 1)
+           let y = runxy abstractProgram x
+           putStrLn (show y)
+       else
+           putStrLn "Usage: runhaskell Runxy.hs <filename> <Integer>"
+```
+
+## Usable Functions
+
+```hs
 :set +s -- ask ghci to print time and space usage
 
 //p应用于列表里每一个元素
@@ -1638,7 +2136,7 @@ balancedTree [] = Empty
 balancedTree xs = let (ys, x:zs) = splitAt (length xs `div` 2) xs in
                   Fork x (balancedTree ys) (balancedTree zs)
 
-//插入 使其保持平衡树
+//插入 使其保持平衡树 (来源于codewar)
 insertBalanced :: Tree a -> a -> Tree a
 insertBalanced Leaf x = Node 1 Leaf x Leaf
 insertBalanced (Node h l y r) x
@@ -1648,4 +2146,15 @@ insertBalanced (Node h l y r) x
      height :: Tree a -> Integer
      height Leaf = 0
      height (Node h _ _ _) = h
+
+//左旋/右旋
+rotateLeft,rotateRight :: Tree a -> Tree a
+
+rotateLeft Empty = Empty
+rotateLeft (Node l Empty x) = Node l Empty x
+rotateLeft (Node l (Node rl rr rx) x) = Node (Node l rl x) rr rx
+
+rotateRight Empty = Empty
+rotateRight (Node Empty r x) = (Node Empty r x)
+rotateRight (Node (Node ll lr lx) r x) = Node ll (Node lr r x) lx
 ```
