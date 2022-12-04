@@ -54,7 +54,7 @@ factorial 0 = 1
 factorial n = n * factorial (n-1)
 ```
 
-Hint: You can use `toIntegral` to translate `Int` to `Integer`
+Hint: You can use `fromIntegral` to translate `Int` to `Integer`
 
 ### Examples
 
