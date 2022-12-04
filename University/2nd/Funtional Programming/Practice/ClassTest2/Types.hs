@@ -38,7 +38,7 @@ data Tree a = Empty
 
 -- Exercise 4
 
-data BT a = Empty' | Fork a (BT a) (BT a)
+data BT a = Empty' | Fork a (BT a) (BT a) deriving Show
 
 -- Exercise 5
 
