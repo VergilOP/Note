@@ -1,4 +1,4 @@
-# Homework 9
+# ClassTest2
 
 ## Preparation
 * Do __not__ modify the files `Types.hs` and `ClassTest2-Template.hs`.
