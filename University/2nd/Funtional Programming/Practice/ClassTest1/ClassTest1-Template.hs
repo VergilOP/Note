@@ -5,7 +5,7 @@
 -- see https://wiki.haskell.org/Safe_Haskell
 {-# LANGUAGE Safe #-}
 
-module ClassTest1 (openOrSenior, rot13, digpow, sumDigPow, alphabetWar) where
+module ClassTest1 (openOrSenior, rot13, digpow, sumDigPow, alphabetWar, xbonacci, encrypt, decrypt, wave, solve, abbreviate) where
 
 import Types
 import Data.Char
