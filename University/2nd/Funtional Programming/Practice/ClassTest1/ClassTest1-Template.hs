@@ -40,3 +40,30 @@ sumDigPow a b = undefined
 alphabetWar :: String -> String
 alphabetWar = undefined
 
+{- Question 6 -}
+
+xbonacci :: Num a => [a] -> Int -> [a]
+xbonacci as n = undefined
+
+{- Question 7 -}
+
+encrypt :: String -> Int -> String
+encrypt = undefined
+
+decrypt :: String -> Int -> String
+decrypt = undefined
+
+{- Question 8 -}
+
+wave :: String -> [String]
+wave = undefined
+
+{- Question 9 -}
+
+solve :: [String] -> [Int]
+solve = undefined
+
+{- Question 10 -}
+
+abbreviate :: String -> String
+abbreviate = undefined

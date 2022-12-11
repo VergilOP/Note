@@ -229,3 +229,120 @@ AlphabetWar("zdqmwpbs"); //=> Let's fight again!
 AlphabetWar("zzzzs");    //=> Right side wins!
 AlphabetWar("wwwwwwz");  //=> Left side wins!
 ```
+
+## Question 6
+
+## Fibonacci, Tribonacci and friends
+
+###DESCRIPTION:
+
+If you have completed the Tribonacci sequence kata, you would know by now that mister Fibonacci has at least a bigger brother. If not, give it a quick look to get how things work.
+
+Well, time to expand the family a little more: think of a Quadribonacci starting with a signature of 4 elements and each following element is the sum of the 4 previous, a Pentabonacci (well Cinquebonacci would probably sound a bit more italian, but it would also sound really awful) with a signature of 5 elements and each following element is the sum of the 5 previous, and so on.
+
+Well, guess what? You have to build a Xbonacci function that takes a signature of X elements - and remember each next element is the sum of the last X elements - and returns the first n elements of the so seeded sequence.
+
+### Examples
+
+```
+xbonacci {1,1,1,1} 10 = {1,1,1,1,4,7,13,25,49,94}
+xbonacci {0,0,0,0,1} 10 = {0,0,0,0,1,1,2,4,8,16}
+xbonacci {1,0,0,0,0,0,1} 10 = {1,0,0,0,0,0,1,2,3,6}
+xbonacci {1,1} produces the Fibonacci sequence
+```
+
+## Question 7
+
+## Simple Encryption #1 - Alternating Split
+
+Implement a pseudo-encryption algorithm which given a string S and an integer N concatenates all the odd-indexed characters of S with all the even-indexed characters of S, this process should be repeated N times.
+
+### Examples:
+
+```
+encrypt("012345", 1)  =>  "135024"
+encrypt("012345", 2)  =>  "135024"  ->  "304152"
+encrypt("012345", 3)  =>  "135024"  ->  "304152"  ->  "012345"
+
+encrypt("01234", 1)  =>  "13024"
+encrypt("01234", 2)  =>  "13024"  ->  "32104"
+encrypt("01234", 3)  =>  "13024"  ->  "32104"  ->  "20314"
+```
+
+Together with the encryption function, you should also implement a decryption function which reverses the process.
+
+If the string S is an empty value or the integer N is not positive, return the first argument without changes.
+
+
+## Question 8
+
+## Mexican Wave
+
+### Introduction
+
+The wave (known as the Mexican wave in the English-speaking world outside North America) is an example of metachronal rhythm achieved in a packed stadium when successive groups of spectators briefly stand, yell, and raise their arms. Immediately upon stretching to full height, the spectator returns to the usual seated position.
+
+The result is a wave of standing spectators that travels through the crowd, even though individual spectators never move away from their seats. In many large arenas the crowd is seated in a contiguous circuit all the way around the sport field, and so the wave is able to travel continuously around the arena; in discontiguous seating arrangements, the wave can instead reflect back and forth through the crowd. When the gap in seating is narrow, the wave can sometimes pass through it. Usually only one wave crest will be present at any given time in an arena, although simultaneous, counter-rotating waves have been produced. (Source Wikipedia)
+
+### Task
+In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up. 
+
+### Rules
+ 1.  The input string will always be lower case but maybe empty.
+
+ 2.  If the character in the string is whitespace then pass over it as if it was an empty seat
+
+### Example
+```
+wave("hello") => {"Hello", "hEllo", "heLlo", "helLo", "hellO"}
+```
+
+Good luck and enjoy!
+
+## Question 9
+
+## Alphabet symmetry
+
+Consider the word `"abode"`. We can see that the letter `a` is in position `1` and `b` is in position `2`. In the alphabet, `a` and `b` are also in positions `1` and `2`. Notice also that `d` and `e` in `abode` occupy the positions they would occupy in the alphabet, which are positions `4` and `5`.
+
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example,
+
+```
+solve(["abode","ABc","xyzD"]) = [4, 3, 1]
+
+solve ["abode","ABc","xyzD"] `shouldBe` [4,3,1]
+solve ["abide","ABc","xyz"] `shouldBe` [4,3,0]
+solve ["IAMDEFANDJKL","thedefgh","xyzDEFghijabc"] `shouldBe` [6,5,7]
+```
+
+See test cases for more examples.
+
+Input will consist of alphabet characters, both uppercase and lowercase. No spaces.
+
+Good luck!
+
+## Question 10
+
+## Word a10n (abbreviation)
+
+The word `i18n` is a common abbreviation of `internationalization` in the developer community, used instead of typing the whole word and trying to spell it correctly. Similarly, `a11y` is an abbreviation of `accessibility`.
+
+Write a function that takes a string and turns any and all "words" (see below) within that string of length 4 or greater into an abbreviation, following these rules:
+
+- A "word" is a sequence of alphabetical characters. By this definition, any other character like a space or hyphen (eg. "elephant-ride") will split up a series of letters into two words (eg. "elephant" and "ride").
+- The abbreviated version of the word should have the first letter, then the number of removed characters, then the last letter (eg. "elephant ride" => "e6t r2e").
+
+### Example
+
+```
+abbreviate("elephant-rides are really fun!")
+//          ^^^^^^^^*^^^^^*^^^*^^^^^^*^^^*
+// words (^):   "elephant" "rides" "are" "really" "fun"
+//                123456     123     1     1234     1
+// ignore short words:               X              X
+
+// abbreviate:    "e6t"     "r3s"  "are"  "r4y"   "fun"
+// all non-word characters (*) remain in place
+//                     "-"      " "    " "     " "     "!"
+=== "e6t-r3s are r4y fun!"
+```
