@@ -144,3 +144,39 @@ abbreviate str = if b == [] then trans a else trans a ++ head b : abbreviate (ta
           trans n
               | length n < 4 = n
               | otherwise = head n: show (length n - 2) ++ [last n]
+
+{- Additional Questions -}
+
+- 1. 
+
+solve :: String -> Int
+solve xs = maximum (map trans (words newlist))
+    where newlist = map (\x -> if elem x "aeiou" then ' ' else x) xs
+          trans ys = sum (map (\x -> ord x - ord 'a' + 1) ys)
+
+- 2.
+
+solve :: [Char] -> [Int] 
+solve xs = go [0,0,0,0] xs
+    where go c [] = c
+          go (u:l:n:s:[]) (x:xs)
+              | isUpper x = go (u+1:l:n:s:[]) xs
+              | isLower x = go (u:l+1:n:s:[]) xs
+              | elem x ['0'..'9'] = go (u:l:n+1:s:[]) xs
+              | otherwise = go (u:l:n:s+1:[]) xs
+
+- 3.
+
+longestPalindrome :: Eq a => [a] -> Int
+longestPalindrome [] = 0
+longestPalindrome str = maximum (map length newlist)
+    where newlist = filter checkPalindrome (toPart str)
+
+checkPalindrome :: Eq a => [a] -> Bool
+checkPalindrome str = reverse str == str
+
+toPart :: Eq a => [a] -> [[a]]
+toPart [] = []
+toPart xss@(x:xs) = go (length xss) xss ++ toPart xs
+    where go 0 _ = []
+          go n yss = take n yss:go (n-1) yss

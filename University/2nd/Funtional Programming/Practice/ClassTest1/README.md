@@ -346,3 +346,17 @@ abbreviate("elephant-rides are really fun!")
 //                     "-"      " "    " "     " "     "!"
 === "e6t-r3s are r4y fun!"
 ```
+
+## Additional Questions
+
+1. Consonant value
+
+    https://www.codewars.com/kata/59c633e7dcc4053512000073
+
+2. Simple string characters
+
+    https://www.codewars.com/kata/5a29a0898f27f2d9c9000058
+
+3. longest_palindrome
+
+    https://www.codewars.com/kata/54bb6f887e5a80180900046b
