@@ -1904,6 +1904,9 @@ isDigit '0' -> True
 //字符转int/字符串转int list/读取(可以处理负数)
 digitToInt ""/map digitToInt ""/read
 
+//检查大写或小写
+isAsciiLower/isAsciiUpper/isUpper/isLower
+
 //读取十六进制（Numeric）
 readHex
 
@@ -1938,7 +1941,7 @@ maximumBy (on compare $ a) []
 dropWhile p []/dropWhile p1 $ p2 <$> []
 
 //同时计算余数跟除数
-quotRem a b -> (商,余)
+quotRem a b -> (商,余)/ divMod a b
 
 //取一个数的平方根(结果为float)
 sqrt a
@@ -1948,6 +1951,9 @@ floor a
 
 //向上取整
 ceiling a
+
+//Double/float 转Integer
+round a
 
 //元素索引值(带just)
 elemIndex a []

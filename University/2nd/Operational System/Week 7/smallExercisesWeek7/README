@@ -1,0 +1,11 @@
+There are two solutions to this problem:
+
+1. Pass the value as an integer. This solution is implemented in
+charDeviceDriverInteger.c. This is easy to implement in the kernel
+side but you will need to use the write system call to transfer the
+value to the kernel.
+
+2. Pas the value as a string. This solution is implemented in
+charDeviceDriverStrings.c. The kernel implementation is a bit more
+complicated, but you can use the echo-command to transfer the value to
+the kernel.

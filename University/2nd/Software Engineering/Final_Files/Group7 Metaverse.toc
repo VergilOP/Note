@@ -1,0 +1,35 @@
+\contentsline {section}{Table of Contents}{1}{Doc-Start}%
+\contentsline {section}{\numberline {1}Requirements Engineering}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}\textsl {Functional Requirements}}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}\textsl {Non-functional Requirements}}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Software Specification, Analysis and Design with UML}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Use Case Diagram}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Use Case Specification \& Scenarios}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Activity Diagram}{14}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Class Analysis}{16}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Noun-verb Analysis}{16}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}CRC Cards}{17}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}First-Cut Class Diagram}{19}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Class Diagram}{20}{subsubsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.5}Object Diagram}{21}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Sequence Diagram}{22}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}State Machine Diagram}{24}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Software Architecture Style, Modelling and Evaluation}{26}{section.3}%
+\contentsline {subsection}{\numberline {3.1}UML Components Diagrams}{26}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Deployment Diagrams}{28}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Compare Architectures and Tradeoffs}{30}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Software Testing}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{31}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Test Items}{31}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Features to be tested}{31}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Features not to be tested}{32}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Approach}{32}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Item Pass/Fail Criteria}{32}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Exit Criteria}{33}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Assumptions}{33}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Usability and Prototyping}{34}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Interactive Prototype}{34}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Ethics and Professional Practice}{41}{section.6}%
+\contentsline {section}{\numberline {7}Project Management and Moderation}{42}{section.7}%
+\contentsline {section}{\numberline {8}Reference}{43}{section.8}%
