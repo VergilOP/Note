@@ -254,22 +254,28 @@
 
 3. Consider the following two C functions `sum2Darray1` and `sum2Darray2`. Both of them compute the sum of all the elements of an input 2-demesional matrix. Which one of them will be able to exploit memory hierarchy and thus achieve faster computation time? Explain your answer.
 
-```c
-int sum2Darray1(int a[N][M])
-{
-    int i, j, sum = 0;
-    for(i=0;i<m;i++)
-        for(j=0;j<N;j++)
-            sum = sum + a[j][i];
-    return sum;
-}
+    ```c
+    int sum2Darray1(int a[N][M])
+    {
+        int i, j, sum = 0;
+        for(i=0;i<m;i++)
+            for(j=0;j<N;j++)
+                sum = sum + a[j][i];
+        return sum;
+    }
 
-int sum2Darray2(int a[N][M])
-{
-    int i, j, sum = 0;
-    for(i=0;i<m;i++)
-        for(j=0;j<N;j++)
-            sum = sum + a[i][j];
-    return sum;
-}
-
+    int sum2Darray2(int a[N][M])
+    {
+        int i, j, sum = 0;
+        for(i=0;i<m;i++)
+            for(j=0;j<N;j++)
+                sum = sum + a[i][j];
+        return sum;
+    }
+    ```
+    > Modern computers with memory hierarchy try to speedup computation by applying the principles of temporal and spatial locality. Thus, when a program tries to read one int object from the main memory, other adjacent int objects are also brought to the cache.  
+    > *identifying the fastest strategy (2 marks)*  
+    > The function `sum2Darray1` reads the matrix elements along the columns. Whereas `sum2Darray2` reads the matrix elements along the rows. Since, the C programming language stores a 2D matrix in the row-major order, `sum2Darray2` offers better spatial locality  compared to `sum2Darray1`, and thus offers better performance.  
+    > *explanation (5 marks)*  
+    > Hence, Strategy2 will be more efficient
+    > 总结
