@@ -74,13 +74,18 @@ adde'' xm ym = case xm of
                             Nothing -> Nothing
                             Just y  -> Just (x+y)
 
-firstPosition :: Eq a => a -> [a] -> Maybe Integer
+firstPosition :: Eq a => a -> [a] -> Maybe Int
 firstPosition x []     = Nothing
 firstPosition x (y:ys)
            | x == y    = Just 0
            | otherwise = case firstPosition x ys of
                            Nothing -> Nothing
-                           Just n  -> Just(n+1)
+                           Just n  -> Just (n+1)
+
+testFirstPosition :: Eq a => a -> [a] -> Bool
+testFirstPosition x ys =  case firstPosition x ys of
+                           Nothing -> and [ ys !! i /= x | i <- [0 .. length ys - 1]]
+                           Just n  -> ys !! n == x
 
 bool2Int :: Bool -> Int
 bool2Int False = 0

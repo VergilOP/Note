@@ -34,6 +34,6 @@ data Program = Identifier := Expr
              deriving (Show)
 ```
 Notice that we are using a constructor `:=` in the `Program` type, written in infix notation.
-We use [monadic parsing](/LectureNotes/Sections/monads.md#monadic-parsing) to convert from [concrete syntax](ConcreteSyntax.md) to abstract syntax.
+We use [monadic parsing](/files/LectureNotes/Sections/monads.md#monadic-parsing) to convert from [concrete syntax](ConcreteSyntax.md) to abstract syntax.
 
 #### Next: [Parser](Parser.md)

@@ -107,8 +107,38 @@ fib' n = x
 
   ((),(x,y)) = runState (f n) (0,1)
 
+data Maybe' a = Nothing' | Just' a
+
+instance Functor Maybe' where
+ fmap g Nothing' = Nothing'
+ fmap g (Just' x) = Just' (g x)
+
+instance Applicative Maybe' where
+  pure = Just'
+  Nothing'  <*> Nothing'  = Nothing'
+  (Just' g) <*> Nothing'  = Nothing'
+  Nothing'  <*> (Just' x) = Nothing'
+  (Just' g) <*> (Just' x) = Just' (g x)
+
+instance Monad Maybe' where
+  Nothing' >>= f = Nothing'
+  Just' x  >>= f = f x
+
+addm :: Maybe Int -> Maybe Int -> Maybe Int
+addm xm ym = do
+  x <- xm
+  y <- ym
+  pure (x+y)
+
+addm' :: Maybe Int -> Maybe Int -> Maybe Int
+addm' xm ym = xm >>= \x -> ym >>= \y -> pure (x+y)
+
+
+
 data Writer' a = Result a String
                 deriving Show
+
+
 
 instance Monad Writer' where
   return x = Result x ""
@@ -308,4 +338,3 @@ eval xs = case parse expr xs of
              [(n,[])]  -> n
              [(_,out)] -> error ("Unused input " ++ out)
              []        -> error "Invalid input"
-

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="120mm"
+   height="80mm"
+   viewBox="0 0 120 79.999999"
+   version="1.1"
+   id="svg3344"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="quadtree-small.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3346"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74742565"
+     inkscape:cx="224.77152"
+     inkscape:cy="254.20589"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs3341" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-45.65714,-34.058688)">
+    <g
+       id="g1995"
+       transform="translate(11.232934,28.817882)">
+      <path
+         id="rect111"
+         style="fill:none;stroke:#000000;stroke-width:0.373938;stroke-linejoin:round"
+         d="m 46.159176,20.615768 h 22.483665 22.483666 v 44.96733 H 68.642841 46.159176 m 0,0 v -44.96733"
+         sodipodi:nodetypes="cccccccc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.373938;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 68.905374,20.424288 v 44.90285"
+         id="path1020"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.373938;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 91.174286,41.871218 H 46.271439"
+         id="path1020-3"
+         sodipodi:nodetypes="cc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:8.13698px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.203425"
+         x="50.007046"
+         y="34.647537"
+         id="text1236"><tspan
+           sodipodi:role="line"
+           id="tspan1234"
+           style="stroke-width:0.203425"
+           x="50.007046"
+           y="34.647537">NW</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:8.13698px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.203425"
+         x="74.287201"
+         y="35.032753"
+         id="text1236-6"><tspan
+           sodipodi:role="line"
+           id="tspan1234-7"
+           style="stroke-width:0.203425"
+           x="74.287201"
+           y="35.032753">NE</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:8.13698px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.203425"
+         x="51.021793"
+         y="56.391083"
+         id="text1236-5"><tspan
+           sodipodi:role="line"
+           id="tspan1234-3"
+           style="stroke-width:0.203425"
+           x="51.021793"
+           y="56.391083">SW</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:8.13698px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.203425"
+         x="73.71936"
+         y="56.420746"
+         id="text1236-56"><tspan
+           sodipodi:role="line"
+           id="tspan1234-2"
+           style="stroke-width:0.203425"
+           x="73.71936"
+           y="56.420746">SE</tspan></text>
+    </g>
+    <g
+       id="g2271"
+       transform="translate(7.4578004,26.392096)">
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.744883;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1436"
+         cx="126.23948"
+         cy="31.917315"
+         r="0.81701154" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.374;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 126.10411,32.145998 -14.9666,22.93997"
+         id="path1438"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.374;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 126.21247,32.595858 -5.46873,22.39188"
+         id="path1438-1"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.374;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 126.31178,33.057668 5.75515,22.10035"
+         id="path1438-1-7"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.374;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 126.52898,32.238238 14.9666,22.93997"
+         id="path1438-6"
+         sodipodi:nodetypes="cc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.06849px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.101713"
+         x="107.5682"
+         y="60.838715"
+         id="text1236-7"><tspan
+           sodipodi:role="line"
+           id="tspan1234-0"
+           style="stroke-width:0.101713"
+           x="107.5682"
+           y="60.838715">NW</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.06849px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.101713"
+         x="118.11951"
+         y="60.838715"
+         id="text1236-6-9"><tspan
+           sodipodi:role="line"
+           id="tspan1234-7-3"
+           style="stroke-width:0.101713"
+           x="118.11951"
+           y="60.838715">NE</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.06849px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.101713"
+         x="129.01833"
+         y="60.838715"
+         id="text1236-5-6"><tspan
+           sodipodi:role="line"
+           id="tspan1234-3-0"
+           style="stroke-width:0.101713"
+           x="129.01833"
+           y="60.838715">SW</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.06849px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.101713"
+         x="139.64453"
+         y="60.838715"
+         id="text1236-56-6"><tspan
+           sodipodi:role="line"
+           id="tspan1234-2-2"
+           style="stroke-width:0.101713"
+           x="139.64453"
+           y="60.838715">SE</tspan></text>
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.744883;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1436-9"
+         cx="111.37862"
+         cy="54.817245"
+         r="0.81701154" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.744883;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1436-2"
+         cx="120.73287"
+         cy="54.943848"
+         r="0.81701154" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.744883;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1436-0"
+         cx="131.98828"
+         cy="55.024078"
+         r="0.81701154" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.744883;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1436-23"
+         cx="141.34465"
+         cy="55.10524"
+         r="0.81701154" />
+    </g>
+  </g>
+</svg>

@@ -28,7 +28,7 @@ Total time 1:24.
 ## Experimenting with the Haskell code included here
 
 You should experiment with the Haskell code in theses notes in order to achieve full understanding. This means running the code and adding things to it, such as
-solutions of exercises and puzzles, or your own brilliant ideas. The code is available at  [data2.hs](/LectureNotes/Sections/data2.hs), or can be obtained from this handout with `mdtohs` as in the previous handout. Make your own **copy** of this file to avoid conflicts when we update it.
+solutions of exercises and puzzles, or your own brilliant ideas. The code is available at [Data2.hs](/files/LectureNotes/Sections/Data2.hs), or can be obtained from this handout with `mdtohs` as in the previous handout. Make your own **copy** of this file to avoid conflicts when we update it.
 
 <a name="bsts"></a>
 ## Binary search trees
@@ -40,7 +40,7 @@ Now let's consider [binary *search* trees](https://en.wikipedia.org/wiki/Binary_
 <a name="bstops"></a>
 ### Operations on binary search trees
 
-We import the Haskell code from the previous [handout](/LectureNotes/Sections/data.md):
+We import the Haskell code from the previous [handout](/files/LectureNotes/Sections/Data1.md):
 ```haskell
 {-# OPTIONS_GHC -fwarn-incomplete-patterns #-}
 

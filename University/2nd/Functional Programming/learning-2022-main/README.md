@@ -34,6 +34,8 @@ All module files are kept on [GitLab](https://git.cs.bham.ac.uk/fp/learning-2022
 
 If you find them in the files here (they certainly are or will be present), including this one, you can have a go and submit an [issue](https://git.cs.bham.ac.uk/fp/learning-2022/-/issues) or, more ambitiously, [merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html). If it is relevant we will merge it (and if it isn't, we will politely explain). Merge requests and issues are much better than Canvas messages, Teams discussions and email messages. Any important pull request or issue will be reported on Canvas and Teams, though, after we have discussed it here on gitlab, and feel free do that yourself. Please contribute.
 
+You can see how to contribute and create merge requests [here](CONTRIBUTING.md).
+
 ## [Official module textbook](https://rl.talis.com/3/bham/lists/C9A9B3B5-0505-08C0-23A3-2A6A14A3CB1E.html?lang=en)
 
 * [Programming in Haskell, 2nd edition](http://www.cs.nott.ac.uk/~pszgmh/pih.html) by Graham Hutton

@@ -1,5 +1,6 @@
 # Activity Plan for Week 2
-[Activity Plan for Dubai Students](./activity-plan-week02-dubai.md)
+
+There is also an [Activity Plan for Dubai Students](./activity-plan-week02-dubai.md).
 
 ## Summary
 
@@ -13,7 +14,7 @@ In Week 2 of the Functional Programming module, we will:
 
  * Apply our knowledge on functions when learning a bit more on Type Classes.
 
-## Online Lab Session: how to prepare
+## Lab Session: how to prepare
 
 You must:
 

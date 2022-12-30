@@ -1,5 +1,6 @@
 # Activity Plan for Week 3
-[Activity Plan for Dubai Students](./activity-plan-week03-dubai.md)
+
+There is also an [Activity Plan for Dubai Students](./activity-plan-week03-dubai.md).
 
 ## Summary
 
@@ -11,7 +12,7 @@ In Week 3 of the Functional Programming module, we will:
 
  * Understand the concept of higher-order function, where we can pass functions as parameters to other functions.
 
-## Online Lab Session: how to prepare
+## Lab Session: how to prepare
 
 You must:
 

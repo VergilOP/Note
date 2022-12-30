@@ -35,9 +35,9 @@ $ runhaskell ../../Resources/mdtohs.hs < Data1.md > Data1.hs
 ```
 This removes all the markdown code and keeps only the Haskell code, so that we can work with it.
 
-We have already run this for you, and the file [Data1.hs](/LectureNotes/Sections/Data1.hs) is available in this GitLab repository. Make your own **copy** of this file to avoid conflicts when we update it.
+We have already run this for you, and the file [Data1.hs](/files/LectureNotes/Sections/Data1.hs) is available in this GitLab repository. Make your own **copy** of this file to avoid conflicts when we update it.
 
-## How to run [Data1.hs](/LectureNotes/Sections/Data1.hs) with `ghci`
+## How to run [Data1.hs](/files/LectureNotes/Sections/Data1.hs) with `ghci`
 
 The import `System.Random` will fail if we don't specify which package it comes from, which is `random`. You specify this as follows:
 ```
@@ -285,7 +285,7 @@ Mon
 
 Monday doesn't have a predecessor, and Sunday doesn't have a successor:
 
-```
+```hs
 > pred Mon
 *** Exception: pred{WeekDay}: tried to take `pred' of first tag in enumeration
 CallStack (from HasCallStack):
@@ -394,13 +394,13 @@ Later we will see that there is a much more concise way of making such definitio
 
 Since the first position is undefined if the element doesn't occur in the list, in that case we answer `Nothing`:
 ```haskell
-firstPosition :: Eq a => a -> [a] -> Maybe Integer
+firstPosition :: Eq a => a -> [a] -> Maybe Int
 firstPosition x []     = Nothing
 firstPosition x (y:ys)
            | x == y    = Just 0
            | otherwise = case firstPosition x ys of
                            Nothing -> Nothing
-                           Just n  -> Just(n+1)
+                           Just n  -> Just (n+1)
 ```
 For example:
 ```hd
@@ -420,6 +420,26 @@ which we summarize as
     firstPosition 'z' ['a'..'z'] = Just 25
     firstPosition '!' ['a'..'z'] = Nothing
 ```
+A precise specification of `firstPosition` is that if `firstPosition x ys = Just n` then `ys !! n = x`, and if `firstPosition x ys = Nothing` then `ys !! i ≠ x for all `i` in the list `[0..length ys-1]`. We can actually use this specification to test our implementation for correctness:
+```haskell
+testFirstPosition :: Eq a => a -> [a] -> Bool
+testFirstPosition x ys =  case firstPosition x ys of
+                           Nothing -> and [ ys !! i /= x | i <- [0 .. length ys - 1]]
+                           Just n  -> ys !! n == x
+```
+Here are some tests:
+```hs
+> testFirstPosition 'a' ['a'..'z']
+True
+> testFirstPosition 'b' ['a'..'z']
+True
+> testFirstPosition 'z' ['a'..'z']
+True
+> testFirstPosition '!' ['a'..'z']
+True
+```
+All tests are successful, and so we get some confidence about the correctness of our implementation. Of course, it is not possible to prove correctness by testing all cases, as there is an infinite amount of them.
+
 You are required to use the book to find out what `case` is and how it works in general, but in this example it should be clear. You are also required to use the book to find out about conditional definitions using `|` to indicate *guards* for equations.
 
 We will use the `Maybe` type constructor very often, because there are many occasions in which some inputs are *invalid*.

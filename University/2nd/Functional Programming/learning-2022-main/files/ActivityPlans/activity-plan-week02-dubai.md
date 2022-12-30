@@ -20,7 +20,7 @@ You must read the following handouts:
 
  2. Handout - [Functions](../LectureNotes/Sections/functions.md)
 
-## Online Lab Session: how to prepare
+## Lab Session: how to prepare
 
 You must:
 
@@ -45,4 +45,3 @@ If you think the above are not enough for you to understand or you want to learn
  8. Chapter 3 of [Learn You a Haskell for Great Good](http://learnyouahaskell.com/types-and-typeclasses)
 
  9. Chapter 2 of [Real World Haskell](http://book.realworldhaskell.org/read/types-and-functions.html).
- 

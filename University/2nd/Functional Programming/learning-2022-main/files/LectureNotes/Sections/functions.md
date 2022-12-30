@@ -324,7 +324,7 @@ Remarks:
    3. pattern matching
 
 ## See also
-1. [Chapter 3, "Syntax in Functions" of "Learn You a Haskell"](https://git.cs.bham.ac.uk/mhe/fp-learning-2021-2022/-/blob/master/Resources/LearnYouaHaskell/LearnYouaHaskell.pdf)
+1. [Chapter 3, "Syntax in Functions" of "Learn You a Haskell"](/files/Resources/LearnYouaHaskell/LearnYouaHaskell.pdf)
 2. Haskell Wiki on [Sections](https://wiki.haskell.org/Section_of_an_infix_operator)
 
 ## Summary

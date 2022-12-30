@@ -27,7 +27,7 @@ AddOp  ::=  +   |  -
 MulOp  ::=  *   |  /  | %
 NotOp  ::=  !
 ```
-The following is a direct translation of BNF to monadic [parsing combinators](/LectureNotes/Sections/monads.md#monadic-parsing):
+The following is a direct translation of BNF to monadic [parsing combinators](/files/LectureNotes/Sections/monads.md#monadic-parsing):
 ```haskell
 module Parser where
 

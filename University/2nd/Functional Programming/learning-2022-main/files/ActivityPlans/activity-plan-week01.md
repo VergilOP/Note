@@ -1,5 +1,6 @@
 # Activity Plan for Week 1
-[Activity Plan for Dubai Students](./activity-plan-week01-dubai.md)
+
+There is a also an [Activity Plan for Dubai Students](./activity-plan-week01-dubai.md).
 
  0. Read [Important module information](https://git.cs.bham.ac.uk/fp/learning-2022/-/blob/main/README.md)
 

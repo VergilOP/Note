@@ -1,4 +1,8 @@
-# Table of contents
+# Lecture Notes
+
+ * [Lecture live coding files](LiveCoding)
+
+# Table of Contents
 
 This table of contents is tentative. The contents will be adjusted as the term proceeds.
 
@@ -17,16 +21,19 @@ These notes are continuously updated and the choice of material is subject to ch
     1. [List comprehensions](Sections/list_comprehensions.md)
     1. [Recursive functions](Sections/recursive_functions.md)
     1. [Higher-order functions](Sections/higher-order_functions.md)
- * Week 4
+ * Weeks 4 & 5
     1. [User defined data types I](Sections/Data1.md)
     1. [Lazy natural numbers](Sections/LazyNaturals.md)
- * Week 5 & 6
+ * Week 6
+    1. Revision Week and Class Test 1
+ * Week 7
     1. [User defined data types II](Sections/Data2.md)
- * Week 7 & 8
+ * Weeks 8 and 9
     1. [Monads](Sections/monads.md)
- * Weeks 9 & 10
+ * Week 10
     1. [Implementing a small imperative language](Sections/interpreter/README.md)
  * Week 11
+    1. Class Test 2
     1. [Rigorous programming](Sections/rigour.md)
     1. [Agda file with programs and proofs](Sections/Agda-in-a-Hurry.agda)
     1. [html rendering of the Agda file with syntax highlighting and links](https://www.cs.bham.ac.uk/~mhe/fp-learning-2017-2018/html/Agda-in-a-Hurry.html)

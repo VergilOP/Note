@@ -80,7 +80,7 @@ boolean _ = True
 **Remark:**
 
 Notice that the above two functions don't form an isomorphism. We only have the equation `boolean(number b) = b` for all `b :: Bool`, or `boolean . number = id` where `id` is the identity function defined in the prelude, but not the other way round. Technically, one says that the above two functions exhibit the type `Bool` as a *retract* of the type `Integer`, with the function `boolean` the [retraction](https://en.wikipedia.org/wiki/Section_(category_theory)) and the function `number` the [section](https://en.wikipedia.org/wiki/Section_(category_theory)). Then the type `Bool` is isomorphic to the set of [fixed points](https://en.wikipedia.org/wiki/Fixed_point_(mathematics)) of the function `number . boolean`, namely `0` and `1`.
-See also the [section on retracts in the lecture on data types](/LectureNotes/Sections/Data1.md#retracts).
+See also the [section on retracts in the lecture on data types](/files/LectureNotes/Sections/Data1.md#retracts).
 
 ---
 

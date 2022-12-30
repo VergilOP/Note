@@ -446,6 +446,7 @@ We use the function `runState` to initialize the state, with `0` in our case, an
 ```
 This means that the 11th Fibonacci number is 89, and that we incremented the counter 143 times, which measures the number of recursive calls.
 
+<a name="fibstate"></a>
 ### Using the state monad to get another algorithm for the Fibonacci function
 
 Consider the following Java method to compute the `n`th Fibonacci number for non-negative `n` (which loops for ever if `n` is negative):
@@ -475,7 +476,7 @@ fib' n = x
 
   ((),(x,y)) = runState (f n) (0,1)
 ```
-This is fast and efficient, and equivalent to the approach using accumulators discussed in [another handout](data.md#accum).
+This is fast and efficient, and equivalent to the approach using accumulators discussed in [another handout](data1.md#accum).
 ```hs
 *Main> fib' 11
 89
