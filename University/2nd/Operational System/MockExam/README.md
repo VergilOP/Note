@@ -10,7 +10,7 @@ Answer ALL questions. Each question will be marked out of 20. The paper will be 
 
 The question is about pointers and memory management in C
 
-1. Will there be any problems when the following program is executed? Explain your answer. If so, explain what it leads to.
+1. Are there any problems when the following program executes? If so, explain what it leads to.
     ```c
     int main()
     {
