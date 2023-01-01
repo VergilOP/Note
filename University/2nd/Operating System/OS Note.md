@@ -1,5 +1,619 @@
 # Node of Operational System
 
+## Week 1
+
+### Practice Problems
+
+1. Consider the following pseudocode. Show how the computation-steps are executed on a von Neumann computer(code and figure shown below)
+    ```
+    foo(){
+        readIO a;
+        readIO b;
+        c = a + b;
+        store c;
+        d = a - b;
+        print d;
+    }
+    ```
+    > 1. Control Unit understands that data needs to be provided by user
+    > 2. Data is read from input device and brought to the GPU
+    > 3. Control Unit understands that data needs to be provided by user
+    > 4. Data is read from input device and brought to the GPU
+    > 5. Controller commands ALU to compute addition
+    > 6. Controller copies data from ALU to Memory
+    > 7. Controller commands ALU to comute substraction
+    > 8. Controller sends data from ALU to display
+
+2. With an example, explain the advantages of having registers inside CPU.
+    > Registers imporve processing speed. Without registers, Controller need to transfer data between CPU and Main Memory which will take a long time
+
+3. How are pointer variables related to the memory of a computer?
+    > Compiler allocates memory for the variables.
+    > Each variable has a unique address.
+    > A pointer is a variable that contains the address of a variable
+
+4. How are pointers and arrays related in C?
+    > The pointer of an array will point to the first element of the array
+
+5. What deose the following function perform?
+    ```c
+    void foo(int *px, int *py)
+    {
+        int temp;
+        temp = *px;
+        *px = *py;
+        *py = temp;
+    }
+    ```
+    > Switch the values in `px` and `py`
+
+6. Consider little-enian representation of data. What will be the output of this program?
+    ```c
+    int main(){
+        int a[] = {5, 10, 15, 20};
+        char *p;
+        p = (char *) a;
+
+        int i;
+        for(i = 0; i < 5; i++)
+            printf("%d", *(p+i));
+
+        return 0;
+    }
+    ```
+    > **Little endian**: "little byte at the little position."  
+    > Least byte is stored at the first address  
+    > `int a[] = {5, 10, 15, 20};`  
+    > Each int takes 4 bytes  
+    > | 5 | 0 | 0 | 0 | 10 | 0 | 0 |  
+    > A char pointer points to Bytes one-by-one  
+    > `char *p = (char*)a;`  
+    > So, the program will print the bytes  
+    > `5 0 0 0 10`
+
+    - How do you know if your computer is little or big endian?
+      - You can pint the bytes one by on  
+        In a big endian computer, int a = 6 will be stored as  
+        | 0 | 0 | 0 | 5 | 0 | 0 | 0 | 10 |  
+        so, the printed bytes will be `0,0,0,5`
+
+7. What will be the output of this program?
+    ```c
+    int main(){
+        float arr[5] = {12.5, 10.0, 13.5, 90.5, 0.5};
+        float *ptr1 = &arr[0];
+        float *ptr2 = ptr1 + 3;
+        printf("%f\n", *ptr2);
+        printf("%d\n", ptr2-ptr1);
+        return 0;
+    }
+    ```
+    > `90.5 3`
+
+8. Consider little-endian representation of data. What will be the output of this program?
+    ```c
+    int main(){
+        int a;
+        char *x;
+        x = (char *) &a;
+        a = 512;
+        x[0] = 1;
+        x[1] = 2;
+        printf("%d\n", a);
+        return 0;
+    }
+    ```
+    > a = 512 = 2*2^8 + 0  
+    > In little endian  
+    > | 0 | 2 | 0 | 0 |  
+    > A byte is 8 bits. So, a maximum value a byte can have is 2^8-1 = 255  
+    > x is char pointer  
+    > | 1 | 2 | 0 | 0 |  
+    > So, the new value of a = 1 + 2*2^8 = 513  
+
+9. What will be the output of this program?
+    ```c
+    int main(){
+        int a[5] = {1,2,3,4,5};
+        int *ptr = (int*)(a+1);
+        printf("%d %d", *(a+1), *(ptr-1));
+        return 0;
+    }
+    ```
+    > `2 1`
+
+10. How is the string "Hello World!" stored in the memory? How many bytes does this string consume in C?
+    > A string in C is `\0` terminated  
+    > So, consider an extera byte for that  
+    > 13 bytes  
+
+11. What does the following function do with the two input string pointers?
+    ```c
+    void foo(cahr *s, char *t){
+        int i = 0;
+        while((s[i] = t[i]) != '\0')
+            i++;
+    }
+    ```
+    > foo() copies a string t into s
+
+12. What does the following function do with the two input string pointers?
+    ```c
+    void foo(char *s, char *t){
+        while((*s = *t) != '\0'){
+            s++; t++;
+        }
+    }
+    ```
+    > foo() copies a string t into s
+
+13. What does the following function do with the two input string pointers?
+    ```c
+    void foo(char *s, char *t){
+        while ((*s++ = *t++) != '\0');
+    }
+    ```
+    > foo() copies a string t into s
+
+14. Write a C program that prints the elements of a 2D matrix in column-major order using a pointer.
+    > ```c
+    > int *p = &a[0][0]
+    > int i,j;
+    > for(i = 0; j < COL; i++){
+    >     for(j = 0; j<Row; j++){
+    >         printf("%d\n", *(p+j*COL));
+    >     }
+    >     p++;
+    > }
+    > return 0
+    > ```
+
+15. Write a C program that prints the elements of a 2D matrix in row-major order using a pointer.
+    > ```c
+    > int *p = &a[0][0]
+    >     int i;
+    >     for(i = 0; j < ROW*COL; i++){
+    >         printf("%d\n", *(p+i));
+    >     }
+    > ```
+
+## Week 2
+
+### Practice Questions
+
+1. This question is about memory layout of a typical C program. What are the segmentas of a C program?
+    > Text or code segments, Data segments, stack segment and Heap segment
+
+2. Describe the differences between local, heap, global and static variables.
+    > Stack segment is used to store all local or automatic variables  
+    > heap segment is used to store dynamically allocated variables are stored  
+    > Data segments contain initialized and uninitialized global and static variables respectively  
+
+3. With an example, describe how stack frames are created and destroyed during function calls.
+    > Scope is the function. They are allocated in the stack-frame of the function. After the function call, the stack-frame is released
+
+4. Describe the consequences of returning a pointer to a local variable from a function call. Give an example.
+    > The local variable is released after function call. So the return pointer is not existed
+
+5. Describe the differences between pass-by-value and pass-by-pointer
+    > Pass-by-value: function gets a local copy of variable, so it will only happen within function  
+    > Pass-by-pointer: function gets a local copy of variable which contains the address, so it will update the memory location where variable is stored
+
+6. What is wrong with this program?
+    ```c
+    int *max(int *a, int *b){
+        int temp;
+        if(*a > *b)
+            temp = *a;
+        else
+            temp = *b;
+        return &temp;
+    }
+    int main(){
+        int a = 4, b = 5;
+        int *c;
+        c = max(&a, &b);
+        printf("Max value = %d",*c);
+        return 0;
+    }
+    ```
+    > The variable which return in `max()` is local variable. It will be released after calling the function.  
+    > `c` points to `temp` which stored in the stack-frame(becomes invalid after `max()`) of `max()`
+
+7. This question is about dynamic memory allocation. Write C language syntax for dynamically allocating an integer array of length LENGTH using malloca(). What happens when malloc() fails to allocate memory?
+    > ```c
+    > int main(){
+    >     int LENGTH, i;
+    >     int *p;
+    >     printf("Provide array size:");
+    >     scanf("%d", &LENGTH);
+    > 
+    >     if((p = (int*) malloc(LENGTH * sizeof(int))) == NULL){
+    >         printf("Allocation failed");
+    >         exit(-1);
+    >     }
+    >     printf("Provide %d integers\n", LENGTH);
+    >     for(i = 0; i<LENGTH; i++)
+    >         scanf("%d", p+i);
+    > 
+    >     free(p);
+    >     return 0;
+    > }
+    > ```
+
+8. The following unfinished C program declares an array of four pointers in line 5. Using nested for loops with counters i and j, complete the unfinsihed program to construct the two-dimensional matrix
+    ```
+    00 01 02 03
+    04 05 06 07
+    08 09 10 11
+    12 13 14 15
+    ```
+    such that p[i] points to the i-th row of the matrix. Do not forget to free the allocated memory in the end.
+    > ```c
+    > #include<stdio.h>
+    > #include<stdlib.h>
+    > int main(){
+    >     int i, j;
+    >     int *p[4];
+    >     
+    >     for (i = 0; i<4; i++){
+    >         if((p[i] = (int*) malloc(4*sizeof(int))) == NULL){
+    >             printf("Allocation error");
+    >             exit(-1);
+    >         }
+    >     }
+    > 
+    >     for (i = 0; i<4; i++){
+    >         for(j = 0; j<4; j++){
+    >             p[i][j] = i*4+j;
+    >         }
+    >     }
+    > 
+    >     for (i = 0; i<4; i++){
+    >         for(j = 0; j<4; j++){
+    >             printf("%d \t", p[i][j]);
+    >         }
+    >     }
+    > 
+    >     for (i = 0; i<4; i++){
+    >         free(p[i]);
+    >     }
+    > 
+    >     return 0;
+    > }
+    > ```
+
+9. What is wrong with these function calls?
+    ```c
+    int *foo1(){
+        int x = 20;
+        return &x;
+    }
+    int *foo2(){
+        int *p;
+        *p = 20;
+        return p;
+    }
+    ```
+    > `x` and `p` are the local variable which will be invalid after calling the function
+
+10. In the following code snippet, a structure object is passed to a function foo() by value
+    ```c
+    struct VectorPair{
+        int a[512];
+        int b[512];
+    };
+
+    VectorPair foo(VectorPair VP1){
+        VectorPair VP2;
+        int i;
+        for(i=0; i<512; i++){
+            VP2.a[i] = VP1.a[i] + VP1.b[i];
+            VP2.b[i] = VP1.a[i] - VP1.b[i];
+        }
+        return VP2;
+    }
+    ```
+    Rewrite the functionfoo so that objects are passeed using C style pointers;
+
+    > ```c
+    > struct VectorPair{
+    >     int a[512];
+    >     int b[512];
+    > };
+    > 
+    > VectorPair *foo(VectorPair *VP1, VectorPair *VP2){
+    >     int i;
+    >     for(i=0; i<512; i++){
+    >         *VP2.a[i] = *VP1.a[i] + *VP1.b[i];
+    >         *VP2.b[i] = *VP1.a[i] - *VP1.b[i];
+    >     }
+    >     return *VP2;
+    > }
+    > ```
+
+11. Consider the following three C functions:
+    ```c
+    int *g1(void)
+    {
+        int x = 10;
+        return (&x);
+    }
+    int *g2(void)
+    {
+        int *px;
+        *px = 10;
+        return px;
+    }
+    int *g3(void)
+    {
+        int *px;
+        px = (int *)malloc(sizeof(int));
+        *px = 10;
+        return px;
+    }
+    ```
+    which of the above three functions are likely to cause problems with pointers?
+    > `g1()` returns pointer to local object  
+    > `g2()` has a bigger problem. Nomemory is allocated for `px`. Program will cause `segment fault`  
+    > `g3()` looks fine. It allocates heap memory and then returns a pointer to that memory.  
+
+12. Does this program leak memory?
+    ```c
+    int main(){
+        int *p;
+        p = (int*) malloc(sizeof(int));
+        *p = 6;
+        printf("%d", *p);
+        return(0);
+    }
+    ```
+    > Obvious, leaks memory. No `free()` is called
+
+13. Does this program function correctly? Why or why not?
+    ```c
+    void foo(int*a){
+        a = (int*)malloc(sizeof(int));
+    }
+    int main(){
+        int *p;
+        fun(p);
+        *p = 6;
+        printf("%d", *p);
+        return(0);
+    }
+    ```
+    > No `free()` is called
+
+14. In C, a pointer to a pointer variable is declared using **. How many bytes are allocated, deallocated and leaked in this program.
+    ```c
+    int main(){
+        int *p1, **p2;
+        p1 = malloc(sizeof(int));
+        *p1 = 5;
+        p2 = malloc(sizeof(int*));
+        *p2 = p1;
+        free(p1);
+        return 0;
+    }
+    ```
+    > There are memory leaks. No `free()` is called for `p2`
+
+15. What is the `double free` problem?
+    > Double free errors occur when `free()` is called more than onece with the same memory address as an argument  
+    > When `free()` is called twice with the same argument, the program's memory management data structures become corruptes  
+    > Every time free() is called, the address is added in the list of available memory blocks  
+    > The last address added to the list can by the next malloc() call  
+    > Since the freed address is present twice in the list, next two memory allocations will have the same address
+
+16. Type casting in C refers to changing a variable of one data type into another. With examples, describe advantages and pitfall of typecasting in C.
+    > Advantages
+    > - Type casting in C programming makes the program very lightweight
+    > - Type representation and hierarchies are some features we can take advantage of with the help of typecasting
+    > - Type casting helps programmers to convert one data type to another data type  
+    > 
+    > pitfall
+    > - the type casting may not fit for all the types
+
+17. Describe the difference between `little` and `big` endian representations
+    > **little endian**: Least byte is stored at the first address  
+    > **Big endian**: Least byte is stored at the last address  
+
+18. How many bytes are there in `unsigned int` a = `0x12345678`;  
+    Print the bytes one-by-one
+    > ```c
+    > int main(){
+    >     unsigned int a = 0x12345678;
+    >     char *p;
+    >     p = (char *) a;
+    > 
+    >     int i;
+    >     for(i = 0; i < 8; i++)
+    >         printf("%d", *(p+i));
+    > 
+    >     return 0;
+    > }
+    > ```
+
+19. You have two 32-bit integer variables.
+    ```c
+    unsigned int a = 0x12345678;
+    unsigned int b;
+    ```
+    Copy `a` into `b` byte-by-byte such that in the end of the copy operation, we have a and b equal
+    > ```c
+    > int main(){
+    >     unsigned int a = 0x12345678;
+    >     unsigned int b;
+    >     char *p = &a; 
+    >     char *q = &b;
+    >     p = (char *) a;
+    >     q = (char *) b;
+    > 
+    >     int i;
+    >     for(i = 0; i < 8; i++)
+    >         q[i] = p[i] ;
+    > 
+    >     return 0;
+    > }
+    > ```
+
+20. What is the memory hierarchy of a computer? What are the advantages of using a `memory hierarchy`?
+    > A computer system is made of different parts which are register, cache memory, main memory, hard disk, and magnetic tape
+    > It can balance access time and cost
+
+21. What is the locality of reference?
+    > Locality of reference is the tendency of a processor to acces the same set of memory locations repetively over a short period of time
+
+22. With a diagram, show the memory layout of a 2D matrix.
+    > As same as 2d array
+
+23. The following program negates a 2D array
+    ```c
+    int sum_array(int a[N][M]){
+        int i,j;
+        for(i = 0; i<M;i++){
+            for(j = 0; j<n; j++){
+                a[j][i] = -a[j][i];
+            }
+        }
+    }
+    ```
+    Why does this program cannot exploit memory hierarchy?  
+    Rewrite the program such that it can exploit the memory hierarchy and thus become faster.
+    > The 2D array is stored in Row-major order but this program is using in column-major order which means the 2D array will not be load to cache because it doesn't fit spatial locality
+
+## Week 3
+
+### Practice Problems
+
+1. During Week 2 you have seen how to implement a linked list in C. How can you make a linked-list more efficient by exploiting the memory hierarchy? For example, finding an element in the list becomes faster. There can be other operations as well.
+    > Store the elements of linked list in continuous addresses which will fit spatial locality and load the linked list to the cache
+
+2. What is a function pointer in C? Give an example where function pointer can be useful.
+    > ```c
+    > int (*foo)(int);
+    > ```
+
+3. Are they the same or different?
+    ```c
+    int (*foo)(int);
+    int *foo(int);
+    ```
+    > `int (*foo)(int)` is the declaration of the function pointer  
+    > `int *foo(int)` is the function returns pointer of type int
+
+4. The following C program verifies a password provided by a user. If the provided password matches with the stored password, then the program prints the contents of a secret function. Otherwise the program terminates.  
+   The program is running in a server and you have access to the program through a terminal. The program asks you to provide a 6-letter password. Your goal is to get inside the secret function.  
+   You are aware of the source code, but you do not know what the secret password is. Describe a way to cheat the password verification scheme. [Hint: see buffer overflow]  
+    ```c
+    #include<stdio.h>
+    #include<stdlib.h>
+    int secret_function(){
+        printf("Inside secret function!\n");
+        return 0;
+    }
+    int password_verify(){
+        // Assume password is of length 6
+        char received_password[7];
+        char password_stored[7]; // one extra for \0
+        FILE *fp;
+        // Program reads password from file
+        fp = fopen("secret_file", "r");
+        fscanf(fp, "%s", password_stored);
+        fclose(fp);
+        // Program receives user-input
+        printf("Enter 6 letter password: ");
+        scanf("%s", received_password);
+        // Verify password char-by-char
+        int i;
+        for(i=0; i<6; i++){
+            if(received_password[i] != password_stored[i]){
+                printf("Password not matched\n");
+                exit(-1);
+            }
+        }
+        printf("Password matched! Welcome!\n");
+        secret_function();
+        return 0;
+    }
+    int main(){
+        password_verify();
+        return 0;
+    }
+    ```
+    > `received_password` and `password_stored` are stored in continuous addresses and `scanf` doesn't check the length of input. So we can input `aaaaaaaaaaaaaa` to overwrite the `password_stored`. So that they are the same in value now
+
+## Week 4
+
+1. Why are modern computers multi-core?
+    > Multiple cores allow PCs to run multiple processes at the same time with greater ease, increasing your performance when multitasking or under the demands of powerful apps and programs. 
+
+2. What is the cache coherence problem? Describe a protocal to resolve this problem.
+    > The cache coherence problem is the challenge of keeping multiple local caches synchronized when one of the processors updates its local copy of data which is shared among multiple caches.  
+    > **MSI protocol** is a simple cache coherence protocol. In this protocol, each cache line is labeled with a state:  
+    > **M**: cache block has been modified. **S**: Other caches may be sharing this block. **I**: cache block is invalid
+
+3. Give an example where we must have a concurrent program instead of a sequenctial program.
+    > In factory, the center controller should handle different works at the same time
+
+4. Describe how to add two matrices using concurrent threads.
+    > Using a set of threads to calculate different column of the result matrix
+
+5. Describe how to transpose a matrix using concurrent threads.
+    > Using N(N is the number of columnes) threads to transpose Nth column and row
+
+6. Can you perform the above matrix transpose operation `in-place`, i.e., without creating or allocating any nticeable extra memory?
+    > Using N(N is the number of columnes) threads to transpose Nth column and row(operating in the same matrix)
+
+7. Describe how to compute matrix multiplication using concurrent threads.
+    > Split into submatrices. Compute submatrix multiplications in parallel using threads
+
+8. Is it possible to compute (and speedup) factorial computation using parallel threads?
+    > Computation of factorial can be split into multiple small groups
+
+9. Give an example of a computational problem where it is not possible to perform parallel computation.
+    > n-body problem in physics
+
+10. Explain why does this program compute unreliably?
+    ```c
+    void *functionC();
+    int counter =0;
+    main(){
+        int rc1,rc2;
+        pthread_t thread1,thread2;// Two threads execute functionC()
+        pthread_create(&thread1,NULL,&functionC,NULL);
+        pthread_create(&thread2,NULL,&functionC,NULL);
+        pthread_join(thread1,NULL);
+        pthread_join(thread2,NULL);
+        return 0;
+    }
+    void *functionC(){
+        counter++;
+        printf("Counter value: %d\n", counter);
+    }
+    ```
+    > Two threads share the same variable `counter`. It will cause race condition.
+
+11. Give an example where sharing a pointer to a stack variable by several concurrent threads leads to unreliable program execution.
+    > ```c
+    > void *functionC();
+    > int *counter = 0;
+    > main(){
+    >     int rc1,rc2;
+    >     pthread_t thread1,thread2;// Two threads execute functionC()
+    >     pthread_create(&thread1,NULL,&functionC,NULL);
+    >     pthread_create(&thread2,NULL,&functionC,NULL);
+    >     pthread_join(thread1,NULL);
+    >     pthread_join(thread2,NULL);
+    >     return 0;
+    > }
+    > void *functionC(){
+    >     *counter++;
+    >     printf("Counter value: %d\n", *counter);
+    > }
+    > ```
+
 ## Week 6
 
 ### Additional Exercises
