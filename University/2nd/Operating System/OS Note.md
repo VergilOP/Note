@@ -1,3 +1,29 @@
+- [Node of Operational System](#node-of-operational-system)
+  - [Week 1](#week-1)
+    - [Practice Problems](#practice-problems)
+  - [Week 2](#week-2)
+    - [Practice Questions](#practice-questions)
+  - [Week 3](#week-3)
+    - [Practice Problems](#practice-problems-1)
+  - [Week 4](#week-4)
+    - [Practice Questions](#practice-questions-1)
+  - [Week 6](#week-6)
+    - [Additional Exercises](#additional-exercises)
+    - [Programming Exercise](#programming-exercise)
+  - [Week 7](#week-7)
+    - [Additional Exercises](#additional-exercises-1)
+    - [Programming Exercise](#programming-exercise-1)
+  - [Week 8](#week-8)
+    - [Additional Exercises](#additional-exercises-2)
+  - [Week 9](#week-9)
+    - [Additional Exercises](#additional-exercises-3)
+  - [Week 10](#week-10)
+    - [Additional Exercises](#additional-exercises-4)
+  - [Mock Exam](#mock-exam)
+    - [Question 1](#question-1)
+    - [Question 2](#question-2)
+    - [Question 3](#question-3)
+
 # Node of Operational System
 
 ## Week 1
@@ -546,6 +572,8 @@
 
 ## Week 4
 
+### Practice Questions
+
 1. Why are modern computers multi-core?
     > Multiple cores allow PCs to run multiple processes at the same time with greater ease, increasing your performance when multitasking or under the demands of powerful apps and programs. 
 
@@ -927,7 +955,6 @@
 ### Question 1
 
 1. Will there be any memory leakage in the following program? Explain your answer.
-
     ```c
     int main()
     {
@@ -940,12 +967,11 @@
     }
     ```
     > The program will not leak memory   
-    > 先说出结论 (2 marks)  
-    > The allocated memory-block is pointed by A and later by both A and B. Hence, both A and B contain the same address. free(B) is the same as free(A) and hence there will be no memory leak.  
-    > 分配空间指向A然后A和B -> 所以共享同一个地址 -> 所以free(B)等于free(A) -> 所以无内存泄漏 (4 marks)
+    > *先说出结论 (2 marks)*  
+    > `The allocated memory-block` is pointed by A and later by both A and B. Hence, both A and B contain `the same address`. free(B) is `the same` as free(A) and hence there will be no memory leak.  
+    > *分配空间指向A -> 所以A和B共享同一个地址 -> 所以free(B)等于free(A) -> 所以无内存泄漏 (4 marks)*
 
 2. A programmer has written the following function with the aim to return a pointer to an array of 10 random integers (int) to a caller function. There is a serious problem with this code. Expain what is wrong, why it is a problem, and how it can be fixed. Use this to write a correct version of the function without changing the function-signature. Assume that the caller function of `randomArray` is responsible for freeing any memory occupied by the array.
-
     ```c
     int* randomArray(void)
     {
@@ -955,24 +981,25 @@
         return &array[0];
     }
     ```
-    > The array is allocated in the stack frame of randomArray(), hence it is a local object. The array object is only in scope during the excution of the function. At the completion of a randomArray() function call, the stack frame will be deallocated and the local array object will be out of scope.  
-    > If the function returns a pointer to an out-of-scope array object, then the pointerd data will not be reliable and hence the program output will not be reliable  
+    > The array is allocated in the `stack frame` of randomArray(), hence it is a local object. The array object is only `in scope` during the excution of the function. At the completion of a randomArray() function call, `the stack frame will be deallocated` and the local array object will `be out of scope`.  
+    > *解释原理*  
+    > If the function returns a pointer to an `out-of-scope array object`, then the pointed data will `not be reliable` and hence the program output will `not be reliable`  
+    > *解释后果  (3 marks)*  
     > Instead of creating a local array object in the stack fram, the function should allocate the array in the heap and then return a pointer to the heap-based array.  
-    > 解释错误 (3 marks)
-    ```c
-    int* randomArray(void)
-    {
-        int *array, i;
-        array = (int *) malloc (10*sizeof(int));
-        for (i = 0; i < 10; ++i)
-            array[i] = rand();
-        return array;
-    }
-    ```
-    > 纠正代码 (4 marks)
+    > *纠正错误*  
+    > ```c
+    > int* randomArray(void)
+    > {
+    >     int *array, i;
+    >     array = (int *) malloc (10*sizeof(int));
+    >     for (i = 0; i < 10; ++i)
+    >         array[i] = rand();
+    >     return array;
+    > }
+    > ```
+    > *纠正代码 (4 marks)*
 
 3. Consider the following two C functions `sum2Darray1` and `sum2Darray2`. Both of them compute the sum of all the elements of an input 2-demesional matrix. Which one of them will be able to exploit memory hierarchy and thus achieve faster computation time? Explain your answer.
-
     ```c
     int sum2Darray1(int a[N][M])
     {
@@ -993,8 +1020,110 @@
     }
     ```
     > Modern computers with memory hierarchy try to speedup computation by applying the principles of temporal and spatial locality. Thus, when a program tries to read one int object from the main memory, other adjacent int objects are also brought to the cache.  
-    > *identifying the fastest strategy (2 marks)*  
+    > *解释什么是Memory hierarchy和temporal,spatial locality (2 marks)*  
     > The function `sum2Darray1` reads the matrix elements along the columns. Whereas `sum2Darray2` reads the matrix elements along the rows. Since, the C programming language stores a 2D matrix in the row-major order, `sum2Darray2` offers better spatial locality  compared to `sum2Darray1`, and thus offers better performance.  
-    > *explanation (5 marks)*  
-    > Hence, Strategy2 will be more efficient
-    > 总结
+    > *解释 (5 marks)*  
+    > Hence, Strategy2 will be more efficient  
+    > *总结*
+
+### Question 2
+
+1. The question is about Main and Virtual Memory. Provide a brief answer.
+   
+    1. Why does a processor have a set of registers in addition to a large main memory?
+    > Registers are normally at the top of the memory hierarchy, and provide the fastest way to access data.
+
+    2. A scheduler controls the degree of multi-programming in an Operaing System. The schedular can send a process to which states(s)?
+    > Ready, waiting
+
+    3. Does adding more frames during Page Replacement always lead to improved performance?
+    > No. Adding more frames may decrease performance. Belady’s Anomaly
+
+    4. A system is running with following measure behaviour: CPU utilization 10%; Paging disk 95% Other I/O devices 3%. Explain which of the following actions will improve CPU utilization and why?
+       1. Install more main memory
+       2. Install a faster disk
+       3. Changing the degree of multi-programming
+        > All three actions will improve CPU utilization.  
+        > -With more main memory, more pages can stay in main memory and less paging to or from the disk is required.  
+        > -Faster disk means faster response and more throughput, so the CPU will get data more quickly.  
+        > -Decreasing the degree of multi-programming will help.  
+
+2. Briefly describe what the possible consequences are of a buffer overflow in the kernel
+    > Any answer that would correctly describe that arbitrary data may be overwritten, hence any process or even the kernel may be corrupted and crash.
+
+3. Consider the following piece of kernel code. The intention is that whenever data is written to a proc-file, this data is written to a device. The device provides two functions: `start transfer` starts the transfer of count bytes to the device and returns immediately, and `transfer finished`, which is called by the device when the data transfer is finished. The function `kernelWrite` should return the number of bytes transferred to the device.
+    ```c
+    int total˙transferred = 0;
+    /* total number of bytes transferred since module loaded */
+    int transferred = 0;
+    /* bytes transferred to device in single transaction */
+
+    /* called by device when transfer finished */
+    /* called in interrupt mode */
+    void transfer˙finished(int count) {
+       transferred = transferred + count;
+       /* wakeup waiting process */
+    }
+
+    /* called every time data is transferred to kern
+    ,as a result of writing to proc-file */
+    int kernelWrite(char * buffer, int count) {
+       /* buffer is pointer to user space */
+       start˙transfer(buffer, count);
+       /* go to sleep until woken up in transfer finish */
+       transferred = transferred + count;
+       return transferred;
+    }
+    void init module(void) {
+       /* set up proc-structure - code omitted */
+       proc-¿write˙proc = kernelWrite;
+    }
+    ```
+    This kernel code compiles correctly but does not work as intended. Identify these errors and suggest remedies. If you think critical sections are required, it is sufficient to indicate begin and end of a critical section, and whether you would use semaphores or spinlocks to protect the critical section.
+    > The errors and fixes are:
+    > -  The variable `transferred` is increased twice, whereas the variable `total_transferred` is not increased at all. Each variable must be increased once within a critical section. The variable `transferred` should be declared within the `kernelWrite` function and initialised to 0. If a critical section happens wthin `transfer_finished`, spinlocks must be used to protect this critical section. If a critical section happens within `kernelWrite`, semaphores should be used.
+    > - The data must be copied from `buffer`, which is in user space, to a buffer in kernel space eg. via `copy_from_user`.
+    > - The function `kernelWrite` needs to return the number of bytes transferred. In the proposed solution line 20 happens to be OK but this needs to be checked for other solutions.  
+    > 
+    > Other solutions are OK as long as they address the problems.
+
+### Question 3
+
+1.  Four processes running on a single-core processor (Table 1). Among all the Scheduling Algorithms, briefly explain which one you will prefer and which one you would like to avoid for the given scenario?
+    | Process | Type      | Arrival time | Burst time |
+    |---------|-----------|--------------|------------|
+    | P1      | CPU Bound | 0            | 50         |
+    | P2      | I/O Bound | 1            | 3          |
+    | P3      | I/O Bound | 2            | 4          |
+    | P4      | CPU Bound | 3            | 20         |
+    > We should avoid First Come, First Served (FCFS) Scheduling because processes with short burst time may have to wait for processes with long burst time. We can use either Shortest Job First (SJF) Scheduling, Shortest remaining time first (SRTF), Round Robin (RR).
+
+2.  Predict all possible outputs that the following C program will print to the console and briefly explain your answer. What will be the state of parent process? Briefly explain the behaviour of the program if we comment out the line number 16.
+    ```c
+    #include ¡sys/types.h¿
+    #include ¡sys/wait.h¿
+    #include ¡unistd.h¿
+    #include ¡stdio.h¿
+    #include ¡stdlib.h¿
+    int main() {
+        pid˙t wpid, child˙pid;
+        int status = 0;
+        int i;
+        for(i = 0; i ¡ 2; i++) {
+            if ((child˙pid = fork()) == 0) {
+                printf(”process “n”);
+            exit(0);
+            }
+        }
+        while ((wpid = wait(&status)) ¿ 0);
+        return 0;
+    }
+    ```
+    > If the fork() succeeds, Line 12 will be printed twice. If the fork() fails, then no output will be generated. Parent process will be in wait state. If we comment out line 16, the parent will not wait for the child process to complete (Zombie process).
+
+3. Your computer system uses Round Robin scheduler and is not very responsive and so you decide to change the scheduling time quantum from 50 msec to 1 msec. Now the performance is even worse. Why is this happening?
+    > Any correct answer that would describe that extra context switches are taking place
+
+4. Consider a concurrent system with two processes A and B (Figure 1). Assume y is a shared variable with value of 5. Describe how a race condition is possible and provide a solution to prevent the race condition from occurring.
+    > The assignment operation for y can be interrupted while execution leading to values different than actual value 5 after calling the method increment and decrement in a sequence.  
+    > Proposed solution : Make shared variables y and z atomic. Use any lock technique (mutex, semaphores, hardware lock etc).
