@@ -1046,7 +1046,7 @@
         > All three actions will improve CPU utilization.  
         > -With more main memory, more pages can stay in main memory and less paging to or from the disk is required.  
         > -Faster disk means faster response and more throughput, so the CPU will get data more quickly.  
-        > -Decreasing the degree of multi-programming will help.  
+        > -Decreasing the degree of multi-programming will help.(Less context switches)  
 
 2. Briefly describe what the possible consequences are of a buffer overflow in the kernel
     > Any answer that would correctly describe that arbitrary data may be overwritten, hence any process or even the kernel may be corrupted and crash.
