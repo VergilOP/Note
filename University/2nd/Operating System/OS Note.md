@@ -1,4 +1,4 @@
-- [Node of Operational System](#node-of-operational-system)
+- [Note of Operational System](#note-of-operational-system)
   - [Week 1](#week-1)
     - [Practice Problems](#practice-problems)
   - [Week 2](#week-2)
@@ -24,7 +24,7 @@
     - [Question 2](#question-2)
     - [Question 3](#question-3)
 
-# Node of Operational System
+# Note of Operational System
 
 ## Week 1
 
