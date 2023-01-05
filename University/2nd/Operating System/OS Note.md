@@ -1,4 +1,4 @@
-- [Note of Operational System](#note-of-operational-system)
+- [Note of Operating System](#note-of-operating-system)
   - [Week 1](#week-1)
     - [Practice Problems](#practice-problems)
   - [Week 2](#week-2)
@@ -24,7 +24,7 @@
     - [Question 2](#question-2)
     - [Question 3](#question-3)
 
-# Note of Operational System
+# Note of Operating System
 
 ## Week 1
 
