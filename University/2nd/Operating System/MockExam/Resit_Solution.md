@@ -252,6 +252,7 @@
     > |      | 2    | 2    | 2    | 1    | 1    |
     > |      |      | 3    | 3    | 3    | 2    |
     > | Miss | Miss | Miss | Miss | Miss | Miss |
+    > 
     > There are 6 page faults
     >
     > For LRU:
@@ -261,6 +262,7 @@
     > |      | 2    | 2    | 2    | 1    | 1    |
     > |      |      | 3    | 3    | 3    | 2    |
     > | Miss | Miss | Miss | Miss | Miss | Miss |
+    > 
     > There are 6 page faults
     >
     > For Optimal:
@@ -270,4 +272,5 @@
     > |      | 2    | 2    | 2    | 2   | 2   |
     > |      |      | 3    | 4    | 3   | 2   |
     > | Miss | Miss | Miss | Miss | Hit | Hit |
+    > 
     > There are 4 page faults
