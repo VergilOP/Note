@@ -39,7 +39,7 @@
     6 printf("%lu\n", (unsigned long) b);
     ```
     Assume that the value printed on screen is 2000, that numbers are represented in little endian, and that we are on a 64 bits machine. Each cell of the grid below corresponds to one byte in memory, bytes are contiguous from left to right and continue in the lower grid. Note that the cells available below are more than necessary, so it is up to you to decide where to begin the sequence of bytes. For simplicity, write in each cell the decimal representation of the respective byte.
-    > | 13 | 10 | 0 | 0 | 0 | 11 | 0 | 0 | 0 | 12 | 0 | 0 | 0 | 13 | 0 | 0 | 0 | The address of b (8 bytes because of 64 bits machine) |
+    > | 14 | 10 | 0 | 0 | 0 | 11 | 0 | 0 | 0 | 12 | 0 | 0 | 0 | 13 | 0 | 0 | 0 | The address of b (8 bytes because of 64 bits machine) |
 
 3. Interpret the struct of point (a) as a C struct definition and consider the code below (assume N ROWS and N COLS are some global integer positive constants)
     ```c
@@ -180,10 +180,10 @@
     > 5. Performs any necessary cleanup or initialization for the new process (resetting signal handlers)
 
 2. Consider three compute bound processes with 10, 6 and 4 units of burst time. Let us assume that these processes arrive at 0, 2 and 6 units of time respectively. For the Shortest Remaining Time First (SRTF), how many context switches are needed? Do not consider the context switches at time 0 or at the end.
-    > There would be 3 context switches needed for SRTF.   
-    > The `first` context switch would occur at time 2 when the second process arrives.  
-    > The `second` context switch would occur at time 8 when the second process finished and the third process starts.   
-    > The `third` and final context switch would occur at time 12 when the third process finishes executing.
+    > There would be 5 context switches needed for SRTF.   
+    > The `first` context switch would occur at time 2 when the first process is preempted(running to ready)(Not P1 because of not shortest remaining time) and the second process preempts (ready to running).  
+    > The `second` context switch would occur at time 8 when the second process finished and the third process starts(ready to running) (Not P1 because of not shortest remaining time).  
+    > The `third` and final context switch would occur at time 12 when the third process finishes executing(ready to running).
     > 
     > Time: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20   
     > Process: P1 P1 P2 P2 P2 P2 P2 P2 P3 P3 P3 P3 P1 P1 P1 P1 P1 P1 P1 P1
