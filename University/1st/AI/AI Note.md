@@ -1,130 +1,115 @@
-<!-- TOC start -->
+- [***AI Note***](#ai-note)
+  - [**1. Machine Learning Basics**](#1-machine-learning-basics)
+    - [1.1 Categories of machine learning](#11-categories-of-machine-learning)
+    - [1.2 Supervised learning workflow](#12-supervised-learning-workflow)
+    - [1.3 Model evaluation](#13-model-evaluation)
+    - [1.4 Summary](#14-summary)
+  - [**2. Clustering**](#2-clustering)
+    - [2.1 Clustering concepts](#21-clustering-concepts)
+    - [2.2 Hierarchical clustering](#22-hierarchical-clustering)
+    - [2.3 K-means](#23-k-means)
+    - [2.4 Gaussian mixture models(GMMs)/EM](#24-gaussian-mixture-modelsgmmsem)
+    - [4.2 Expectation-Maximization(EM Algorithm)](#42-expectation-maximizationem-algorithm)
+    - [4.3 Summary](#43-summary)
+  - [5. DBSCAN](#5-dbscan)
+    - [5.1 Density-based Clustering - DBSCAN](#51-density-based-clustering---dbscan)
+    - [5.2 The algorithm](#52-the-algorithm)
+  - [6. Supervised Learning](#6-supervised-learning)
+    - [6.1 Supervised Learning](#61-supervised-learning)
+    - [6.2 Training data](#62-training-data)
+    - [6.3 Terminology in Supervised Learning](#63-terminology-in-supervised-learning)
+    - [6.4 Applications of supervised learning](#64-applications-of-supervised-learning)
+  - [7. Linear Regression](#7-linear-regression)
+    - [7.1 Regression](#71-regression)
+    - [7.2 Univariate linear regression](#72-univariate-linear-regression)
+    - [7.3 Loss functions (or cost functions)](#73-loss-functions-or-cost-functions)
+    - [7.4 what we want to do](#74-what-we-want-to-do)
+    - [7.5 Gradient Descent](#75-gradient-descent)
+    - [7.6 Gradient](#76-gradient)
+  - [8. Logistic Regression](#8-logistic-regression)
+    - [8.1 Logistic regression](#81-logistic-regression)
+    - [8.2 Model formulation](#82-model-formulation)
+    - [8.3 Cost function](#83-cost-function)
+    - [8.4 Learning algorithm by gradient descent](#84-learning-algorithm-by-gradient-descent)
+  - [9. Neural Networks](#9-neural-networks)
+    - [9.1 Neural Networks](#91-neural-networks)
+    - [9.2 Overfitting](#92-overfitting)
+  - [10. Evaluation \& Hyperparameter Tuning](#10-evaluation--hyperparameter-tuning)
+    - [10.1 Recap](#101-recap)
+    - [10.3 Evaluating models for model choice](#103-evaluating-models-for-model-choice)
+    - [10.4 The holdout validation method](#104-the-holdout-validation-method)
+    - [10.5 k-fold Cross-validation](#105-k-fold-cross-validation)
+    - [10.6 Leave-one-out validation](#106-leave-one-out-validation)
+    - [10.7 Advantages \& Disadvantages](#107-advantages--disadvantages)
+  - [11. Naive Bayes](#11-naive-bayes)
+    - [11.1 Fundamental concepts in Probability Theory](#111-fundamental-concepts-in-probability-theory)
+    - [11.2 Bayes' Theorem](#112-bayes-theorem)
+    - [11.3 Naive Bayes for Categorical Independent Variables](#113-naive-bayes-for-categorical-independent-variables)
+    - [11.4 Naive Bayes for Numerical Independent Variables](#114-naive-bayes-for-numerical-independent-variables)
+  - [12. K-Nearest Neighbours](#12-k-nearest-neighbours)
+    - [12.1 Notation](#121-notation)
+    - [12.2 k-Nearest Neighbour](#122-k-nearest-neighbour)
+    - [12.3 k-NN algorithm and pros/cons](#123-k-nn-algorithm-and-proscons)
+    - [12.4 Summary](#124-summary)
+  - [13. Uninformed Search](#13-uninformed-search)
+    - [13.1 Asymptotic Analysis](#131-asymptotic-analysis)
+    - [13.2 Search Problem Formulation](#132-search-problem-formulation)
+    - [13.3 Breadth-First Search](#133-breadth-first-search)
+    - [13.4 Depth-First Search](#134-depth-first-search)
+    - [13.5 Variations of Depth-First Search](#135-variations-of-depth-first-search)
+  - [14. Informed Search](#14-informed-search)
+    - [14.1 Informed Search](#141-informed-search)
+    - [14.2 A\* Search](#142-a-search)
+    - [14.3 Summary](#143-summary)
+  - [15. Introduction to Optimisation](#15-introduction-to-optimisation)
+    - [15.1 Optimisation Problems](#151-optimisation-problems)
+    - [15.2 Artificial Intelligence Optimisation Algorithms](#152-artificial-intelligence-optimisation-algorithms)
+    - [15.3 Learning vs Optimisation](#153-learning-vs-optimisation)
+  - [16. Optimisation Problem Formulation](#16-optimisation-problem-formulation)
+    - [16.1 Formulating Optimisation Problems](#161-formulating-optimisation-problems)
+    - [16.2 Summary](#162-summary)
 
-- [AI Note](#ai-note)
-  * [1. Machine Learning Basics](#1-machine-learning-basics)
-    + [1.1 Categories of machine learning](#11-categories-of-machine-learning)
-    + [1.2 Supervised learning workflow](#12-supervised-learning-workflow)
-    + [1.3 Model evaluation](#13-model-evaluation)
-  * [2. Hierarchical Clustering](#2-hierarchical-clustering)
-    + [2.1 Clustering concepts](#21-clustering-concepts)
-    + [2.2 Hierarchical clustering](#22-hierarchical-clustering)
-  * [3. K-means](#3-k-means)
-    + [3.1 K-means](#31-k-means)
-  * [4. GMM/EM](#4-gmmem)
-    + [4.1 Gaussian mixture models(GMMs)](#41-gaussian-mixture-modelsgmms)
-    + [4.2 Expectation-Maximization(EM Algorithm)](#42-expectation-maximizationem-algorithm)
-    + [4.3 Summary](#43-summary)
-  * [5. DBSCAN](#5-dbscan)
-    + [5.1 Density-based Clustering - DBSCAN](#51-density-based-clustering---dbscan)
-    + [5.2 The algorithm](#52-the-algorithm)
-  * [6. Supervised Learning](#6-supervised-learning)
-    + [6.1 Supervised Learning](#61-supervised-learning)
-    + [6.2 Training data](#62-training-data)
-    + [6.3 Terminology in Supervised Learning](#63-terminology-in-supervised-learning)
-    + [6.4 Applications of supervised learning](#64-applications-of-supervised-learning)
-  * [7. Linear Regression](#7-linear-regression)
-    + [7.1 Regression](#71-regression)
-    + [7.2 Univariate linear regression](#72-univariate-linear-regression)
-    + [7.3 Loss functions (or cost functions)](#73-loss-functions-or-cost-functions)
-    + [7.4 what we want to do](#74-what-we-want-to-do)
-    + [7.5 Gradient Descent](#75-gradient-descent)
-    + [7.6 Gradient](#76-gradient)
-  * [8. Logistic Regression](#8-logistic-regression)
-    + [8.1 Logistic regression](#81-logistic-regression)
-    + [8.2 Model formulation](#82-model-formulation)
-    + [8.3 Cost function](#83-cost-function)
-    + [8.4 Learning algorithm by gradient descent](#84-learning-algorithm-by-gradient-descent)
-  * [9. Neural Networks](#9-neural-networks)
-    + [9.1 Neural Networks](#91-neural-networks)
-    + [9.2 Overfitting](#92-overfitting)
-  * [10. Evaluation & Hyperparameter Tuning](#10-evaluation--hyperparameter-tuning)
-    + [10.1 Recap](#101-recap)
-    + [10.3 Evaluating models for model choice](#103-evaluating-models-for-model-choice)
-    + [10.4 The holdout validation method](#104-the-holdout-validation-method)
-    + [10.5 k-fold Cross-validation](#105-k-fold-cross-validation)
-    + [10.6 Leave-one-out validation](#106-leave-one-out-validation)
-    + [10.7 Advantages & Disadvantages](#107-advantages--disadvantages)
-  * [11. Naive Bayes](#11-naive-bayes)
-    + [11.1 Fundamental concepts in Probability Theory](#111-fundamental-concepts-in-probability-theory)
-    + [11.2 Bayes' Theorem](#112-bayes-theorem)
-    + [11.3 Naive Bayes for Categorical Independent Variables](#113-naive-bayes-for-categorical-independent-variables)
-    + [11.4 Naive Bayes for Numerical Independent Variables](#114-naive-bayes-for-numerical-independent-variables)
-  * [12. K-Nearest Neighbours](#12-k-nearest-neighbours)
-    + [12.1 Notation](#121-notation)
-    + [12.2 k-Nearest Neighbour](#122-k-nearest-neighbour)
-    + [12.3 k-NN algorithm and pros/cons](#123-k-nn-algorithm-and-proscons)
-    + [12.4 Summary](#124-summary)
-  * [13. Uninformed Search](#13-uninformed-search)
-    + [13.1 Asymptotic Analysis](#131-asymptotic-analysis)
-    + [13.2 Search Problem Formulation](#132-search-problem-formulation)
-    + [13.3 Breadth-First Search](#133-breadth-first-search)
-    + [13.4 Depth-First Search](#134-depth-first-search)
-    + [13.5 Variations of Depth-First Search](#135-variations-of-depth-first-search)
-  * [14. Informed Search](#14-informed-search)
-    + [14.1 Informed Search](#141-informed-search)
-    + [14.2 A\* Search](#142-a-search)
-    + [14.3 Summary](#143-summary)
-  * [15. Introduction to Optimisation](#15-introduction-to-optimisation)
-    + [15.1 Optimisation Problems](#151-optimisation-problems)
-    + [15.2 Artificial Intelligence Optimisation Algorithms](#152-artificial-intelligence-optimisation-algorithms)
-    + [15.3 Learning vs Optimisation](#153-learning-vs-optimisation)
-  * [16. Optimisation Problem Formulation](#16-optimisation-problem-formulation)
-    + [16.1 Formulating Optimisation Problems](#161-formulating-optimisation-problems)
-    + [16.2 Summary](#162-summary)
+# ***AI Note***
 
-<!-- TOC end -->
-
-# AI Note
-
-## 1. Machine Learning Basics
+## **1. Machine Learning Basics**
 
 ### 1.1 Categories of machine learning
 
 - Supervised learning  
   有监督的学习
-
-  > Labeled data  
-  > 标记数据  
-  > Predict outcome/future  
-  > 预测结果/未来
+  > Labeled data 标记数据  
+  > Predict outcome/future 预测结果/未来
 
   - Classification: predict categorical class labels  
     分类:预测分类类别标签
-    - e.g. the handwritten digit (multi-class)  
-      例如，手写的数字（多类）
+    > e.g. the handwritten digit (multi-class) 例如，手写的数字（多类）
 
-  ![Classification_1.png](Images/Classification_1.png)
+    ![Classification_1.png](Images/Classification_1.png)
 
   - Regression: Prediction of continuous outcomes  
     回归: 对连续结果的预测
-    - e.g. students’ grade scores 例如学生的成绩
+    > e.g. students’ grade scores 例如学生的成绩
 
-  ![Regression_1.png](Images/Regression_1.png)
+    ![Regression_1.png](Images/Regression_1.png)
 
 - Unsupervised learning  
   无监督的学习
-
-  > No labels/targets  
-  > 无标签/目标  
-  > Find hidden structure/insights in data  
-  > 在数据中找到隐藏的结构/见解
+  > No labels/targets 无标签/目标  
+  > Find hidden structure/insights in data 在数据中找到隐藏的结构/见解
 
   - Clustering: Objectives within a cluster share a degree of
     similarity.  
     聚类: 集群内的目标有一定程度的相似性
-    - e.g. product recommendation  
-      例如产品推荐
+    > e.g. product recommendation 例如产品推荐
 
-  ![Clustering_1.png](Images/Clustering_1.png)
+    ![Clustering_1.png](Images/Clustering_1.png)
 
   - Dimensionality Reduction:  
     降维
-    - reduce data sparsity  
-      降低数据稀疏性
-    - reduce computational cost  
-      降低计算成本
+    > reduce data sparsity 降低数据稀疏性
+    > reduce computational cost 降低计算成本
 
-  ![Dimensionality Reduction_1 .png](Images/Dimensionality%20Reduction_1%20.png)
+    ![Dimensionality Reduction_1 .png](Images/Dimensionality%20Reduction_1%20.png)
 
 - Reinforcement learning  
   强化学习
@@ -137,15 +122,14 @@
   - Applications: chess, video games, some robots, self-driving cars  
     应用程序：国际象棋，电子游戏，一些机器人，自动驾驶汽车
 
-![Reinforcement learning_1.png](Images/Reinforcement%20learning_1.png)
+  ![Reinforcement learning_1.png](Images/Reinforcement%20learning_1.png)
 
 ### 1.2 Supervised learning workflow
 
-![Supervised learning workflow_1.png](Images/Supervised%20learning%20workflow_1.png)  
-![Supervised learning workflow_2.png](Images/Supervised%20learning%20workflow_2.png)
+  ![Supervised learning workflow_1.png](Images/Supervised%20learning%20workflow_1.png)  
+  ![Supervised learning workflow_2.png](Images/Supervised%20learning%20workflow_2.png)
 
-!Note: Training Data is used to build up the model and Test DAta is used
-to test the model
+> Note: `Training Data` is used to build up the model and `Test Data` is used to test the model
 
 ![Some algorithms_1.png](Images/Some%20algorithms_1.png)
 
@@ -153,11 +137,9 @@ to test the model
 
 - misclassification error  
   错误分类错误
+  ![Model evaluation_1.png](Images/Model%20evaluation_1.png)
 
-![Model evaluation_1.png](Images/Model%20evaluation_1.png)
-
-- other metrics  
-  其他指标
+- other metrics 其他指标
   - Accuracy (1-Error)
   - ROC, AUC
   - Precision, Recall
@@ -165,23 +147,27 @@ to test the model
   - (Cross) Entropy
   - Likelihood
   - Squared Error/MSE
-  - R2
+  - R<sup>2</sup>
 
-## 2. Hierarchical Clustering
+### 1.4 Summary
+
+- Major concepts of machine learning at a high level
+- Different types of machine learning tasks
+- The major steps of supervised learning: the workflow
+- Machine learning algorithms and evaluation
+
+## **2. Clustering**
 
 ### 2.1 Clustering concepts
 
 - Segment data into clusters, such that there is  
   将数据分割成集群，这样有
-  - high intra-cluster similarity  
-    高聚类内相似性
-  - low inter-cluster similarity  
-    低聚类间相似性
-- informally, finding natural groupings among objects  
+  - `high intra-cluster` similarity 高聚类内相似性
+  - `low inter-cluster` similarity 低聚类间相似性
+- Informally, finding natural groupings among objects  
   非正式地，在物体之间寻找自然的分组。
 
-- Clustering set-up  
-  聚类设置
+- Clustering set-up 聚类设置
   - Our data are: D = {x<sub>1</sub>, . . . , x<sub>N</sub>}.
   - Each data point is m-dimensional, i.e.  
     x<sub>i</sub> = <x<sub>i,1</sub>, . . . , x<sub>i,m</sub>>
@@ -198,17 +184,17 @@ to test the model
 
 - Types of Clustering Algorithms  
   聚类算法的类型
-  - Partitional clustering, e.g. K-means, K-medoids  
+  - `Partitional clustering`, e.g. K-means, K-medoids  
     分区聚类，例如K-means，K-medoids
-  - Hierarchical clustering  
+  - `Hierarchical clustering`  
     分层聚类
     - Bottom-up(agglomerative)  
       自下而上（凝聚）
     - Top-down  
       自上而下
-  - Density-based clustering, e.g. DBScan  
+  - `Density-based clustering`, e.g. DBScan  
     基于密度的聚类，例如DBScan
-  - Mixture density based clustering 基于混合密度的聚类
+  - `Mixture density based clustering` 基于混合密度的聚类
   - Fuzzy theory based, graph theory based, grid based, etc.  
     基于模糊理论、基于图论理论、基于网格理论等
 
@@ -218,53 +204,47 @@ to test the model
   criterion  
   使用某种标准创建对象集的分层分解
 - Produce a dendrogram  
-  生成树状图
+  生成树状图  
 
-![Hierarchical clustering_1.png](Images/Hierarchical%20clustering_1.png)
+  ![Hierarchical clustering_1.png](Images/Hierarchical%20clustering_1.png)
 
-- Agglomerative clustering illustration  
+- Agglomerative clustering algorithm  
   凝聚性的聚类说明
-  - Place each data point into its own singleton group  
+  1. Place each data point into its own singleton group  
     将每个数据点放到它自己的单例组中
-  - Repeat: iteratively merge the two closest groups  
+  2. `Repeat`: iteratively merge the two closest groups  
     重复：迭代地合并两个最近的组
-  - Until: all the data are merged into a single cluster  
+  3. `Until`: all the data are merged into a single cluster  
     直到：将所有数据都合并为单个集群
 
-- Output: a dendrogram  
-  输出：树状图
-- Reply on: a distance metric between clusters  
-  回复：集群之间的距离度量
+  - `Output`: a dendrogram  
+    输出：树状图
+  - `Reply on`: a distance metric between clusters  
+    回复：集群之间的距离度量
 
-![Agglomerative clustering illustration_1.png](Images/Agglomerative%20clustering%20illustration_1.png)
+    ![Agglomerative clustering illustration_1.png](Images/Agglomerative%20clustering%20illustration_1.png)
 
 - Measuring Distance between clusters
-  - Single linkage  
-    单连锁
-    - the similarity of the closest pair  
-      最近的一对之间的相似性
+  - Single linkage 单连锁
+    - the similarity of the closest pair 最近的一对之间的相似性
 
-  ![Measuring Distance between clusters_1.png](Images/Measuring%20Distance%20between%20clusters_1.png)
+    ![Measuring Distance between clusters_1.png](Images/Measuring%20Distance%20between%20clusters_1.png)
 
-  - Complete linkage  
-    完全连锁
+  - Complete linkage 完全连锁
     - the similarity of the furthest pair 最远的一对之间的相似性
 
-  ![Measuring Distance between clusters_2.png](Images/Measuring%20Distance%20between%20clusters_2.png)
+    ![Measuring Distance between clusters_2.png](Images/Measuring%20Distance%20between%20clusters_2.png)
 
-  - Group average  
-    组平均值
-    - the average similarity of all pairs  
-      所有成对的平均相似度
-    - more widely used  
-      更广泛地使用
+  - Group average 组平均值
+    - the average similarity of all pairs 所有成对的平均相似度
+    - more widely used 更广泛地使用
     - robust against noise 抗噪声强
 
-  ![Measuring Distance between clusters_3.png](Images/Measuring%20Distance%20between%20clusters_3.png)
+    ![Measuring Distance between clusters_3.png](Images/Measuring%20Distance%20between%20clusters_3.png)
 
 - Strengths, weaknesses, caveats  
   优势、弱点和注意事项
-  - Strengths  
+  - `Strengths`  
     优势
     - provides deterministic results  
       提供确定性结果
@@ -272,12 +252,12 @@ to test the model
       不需要预先指定集群的数量
     - can create clusters of arbitrary shapes  
       可以创建任意形状的集群吗
-  - Weakness  
+  - `Weakness`  
     缺点
     - does not scale up for large datasets, time complexity at least
       O(n<sup>2</sup>)  
       不可以扩展到大型数据集，时间复杂度至少为O(n<sup>2</sup>)
-  - Caveats  
+  - `Caveats`  
     注意事项
     - Different decisions about group similarities can lead to vastly
       different dendrograms.  
@@ -286,15 +266,13 @@ to test the model
       data for which such structure is not appropriate.
       该算法对数据强加了一个分层结构，即使是这种结构不合适的数据
 
-## 3. K-means
+### 2.3 K-means
 
-### 3.1 K-means
-
-- Centroid-based: describe each cluster by its mean  
+- `Centroid-based`: describe each cluster by its mean  
   基于质心的：用它的平均值来描述每个聚类
-- Goal: assign data to K.  
+- `Goal`: assign data to K.  
   目标：将数据分配给K
-- Algorithm objective: minimize the within-cluster variances of all
+- `Algorithm objective`: minimize the within-cluster variances of all
   clusters.  
   算法目标：最小化所有聚类的簇内方差
 
@@ -306,9 +284,7 @@ to test the model
 - Algorithm description  
   ![Algorithm description_1.png](Images/Algorithm%20description_1.png)
 
-## 4. GMM/EM
-
-### 4.1 Gaussian mixture models(GMMs)
+### 2.4 Gaussian mixture models(GMMs)/EM
 
 - Assume data was generated by a set of Gaussian distributions  
   假设数据是由一组高斯分布生成的
