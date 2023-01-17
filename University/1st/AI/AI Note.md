@@ -16,7 +16,7 @@
     - [3.1 Supervise Learning Concepts](#31-supervise-learning-concepts)
     - [3.2 Linear Regression](#32-linear-regression)
       - [3.2.1 Gradient Descent](#321-gradient-descent)
-    - [3.2.2 Extensions \& variants of regression problems](#322-extensions--variants-of-regression-problems)
+      - [3.2.2 Extensions \& variants of regression problems](#322-extensions--variants-of-regression-problems)
   - [8. Logistic Regression](#8-logistic-regression)
     - [8.1 Logistic regression](#81-logistic-regression)
     - [8.2 Model formulation](#82-model-formulation)
@@ -644,7 +644,7 @@
     单变量非线性回归  
     ![Gradient_7.png](Images/Gradient_7.png)
 
-### 3.2.2 Extensions & variants of regression problems
+#### 3.2.2 Extensions & variants of regression problems
   - Advantages of vector notation  
     矢量符号的优点
     - Vector notation in concise  
