@@ -17,13 +17,9 @@
     - [3.2 Linear Regression](#32-linear-regression)
       - [3.2.1 Gradient Descent](#321-gradient-descent)
       - [3.2.2 Extensions \& variants of regression problems](#322-extensions--variants-of-regression-problems)
-  - [8. Logistic Regression](#8-logistic-regression)
-    - [8.1 Logistic regression](#81-logistic-regression)
-    - [8.2 Model formulation](#82-model-formulation)
-    - [8.3 Cost function](#83-cost-function)
-    - [8.4 Learning algorithm by gradient descent](#84-learning-algorithm-by-gradient-descent)
-  - [9. Neural Networks](#9-neural-networks)
-    - [9.1 Neural Networks](#91-neural-networks)
+    - [3.3 Logistic Regression(for classification)](#33-logistic-regressionfor-classification)
+  - [**4. Neural Networks**](#4-neural-networks)
+    - [4.1 outline](#41-outline)
     - [9.2 Overfitting](#92-overfitting)
   - [10. Evaluation \& Hyperparameter Tuning](#10-evaluation--hyperparameter-tuning)
     - [10.1 Recap](#101-recap)
@@ -656,7 +652,8 @@
     - The cost function is the L2 as before  
       成本函数和前面一样是l2
     - So the gradient in both cases
-      is:![Gradient_8.png](Images/Gradient_8.png)
+      is:  
+      ![Gradient_8.png](Images/Gradient_8.png)
     - Ready to be plugged into the general gradient descent algorithm  
       准备好被插入到一般的梯度下降算法中
 
@@ -669,98 +666,97 @@
     descent will converge or not.  
     注：学习率alpha的选择取决于数据集和假设函数。因此，如果没有任何已知细节和给定任意选择，就不能估计梯度下降是否会收敛。
 
-## 8. Logistic Regression
-
-### 8.1 Logistic regression
+### 3.3 Logistic Regression(for classification)
 
 - It is a linear model for classification (contrary to its name!)  
   它是一个分类的线性模型（与它的名字相反！）
 
-- In regression, the targets are real values  
-  在回归中，目标是真实的值
-- In classification, the targets are categories, and they are called
-  labels  
-  在分类中，目标是类别，它们被称为标签
+- Recall the difference
+  - In `regression`, the targets are real values  
+    在回归中，目标是真实的值
+  - In `classification`, the targets are categories, and they are called `labels`  
+    在分类中，目标是类别，它们被称为标签
 
-### 8.2 Model formulation
+1. Model
+    - We want to put a boundary between 2 classes  
+      我们想在两个类之间设置一个界限
+    - If x has a single attribute, we can do it with a point  
+      如果x有一个单一的属性，我们可以用一个点来完成它  
+      ![Logistic Regression_1.png](Images/Logistic%20Regression_1.png)
+    - If x has 2 attributes, we can do it with a line  
+      如果x有两个属性，我们可以用一行来做  
+      ![Logistic Regression_2.png](Images/Logistic%20Regression_2.png)
+    - If x has 3 attributes, we can do it with a plane  
+      如果x有3个属性，我们可以用一个平面来做
+    - If x has more than 3 attributes, we can do it with a hyperplane (can’t
+      draw it anymore)  
+      如果x有超过3个属性，我们可以用一个超平面来完成它（不能再绘制它了）
+    - If the classes are linearly separable, the training error will be 0  
+      如果这些类是线性可分的，则训练误差将为0
 
-- We want to put a boundary between 2 classes  
-  我们想在两个类之间设置一个界限
-- If x has a single attribute, we can do it with a point  
-  如果x有一个单一的属性，我们可以用一个点来完成它  
-  ![Logistic Regression_1.png](Images/Logistic%20Regression_1.png)
-- If x has 2 attributes, we can do it with a line  
-  如果x有两个属性，我们可以用一行来做  
-  ![Logistic Regression_2.png](Images/Logistic%20Regression_2.png)
-- If x has 3 attributes, we can do it with a plane  
-  如果x有3个属性，我们可以用一个平面来做
-- If x has more than 3 attributes, we can do it with a hyperplane (can’t
-  draw it anymore)  
-  如果x有超过3个属性，我们可以用一个超平面来完成它（不能再绘制它了）
-- If the classes are linearly separable, the training error will be 0  
-  如果这些类是线性可分的，则训练误差将为0
+    ![Model formulation_1.png](Images/Model%20formulation_1.png)
 
-![Model formulation_1.png](Images/Model%20formulation_1.png)
+    ![Model formulation_2.png](Images/Model%20formulation_2.png)
 
-![Model formulation_2.png](Images/Model%20formulation_2.png)
+    - Meaning of the sigmoid function
+      - The sigmoid function takes a single argument (note, 𝒘<sup>𝑇</sup>𝒙
+        is one number).  
+        s型函数采用单个参数（注意，𝒘<sup>𝑇</sup>𝒙是一个数字）
+      - It always returns a value between 0 and 1. The meaning of this value
+        is the probability that the label is 1  
+        它总是返回一个介于0到1之间的值。这个值的含义是标签为1的概率  
+        ![Model formulation_3.png](Images/Model%20formulation_3.png)
+        - If this is smaller than 0.5 then we predict label 0  
+          如果这小于0.5，那么我们预测标签为0
+        - if this is larger than 0.5 then we predict label 1  
+          如果这大于0.5，那么我们预测标签1
+      - There is a slim chance that the sigmoid outputs exactly 0.5. The set
+        of all possible inputs for which this happens is called the `decision boundary`.  
+        sigmoid 输出恰好为 0.5 的可能性很小。所有可能的集合发生这种情况的输入称为决策边界
 
-- The sigmoid function takes a single argument (note, 𝒘<sup>𝑇</sup>𝒙
-  is one number).  
-  s型函数采用单个参数（注意，𝒘<sup>𝑇</sup>𝒙是一个数字）
-- It always returns a value between 0 and 1. The meaning of this value
-  is the probability that the label is 1  
-  它总是返回一个介于0到1之间的值。这个值的含义是标签为1的概率  
-  ![Model formulation_3.png](Images/Model%20formulation_3.png)
-  - If this is smaller than 0.5 then we predict label 0  
-    如果这小于0.5，那么我们预测标签为0
-  - if this is larger than 0.5 then we predict label 1  
-    如果这大于0.5，那么我们预测标签1
-- There is a slim chance that the sigmoid outputs exactly 0.5. The set
-  of all possible inputs for which this happens is called the decision
-  boundary.  
-  sigmoid 输出恰好为 0.5 的可能性很小。所有可能的集合发生这种情况的输入称为决策边界
+2. Cost function
 
-### 8.3 Cost function
+    - each data point contributes a cost, and the overall cost function is
+      the average of these  
+      每个数据点贡献一个成本，总体成本函数是这些成本的平均值
+    - the cost is a function of the free parameters of the model  
+      代价是模型的自由参数的函数
 
-- each data point contributes a cost, and the overall cost function is
-  the average of these  
-  每个数据点贡献一个成本，总体成本函数是这些成本的平均值
-- the cost is a function of the free parameters of the model  
-  代价是模型的自由参数的函数
+    ![Cost function_1.png](Images/Cost%20function_1.png)
 
-![Cost function_1.png](Images/Cost%20function_1.png)
+    - What we want to do
+      - Given training data  
+        ![Cost function_2.png](Images/Cost%20function_2.png)
+      - Fit the model  
+        ![Cost function_4.png](Images/Cost%20function_4.png)
+      - By minimising the cross-entropy cost function  
+        ![Cost function_3.png](Images/Cost%20function_3.png)
 
-- Given training data  
-  ![Cost function_2.png](Images/Cost%20function_2.png)
-- Fit the model  
-  ![Cost function_4.png](Images/Cost%20function_4.png)
-- By minimising the cross-entropy cost function  
-  ![Cost function_3.png](Images/Cost%20function_3.png)
+    - When the actual output y = 0 and the prediction is 1, the logistic
+      regression cost function assigns a cost of ∞ 当实际输出 y=0 且预测为 1
+      时，逻辑回归成本函数分配的成本为 ∞
 
-- When the actual output y=0 and the prediction is 1, the logistic
-  regression cost function assigns a cost of ∞ 当实际输出 y=0 且预测为 1
-  时，逻辑回归成本函数分配的成本为 ∞
+3. Learning algorithm by gradient descent
 
-### 8.4 Learning algorithm by gradient descent
+    - We use gradient descent (again!) to minimise the cost function, i.e.
+      to find the best weight values.  
+      我们使用梯度下降（再次如此！）使成本函数最小化，即找到最佳的权重值
+    - The gradient vector is:  
+      梯度向量为  
+      ![Learning algorithm by gradient descent_1.png](Images/Learning%20algorithm%20by%20gradient%20descent_1.png)  
+      ![Learning algorithm by gradient descent_2.png](Images/Learning%20algorithm%20by%20gradient%20descent_2.png)
 
-- We use gradient descent (again!) to minimise the cost function, i.e.
-  to find the best weight values.  
-  我们使用梯度下降（再次如此！）使成本函数最小化，即找到最佳的权重值
-- The gradient vector is:  
-  梯度向量为  
-  ![Learning algorithm by gradient descent_1.png](Images/Learning%20algorithm%20by%20gradient%20descent_1.png)  
-  ![Learning algorithm by gradient descent_2.png](Images/Learning%20algorithm%20by%20gradient%20descent_2.png)
+    - Learning algorithm for logistic regression  
+      ![Learning algorithm by gradient descent_3.png](Images/Learning%20algorithm%20by%20gradient%20descent_3.png)
 
-- Learning algorithm for logistic regression  
-  ![Learning algorithm by gradient descent_3.png](Images/Learning%20algorithm%20by%20gradient%20descent_3.png)
-
-- Nonlinear logistic regression: instead of linear function inside the
-  exp in the sigmoid, we can use polynomial functions of the input
-  attributes  
-  非线性逻辑回归：我们可以使用输入属性的多项式函数，而不是s型exp中的线性函数
-- Multi-class logistic regression: uses a multi-valued version of
-  sigmoid  
-  多类逻辑回归：使用多值版本的s型算法
+- Extensions
+  - Nonlinear logistic regression: instead of linear function inside the
+    exp in the sigmoid, we can use polynomial functions of the input
+    attributes  
+    非线性逻辑回归：我们可以使用输入属性的多项式函数，而不是s型exp中的线性函数
+  - Multi-class logistic regression: uses a multi-valued version of
+    sigmoid  
+    多类逻辑回归：使用多值版本的s型算法
 
 - Examples of application of logistic regression  
   逻辑回归的应用例子
@@ -772,48 +768,48 @@
     medical data of patients who either do or do not have a specific
     disease
 
-## 9. Neural Networks
-
-### 9.1 Neural Networks
+## **4. Neural Networks**
 
 - Highly nonlinear models having many free parameters  
   具有许多自由参数的高度非线性模型
-- Can be used for either regression and classification depending on the
+- Can be used for either `regression` and `classification` depending on the
   choice of loss function  
   可根据损失函数的选择进行回归和分类
 - Can replace nonlinear regression and nonlinear logistic regression
   which are less practical  
   可以代替不太实用的非线性回归和非线性逻辑回归
 
+### 4.1 outline
+
 1. Model formulation
 
-- Sometimes called “architecture”  
-  有时也被称为“建筑”
-- Designing this for the problem at hand is the main challenge  
-  针对当前的问题设计这个方案是主要的挑战
+    - Sometimes called “architecture”  
+      有时也被称为“建筑”
+    - Designing this for the problem at hand is the main challenge  
+      针对当前的问题设计这个方案是主要的挑战
 
 2. Cost function
 
-- for regression: Mean square error between predictions and observed
-  targets  
-  回归：预测和观测目标之间的均方误差
-- for classification: Logistic loss (also called cross-entropy)  
-  用于分类：Logistic损失（也称为交叉熵）
+    - for regression: Mean square error between predictions and observed
+      targets  
+      回归：预测和观测目标之间的均方误差
+    - for classification: Logistic loss (also called cross-entropy)  
+      用于分类：Logistic损失（也称为交叉熵）
 
 3. Learning algorithm by gradient descent
 
-- The update rules are non-trivial, because the models are much more
-  complex  
-  更新规则不简单，因为模型要复杂得多
-- It is performed by an algorithm called “Backpropagation”  
-  它是由一种叫做“反向传播”的算法来执行的
-- Conceptually, each iteration of Backprop takes a gradient descent step  
-  从概念上讲，每一次的后prop迭代都采取一个梯度下降步骤
-- Implementations exist that are able to compute the grandient
-  automatically  
-  存在着能够自动计算宏伟建筑的实现
-- To update the weights of the Neural Network  
-  更新神经网络的权重
+    - The update rules are non-trivial, because the models are much more
+      complex  
+      更新规则不简单，因为模型要复杂得多
+    - It is performed by an algorithm called “Backpropagation”  
+      它是由一种叫做“反向传播”的算法来执行的
+    - Conceptually, each iteration of Backprop takes a gradient descent step  
+      从概念上讲，每一次的后prop迭代都采取一个梯度下降步骤
+    - Implementations exist that are able to compute the grandient
+      automatically  
+      存在着能够自动计算宏伟建筑的实现
+    - To update the weights of the Neural Network  
+      更新神经网络的权重
 
 - use the Backpropagation algorithm and set a good learning rate (alpha)
   for it:  
