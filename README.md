@@ -38,7 +38,7 @@
 
 - [Software Engineering](University/2nd/Software%20Engineering)
 
-- [AI2](University/2nd/Artificial%20Intelligence)
+- [AI2](University/2nd/Artificial%20Intelligence%202)
 
 - [Security and Networks](University/2nd/Security%20and%20Networks)
 
