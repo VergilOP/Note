@@ -12,6 +12,12 @@
       - [Data Encryption Standard(DES)](#data-encryption-standarddes)
       - [Padding](#padding)
       - [Block Cipher Modes](#block-cipher-modes)
+    - [Introduction to Public-Key Cryptography](#introduction-to-public-key-cryptography)
+    - [Secure Key Exchange](#secure-key-exchange)
+    - [RSA Encryption](#rsa-encryption)
+    - [Digital Signatures](#digital-signatures)
+      - [Features of hand-written signatures in Digital World](#features-of-hand-written-signatures-in-digital-world)
+      - [Ensure hardness of forgery](#ensure-hardness-of-forgery)
   - [Access Control](#access-control)
   - [Introduction to Networking](#introduction-to-networking)
   - [Security Protocols](#security-protocols)
@@ -281,6 +287,86 @@
         > DecCTR(Enc(N||Ctr) ⊕ M1) ⊕ (M1 ⊕ M2) =  
         > Enc(N||Ctr) ⊕ (Enc(N||Ctr) ⊕ M1) ⊕ (M1 ⊕ M2) =  
         > M2?  
+
+### Introduction to Public-Key Cryptography
+
+- Cryptography: four directions
+  - Confidentiality
+  - Message Integrity
+  - Sender Authentication
+  - (soft)Sender Undeniability(non-repudiation)
+
+- Symmetric Key Cryptography  
+  ![Symmetric Key Cryptography](./images/Symmetric%20Key%20Cryptography.png)
+  - Each person has two keys: one public and one Private
+  - The keys are asymmetric: Related but not identical
+  - Public Key is known to everyone, private key is kept secret  
+  ![Public Key Encryption](./images/Public%20Key%20Encryption.png)  
+  ![Public Key Infrastructure](./images/Public%20Key%20Infrastructure.png)
+
+### Secure Key Exchange
+
+- MultiRound Solution  
+  ![MultiRound Solution](./images/MultiRound%20Solution.png)
+
+- Diffie Hellman Key Exchange
+  - Parameters
+    - Choose a prime $p$ and a number $g < p$ such that $gcd(g, p − 1) = 1$.
+  - Diffie-Hellman Assumption
+    - There is no polynomial time algorithm to compute $g^{ab} \mod p$ from $g^a mod p$ and $g^b \mod p$
+
+    ![Diffie-Hellman Assumption](./images/Diffie-Hellman%20Assumption.png)
+
+- Man-in-the-Middle Attack  
+  ![Man-in-the-Middle Attack](./images/Man-in-the-Middle%20Attack.png)
+  - How to Solve?
+    - **Basic Idea**: Authenticating Public Key.
+    - **Requirement**: Trusted Third Party: Certification Authority(CA).
+
+### RSA Encryption
+
+- Textbook RSA scheme: Three Algorithms (Gen, Enc, Dec)
+  - Gen: on input a security parameter $\lambda$
+    - Generate two distinct primes $p$ and $q$ of same bit-size $\lambda$
+    - Compute $N = pq$ and $\phi(N) = (p - 1)(q - 1)$
+    - Choose at random an integer $e(1<e<\phi(N))$ such that $gcd(e, \phi(N)) = 1$
+    - Let $Z_N^*={x | 0<x<N\space and \space gcd(x,N)=1}$
+    - Compute $d$such that $e·d ≡ 1(\mod\phi(N))$
+    - Public key $PK = (e, N)$. The private key $SK = e, d, N$
+  - Enc(PK,m): On input an element $m\in Z_N^*$ and the public key PK = (e,N) compute
+    - $c = m^e(\mod N)$
+  - Dec(SK, c): On input an element $c\in Z_N^*$ and the private key SK = (e, d, N) compute
+    - $m = c^d(\mod N)$
+
+### Digital Signatures
+
+#### Features of hand-written signatures in Digital World
+
+- Hand-written Signatures
+  - Function: bind a statement/message to its authors
+  - Verification is public. (against a prior authenticated one)
+  - Properties
+    - **Correctness**: A correct signature should always be verified true
+    - **Security**: Hard to forge
+
+#### Ensure hardness of forgery
+
+- Signature Schemes
+  - Correctness  
+    ![Signature Schemes_Correctness](./images/Signature%20Schemes_Correctness.png)
+  - Unforgeability:  
+    Must output forgery for a message for which the attacker did not request the signature.  
+    ![Signature Schemes_Unforgeability](./images/Signature%20Schemes_Unforgeability.png)
+  > - RSA Full Domain Hash
+  >   - Public Functions A hash function $H :\{0, 1 \}^*\space\rArr Z_N^*$ 
+  >   - Keygen: Run RSA.Keygen. $pk = (e,N), sk = (d, N)$
+  >   - Sign: Input: sk, M. Output  
+  >     $\sigma = RSA.Dec(sk, H(M)) = H(M)^d \mod N$
+  >   - Verify: Input: $sk,M,\sigma$. If $RSA.Enc(pk,\sigma) = H(M)$ output accept, else reject
+  >   - If $\sigma^e \mod N = H(M)$, output accept, else reject
+  > 
+  > - Note
+  >   - A hash function takes string of arbitrary length as input and produces a fixed length output. For cryptographic hash functions, given a $z$, it is very expensive to find $x$ such that $H(x) = z$
 
 ## Access Control
 
