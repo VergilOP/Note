@@ -37,3 +37,9 @@
 - [Operating System](University/2nd/Operating%20System)
 
 - [Software Engineering](University/2nd/Software%20Engineering)
+
+- [AI2](University/2nd/Artificial%20Intelligence)
+
+- [Security and Networks](University/2nd/Security%20and%20Networks)
+
+- [Team Project](University/2nd/Team%20Project)
