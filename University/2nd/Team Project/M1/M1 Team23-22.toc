@@ -1,0 +1,23 @@
+\contentsline {section}{Table of Contents}{1}{Doc-Start}%
+\contentsline {section}{\numberline {1}S1 ranking}{3}{section.1}%
+\contentsline {section}{\numberline {2}Agreed, coherent project concept \& personas \& mockups}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Project concept}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}mockups}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Scheduler}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}To-do List}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Anti-procrastination}{5}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Diary}{6}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Alarm/Timer}{6}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Email notifications}{6}{subsubsection.2.2.6}%
+\contentsline {subsubsection}{\numberline {2.2.7}History}{6}{subsubsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.3}Persona}{8}{subsection.2.3}%
+\contentsline {section}{\numberline {3}CI pipeline setup}{10}{section.3}%
+\contentsline {section}{\numberline {4}Meeting diary}{11}{section.4}%
+\contentsline {section}{\numberline {5}S2 task allocation \& planning}{14}{section.5}%
+\contentsline {subsubsection}{\numberline {5.0.1}Scheduler}{14}{subsubsection.5.0.1}%
+\contentsline {subsubsection}{\numberline {5.0.2}To-do List}{14}{subsubsection.5.0.2}%
+\contentsline {subsubsection}{\numberline {5.0.3}Anti-procrastination}{14}{subsubsection.5.0.3}%
+\contentsline {subsubsection}{\numberline {5.0.4}Diary}{14}{subsubsection.5.0.4}%
+\contentsline {subsubsection}{\numberline {5.0.5}Alarm/Timer}{14}{subsubsection.5.0.5}%
+\contentsline {subsubsection}{\numberline {5.0.6}Email notifications}{14}{subsubsection.5.0.6}%
+\contentsline {subsubsection}{\numberline {5.0.7}History}{14}{subsubsection.5.0.7}%
