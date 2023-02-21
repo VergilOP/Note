@@ -14,8 +14,11 @@
       - [Solving CSPs by DFS](#solving-csps-by-dfs)
       - [Backtracking Search](#backtracking-search)
         - [Filtering](#filtering)
-      - [Ordering](#ordering)
-      - [Example: Backtracking + Forward Checking + Ordering](#example-backtracking--forward-checking--ordering)
+        - [Ordering](#ordering)
+        - [Example: Backtracking + Forward Checking + Ordering](#example-backtracking--forward-checking--ordering)
+      - [Tree Search vs Local Search](#tree-search-vs-local-search)
+      - [Local Search for CSPs](#local-search-for-csps)
+      - [Summary: CSPs](#summary-csps)
 
 
 # AI2 Note
@@ -427,7 +430,7 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
   ![Forward Checking](./images/Forward%20Checking.png)
 
-#### Ordering
+##### Ordering
 
 - Consider minimum remaining values, i.e.,choose the variable with the fewest legal values left in its domain
 - Example: There are three variabels A,B,and C, all with domain{0,1,2}. The constraint is A ≤ B < C
@@ -436,6 +439,98 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
   ![Ordering](./images/Ordering.png)
 
-#### Example: Backtracking + Forward Checking + Ordering
+##### Example: Backtracking + Forward Checking + Ordering
 
 - Example: There are three variables A,B,C, all with domain{0,1,2}. The constraints: A ≤ B< C and A + B + C = 3. Tie is broken alphabetically/numerically
+
+  ![Backtracking_Example](./images/Backtracking_Example.png)
+
+- Minesweeper
+  - Variables:
+    - $X_1,X_2,X_3,X_4$
+  - Domain:
+    - D = {0,1}, where 0 denotes not a mine and 1 denotes a mine
+  - Constraints
+    - $X_1 = 1$
+    - $X_1 + X_2 = 1$
+    - $X_1 + X_2 + x_3 + X_4 = 3$
+    - $X_4 = 1$
+    - ...
+  - Based on the forward checking and ordering, the order of variables to be visited is (tie is broken numerically):
+    - $X_1\rArr X_2\rArr X_4 \rArr X_3$
+
+#### Tree Search vs Local Search
+
+- Tree Search methods: systematically search the spce of assignments
+  - Start with an empty assignment
+  - Assign a value to an unassigned variable and deal with constraints on the way until a solution is found
+
+- But what if the space is too big and even infinite, so in any resonable time, systematic search may fail to consider enough of the space to give any meaningful result
+
+- Local Search method: not systematically search the space but design to find solutions quickly on average
+  - Start with an(arbitrary) complete assignment, so constraints can be violated
+  - Try to improve the assignment iteratively
+
+#### Local Search for CSPs
+
+- Example: There are three variables A,B,C, all with domain {0,1,2}. The constraints: A ≤ B < C
+
+  ![LocalSearch](./images/LocalSearch.png)
+
+- A typical local search algorithm(i.e. hill climbing for CSPs): Randomly generate a complete assignment  
+  While stop criterion not met
+  - Step 1: Variable selection - randomly select a constraint-violeted variable
+  - Step 2: Value selection(min-conflict heuristic) - choose a value that violates the fewest constraints
+
+- Example: N-Queens
+  - Problem: N-queens puzzle is the problem of placing N chess queens on an NxN chessboard so that no two queens threaten each other
+    ![LocalSearch_NQueen](./images/LocalSearch_NQueen.png)
+    - Formulation - Variables: Q1, Q2, Q3, Q4; Domains: {1,2,3,4}; Constraints: $\forall i,j$, not-threatening(Qi, and Qj)
+    - Randomly generate a complete assignment
+    - Assume we first consider Q3, then Q3 going to column 4 has fewest constraints violated;
+    - Assume then we consider Q1, then Q1 going to column 3 has fewest constraints violated;
+    - Assume next we consider Q4, then Q4 going to column 2 has fewest constraints violated;
+    - Stop execution and return the solution.
+  
+- Can Local Search always guarantee finding a solution
+  - Local search may get stuck in somewhere based on the problem's landscape and search strategy
+  ![LocalSearch_example](./images/LocalSearch_example.png)
+  - But it is effective in practice: can solve the million-queens problem in an average of 50 steps
+
+#### Summary: CSPs
+
+- CSPs are a special class of search problems
+  - States are partial assignment
+  - Goal test defined by constraints
+- Basic strategy: Backtracking
+- Speed-ups
+  - Filtering: forward checking
+  - Ordering
+- Local search: not systematically search the space, start with a (bad) complete assignment and improve it iteratively
+  - Not only apply to CSPs, but to various optimisation problems
+
+- Optimisation
+
+  - Optimisation problem: search problem with preferences, i.e. objective funciton(s)
+  - They consist of variables, domains, objective function(s)
+    - Objectives:
+      - Single-objective optimisation problems, e.g., Travelling Salesman Problem(TSP): minimising the cost of the travelling
+      - Multi-objective optimisation problems, e.g., TSP with and additional objective: minimising the time of the travelling
+    - Constraints:
+      - Unconstrained optimisation problems
+      - Constrained optimisation problems
+  - Tree search methods may not work for optimisation problems, e.g. in some continuous search space
+  - Local search methods can be effective for optimisation problems
+
+- Local Search for Optimisation
+  
+  ![LocalSearch_Optimisation](./images/LocalSearch_Optimiazation.png)
+  - Generally fast and memory efficient
+  - Can deal with problems where the search state is difficult to represent/formulate
+  - Can be used in an online setting when the problem changes, e.g., in airline scheduling problem
+
+- Local search methods
+  - Hill climbing, e.g. gradient descent
+  - Simulated annealing, tabu search(keep a small list of recently visited solutions and forbid the algorithm to return to those solutions)
+  - Population-based local search: evolutionary computation(e.g., genetic algorithms)  
+  ![LocalSearch_Method](./images/LocalSearch_Method.png)
