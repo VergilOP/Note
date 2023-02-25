@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.3)  21 FEB 2023 22:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.3)  22 FEB 2023 15:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -660,22 +660,22 @@ LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <28> not available
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
 (Font)              scaled to size 28.0pt on input line 47.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 66.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 12.045pt on input line 66.
+(Font)              scaled to size 12.045pt on input line 69.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 66.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 15.05624pt on input line 66.
+(Font)              scaled to size 15.05624pt on input line 69.
 (d:/texlive/2022/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
 File: ctex-zhmap-windows.tex 2021/12/12 v2.5.8 Windows font map loader for pdfTeX and DVIPDFMx (CTEX)
 {d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1
 
 ]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 71.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 15.05624pt on input line 71.
+(Font)              scaled to size 15.05624pt on input line 74.
  (./M1 Team23-22.toc
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
 (Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 1.
@@ -695,165 +695,234 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \newpage
+l.77 \newpage
               [1]
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 87.
+ (d:/texlive/2022/texmf-dist/tex/latex/ctex/fd/c70rm.fd
+File: c70rm.fd 2021/12/12 v2.5.8 Chinese font definition (CTEX)
+)
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 87.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 98.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 98.
+(Font)              scaled to size 10.0pt on input line 93.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 98.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 93.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 98.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 93.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 98.
+(Font)              scaled to size 10.0pt on input line 93.
  [2]
-Overfull \vbox (32.46432pt too high) has occurred while \output is active []
-
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <9.03374> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 95.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 9.03374pt on input line 95.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.03374> on input line 95.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 95.
  [3]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 102.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 111.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 12.045pt on input line 102.
+(Font)              scaled to size 12.045pt on input line 111.
 
-Overfull \hbox (18.28465pt too wide) in paragraph at lines 104--105
-\T1/ClearSans-TLF/regular/n/10.53937 tures of a cal-en-dar and a to-do list, and also pro-vides email no-ti-fi-ca-tions. With the anti-procrastination
+Overfull \hbox (23.61122pt too wide) in paragraph at lines 113--114
+\T1/ClearSans-TLF/regular/n/10.53937 tures of a sched-uler and a to-do list, and also pro-vides email no-ti-fi-ca-tions. With the anti-procrastination
  []
 
-<./images/Mockup_Todo_list.png, id=140, 1941.2525pt x 1112.155pt>
+<./images/Mockup_Scheduler.png, id=142, 882.29625pt x 332.24126pt>
+File: ./images/Mockup_Scheduler.png Graphic file (type png)
+<use ./images/Mockup_Scheduler.png>
+Package pdftex.def Info: ./images/Mockup_Scheduler.png  used on input line 135.
+(pdftex.def)             Requested size: 452.9679pt x 170.5713pt.
+[4]
+<./images/Mockup_Todo_list.png, id=150, 1941.2525pt x 1112.155pt>
 File: ./images/Mockup_Todo_list.png Graphic file (type png)
 <use ./images/Mockup_Todo_list.png>
-Package pdftex.def Info: ./images/Mockup_Todo_list.png  used on input line 128.
+Package pdftex.def Info: ./images/Mockup_Todo_list.png  used on input line 144.
 (pdftex.def)             Requested size: 452.9679pt x 259.50671pt.
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 129.
-(d:/texlive/2022/texmf-dist/tex/latex/ctex/fd/c70rm.fd
-File: c70rm.fd 2021/12/12 v2.5.8 Chinese font definition (CTEX)
-) [4]
-<./images/Mockup_Anti-procrastination.png, id=148, 1329.96875pt x 754.82pt>
+<./images/Mockup_Anti-procrastination.png, id=151, 1329.96875pt x 754.82pt>
 File: ./images/Mockup_Anti-procrastination.png Graphic file (type png)
 <use ./images/Mockup_Anti-procrastination.png>
-Package pdftex.def Info: ./images/Mockup_Anti-procrastination.png  used on input line 138.
+Package pdftex.def Info: ./images/Mockup_Anti-procrastination.png  used on input line 154.
 (pdftex.def)             Requested size: 452.9679pt x 257.0846pt.
-<./images/Mockup_Diary.jpg, id=149, 1034.86626pt x 583.17876pt>
+ [5 <./images/Mockup_Scheduler.png> <./images/Mockup_Todo_list.png>]
+<./images/Mockup_Diary.jpg, id=162, 1034.86626pt x 583.17876pt>
 File: ./images/Mockup_Diary.jpg Graphic file (type jpg)
 <use ./images/Mockup_Diary.jpg>
-Package pdftex.def Info: ./images/Mockup_Diary.jpg  used on input line 147.
+Package pdftex.def Info: ./images/Mockup_Diary.jpg  used on input line 163.
 (pdftex.def)             Requested size: 452.9679pt x 255.26466pt.
- [5 <./images/Mockup_Todo_list.png> <./images/Mockup_Anti-procrastination.png>]
-<./images/Mockup_History.png, id=160, 1941.2525pt x 1112.155pt>
+<./images/Mockup_AlarmTimer.png, id=163, 865.2325pt x 484.81125pt>
+File: ./images/Mockup_AlarmTimer.png Graphic file (type png)
+<use ./images/Mockup_AlarmTimer.png>
+Package pdftex.def Info: ./images/Mockup_AlarmTimer.png  used on input line 172.
+(pdftex.def)             Requested size: 452.9679pt x 253.81215pt.
+ [6 <./images/Mockup_Anti-procrastination.png> <./images/Mockup_Diary.jpg>]
+<./images/Mockup_History.png, id=174, 1941.2525pt x 1112.155pt>
 File: ./images/Mockup_History.png Graphic file (type png)
 <use ./images/Mockup_History.png>
-Package pdftex.def Info: ./images/Mockup_History.png  used on input line 160.
+Package pdftex.def Info: ./images/Mockup_History.png  used on input line 181.
 (pdftex.def)             Requested size: 452.9679pt x 259.50671pt.
- [6 <./images/Mockup_Diary.jpg> <./images/Mockup_History.png>]
-<./images/Persona_Zijun.jpg, id=171, 1927.2pt x 1084.05pt>
+<./images/Mockup_Email_normal.png, id=175, 1346.02875pt x 758.835pt>
+File: ./images/Mockup_Email_normal.png Graphic file (type png)
+<use ./images/Mockup_Email_normal.png>
+Package pdftex.def Info: ./images/Mockup_Email_normal.png  used on input line 190.
+(pdftex.def)             Requested size: 452.9679pt x 255.3605pt.
+<./images/Mockup_Email.png, id=176, 1257.69875pt x 712.6625pt>
+File: ./images/Mockup_Email.png Graphic file (type png)
+<use ./images/Mockup_Email.png>
+Package pdftex.def Info: ./images/Mockup_Email.png  used on input line 191.
+(pdftex.def)             Requested size: 452.9679pt x 256.66705pt.
+ [7 <./images/Mockup_AlarmTimer.png> <./images/Mockup_History.png>]
+<./images/Persona_Zijun.jpg, id=186, 1927.2pt x 1084.05pt>
 File: ./images/Persona_Zijun.jpg Graphic file (type jpg)
 <use ./images/Persona_Zijun.jpg>
-Package pdftex.def Info: ./images/Persona_Zijun.jpg  used on input line 171.
-(pdftex.def)             Requested size: 380.49136pt x 214.02722pt.
-<./images/Persona_Chance.jpg, id=172, 1158.3275pt x 678.535pt>
+Package pdftex.def Info: ./images/Persona_Zijun.jpg  used on input line 200.
+(pdftex.def)             Requested size: 452.9679pt x 254.78487pt.
+<./images/Persona_Chance.jpg, id=187, 1158.3275pt x 678.535pt>
 File: ./images/Persona_Chance.jpg Graphic file (type jpg)
 <use ./images/Persona_Chance.jpg>
-Package pdftex.def Info: ./images/Persona_Chance.jpg  used on input line 172.
-(pdftex.def)             Requested size: 380.49136pt x 222.88188pt.
-<./images/Persona_Samuel.jpg, id=173, 1954.30125pt x 1110.1475pt>
-File: ./images/Persona_Samuel.jpg Graphic file (type jpg)
-<use ./images/Persona_Samuel.jpg>
-Package pdftex.def Info: ./images/Persona_Samuel.jpg  used on input line 173.
-(pdftex.def)             Requested size: 380.49136pt x 216.13063pt.
- [7]
-Overfull \vbox (10.25356pt too high) has occurred while \output is active []
-
- [8 <./images/Persona_Zijun.jpg> <./images/Persona_Chance.jpg> <./images/Persona_Samuel.jpg>]
-<./images/Persona_Gilead.png, id=187, 1503.6175pt x 845.1575pt>
+Package pdftex.def Info: ./images/Persona_Chance.jpg  used on input line 201.
+(pdftex.def)             Requested size: 452.9679pt x 265.34198pt.
+ [8 <./images/Mockup_Email_normal.png> <./images/Mockup_Email.png>] [9 <./images/Persona_Zijun.jpg> <./images/Persona_Chance.jpg>]
+<./images/Persona_Gilead.png, id=203, 1503.6175pt x 845.1575pt>
 File: ./images/Persona_Gilead.png Graphic file (type png)
 <use ./images/Persona_Gilead.png>
-Package pdftex.def Info: ./images/Persona_Gilead.png  used on input line 182.
-(pdftex.def)             Requested size: 380.49136pt x 213.86806pt.
- [9 <./images/Persona_Gilead.png>]
-<./images/pipeline_install_gitlab_runner.png, id=195, 839.38594pt x 472.76625pt>
+Package pdftex.def Info: ./images/Persona_Gilead.png  used on input line 210.
+(pdftex.def)             Requested size: 452.9679pt x 254.60667pt.
+<./images/Persona_Bogdan.png, id=204, 1287.81125pt x 723.70375pt>
+File: ./images/Persona_Bogdan.png Graphic file (type png)
+<use ./images/Persona_Bogdan.png>
+Package pdftex.def Info: ./images/Persona_Bogdan.png  used on input line 211.
+(pdftex.def)             Requested size: 452.9679pt x 254.54794pt.
+<./images/Persona_Samuel.jpg, id=205, 1954.30125pt x 1110.1475pt>
+File: ./images/Persona_Samuel.jpg Graphic file (type jpg)
+<use ./images/Persona_Samuel.jpg>
+Package pdftex.def Info: ./images/Persona_Samuel.jpg  used on input line 218.
+(pdftex.def)             Requested size: 416.72963pt x 236.71208pt.
+<./images/Persona_Smit.png, id=206, 852.18375pt x 478.78876pt>
+File: ./images/Persona_Smit.png Graphic file (type png)
+<use ./images/Persona_Smit.png>
+Package pdftex.def Info: ./images/Persona_Smit.png  used on input line 219.
+(pdftex.def)             Requested size: 416.72963pt x 234.14098pt.
+<./images/Persona_Matt.png, id=207, 1019.81pt x 577.15625pt>
+File: ./images/Persona_Matt.png Graphic file (type png)
+<use ./images/Persona_Matt.png>
+Package pdftex.def Info: ./images/Persona_Matt.png  used on input line 220.
+(pdftex.def)             Requested size: 416.72963pt x 235.85179pt.
+ [10 <./images/Persona_Gilead.png> <./images/Persona_Bogdan.png>]
+Overfull \vbox (34.63942pt too high) has occurred while \output is active []
+
+ [11 <./images/Persona_Samuel.jpg> <./images/Persona_Smit.png> <./images/Persona_Matt.png>]
+<./images/pipeline_install_gitlab_runner.png, id=225, 839.38594pt x 472.76625pt>
 File: ./images/pipeline_install_gitlab_runner.png Graphic file (type png)
 <use ./images/pipeline_install_gitlab_runner.png>
-Package pdftex.def Info: ./images/pipeline_install_gitlab_runner.png  used on input line 193.
+Package pdftex.def Info: ./images/pipeline_install_gitlab_runner.png  used on input line 229.
 (pdftex.def)             Requested size: 380.49136pt x 214.30103pt.
-<./images/pipeline_work.png, id=196, 1927.95282pt x 1048.66782pt>
+<./images/pipeline_work.png, id=226, 1927.95282pt x 1048.66782pt>
 File: ./images/pipeline_work.png Graphic file (type png)
 <use ./images/pipeline_work.png>
-Package pdftex.def Info: ./images/pipeline_work.png  used on input line 194.
+Package pdftex.def Info: ./images/pipeline_work.png  used on input line 230.
 (pdftex.def)             Requested size: 380.49136pt x 206.9456pt.
-<./images/pipeline_success.png, id=197, 1927.95282pt x 1048.66782pt>
+<./images/pipeline_success.png, id=227, 1927.95282pt x 1048.66782pt>
 File: ./images/pipeline_success.png Graphic file (type png)
 <use ./images/pipeline_success.png>
-Package pdftex.def Info: ./images/pipeline_success.png  used on input line 195.
+Package pdftex.def Info: ./images/pipeline_success.png  used on input line 231.
 (pdftex.def)             Requested size: 380.49136pt x 206.9456pt.
- [10 <./images/pipeline_install_gitlab_runner.png> <./images/pipeline_work.png> <./images/pipeline_success.png>]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 204--225
+ [12 <./images/pipeline_install_gitlab_runner.png> <./images/pipeline_work.png> <./images/pipeline_success.png>]
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 240--261
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 228--246
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 264--282
 [] 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 249--267
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 285--303
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 270--289
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 306--325
 [] 
  []
 
-[12] [13]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 294.
-
-<./images/S2_To-do_List.png, id=223, 292.84406pt x 155.83218pt>
+[14]
+<./images/S2_Scheduler.png, id=248, 735.49782pt x 603.75563pt>
+File: ./images/S2_Scheduler.png Graphic file (type png)
+<use ./images/S2_Scheduler.png>
+Package pdftex.def Info: ./images/S2_Scheduler.png  used on input line 332.
+(pdftex.def)             Requested size: 385.02547pt x 316.0644pt.
+ [15]
+<./images/S2_To-do_List.png, id=254, 728.7225pt x 405.01312pt>
 File: ./images/S2_To-do_List.png Graphic file (type png)
 <use ./images/S2_To-do_List.png>
-Package pdftex.def Info: ./images/S2_To-do_List.png  used on input line 300.
-(pdftex.def)             Requested size: 226.48395pt x 120.52377pt.
-
+Package pdftex.def Info: ./images/S2_To-do_List.png  used on input line 341.
+(pdftex.def)             Requested size: 385.02547pt x 213.98848pt.
+<./images/S2_Anti-Procrastination.png, id=255, 729.47531pt x 469.755pt>
+File: ./images/S2_Anti-Procrastination.png Graphic file (type png)
+<use ./images/S2_Anti-Procrastination.png>
+Package pdftex.def Info: ./images/S2_Anti-Procrastination.png  used on input line 350.
+(pdftex.def)             Requested size: 385.02547pt x 247.9368pt.
+ [16 <./images/S2_Scheduler.png> <./images/S2_To-do_List.png>]
+<./images/S2_Diary.png, id=265, 746.79pt x 556.32843pt>
+File: ./images/S2_Diary.png Graphic file (type png)
+<use ./images/S2_Diary.png>
+Package pdftex.def Info: ./images/S2_Diary.png  used on input line 359.
+(pdftex.def)             Requested size: 385.02547pt x 286.83067pt.
+<./images/S2_Alarm.png, id=266, 740.7675pt x 432.86719pt>
+File: ./images/S2_Alarm.png Graphic file (type png)
+<use ./images/S2_Alarm.png>
+Package pdftex.def Info: ./images/S2_Alarm.png  used on input line 368.
+(pdftex.def)             Requested size: 344.2531pt x 201.16226pt.
+ [17 <./images/S2_Anti-Procrastination.png> <./images/S2_Diary.png>]
+<./images/S2_Email.png, id=276, 742.27313pt x 767.11594pt>
+File: ./images/S2_Email.png Graphic file (type png)
+<use ./images/S2_Email.png>
+Package pdftex.def Info: ./images/S2_Email.png  used on input line 377.
+(pdftex.def)             Requested size: 344.2531pt x 355.7805pt.
+<./images/S2_History.png, id=277, 740.7675pt x 622.57594pt>
+File: ./images/S2_History.png Graphic file (type png)
+<use ./images/S2_History.png>
+Package pdftex.def Info: ./images/S2_History.png  used on input line 386.
+(pdftex.def)             Requested size: 385.02547pt x 323.59885pt.
+ [18 <./images/S2_Alarm.png> <./images/S2_Email.png>] 
 AED: lastpage setting LastPage
-[14 <./images/S2_To-do_List.png>] (./M1 Team23-22.aux)
+[19 <./images/S2_History.png>] (./M1 Team23-22.aux)
 Package rerunfilecheck Info: File `"M1 Team23-22".out' has not changed.
-(rerunfilecheck)             Checksum: 6F87D940085CA8412EF7B15F20E8A68D;3131.
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 78 ({)
-### bottom level 
+(rerunfilecheck)             Checksum: F68F6A8879BC655E3EDB9ADB04C7AE88;3036.
+ ) 
 Here is how much of TeX's memory you used:
- 15201 strings out of 478268
- 262679 string characters out of 5850346
- 556283 words of memory out of 5000000
- 33039 multiletter control sequences out of 15000+600000
- 534971 words of font info for 58 fonts, out of 8000000 for 9000
+ 15520 strings out of 478268
+ 270696 string characters out of 5850346
+ 557065 words of memory out of 5000000
+ 33321 multiletter control sequences out of 15000+600000
+ 542930 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,117p,772b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{d:/texlive/2022/texmf-dist/fonts/enc/dvips/clearsans/clr_zxbkm4.enc}<d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on "M1 Team23-22.pdf" (15 pages, 3173908 bytes).
+ 75i,15n,117p,772b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Windows/Fonts/simsun.ttc>{d:/texlive/2022/texmf-dist/fonts/enc/dvips/clearsans/clr_zxbkm4.enc}<d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><d:/texlive/2022/texmf-dist/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
+Output written on "M1 Team23-22.pdf" (20 pages, 4275412 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 
