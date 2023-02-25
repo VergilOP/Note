@@ -8,17 +8,18 @@
     - [Search recap](#search-recap)
     - [Constraint Satisfaction Problems](#constraint-satisfaction-problems)
   - [Solving CSPs](#solving-csps)
-    - [Cryptarithmetic](#cryptarithmetic)
-    - [Solving CSPs by standard search formulation](#solving-csps-by-standard-search-formulation)
       - [Solving CSPs by BFS](#solving-csps-by-bfs)
       - [Solving CSPs by DFS](#solving-csps-by-dfs)
       - [Backtracking Search](#backtracking-search)
         - [Filtering](#filtering)
         - [Ordering](#ordering)
         - [Example: Backtracking + Forward Checking + Ordering](#example-backtracking--forward-checking--ordering)
-      - [Tree Search vs Local Search](#tree-search-vs-local-search)
+    - [Tree Search vs Local Search](#tree-search-vs-local-search)
       - [Local Search for CSPs](#local-search-for-csps)
-      - [Summary: CSPs](#summary-csps)
+    - [Summary: CSPs](#summary-csps)
+    - [Question:](#question)
+  - [Games](#games)
+    - [Quiz](#quiz)
 
 
 # AI2 Note
@@ -179,33 +180,37 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 ## Search and Constraint Satisfaction Problems
 
 - What is Search?
-  - Search is not about prediction but about choice and decision-making, such as plainning and assigning
-  - Search techniques are universal problem-solving methods
+  - Search is not about prediction but about choice and decision-making, such as plainning and assigning  
+    搜索不是关于预测，而是关于选择和决策，比如计划和分配
+  - Search techniques are universal problem-solving methods  
+    搜索技术是解决问题的通用方法。
   - Examples of search: path-finding(Google map), taking next move in games(AlphaGo), and task assigning(Uber taxi)
+
+> Search is the process of navigating from a start state to a goal state by transitioning through intermediate states  
+> 搜索是通过转换到中间状态，从起始状态导航到目标状态的过程
 
 ### Search recap
 
 - Search Problems
-  - Search is the process of navigating from a start state to a goal state by transitioning through intermediate states
+  - Search is the process of navigating from a start state to a goal state by transitioning through intermediate states  
+    搜索是通过转换到中间状态，从起始状态导航到目标状态的过程
   - A search problem consists of
-    - State space: all possible states
-    - Start state: where the agent begins the search
-    - Goal state: the desired state that the agent is looking for
-    - Goal test: whether the goal state is achieved or not
-    - A successor function(also called transition function, often associated with a cost): given a certain state, what actions are available and for those actions what are the next stage the agent will land into
-  - A solution is a sequnce of actions which transforms the start state to a goal state
+    - **State space**: all possible states
+    - **Start state**: where the agent begins the search
+    - **Goal state**: the desired state that the agent is looking for
+    - **Goal test**: whether the goal state is achieved or not
+    - **A successor function**(also called transition function, often associated with a cost): given a certain state, what actions are available and for those actions what are the next stage the agent will land into
+  - A **solution** is a sequnce of actions which transforms the start state to a goal state
 
 - State Space Graph and Search Tree
-  - State spce graph: a mathematical representation of a search problem
+  - **State spce graph**: a mathematical representation of a search problem
     - Nodes represent states
     - Arcs represent successor functions  
-
     ![State space graph](./images/State%20spcace%20graph.png)
-  - A search tree: the process of solving the search problem can be abstracted as a search tree.
+  - **A search tree**: the process of solving the search problem can be abstracted as a search tree.
     - The start state is the root node
     - Children correspond to successors
-    - Nodes show states, but correspond to plans that achieve those states
-  
+    - Nodes show states, but correspond to plans that achieve those states  
     ![Search Tree](./images/Search%20Tree.png)
 
 - Generic tree search
@@ -220,9 +225,9 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
     end
   ```
   - Important things:
-    - Frontier: to store the nodes waiting for expansion.
-    - Expansion: to find and display the children of the node
-    - Expansion strategy: to decide which node in Frontier to expand, also called to explore.
+    - **Frontier**: to store the nodes waiting for expansion.
+    - **Expansion**: to find and display the children of the node
+    - **Expansion strategy**: to decide which node in Frontier to expand, also called to explore.
 
 - Depth-First Search(DFS)
   - The number inside a node represent the order in which the node is expanded (tie is broken from left to right)
@@ -230,17 +235,16 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 - Breadth-First Search(BFS)
   - The number inside a node represent the order in which the node is expanded (tie is broken from left to right)
 
+### Constraint Satisfaction Problems
+
 - Another type of search problems: Identification
   - All the above cases are about planning, which is only one type of search problems.
   - Planning: a sequence of actions
     - We care about the path to the goal
   - Identification: an assignment
     - We care about the goal itself, not the path
-    - For example, a taxi firm assigns taxis a, b, c to customers x, y, z such that the cost incurred is minimal
-
+    - For example, a taxi firm assigns taxis a, b, c to customers x, y, z such that the cost incurred is minimal  
   ![Identification](./images/Identification.png)
-
-### Constraint Satisfaction Problems
 
 - Search ‐> Identification ‐> CSP
   - **Constraint Satisfaction Problems (CSPs)**: Identification problems have constraints to be satisfied; there is no preference in CSPs.
@@ -249,11 +253,11 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
 - CSPs
   - A constraint satisfaction problem consists of
-    - A set of variables
-    - A domain for each variable
-    - A set of constraints
-  - In a CSP, an assignment is complete if every variable has a value, otherwise it is partial
-  - Solutions are complete assignments satisfying all the constraints
+    - **A set of variables**
+    - **A domain for each variable**
+    - **A set of constraints**
+  - In a CSP, an assignment is **complete** if every variable has a value, otherwise it is **partial**
+  - **Solutions** are complete assignments satisfying all the constraints
   - Example: Module scheduling problem
     - **Variables** - Modules: AI1, Data Structure, Software Engineering, OOP, AI2, Neural Computation
     - **Domain** - year-term: {1-1, 1-2, 2-1, 2-2, 3-1, 3-2}
@@ -269,77 +273,72 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
     - Goal test is a set of **constraints** specifying allowable combinations of values of variables.
     - An example of a formal representation language, in which many search algorithms
     - This allows useful general-purpose algorithms with more power than standard search algorithms.
-
-- Example: Map Colouring
-  - **Problem**: Map colouring problem is to paint a map is such a way that none of adjacent regions can have the same colour
-  
-    ![MapColouring_uncoloured](./images/MapColouring_uncoloured.png)
-    - **Variables**: WA, NT, Q, NSW, V, SA, T
-    - **Domain**: D = {red, green, blue}
-    - **Constraints**: adjacent regions must have different colours
-      - WA ≠ NT, WA ≠ SA, NT ≠ SA, NT ≠ Q, ...
-    - **Solutions**: {WA = red, NT = green, Q = red, NSW = green, V = red, SA = blue, T = green}
-
-    ![MapColouring_coloured](./images/MapColouring_coloured.png)
+  > - **Example**: Map Colouring
+  >   - **Problem**: Map colouring problem is to paint a map is such a way that none of adjacent regions can have the same colour
+  >   
+  >     ![MapColouring_uncoloured](./images/MapColouring_uncoloured.png)
+  >     - **Variables**: WA, NT, Q, NSW, V, SA, T
+  >     - **Domain**: D = {red, green, blue}
+  >     - **Constraints**: adjacent regions must have different colours
+  >       - WA ≠ NT, WA ≠ SA, NT ≠ SA, NT ≠ Q, ...
+  >     - **Solutions**: {WA = red, NT = green, Q = red, NSW = green, V = red, SA = blue, T = green}  
+  >     ![MapColouring_coloured](./images/MapColouring_coloured.png)
 
 - Constraint Graphs
-  - Constraint graphs are used to represent relations among constraints in CSPs, where nodes correspond to the variables and arcs reflect the constraints
-
+  - Constraint graphs are used to represent relations among constraints in CSPs, where nodes correspond to the variables and arcs reflect the constraints  
   ![Constraint Graphs](./images/ConstraintGraphs.png)
 
-- Example: Sudoku
-  - **Problem**: Sudoku is to fill a 9×9 grid with digits so that each column, each row, and each of the regions contain all of the digits from 1 to 9
-  
-  ![Sudoku](./images/Sudoku.png)
-    - **Variables**: each open cell
-    - **Domain**: D = {1,2,3,…,9}
-    - **Constraints**:
-      - Each row contains different numbers
-      - Each column contains different numbers
-      - Each region contains different numbers
+  > - **Example**: Sudoku
+  >   - **Problem**: Sudoku is to fill a 9×9 grid with digits so that each column, each row, and each of the regions contain all of the digits from 1 to 9  
+  >   ![Sudoku](./images/Sudoku.png)
+  >     - **Variables**: each open cell
+  >     - **Domain**: D = {1,2,3,…,9}
+  >     - **Constraints**:
+  >       - Each row contains different numbers
+  >       - Each column contains different numbers
+  >       - Each region contains different numbers
 
 - When a constraint relates to more than two variables
   - Use a square to represent a constraint.
   - The square connects all the variables involved in that constraint
 
-- Example: Minesweeper
-  - **Variables**: All squares to be uncovered $X_1, X_2,...$
-  - **Domain**:D = {0, 1} , where 0 denotes not a mine and 1 denotes a mine
-  - **Constraint description**: The number on a square is the sum of its neighbour’s values.
-
-  ![Minesweeper](./images/Minesweeper.png)
+  > - **Example**: Minesweeper
+  >   - **Variables**: All squares to be uncovered $X_1, X_2,...$
+  >   - **Domain**:D = {0, 1} , where 0 denotes not a mine and 1 denotes a mine
+  >   - **Constraint description**: The number on a square is the sum of its neighbour’s values.  
+  > ![Minesweeper](./images/Minesweeper.png)
   > $X_1 = 1$  
   > $X_1 + X_2 = 1$  
   > ...
 
-- Example: N‐Queens
-  - Problem: N‐queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
-  - Variables: ܺ $X_{ij}$ , where $i$ is the $i$th row and $j$ is the $j$th column
-  - Domain: D = {0, 1}, where 1 means having a queen
-  - Constraints:
-    - One queen each row:
-      $$
-        \forall i, j, k \in\{1,2, \ldots, N\}, j \neq k:\left(X_{i j}, X_{i k}\right) \in\{(0,0),(0,1),(1,0)\}
-      $$
-    - One queen each column:
-      $$
-      \forall i, j, k \in\{1,2, \ldots, N\}, j \neq k:\left(X_{j i}, X_{k i}\right) \in\{(0,0),(0,1),(1,0)\}
-      $$
-    - One queen each diagonal:
-      $$
-      \begin{gathered}
-      \forall i, j, k \in\{1,2, \ldots, N\}, i+k \leq N, j+k \leq N: \\
-      \left(X_{i j}, X_{i+k, j+k}\right) \in\{(0,0),(0,1),(1,0)\} \\
-      \forall i, j, k \in\{1,2, \ldots, N\}, i+k \leq N, j-k \geq 1: \\
-      \left(X_{i j}, X_{i+k, j-k}\right) \in\{(0,0),(0,1),(1,0)\}
-      \end{gathered}
-      $$
-    - Must have $N$ queens in total: $\sum_{i, j \in\{1,2, \ldots, N\}} X_{i j}=N$
+  > - **Example**: N‐Queens
+  >   - **Problem**: N‐queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
+  >   - **Variables**: ܺ $X_{ij}$ , where $i$ is the $i$th row and $j$ is the $j$th column
+  >   - **Domain**: D = {0, 1}, where 1 means having a queen
+  >   - **Constraints**:
+  >     - One queen each row:
+  >       $$
+  >         \forall i, j, k \in\{1,2, \ldots, N\}, j \neq k:\left(X_{i j}, X_{i k}\right) \in\{(0,0),(0,1),(1,0)\}
+  >       $$
+  >     - One queen each column:
+  >       $$
+  >       \forall i, j, k \in\{1,2, \ldots, N\}, j \neq k:\left(X_{j i}, X_{k i}\right) \in\{(0,0),(0,1),(1,0)\}
+  >       $$
+  >     - One queen each diagonal:
+  >       $$
+  >       \begin{gathered}
+  >       \forall i, j, k \in\{1,2, \ldots, N\}, i+k \leq N, j+k \leq N: \\
+  >       \left(X_{i j}, X_{i+k, j+k}\right) \in\{(0,0),(0,1),(1,0)\} \\
+  >       \forall i, j, k \in\{1,2, \ldots, N\}, i+k \leq N, j-k \geq 1: \\
+  >       \left(X_{i j}, X_{i+k, j-k}\right) \in\{(0,0),(0,1),(1,0)\}
+  >       \end{gathered}
+  >       $$
+  >     - Must have $N$ queens in total: $\sum_{i, j \in\{1,2, \ldots, N\}} X_{i j}=N$
 
 - Variety of CSPs
   - Variables
-    - Finite domains (discrete), e.g. all the preceding examples.
-    - Infinite domains (discrete or continuous), e.g., variables involving time
+    - *Finite* domains (discrete), e.g. all the preceding examples.
+    - *Infinite* domains (discrete or continuous), e.g., variables involving time
   - Constraints
     - Unary, binary and high‐order constraints
   - CSPs are difficult search problems
@@ -359,60 +358,55 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
 ## Solving CSPs
 
-### Cryptarithmetic
-
-- Cryptarithmetic is a puzzle where the digits of numbers are represented by letters. Each letter represents a unique digit. The goal is to find the digits such that a given equation is verified
-  - Variables:
-    - T,W,O,F,U,R
-    - X1,X2,X3(they are the carries in the tenths, hundredths and thousandths places, respectively)
-  - Domain:
-    - T,W,O,F,U,R $\in\{0,1,2,3,4,5,6,7,8,9\}$
-    - X1,X2,X3 $\in\{0,1\}$
-  - Constraints:
-    - alldiff(T,W,O,F,U,R)
-    - O + O = R + 10 · X1
-    - W + W + X1 = U + 10 · X2
-    - T + T + X2 = O + 10 · X3
-    - X3 = F
-    - T，F ≠ 0  
-
-  ![Cryptarithmetic](./images/Cryptarithmetic.png)
+> - Cryptarithmetic is a puzzle where the digits of numbers are represented by letters. Each letter represents a unique digit. The goal is to find the digits such that a given equation is verified
+>   - **Variables**:
+>     - T,W,O,F,U,R
+>     - X1,X2,X3(they are the carries in the tenths, hundredths and thousandths places, respectively)
+>   - **Domain**:
+>     - T,W,O,F,U,R $\in\{0,1,2,3,4,5,6,7,8,9\}$
+>     - X1,X2,X3 $\in\{0,1\}$
+>   - **Constraints**:
+>     - alldiff(T,W,O,F,U,R)
+>     - O + O = R + 10 · X1
+>     - W + W + X1 = U + 10 · X2
+>     - T + T + X2 = O + 10 · X3
+>     - X3 = F
+>     - T，F ≠ 0  
+>   ![Cryptarithmetic](./images/Cryptarithmetic.png)
 
 - Generate and Test
   - The exhaustive generate-and-test algorithm is to generate all the complete assignments, then test them in turn, and return the first one that satisfies all of the constrains
   - It needs to store all $d^n$ complete assignments, where $d$ is the domain size and is the number of variables.
 
-### Solving CSPs by standard search formulation
-- In CSPs, states defined by the values assigned so far(partial assignments)
-  - Initial state: the empty assignment{}
-  - Successor function: asssign a value to an unassigned variable
-  - Goal test: if the current assignment is complete and satisfies all the constraints
+- Solving CSPs by standard search formulation
+  - In CSPs, states defined by the values assigned so far(partial assignments)
+    - Initial state: the empty assignment{}
+    - Successor function: asssign a value to an unassigned variable
+    - Goal test: if the current assignment is complete and satisfies all the constraints
 
 #### Solving CSPs by BFS
 - Example: There are three variables A,B,and C, all with domain{0,1,2}. The constraint is A + B + C = 1
-- Since the solution are always in the bottom layer, BFS needs to traverse all the nodes(partial assignments)
-
+- Since the solution are always in the bottom layer, BFS needs to traverse all the nodes(partial assignments)  
   ![CSPs by BFS](./images/CSPs%20by%20BFS.png)
 
 #### Solving CSPs by DFS
 - Example: There are three variables A, B, and C, all with domain{0,1,2}. The constraint is A+B+C=1
-- Sounds a good idea, but what if the constraint is A>B>C?
-
+- Sounds a good idea, but what if the constraint is A>B>C?  
   ![CSPs by DFS](./images/CSPs%20by%20DFS.png)
 
 #### Backtracking Search  
+
 > - Backtracking is a DFS method wtih two additional things:
->   1. Check constraints as you go and
+>   1. Check constraints as you go
 >   2. COnsider one variable at a layer
 - Example: there are three variables A, B, and C, all with domain{0,1,2}. The constraint is A < B < C
-- Check constraints as you go
+- **Check constraints as you go**
   - i.e., consider only values which do not conflict previous assignments
   - may hvae to do some computation to check the constraints
   - "incremental goal test"
-- Consider one variable at a layer
-  - Variable assignments are commutative, so fix ordering
-  
-  ![Backtracking Search](./images/Backtracking%20Search.png)
+- **Consider one variable at a layer**
+  - Variable assignments are commutative, so fix ordering  
+![Backtracking Search](./images/Backtracking%20Search.png)
 
 - Improving Backtracking
   - General-purpose ideas give huge gain in speed
@@ -424,10 +418,9 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
 - Keep track of domains for unassigned variables and cross off bad options
 - There are different methods. Forward Checking is one of them
-- Forward Checking: cross off values that violate a constraint when added to the existing assignment. That is, when assign a variable, cross off anything that is now violated on all its neighbours' domains
+- **Forward Checking**: cross off values that violate a constraint when added to the existing assignment. That is, when assign a variable, cross off anything that is now violated on all its neighbours' domains
   - Example: There are three variables A,B,and C, all with domain{0,1,2}. The constraint is B>A>C
-  - When A is assigned 0, domains of itsneighbours B and C are reduced, so it is quick to know that this assignment is not legal(as C is empty now)
-
+  - When A is assigned 0, domains of itsneighbours B and C are reduced, so it is quick to know that this assignment is not legal(as C is empty now)  
   ![Forward Checking](./images/Forward%20Checking.png)
 
 ##### Ordering
@@ -435,31 +428,29 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 - Consider minimum remaining values, i.e.,choose the variable with the fewest legal values left in its domain
 - Example: There are three variabels A,B,and C, all with domain{0,1,2}. The constraint is A ≤ B < C
 - Once A is assigned 0, after forward checking C will be assigned since its domain is samller than B's domain
-- Also called "most constrained variable" or "fail-fast" ordering
-
-  ![Ordering](./images/Ordering.png)
+- Also called "most constrained variable" or "fail-fast" ordering  
+![Ordering](./images/Ordering.png)
 
 ##### Example: Backtracking + Forward Checking + Ordering
 
-- Example: There are three variables A,B,C, all with domain{0,1,2}. The constraints: A ≤ B< C and A + B + C = 3. Tie is broken alphabetically/numerically
-
+- Example: There are three variables A,B,C, all with domain{0,1,2}. The constraints: A ≤ B< C and A + B + C = 3. Tie is broken alphabetically/numerically  
   ![Backtracking_Example](./images/Backtracking_Example.png)
 
 - Minesweeper
-  - Variables:
+  - **Variables**:
     - $X_1,X_2,X_3,X_4$
-  - Domain:
+  - **Domain**:
     - D = {0,1}, where 0 denotes not a mine and 1 denotes a mine
-  - Constraints
+  - **Constraints**
     - $X_1 = 1$
     - $X_1 + X_2 = 1$
     - $X_1 + X_2 + x_3 + X_4 = 3$
     - $X_4 = 1$
     - ...
-  - Based on the forward checking and ordering, the order of variables to be visited is (tie is broken numerically):
-    - $X_1\rArr X_2\rArr X_4 \rArr X_3$
+  - Based on the forward checking and ordering, the order of variables to be visited is (tie is broken numerically):  
+    $X_1\rArr X_2\rArr X_4 \rArr X_3$
 
-#### Tree Search vs Local Search
+### Tree Search vs Local Search
 
 - Tree Search methods: systematically search the spce of assignments
   - Start with an empty assignment
@@ -473,17 +464,15 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
 
 #### Local Search for CSPs
 
-- Example: There are three variables A,B,C, all with domain {0,1,2}. The constraints: A ≤ B < C
-
+- Example: There are three variables A,B,C, all with domain {0,1,2}. The constraints: A ≤ B < C  
   ![LocalSearch](./images/LocalSearch.png)
-
 - A typical local search algorithm(i.e. hill climbing for CSPs): Randomly generate a complete assignment  
   While stop criterion not met
   - Step 1: Variable selection - randomly select a constraint-violeted variable
   - Step 2: Value selection(min-conflict heuristic) - choose a value that violates the fewest constraints
 
 - Example: N-Queens
-  - Problem: N-queens puzzle is the problem of placing N chess queens on an NxN chessboard so that no two queens threaten each other
+  - Problem: N-queens puzzle is the problem of placing N chess queens on an NxN chessboard so that no two queens threaten each other  
     ![LocalSearch_NQueen](./images/LocalSearch_NQueen.png)
     - Formulation - Variables: Q1, Q2, Q3, Q4; Domains: {1,2,3,4}; Constraints: $\forall i,j$, not-threatening(Qi, and Qj)
     - Randomly generate a complete assignment
@@ -491,39 +480,38 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
     - Assume then we consider Q1, then Q1 going to column 3 has fewest constraints violated;
     - Assume next we consider Q4, then Q4 going to column 2 has fewest constraints violated;
     - Stop execution and return the solution.
-  
+
 - Can Local Search always guarantee finding a solution
-  - Local search may get stuck in somewhere based on the problem's landscape and search strategy
+  - Local search may get stuck in somewhere based on the problem's landscape and search strategy  
   ![LocalSearch_example](./images/LocalSearch_example.png)
+  > Strategy like "fixing the queen on the top before fixing the others" can lead to a never-ending search
   - But it is effective in practice: can solve the million-queens problem in an average of 50 steps
 
-#### Summary: CSPs
+### Summary: CSPs
 
 - CSPs are a special class of search problems
   - States are partial assignment
   - Goal test defined by constraints
-- Basic strategy: Backtracking
-- Speed-ups
+- Basic **strategy**: Backtracking
+- **Speed-ups**
   - Filtering: forward checking
   - Ordering
-- Local search: not systematically search the space, start with a (bad) complete assignment and improve it iteratively
+- **Local search**: not systematically search the space, start with a (bad) complete assignment and improve it iteratively
   - Not only apply to CSPs, but to various optimisation problems
 
 - Optimisation
-
-  - Optimisation problem: search problem with preferences, i.e. objective funciton(s)
-  - They consist of variables, domains, objective function(s)
+  - Optimisation problem: **search problem** with **preferences**, i.e. objective funciton(s)
+  - They consist of **variables, domains, objective function**(s)
     - Objectives:
-      - Single-objective optimisation problems, e.g., Travelling Salesman Problem(TSP): minimising the cost of the travelling
-      - Multi-objective optimisation problems, e.g., TSP with and additional objective: minimising the time of the travelling
+      - **Single-objective optimisation problems**, e.g., Travelling Salesman Problem(TSP): minimising the cost of the travelling
+      - **Multi-objective optimisation problems**, e.g., TSP with and additional objective: minimising the time of the travelling
     - Constraints:
-      - Unconstrained optimisation problems
-      - Constrained optimisation problems
+      - **Unconstrained optimisation problems**
+      - **Constrained optimisation problems**
   - Tree search methods may not work for optimisation problems, e.g. in some continuous search space
   - Local search methods can be effective for optimisation problems
 
-- Local Search for Optimisation
-  
+- Local Search for Optimisation  
   ![LocalSearch_Optimisation](./images/LocalSearch_Optimiazation.png)
   - Generally fast and memory efficient
   - Can deal with problems where the search state is difficult to represent/formulate
@@ -534,3 +522,98 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
   - Simulated annealing, tabu search(keep a small list of recently visited solutions and forbid the algorithm to return to those solutions)
   - Population-based local search: evolutionary computation(e.g., genetic algorithms)  
   ![LocalSearch_Method](./images/LocalSearch_Method.png)
+
+### Question:
+
+- Here is a Graph Coloring Problem (GCP). Your task is to paint all nodes with different colors.  Each node can be painted with any of the three colors (purple, red, and green).  Every two nodes connected by arcs can not be painted with the same color.  
+  Can you solve this problem by the Backtracking Search and the Backtracking Search with Forward Checking and Ordering respectively?  
+  The tie of nodes is broken first from left to right and then from bottom to top, and the tie of colors is broken from purple to red to green.   
+  ![CSP_quiz](./images/CSP_quiz.png)
+
+## Games
+
+- Formalisation
+  - States: S (Start State $s_0$)
+  - Actions: A(may depend on player/state)
+  - Transition function: $S \times A \rArr S$
+  - Terminal test: $S \rArr (ture, false)$
+  - Players: P = (1,...,N) (usually take turns)
+  - Utilities: $S_{terminal} \times P \rArr R(values on outcomes)$
+    - A utility function(also called an objective function or payoff function)defines the final numeric value for a game that ends in terminal state s for a player p.
+ > We want algorithms to find a strategy(Policy) which recommends an move for each state, i.e. S -> A
+
+- Value of State
+  - The best achievable outcome(utility) from that state
+
+- Minimax
+  - Minimax value of a node is the utility of the terminal state to which both players play optimally from that node
+  - So the process of a two-player game is that one player(called player Max) is to maximise its utility whereas its opponent(called player Min)is to minimise the utility of Max
+  - For a state s, its minimax value minimax(s) is  
+    $$
+      \begin{cases}
+        utility(s),  & \text{if s is a terminal state}\\
+        max_{s' \in {successor(s)}}  (minimax(s')), & \text{if player is Max}\\
+        min_{s' \in {successor(s)}}  (minimax(s')), & \text{if player is Min}\\
+      \end{cases}
+    $$
+
+- Adversarial Search(Minimax)
+  - Deterministic, zero-sum games
+    - Tic-tac-toe, chess, go
+    - One player maximises result and the other minimises result
+  - Minimax search
+    - A state-space search tree
+    - Players alternate turns
+    - Compute each node's minimax value, i.e. the best achievable utility against an optimal adversary
+
+- Implementing Minimax  
+  ```
+  function minimax_value(state) return its minimax value
+    if state is a terminal state
+      return its utility
+    if state is for agent Max to take an action
+      return max_value(state)
+    if state is for agent Min to take an action
+      return min_value(state)
+  ```
+  ```
+  function max_value(state) return its minimax value v
+    initialise v = -∞
+    for each successor of state
+      v = max(v, minimax_value(successor))
+    return v
+  ```
+  ```
+  function min_value(state) return its minimax value v
+    initialise v = + ∞
+    for each successor of state
+      v = min(v, minimax_value(successor))
+    return v
+  ```
+
+- Computational Complexity of Minimax
+  - How efficient is minimax
+    - DFS(exhaustive)
+    - Time: $O(b^m)$, b is branching factor, m is maximum depth of the tree
+    - Space: $O(bm)$
+  - Example
+    - Chess: b = 35, m = 100
+    - Go: b = 250, m = 150
+  > Solving them is completely infeasible in most cases, but do we need to explore the entire tree to find the minimax value?
+
+- Alpha-Beta Pruning
+  - General configuration(for agent Max)
+    - Let a be the value that Max can currently get at least
+    - We are now computing the min_value at some node n
+    - When we explore n's children, if we find that the value of n will never be better than a (for agent Max), then we can stop considering n's other children
+  - Properties of alpha-beta pruning
+    - The pruning has no effect on minimax value for the root
+    - Good child ordering improves effectiveness of pruning
+    - Complexity of perfect ordering: $O(b^{m/2})$
+    - Full search of many games is still hopeless
+
+### Quiz
+
+- Question 1: Give the minimax value at each node for the game tree below.
+- Question 2: Find the nodes of the following tree pruned by alpha-beta pruning algorithm. Assuming child nodes are visited from left to right. There are five layers and you can use L𝑚-𝑛 to denote the 𝑛th node from left to right in the layer 𝑚, e.g., the first node (with value 10) at the bottom layer can be denoted by L5-1.  
+  ![Minimax_quiz](./images/Minimax_quiz.png)
