@@ -1,0 +1,54 @@
+(* the communication channel *)
+free c:channel.
+type key.
+
+(* public key encryption *)
+fun pK(key):key.
+
+fun aenc(bitstring,key):bitstring.
+reduc forall item:bitstring, k:key; adec(aenc(item,pK(k)),k)=item.
+
+(* events *)
+   event begin(key,key).
+   event end (key,key).
+
+
+
+free kA:key[private].
+free kB:key[private].
+
+query event(end(pK(kA), pK(kB))) ==> event (begin(pK(kA), pK(kB))).
+
+
+(* Processes *)
+
+(* Alice *)
+let processAlice =
+    let pkA = pK (kA) in
+    out (c, pkA);
+    !(
+      in(c, pkB:key);
+      event begin(pkA, pkB);
+      new nA:bitstring;
+      out (c, aenc ((pkA, nA), pkB));
+      in (c, x:bitstring);
+      let (=nA, nB:bitstring) = adec(x,kA) in
+      out (c, aenc(nB, pkB))
+    ).
+
+let processBob = 
+    let pkB = pK(kB) in
+    out (c, pkB);
+    !(
+       in (c, pkA:key);
+       in (c, x:bitstring);
+       let (=pkA, nA:bitstring) = adec(x, kB) in
+       new nB:bitstring;
+       out (c, aenc((nA, nB), pkA));
+       in (c, y:bitstring);
+       let xnB = adec (y, kB) in 
+       if xnB = nB then 
+       event end (pkA, pkB)
+    ).
+
+process  (processAlice) | (processBob)

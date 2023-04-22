@@ -1,0 +1,23 @@
+\contentsline {section}{Table of Contents}{1}{Doc-Start}%
+\contentsline {section}{\numberline {1}S2 ranking}{2}{section.1}%
+\contentsline {section}{\numberline {2}\href {https://13.40.143.199/}{Walking skeleton/MVP}}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Scheduler}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}To-do List}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Anti-procrastination}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Diary}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Alarm/Timer}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}History}{7}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Email notifications}{7}{subsection.2.8}%
+\contentsline {section}{\numberline {3}GDPR policy \& DPIA form}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Team23-22 GDPR Policy}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}DPIA Form}{11}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Meeting diary}{18}{section.4}%
+\contentsline {section}{\numberline {5}S3 task allocation \& planning}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Gilead Bempah}{21}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Zijun Li}{22}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Smit Navimkumar}{23}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Chance Egbon}{24}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Matthew Goulding}{25}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Samuel Okasia}{25}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Bogdan-Marian Gheorghe}{26}{subsection.5.7}%

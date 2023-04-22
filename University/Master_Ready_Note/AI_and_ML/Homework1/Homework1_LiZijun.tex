@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+\usepackage{tocloft} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{makecell}%导入表格宏包
+\usepackage{bmpsize}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{amsmath} 
+
+\pagestyle{fancy}
+\lhead{\textsl{Machine Learning}}
+\chead{}
+\rhead{Page \thepage\ of \pageref{LastPage}}
+\lfoot{}
+\rfoot{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} %单元格内换行
+
+\author{Vergil/Zijun Li李子骏}
+\title{Homework1 For Machine Learning}
+\date{\vspace{-5ex}}
+
+\begin{document}
+
+\maketitle
+
+\noindent{\large\bf1. Alice writes a program to play Chess. The program sees win/loss at the end and learns based on that. What type of learning does this represent? (1 point)}
+
+It is supervised learning. 
+
+It labels the win/lose data and predicts the outcome/future, which is exactly what supervised learning does\\
+
+\noindent{\large\bf2. The amount of snowfall in a given day is measured in inches. Alice designs a learning algorithm to predict the snowfall for the month of March. Is this a classification problem or a regression problem? (2 point)}
+
+It is regression problem. 
+
+The goal is to predict the snowfall amount in inches which are continuous outcomes(regression), but not predict categorical class labels(Classification)\\
+
+\noindent{\large\bf3. In class, normally we considered cost functions which are squares of the differences between y and h(x). Alice has a new idea: she will use cube of the differences instead. That is, the cost function will be $J({\theta}_0, {\theta}_1) = \frac{1}{2m} {\textstyle \sum_{i=1}^{m}}(h_{\theta}(x^{(i)}) - y^{(i)})^3 $. Does this represent a good cost function? (5 point)}
+
+No, it isn't a good cost function.
+
+The loss expresses an error, so it must be always non-negative. And the cube of the difference may result in the difference canceling out.\\
+
+\noindent{\large\bf4. Consider the house price prediction problem from the lecture. Consider the following table of training data. Here x is area in hundred square feet and y is the price in hundreds of thousands of dollars.}\\
+{\begin{tabular}{c | c} 
+    x & y \\
+    \hline
+    1 & 2 \\
+    \hline
+    2 & 3 \\
+    \hline
+    4 & 6 \\
+    \hline
+    5 & 7 \\
+\end{tabular}}\\
+\noindent{\bf 4.1 Compute J(0, 1) for the above data set. (2 points)}
+
+$ J(0, 1) = \frac{1}{2 \times 4} {\textstyle \sum_{i=1}^{4}}(h_{\theta}(x^{(i)}) - y^{(i)})^2 $\par
+$ J(0, 1) = \frac{1}{8} \times ((1-2)^2+(2-3)^2+(4-6)^2+(5-7)^2) $\par
+$ J(0, 1) = \frac{1}{8} \times (1+1+4+4)$\par
+$ J(0, 1) = \frac{1}{8} \times 10$\par
+$ J(0, 1) = 1.25$\par
+
+\newpage
+\noindent{\bf 4.2 Compute J(1, 1) for the above data set. (2 points)}
+
+$ J(1, 1) = \frac{1}{2 \times 4} {\textstyle \sum_{i=1}^{4}}(h_{\theta}(x^{(i)}) - y^{(i)})^2 $\par
+$ J(1, 1) = \frac{1}{8} \times ((2-2)^2+(3-3)^2+(5-6)^2+(6-7)^2) $\par
+$ J(1, 1) = \frac{1}{8} \times (0+0+1+1)$\par
+$ J(1, 1) = \frac{1}{8} \times 2$\par
+$ J(1, 1) = 0.25$\par
+
+\noindent{\bf 4.3 Compute J(1, 1.1) for the above data set. (2 points)}
+
+$ J(1, 1.1) = \frac{1}{2 \times 4} {\textstyle \sum_{i=1}^{4}}(h_{\theta}(x^{(i)}) - y^{(i)})^2 $\par
+$ J(1, 1.1) = \frac{1}{8} \times ((2.1-2)^2+(3.2-3)^2+(5.4-6)^2+(6.5-7)^2) $\par
+$ J(1, 1.1) = \frac{1}{8} \times (0.01+0.04+0.36+0.25)$\par
+$ J(1, 1.1) = \frac{1}{8} \times 0.66$\par
+$ J(1, 1.1) = 0.0825$\par
+
+\noindent{\bf 4.4 Based on the above, which of the three hypotheses would you choose for prediction and why? (3 points)}
+
+I will choose the thrid one ${\theta}_0 = 1, {\theta}_1 = 1.1$
+
+Because its lost function has the minimum value which means it mostly fits to the given data set among the three hypotheses.
+
+\end{document}

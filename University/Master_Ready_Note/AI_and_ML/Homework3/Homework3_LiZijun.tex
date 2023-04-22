@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+\usepackage{tocloft} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{bmpsize}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{amsmath} 
+
+\author{Vergil/Zijun Li李子骏}
+\title{Homework3 For Machine Learning}
+\date{\vspace{-5ex}}
+
+\begin{document}
+
+\maketitle
+
+\bf\begin{enumerate}
+
+    \item Consider the soda can game introduced in the class. Now suppose instead of a single circular table, there are two tables of identical size. A move consists of placing the can on any table (assuming there is a spot left on that table). Once placed, a can cannot move. The first one who cannot put a can on either table loses. In this game would you rather go first or second? Describe the winning strategy
+
+    {\normalfont I would like to be the second.\\
+    I can use mirroring strategy, place the can in a symmetrical position on another table }
+
+    \item  In the take-chips-away game (with normal play rules):
+
+    \subitem if the number of chips on the table is 15, does this represent a P-position or N-position? Describe the winning strategy.
+    
+    {\normalfont N-position\\
+    Remove 3 and give 12 to the other player\\
+    Then next player will give me either 11, 10, 9 and I give 8\\
+    Then 4 and eventually 0, the next player wins}
+
+    \subitem if the number of chips on the table is 8, does this represent a P-position or N-position? Describe the winning strategy
+
+    {\normalfont P-position\\
+    Give either 7, 6, 5 to the next player\\
+    then previous player gives 4 and eventually 0, the previous player wins }
+
+    \item  In the take-chips-away game (with Misère play rules):
+
+    \subitem if the number of chips on the table is 15, does this represent a P-position or N-position? Describe the winning strategy.
+
+    {\normalfont N-position\\
+    Remove 2 and give 13 to the other player\\
+    Then next player will give me either 12, 11, 10 and I give 9\\
+    Then 5 and eventually 1, the next player wins}
+
+    \subitem if the number of chips on the table is 8, does this represent a P-position or N-position? Describe the winning strategy
+
+    {\normalfont N-position\\
+    Remove 3 and give 5 to the other player\\
+    Then next player will give me either 4, 3, 2 and I give 1, the next player wins}
+
+    \item  In the modified take-chips-away game (with normal play rules), we only allow for a player to take out either 1 or 2 chips (rather than up to 3). For this game:
+
+    \subitem if the number of chips on the table is 15, does this represent a P-position or N-position? Describe the winning strategy.
+    
+    {\normalfont P-position\\
+    Give either 14, 13 to the next player\\
+    then previous player gives 12, 9, 6, 3 and eventually 0, the previous player wins}
+
+    \subitem if the number of chips on the table is 8, does this represent a P-position or N-position? Describe the winning strategy
+
+    {\normalfont N-position\\
+    Remove 2 and give 6 to the other player\\
+    Then next player will give me either 5, 4 and I give 3\\
+    Then eventually 0, the next player wins}
+
+    \item Consider the game of Nim (with normal play rules):
+
+    \subitem Consider piles position (3, 7) (i.e., two piles with the first pile having 3 and the second having 7 chips). Does this represent a P-position or N-position? Describe the winning strategy.
+
+    {\normalfont N-position\\
+    3 xor 7 \\= 011 xor 111 \\= 100\\
+    the next player takes 4 from 7 (3,3), keep the xor result be 000 and eventually 000 xor 000 = 000, the next player wins}
+
+    \subitem Consider piles position (5, 0, 3, 2). Does this represent a P-position or N-position and why? You don't need to describe the winning strategy
+
+    {\normalfont N-position\\
+    5 xor 0 xor 3 xor 2 \\= 101 xor 000 xor 011 xor 010 \\= 101 xor 011 xor 010 \\= 110 xor 010 \\= 100\\
+    the next player takes 4 from 5 (1,0,3,2), keep the xor result be 000 and eventually 000 xor 000 xor 000 xor 000 = 000, the next player wins}
+
+\end{enumerate}
+
+\end{document}
