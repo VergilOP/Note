@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://shell-storm.org/shellcode/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="Robots" content="index,follow">
+  <meta name="Author" content="Jonathan Salwan">
+
+  <title>Shellcodes database for study cases</title>
+  <meta content="shell-storm, shellcode, shellcode database, shellcode linux, shellcode windows, shellcode freebsd, shellcode bsd, shellcode solaris, shellcode osx" name="keywords">
+
+  <!-- Favicons -->
+  <link href="http://shell-storm.org/assets/img/favicon.png" rel="icon">
+  <link href="http://shell-storm.org/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="./Shellcodes database for study cases_files/css" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./Shellcodes database for study cases_files/aos.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/bootstrap-icons.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/boxicons.min.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/glightbox.min.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/swiper-bundle.min.css" rel="stylesheet">
+  <link href="./Shellcodes database for study cases_files/zenburn.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./Shellcodes database for study cases_files/style.css" rel="stylesheet">
+
+  <!-- Google tag -->
+  <script async="" src="./Shellcodes database for study cases_files/js"></script>
+  <script src="./Shellcodes database for study cases_files/gtag.js.download"></script>
+
+  <!-- Highlight code block -->
+  <link rel="stylesheet" href="./Shellcodes database for study cases_files/default.min.css">
+  <script src="./Shellcodes database for study cases_files/highlight.min.js.download"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="http://shell-storm.org/index.html#hero" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="http://shell-storm.org/index.html#entries" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Entries</span></a></li>
+        <li><a href="http://shell-storm.org/repo/" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Repository</span></a></li>
+        <li><a target="_blank" href="https://twitter.com/JonathanSalwan" class="nav-link scrollto"><i class="bx bxl-twitter"></i> <span>Twitter</span></a></li>
+        <li><a target="_blank" href="https://github.com/jonathansalwan" class="nav-link scrollto"><i class="bx bxl-github"></i> <span>Github</span></a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Shellcode Section ======= -->
+    <section class="about">
+      <div class="container col-lg-8">
+        <h1><b>Shellcodes database for study cases</b></h1>
+        <hr>
+
+        <div class="row">
+          <div class="col-lg content"><p></p>
+
+<h3>API</h3>
+
+<p>It is very straightforward to communicate with this API. Just send a simple <b>GET</b> method. The "<b>s</b>" argument contains your keyword.</p>
+
+<pre><code class="language-plaintext hljs">http://shell-storm.org/api/?s=&lt;keyword&gt;</code></pre>
+
+<p>Use "<b>*</b>" for multiple keywords search.</p>
+
+<pre><code class="hljs language-xml">/?s=<span class="hljs-tag">&lt;<span class="hljs-name">keyword1</span>&gt;</span>*<span class="hljs-tag">&lt;<span class="hljs-name">keyword2</span>&gt;</span>*<span class="hljs-tag">&lt;<span class="hljs-name">keyword3</span>&gt;</span></code></pre>
+
+<p>The output should be like this:</p>
+
+<pre><code class="language-plaintext hljs">&lt;auteur 1&gt;::::&lt;plateforme 1&gt;::::&lt;shellcode title 1&gt;::::&lt;shellcode id 1&gt;::::&lt;shellcode url 1&gt;
+&lt;auteur 2&gt;::::&lt;plateforme 2&gt;::::&lt;shellcode title 2&gt;::::&lt;shellcode id 2&gt;::::&lt;shellcode url 2&gt;
+&lt;auteur 3&gt;::::&lt;plateforme 3&gt;::::&lt;shellcode title 3&gt;::::&lt;shellcode id 3&gt;::::&lt;shellcode url 3&gt;
+</code></pre>
+
+<p>For more information about how can you use it, read this <a target="_blank" href="http://shell-storm.org/files/shell-storm-api.py">shell-storm API</a> python script. You can also find this API utilization in the <a target="_blank" href="https://github.com/hugsy/gef">GEF</a> project <i>(shellcode command)</i>.</p>
+
+<ul>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<h3>AIX</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-132.html">Aix - execve /bin/sh - 88 bytes</a> <i>by Georgi Guninski</i></li>
+<p>&nbsp;</p>
+<h3>Alpha</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-134.html">Alpha - /bin/sh - 80 bytes</a> <i>by Lamont Granquist</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-136.html">Alpha - execve() - 112 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-135.html">Alpha - setuid() - 156 bytes</a> <i>by n/a</i></li>
+<p>&nbsp;</p>
+<h3>BSD</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-90.html">BSD/32bits - Passive Connection - 126 bytes</a> <i>by Scrippie</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-107.html">BSD/ppc - execve(/bin/sh) - 128 bytes</a> <i>by Palante</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-814.html">BSD/x86 - setreuid(geteuid(), geteuid()) and execve(/bin/sh, /bin/sh, 0)</a> <i>by Jihyeog Lim</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-95.html">BSD/x86 - setuid/execve - 30 bytes</a> <i>by Marco Ivaldi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-94.html">BSD/x86 - setuid/portbind - 94 bytes</a> <i>by Marco Ivaldi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-356.html">BSD/x86 - break chroot - 45 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-91.html">BSD/x86 - cat /etc/master.passwd &amp; mail root@localhost - 92 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-92.html">BSD/x86 - execve(/bin/sh) &amp; setuid(0) - 29 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-601.html">BSD/x86 - bindshell on port 2525 - 167 bytes</a> <i>by beosroot</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-362.html">BSD/x86 - execve /bin/sh Crypt /bin/sh - 49 bytes</a> <i>by dev0id</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-93.html">BSD/x86 - execve(/bin/sh) - 27 bytes</a> <i>by n0gada</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-676.html">BSD/x86 - Connect Back Port 6969 - 133 bytes</a> <i>by Marcetam</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-360.html">BSD/x86 - back-connect TCP/2222 - 93 bytes</a> <i>by dev0id</i></li>
+<p>&nbsp;</p>
+<h3>Cisco</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-144.html">Cisco IOS - Connectback shellcode v1.0</a> <i>by Gyan Chawdhary</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-142.html">Cisco IOS - Tiny shellcode v1.0</a> <i>by Gyan Chawdhary</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-143.html">Cisco IOS - Bind shellcode v1.0</a> <i>by Varun Uppal</i></li>
+<p>&nbsp;</p>
+<h3>Sco</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-131.html">Sco/x86 - execve(/bin/sh, ..., NULL) - 43 bytes</a> <i>by minervini</i></li>
+<p>&nbsp;</p>
+<h3>FreeBSD</h3>
+<b>Intel x86-64</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-866.html">FreeBSD/x86-64 - execve - 28 bytes</a> <i>by Gitsnik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-865.html">FreeBSD/x86-64 - bind_tcp with passcode - 127 bytes</a> <i>by Gitsnik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-106.html">FreeBSD/x86-64 - exec(/bin/sh) Shellcode - 31 bytes</a> <i>by Hack'n Roll</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-104.html">FreeBSD/x86-64 - execve /bin/sh shellcode 34 bytes</a> <i>by Hack'n Roll</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-103.html">FreeBSD/x86-64 - Execve /bin/sh - Anti-Debugging</a> <i>by c0d3_z3r0</i></li>
+<b>Intel x86</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-100.html">FreeBSD/x86 - execve /tmp/sh - 34 bytes</a> <i>by Claes M. Nyberg</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-170.html">FreeBSD/x86 - execve /bin/sh 23 bytes</a> <i>by IZ</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-101.html">FreeBSD/x86 - reboot(RB_AUTOBOOT) - 7 bytes</a> <i>by IZ</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-169.html">FreeBSD/x86 - bind port:4883 with auth shellcode</a> <i>by MahDelin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-747.html">FreeBSD/x86 - connect back /bin/sh. 81 bytes</a> <i>by Tosh</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-749.html">FreeBSD/x86 - execv(/bin/sh) - 23 bytes</a> <i>by Tosh</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-748.html">FreeBSD/x86 - portbind shell + fork - 111 bytes</a> <i>by Tosh</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-609.html">FreeBSD/x86 - 8.0-RELEASE - //sbin/pfctl -F all Shellcode 47 Bytes</a> <i>by antrhacks</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-168.html">FreeBSD/x86 - encrypted shellcode /bin/sh 48 bytes</a> <i>by c0d3_z3r0</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-172.html">FreeBSD/x86 - kldload /tmp/o.o - 74 bytes</a> <i>by dev0id</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-675.html">FreeBSD/x86 - /bin/sh - 23 bytes</a> <i>by marcetam</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-171.html">FreeBSD/x86 - execve /bin/sh 37 bytes</a> <i>by preedator</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-570.html">FreeBSD/x86 - portbind shellcode - 167 bytes</a> <i>by sbz</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-99.html">FreeBSD/x86 - execve(/bin/cat &amp; /etc/master.passwd) - 65 bytes</a> <i>by sm4x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-167.html">FreeBSD/x86 - reverse connect dl(shellcode) and execute, exit - 90 bytes</a> <i>by sm4x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-98.html">FreeBSD/x86 - reverse portbind /bin/sh - 89 bytes</a> <i>by sm4x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-97.html">FreeBSD/x86 - setuid(0)&amp;execve({//sbin/ipf,-Faa,0},0); - 57 bytes</a> <i>by sm4x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-166.html">FreeBSD/x86 - connect back.send.exit /etc/passwd - 112 bytes</a> <i>by suN8Hclf</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-102.html">FreeBSD/x86 - kill all processes - 12 bytes</a> <i>by suN8Hclf</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-96.html">FreeBSD/x86 - setreuid(0, 0) &amp; execve(pfctl -d) - 56 bytes</a> <i>by suN8Hclf</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-674.html">FreeBSD/x86 - bind sh port 41254 - 115 bytes</a> <i>by zillion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-677.html">FreeBSD/x86 - reboot() - 15 bytes</a> <i>by zillion</i></li>
+<p>&nbsp;</p>
+<h3>Hp-Ux</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-133.html">Hp-Ux - execve(/bin/sh) - 58 bytes</a> <i>by K2</i></li>
+<p>&nbsp;</p>
+<h3>Irix</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-139.html">Irix - execve(/bin/sh -c) - 72 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-141.html">Irix - execve(/bin/sh) - 43 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-138.html">Irix - Bind Port - 364 bytes</a> <i>by scut/teso</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-140.html">Irix - execve(/bin/sh) - 68 bytes</a> <i>by scut/teso</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-137.html">Irix - stdin-read shellcode - 40 bytes</a> <i>by scut/teso</i></li>
+<p>&nbsp;</p>
+<h3>Linux</h3>
+<b>ARM</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-904.html">Linux/ARM - execve("/bin/sh", NULL, 0) - 34 bytes</a> <i>by Jonathan 'dummys' Borgeaud</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-901.html">Linux/ARM - Add map in /etc/hosts file - 79 bytes</a> <i>by Osanda Malith Jayathissa</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-853.html">Linux/ARM - chmod("/etc/passwd", 0777) - 39 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-854.html">Linux/ARM - creat("/root/pwned", 0777) - 39 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-855.html">Linux/ARM - execve("/bin/sh", [], [0 vars]) - 35 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-729.html">Linux/ARM - Bind Connect UDP Port 68</a> <i>by Daniel Godas-Lopez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-730.html">Linux/ARM - Bindshell port 0x1337</a> <i>by Daniel Godas-Lopez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-728.html">Linux/ARM - Loader Port 0x1337</a> <i>by Daniel Godas-Lopez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-727.html">Linux/ARM - ifconfig eth0 and Assign Address</a> <i>by Daniel Godas-Lopez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-668.html">Linux/ARM - chmod(/etc/shadow, 0777) Shellcode - 35 Bytes</a> <i>by Florian Gaultier</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-670.html">Linux/ARM - polymorphic chmod(/etc/shadow, 0777) - 84 Bytes</a> <i>by Florian Gaultier</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-671.html">Linux/ARM - Polymorphic execve("/bin/sh", ["/bin/sh"], NULL); - XOR - 78 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-665.html">Linux/ARM - execve(/bin/sh, /bin/sh, 0) - 30 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-698.html">Linux/ARM - execve(/bin/sh, [0], [0 vars]) - 27 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-696.html">Linux/ARM - execve(/bin/sh,NULL,0) - 31 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-666.html">Linux/ARM - setuid(0) &amp; execve(/bin/sh, /bin/sh, 0) - 38 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-754.html">Linux/ARM - connect back /bin/sh. 79 bytes</a> <i>by Neil Klopfenstein</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-820.html">Linux/ARM - chmod(/etc/shadow, 0777) - 41 bytes</a> <i>by midnitesnake</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-819.html">Linux/ARM - execve(/bin/sh, [0], [0 vars]) - 30 bytes</a> <i>by midnitesnake</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-821.html">Linux/ARM - reverse_shell(tcp,10.1.1.2,0x1337)</a> <i>by midnitesnake</i></li>
+<b>Strong ARM</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-661.html">Linux/StrongARM - bind() portshell - 203 bytes</a> <i>by funkysh</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-659.html">Linux/StrongARM - execve() - 47 bytes</a> <i>by funkysh</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-660.html">Linux/StrongARM - setuid() - 20 bytes</a> <i>by funkysh</i></li>
+<b>Super-H</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-774.html">Linux/SuperH - sh4 - Bind /bin/sh on port 31337</a> <i>by Dad`</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-771.html">Linux/SuperH - sh4 execve(/bin/sh, 0, 0) - 19 bytes</a> <i>by Florian Gaultier</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-787.html">Linux/SuperH - sh4 - setuid(0) ; execve(/bin/sh, NULL, NULL) - 27 bytes</a> <i>by Jonathan Salwan</i></li>
+<b>MIPS</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-860.html">Linux/mips - Reverse Shell Shellcode - 200 bytes</a> <i>by Jacob Holcomb</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-79.html">Linux/mips - execve(/bin/sh) - 56 bytes</a> <i>by core</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-782.html">Linux/mips - execve(/bin/sh, */bin/sh, 0) - 52 bytes</a> <i>by entropy</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-793.html">Linux/mips - add user(UID 0) with password - 164 bytes</a> <i>by rigan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-794.html">Linux/mips - connect back shellcode (port 0x7a69) - 168 bytes</a> <i>by rigan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-792.html">Linux/mips - execve /bin/sh - 48 bytes</a> <i>by rigan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-795.html">Linux/mips - reboot() - 32 bytes</a> <i>by rigan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-80.html">Linux/mips - execve(/bin/sh,[/bin/sh],[]); - 60 bytes</a> <i>by vaicebine</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-81.html">Linux/mips - port bind 4919 - 276 bytes</a> <i>by vaicebine</i></li>
+<b>PPC</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-87.html">Linux/ppc - connect back execve /bin/sh - 240 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-86.html">Linux/ppc - execve /bin/sh - 60 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-88.html">Linux/ppc - read &amp; exec shellcode - 32 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-89.html">Linux/ppc - execve /bin/sh - 112 bytes</a> <i>by Palante</i></li>
+<b>Sparc</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-83.html">Linux/sparc - [setreuid(0,0); execve() of /bin/sh] - 64 bytes</a> <i>by anathema</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-84.html">Linux/sparc - Portbind 8975/tcp - 284 bytes</a> <i>by killah</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-85.html">Linux/sparc - connect back - 216 bytes</a> <i>by killah</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-82.html">Linux/sparc - setreuid(0,0)&amp;standard execve() - 72 bytes</a> <i>by michel kaempf</i></li>
+<b>CRISv32</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-903.html">Linux/CRISv32 - Connect Back Shellcode - 189 bytes</a> <i>by bashis</i></li>
+<b>RISC-V64</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-908.html">Linux/RISC-V64 - execve(/bin/sh, NULL, 0) - 34 bytes</a> <i>by Christina Quast</i></li>
+<b>Intel x86-64</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-907.html">Linux/x86-64 - Dynamic null-free reverse TCP shell - 65 bytes</a> <i>by Philippe Dugre</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-905.html">Linux/x86-64 - execveat("/bin//sh") - 29 bytes</a> <i>by ZadYree, vaelio and DaShrooms</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-896.html">Linux/x86-64 - Add map in /etc/hosts file - 110 bytes</a> <i>by Osanda Malith Jayathissa</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-895.html">Linux/x86-64 - Connect Back Shellcode - 139 bytes</a> <i>by MadMouse</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-894.html">Linux/x86-64 - access() Egghunter - 49 bytes</a> <i>by Doreth.Z10</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-892.html">Linux/x86-64 - Shutdown - 64 bytes</a> <i>by Keyman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-891.html">Linux/x86-64 - Read password - 105 bytes</a> <i>by Keyman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-890.html">Linux/x86-64 - Password Protected Reverse Shell - 136 bytes</a> <i>by Keyman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-889.html">Linux/x86-64 - Password Protected Bind Shell - 147 bytes</a> <i>by Keyman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-888.html">Linux/x86-64 - Add root - Polymorphic - 273 bytes</a> <i>by Keyman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-884.html">Linux/x86-64 - Bind TCP stager with egghunter - 157 bytes</a> <i>by Christophe G</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-880.html">Linux/x86-64 - Add user and password with open,write,close - 358 bytes</a> <i>by Christophe G</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-879.html">Linux/x86-64 - Add user and password with echo cmd - 273 bytes</a> <i>by Christophe G</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-878.html">Linux/x86-64 - Read /etc/passwd - 82 bytes</a> <i>by Mr.Un1k0d3r</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-877.html">Linux/x86-64 - shutdown -h now - 65 bytes</a> <i>by Osanda Malith Jayathissa</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-873.html">Linux/x86-64 - TCP Bind 4444 with password - 173 bytes</a> <i>by Christophe G</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-871.html">Linux/x86-64 - TCP reverse shell with password - 138 bytes</a> <i>by Andriy Brukhovetskyy</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-870.html">Linux/x86-64 - TCP bind shell with password - 175 bytes</a> <i>by Andriy Brukhovetskyy</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-867.html">Linux/x86-64 - Reads data from /etc/passwd to /tmp/outfile - 118 bytes</a> <i>by Chris Higgins</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-859.html">Linux/x86-64 - shell bind TCP random port - 57 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-858.html">Linux/x86-64 - TCP bind shell - 150 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-857.html">Linux/x86-64 - Reverse TCP shell - 118 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-801.html">Linux/x86-64 - add user with passwd - 189 bytes</a> <i>by 0_o</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-683.html">Linux/x86-64 - execve(/sbin/iptables, [/sbin/iptables, -F], NULL) - 49 bytes</a> <i>by 10n1z3d</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-806.html">Linux/x86-64 - Execute /bin/sh - 27 bytes</a> <i>by Dad`</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-822.html">Linux/x86-64 - bind-shell with netcat - 131 bytes</a> <i>by Gaussillusion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-823.html">Linux/x86-64 - connect back shell with netcat - 109 bytes</a> <i>by Gaussillusion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-815.html">Linux/x86-64 - setreuid(0,0) execve(/bin/ash,NULL,NULL) + XOR - 85 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-816.html">Linux/x86-64 - setreuid(0,0) execve(/bin/csh, [/bin/csh, NULL]) + XOR - 87 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-817.html">Linux/x86-64 - setreuid(0,0) execve(/bin/ksh, [/bin/ksh, NULL]) + XOR - 87 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-818.html">Linux/x86-64 - setreuid(0,0) execve(/bin/zsh, [/bin/zsh, NULL]) + XOR - 87 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-78.html">Linux/x86-64 - bindshell port:4444 shellcode - 132 bytes</a> <i>by evil.xi4oyu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-77.html">Linux/x86-64 - setuid(0) + execve(/bin/sh) 49 bytes</a> <i>by evil.xi4oyu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-76.html">Linux/x86-64 - execve(/bin/sh, [/bin/sh], NULL) - 33 bytes</a> <i>by hophet</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-603.html">Linux/x86-64 - execve(/bin/sh); - 30 bytes</a> <i>by zbt</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-602.html">Linux/x86-64 - reboot(POWER_OFF) - 19 bytes</a> <i>by zbt</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-605.html">Linux/x86-64 - sethostname() &amp; killall - 33 bytes</a> <i>by zbt</i></li>
+<b>Intel x86</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-906.html">Linux/x86 - setuid + setgid + stdin re-open + exceve - 71 bytes</a> <i>by Andres C. Rodriguez (acamro)</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-902.html">Linux/x86 - Followtheleader custom execve-shellcode Encoder/Decoder - 136 bytes</a> <i>by Konstantinos Alexiou</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-900.html">Linux/x86 - ROT-7 Decoder execve - 74 bytes</a> <i>by Stavros Metzidakis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-893.html">Linux/x86 - Add map in /etc/hosts file - 77 bytes</a> <i>by Javier Tejedor</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-887.html">Linux/x86 - Obfuscated - chmod({passwd,shadow}) - add new root user - exec /bin/sh - 512 bytes</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-886.html">Linux/x86 - setreuid() + exec /usr/bin/python - 54 bytes</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-885.html">Linux/x86 - chmod + Add new root user with password + exec sh - 378 bytes</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-883.html">Linux/x86 - Shell Reverse TCP Shellcode - 74 bytes</a> <i>by Julien Ahrens</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-882.html">Linux/x86 - Shell Bind TCP Shellcode Port 1337 - 89 bytes</a> <i>by Julien Ahrens</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-881.html">Linux/x86 - sockfd trick + dup2(0,0),dup2(0,1),dup2(0,2) + execve /bin/sh - 50 bytes</a> <i>by ZadYree</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-876.html">Linux/x86 - shutdown -h now - 56 bytes</a> <i>by Osanda Malith Jayathissa</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-875.html">Linux/x86 - chmod 0777 /etc/shadow (a bit obfuscated) Shellcode - 51 bytes</a> <i>by Osanda Malith Jayathissa</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-872.html">Linux/x86 - /bin/nc -le /bin/sh -vp 17771 - 58 bytes</a> <i>by Oleg Boytsev</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-869.html">Linux/x86 - JMP-FSTENV execve shell - 67 bytes</a> <i>by Paolo Stivanin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-868.html">Linux/x86 - shift-bit-encoder execve - 114 bytes</a> <i>by Shihao Song</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-864.html">Linux/x86 - Copy /etc/passwd to /tmp/outfile - 97 bytes</a> <i>by Paolo Stivanin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-863.html">Linux/x86 - jump-call-pop execve shell - 52 bytes</a> <i>by Paolo Stivanin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-862.html">Linux/x86 - Download + chmod + exec - 108 bytes</a> <i>by Daniel Sauder</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-861.html">Linux/x86 - reads /etc/passwd and sends the content to 127.1.1.1 port 12345 - 111 bytes</a> <i>by Daniel Sauder</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-856.html">Linux/x86 - Multi-Egghunter</a> <i>by Ryan Fenno</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-852.html">Linux/x86 - Obfuscated tcp bind shell - 112 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-851.html">Linux/x86 - Obfuscated execve /bin/sh - 30 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-850.html">Linux/x86 - egghunter shellcode</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-849.html">Linux/x86 - Reverse TCP bind shell - 92 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-848.html">Linux/x86 - Set /proc/sys/net/ipv4/ip_forward to 0 &amp; exit() - 83 bytes</a> <i>by Hamid Zamani</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-847.html">Linux/x86 - TCP bind shell - 108 bytes</a> <i>by Russell Willis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-846.html">Linux/x86 - Encrypted execve /bin/sh with uzumaki algorithm - 50 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-845.html">Linux/x86 - Mutated Execve Wget - 96 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-844.html">Linux/x86 - Mutated Fork Bomb - 15 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-843.html">Linux/x86 - Mutated Reboot - 55 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-842.html">Linux/x86 - Tiny read /etc/passwd file - 51 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-841.html">Linux/x86 - Tiny Execve sh Shellcode - 21 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-840.html">Linux/x86 - Insertion Decoder Shellcode - 33+ bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-839.html">Linux/x86 - Egg Hunter Shellcode - 38 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-838.html">Linux/x86 - Tiny Shell Reverse TCP - 67 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-837.html">Linux/x86 - Tiny Shell Bind TCP Random Port - 57 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-836.html">Linux/x86 - Tiny Shell Bind TCP - 73 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-835.html">Linux/x86 - Shell Bind TCP (GetPC/Call/Ret Method) - 89 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-561.html">Linux/x86 - append /etc/passwd &amp; exit() - 107 bytes</a> <i>by $andman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-560.html">Linux/x86 - unlink(/etc/passwd) &amp; exit() - 35 bytes</a> <i>by $andman</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-207.html">Linux/x86 - connect back&amp;send&amp;exit /etc/shadow - 155 bytes</a> <i>by 0in</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-204.html">Linux/x86 - execve read shellcode - 92 bytes</a> <i>by 0ut0fbound</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-784.html">Linux/x86 - egghunt shellcode - 29 bytes</a> <i>by Ali Raheem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-804.html">Linux/x86 - nc -lvve/bin/sh -p13377 - 62 bytes</a> <i>by Anonymous</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-690.html">Linux/x86 - /bin/sh Null-Free Polymorphic - 46 bytes</a> <i>by Aodrulez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-237.html">Linux/x86 - execve() Diassembly Obfuscation Shellcode - 32 bytes</a> <i>by BaCkSpAcE</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-239.html">Linux/x86 - SET_IP() Connectback Shellcode - 82 bytes</a> <i>by Benjamin Orozco</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-238.html">Linux/x86 - SET_PORT() portbind - 100 bytes</a> <i>by Benjamin Orozco</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-684.html">Linux/x86 - netcat bindshell port 8080 - 75 bytes</a> <i>by Blake</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-685.html">Linux/x86 - netcat connect back port 8080 - 76 bytes</a> <i>by Blake</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-548.html">Linux/x86 - adds a root user no-passwd to /etc/passwd - 83 bytes</a> <i>by Bob [Dtors.net]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-550.html">Linux/x86 - chmod(//bin/sh ,04775); set sh +s - 31 bytes</a> <i>by Bob [Dtors.net]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-547.html">Linux/x86 - execve()/bin/ash; exit; - 34 bytes</a> <i>by Bob [Dtors.net]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-549.html">Linux/x86 - setuid(); execve(); exit(); - 44 bytes</a> <i>by Bob [Dtors.net]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-216.html">Linux/x86 - setreuid(0, 0) + execve(/bin//sh, [/bin//sh, -c, cmd], NULL);</a> <i>by Bunker</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-259.html">Linux/x86 - dup2(0,0); dup2(0,1); dup2(0,2); 15 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-55.html">Linux/x86 - exit(1) - 7 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-258.html">Linux/x86 - if(read(fd,buf,512)&lt;=2) _exit(1) else buf(); - 29 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-257.html">Linux/x86 - read(0,buf,2541); chmod(buf,4755); - 23 bytes</a> <i>by Charles Stevenson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-756.html">Linux/x86 - execve(/bin/dash) - 49 bytes</a> <i>by Chroniccommand</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-541.html">Linux/x86 - Audio (knock knock knock) via /dev/dsp+setreuid(0,0)+execve() - 566 bytes</a> <i>by Cody Tubbs</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-775.html">Linux/x86 - Surprise ! ! ! - 361 bytes</a> <i>by Florian Gaultier</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-208.html">Linux/x86 - Write FS PHP Connect Back Utility Shellcode - 508 bytes</a> <i>by GS2008</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-832.html">Linux/x86 - Bind TCP Port - with SO_REUSEADDR set (Avoiding SIGSEGV) - 103 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-834.html">Linux/x86 - Shell Bind TCP Random Port - 65 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-833.html">Linux/x86 - Shell Reverse TCP Shellcode - 72 bytes</a> <i>by Geyslan G. Bem</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-253.html">Linux/x86 - Password Authentication portbind port 64713/tcp - 166 bytes</a> <i>by Gotfault Security</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-252.html">Linux/x86 - portbind port 64713 - 86 bytes</a> <i>by Gotfault Security</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-250.html">Linux/x86 - setreuid(0,0) + execve(/bin/sh, [/bin/sh, NULL]) - 33 bytes</a> <i>by Gotfault Security</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-251.html">Linux/x86 - setuid(0) setgid(0) execve("/bin/sh", ["/bin/sh", NULL]) - 37 bytes</a> <i>by Gotfault Security</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-831.html">Linux/x86 - Force Reboot shellcode 36 bytes</a> <i>by Hamza Megahed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-829.html">Linux/x86 - Remote Port forwarding - 87 bytes</a> <i>by Hamza Megahed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-827.html">Linux/x86 - execve /bin/sh shellcode - 23 bytes</a> <i>by Hamza Megahed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-828.html">Linux/x86 - execve-chmod 0777 /etc/shadow - 57 bytes</a> <i>by Hamza Megahed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-825.html">Linux/x86 - iptables --flush - 43 bytes</a> <i>by Hamza Megahed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-813.html">Linux/x86 - ASLR deactivation - 83 bytes</a> <i>by Jean Pascal Pereira</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-812.html">Linux/x86 - chmod 666 /etc/passwd &amp; /etc/shadow - 57 bytes</a> <i>by Jean Pascal Pereira</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-811.html">Linux/x86 - execve(/bin/sh) - 28 bytes</a> <i>by Jean Pascal Pereira</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-740.html">Linux/x86 - ///sbin/iptables -POUTPUT DROP - 60 bytes</a> <i>by John Babio</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-765.html">Linux/x86 - /etc/init.d/apparmor teardown - 53 bytes</a> <i>by John Babio</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-741.html">Linux/x86 - /usr/bin/killall snort - 46 bytes</a> <i>by John Babio</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-491.html">Linux/x86 - /bin/sh polymorphic shellcode - 48 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-770.html">Linux/x86 - ConnectBack with SSL connection - 422 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-611.html">Linux/x86 - Remote file Download - 42 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-606.html">Linux/x86 - execve(/bin/bash, [/bin/sh, -p], NULL) - 33 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-607.html">Linux/x86 - polymorphic execve(/bin/bash, [/bin/sh, -p], NULL) - 57 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-574.html">Linux/x86 - /bin/sh - 8 bytes</a> <i>by JungHoon Shin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-211.html">Linux/x86 - add root user (r00t) with no password to /etc/passwd</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-210.html">Linux/x86 - chmod(/etc/shadow, 0666) &amp; exit()</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-57.html">Linux/x86 - execve(rm -rf /) - 45 bytes</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-214.html">Linux/x86 - forkbomb - 7 bytes</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-65.html">Linux/x86 - ipchains -F - 40 bytes</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-212.html">Linux/x86 - kill all processes - 11 bytes</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-213.html">Linux/x86 - set system time to 0 &amp; exit</a> <i>by Kris Katterjohn</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-222.html">Linux/x86 - setuid(0) setgid(0) execve(echo 0 &gt; /proc/sys/kernel/randomize_va_space) - 79 bytes</a> <i>by LiquidWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-586.html">Linux/x86 - DoS-Badger-Game - 6 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-587.html">Linux/x86 - SLoc-DoS shellcode - 55 bytes </a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-672.html">Linux/x86 - bind sh@64533 - 97 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-584.html">Linux/x86 - chmod(/etc/shadow, 0666) - 36 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-593.html">Linux/x86 - chmod(/etc/shadow, 0777) - 29 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-585.html">Linux/x86 - execve(/bin/sh) - 25 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-589.html">Linux/x86 - execve(a-&gt;/bin/sh) - 14 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-597.html">Linux/x86 - setreud(getuid(), getuid()) &amp; execve(/bin/sh) - 34 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-599.html">Linux/x86 - setuid(0) ^ execve(/bin/sh, 0, 0) - 27 bytes</a> <i>by Magnefikko</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-598.html">Linux/x86 - setuid(0) + execve(/bin/sh,...) - 29 bytes</a> <i>by Marcin Ulikowski</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-218.html">Linux/x86 - re-use of (/bin/sh) string in .rodata - 16 bytes</a> <i>by Marco Ivaldi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-217.html">Linux/x86 - setuid/portbind port 31337 TCP - 96 bytes</a> <i>by Marco Ivaldi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-219.html">Linux/x86 - stdin re-open and /bin/sh execute</a> <i>by Marco Ivaldi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-353.html">Linux/x86 - add user t00r ENCRYPT - 116 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-355.html">Linux/x86 - chmod 666 /etc/shadow - 41 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-354.html">Linux/x86 - chmod 666 shadow ENCRYPT - 75 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-358.html">Linux/x86 - execve /bin/sh encrypted - 58 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-357.html">Linux/x86 - portbind a shell in port 5074 - 92 bytes</a> <i>by Matias Sedalo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-256.html">Linux/x86 - execve /bin/sh anti-ids 40 bytes</a> <i>by NicatiN</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-51.html">Linux/x86 - /bin/cp /bin/sh /tmp/katy &amp; chmod 4555 - 126 bytes</a> <i>by RaiSe</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-58.html">Linux/x86 - execve(/bin//sh/,[/bin//sh],NULL) - 22 bytes</a> <i>by Revenge</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-215.html">Linux/x86 - setuid(0) + execve(/bin//sh, [/bin//sh], NULL) - 28 bytes</a> <i>by Revenge</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-481.html">Linux/x86 - Port Bind 4444 ( xor-encoded ) - 152 bytes</a> <i>by Rick</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-62.html">Linux/x86 - edit /etc/sudoers for full access - 86 bytes</a> <i>by Rick</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-242.html">Linux/x86 - Connect Back shellcode - 90 bytes</a> <i>by Russell Sanford</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-56.html">Linux/x86 - socket-proxy - 372 bytes</a> <i>by Russell Sanford</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-805.html">Linux/x86 - [setreuid()] -&gt; [/sbin/iptables -F] -&gt; [exit(0)] - 76 bytes</a> <i>by Sh3llc0d3</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-407.html">Linux/x86 - Add root user /etc/passwd - 104 bytes</a> <i>by Shok</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-365.html">Linux/x86 - iptables -F - 49 bytes</a> <i>by Sp4rK</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-483.html">Linux/x86 - execve(/sbin/halt,/sbin/halt) - 27 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-477.html">Linux/x86 - execve(/sbin/reboot,/sbin/reboot) - 28 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-476.html">Linux/x86 - execve(/sbin/shutdown,/sbin/shutdown 0) - 36 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-470.html">Linux/x86 - exit(0) 3 bytes or exit(1) 4 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-472.html">Linux/x86 - setuid(0) &amp; execve(/bin/sh,0) - 25 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-473.html">Linux/x86 - setuid(0), setgid(0) &amp; execve(/bin/sh,[/bin/sh,NULL]) - 33 bytes</a> <i>by TheWorm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-60.html">Linux/x86 - System Beep - 45 bytes</a> <i>by Thomas Rinsma</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-370.html">Linux/x86 - Bindshell TCP/5074 - 226 bytes</a> <i>by Tora</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-368.html">Linux/x86 - iptables -F - 45 bytes</a> <i>by UnboundeD</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-64.html">Linux/x86 - Connect-Back port UDP/54321 - 151 bytes</a> <i>by XenoMuta</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-63.html">Linux/x86 - append rsa key to /root/.ssh/authorized_keys2 - 295 bytes</a> <i>by XenoMuta</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-501.html">Linux/x86 - listens for shellcode on tcp/5555 and jumps to it - 83 bytes</a> <i>by XenoMuta</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-505.html">Linux/x86 - Self-modifying ShellCode for IDS evasion - 64 bytes</a> <i>by Xenomuta</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-506.html">Linux/x86 - shellcode that forks a HTTP Server on port tcp/8800 - 166 bytes</a> <i>by Xenomuta</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-824.html">Linux/x86 - stagger that reads second stage shellcode (127 bytes maximum) from stdin - 14 bytes</a> <i>by _fkz</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-619.html">Linux/x86 - alphanumeric Bomb FORK Shellcode - 117 Bytes</a> <i>by agix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-650.html">Linux/x86 - chmod(/etc/shadow, 0666) ASCII - 443 bytes</a> <i>by agix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-610.html">Linux/x86 - pwrite(/etc/shadow, hash, 32, 8) - 89 Bytes</a> <i>by agix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-624.html">Linux/x86 - Polymorphic - setuid(0) + chmod(/etc/shadow, 0666) - 61 Bytes</a> <i>by antrhacks</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-758.html">Linux/x86 - execve(/bin/cat, /etc/shadow, NULL) - 42 bytes</a> <i>by antrhacks</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-608.html">Linux/x86 - setuid(0) + chmod(/etc/shadow, 0666) - 37 Bytes</a> <i>by antrhacks</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-399.html">Linux/x86 - setreuid(geteuid(),geteuid()),execve(/bin/sh,0,0) - 34bytes</a> <i>by blue9057</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-236.html">Linux/x86 - /bin/sh sysenter Opcode Array Payload - 23 Bytes</a> <i>by c0ntex &amp; BaCkSpAcE</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-73.html">Linux/x86 - File Reader /etc/passwd - 65 bytes</a> <i>by certaindeath</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-604.html">Linux/x86 - sends Phuck3d! to all terminals - 60 bytes</a> <i>by condis</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-54.html">Linux/x86 - upload &amp; exec - 189 bytes</a> <i>by cybertronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-75.html">Linux/x86 - File unlinker 18 bytes + file path length</a> <i>by darkjoker</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-74.html">Linux/x86 - Perl script execution 99 bytes + script length</a> <i>by darkjoker</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-361.html">Linux/x86 - iptables -F - 58 bytes</a> <i>by dev0id</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-53.html">Linux/x86 - symlink /bin/sh xoring - 56 bytes</a> <i>by dev0id</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-205.html">Linux/x86 - iopl(3); asm(cli); while(1){} - 12 bytes</a> <i>by dun</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-255.html">Linux/x86 - SWAP restore - 109 bytes</a> <i>by dx &amp; spud</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-254.html">Linux/x86 - SWAP store - 99 bytes</a> <i>by dx &amp; spud</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-554.html">Linux/x86 - /sbin/iptables --flush - 69 bytes</a> <i>by eSDee [Netric .org]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-552.html">Linux/x86 - connect back shellcode (port=0xb0ef) - 131 bytes</a> <i>by eSDee [Netric .org]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-553.html">Linux/x86 - forking portbind shellcode - port=0xb0ef(45295) - 200 bytes</a> <i>by eSDee [Netric .org]</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-810.html">Linux/x86 - setreuid(0,0) execve("/bin/zsh", [/bin/zsh, NULL]) + XOR - 53 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-808.html">Linux/x86 - setreuid(0,0) execve("/bin/csh", [/bin/csh, NULL]) + XOR - 53 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-809.html">Linux/x86 - setreuid(0,0) execve("/bin/ksh", [/bin/ksh, NULL]) + XOR - 53 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-807.html">Linux/x86 - setreuid(0,0) execve(/bin/ash,NULL,NULL) + XOR - 58 bytes</a> <i>by egeektronic</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-571.html">Linux/x86 - bin/cat /etc/passwd - 43 bytes</a> <i>by fb1h2s</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-555.html">Linux/x86 - execve() - 51bytes</a> <i>by fl0 fl0w</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-682.html">Linux/x86 - Find all writeable folder in filesystem linux polymorphic shellcode</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-656.html">Linux/x86 - Polymorphic bindport to 13123 - 125 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-655.html">Linux/x86 - Polymorphic bindport to 31337 with setreuid (0,0) - 131 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-678.html">Linux/x86 - bind port to 6678 XOR encoded polymorphic - 125 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-621.html">Linux/x86 - cdrom ejecting shellcode - 46 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-642.html">Linux/x86 - chown root:root /bin/sh - 48 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-641.html">Linux/x86 - force unmount /media/disk - 33 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-643.html">Linux/x86 - give all user root access when execute /bin/sh - 45 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-639.html">Linux/x86 - hard reboot (without any message) and data not lost - 33 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-638.html">Linux/x86 - hard reboot (without any message) and data will be lost - 29 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-679.html">Linux/x86 - nc -lp 31337 -e /bin//sh polymorphic - 91 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-653.html">Linux/x86 - polymorphic cdrom ejecting - 74 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-636.html">Linux/x86 - setdomainname to (th1s s3rv3r h4s b33n h1j4ck3d !!)</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-625.html">Linux/x86 - sys_chmod(/etc/shadow, 599) - 39 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-632.html">Linux/x86 - sys_execve(/bin/sh, -c, ping localhost) - 55 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-623.html">Linux/x86 - sys_exit(0) - 8 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-626.html">Linux/x86 - sys_kill(-1,9) - 11 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-633.html">Linux/x86 - sys_rmdir(/tmp/willdeleted) - 41 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-622.html">Linux/x86 - sys_sethostname(PwNeD !!, 8) - 32 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-631.html">Linux/x86 - sys_setuid(0) &amp; sys_setgid(0) &amp; execve (/bin/sh) - 39 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-630.html">Linux/x86 - sys_sync - 6 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-634.html">Linux/x86 - unlink /etc/shadow - 33 bytes</a> <i>by gunslinger_</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-367.html">Linux/x86 - Reverse Telnet</a> <i>by hts</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-575.html">Linux/x86 - execve /bin/sh - 21 bytes</a> <i>by ipv</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-59.html">Linux/x86 - HTTP/1.x GET, Downloads &amp; execve() - 111 bytes+</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-227.html">Linux/x86 - HTTP/1.x GET, Downloads and JMP - 68 bytes+</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-230.html">Linux/x86 - anti-debug trick (INT 3h trap) execve(/bin/sh, [/bin/sh, NULL], NULL) - 39 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-234.html">Linux/x86 - cat /dev/urandom &gt; /dev/console, no real profit just for kicks - 63 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-232.html">Linux/x86 - eject &amp; close cd-rom frenzy loop (follows /dev/cdrom symlink) - 45 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-228.html">Linux/x86 - execve /bin/sh xored for Intel x86 CPUID 41 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-226.html">Linux/x86 - execve(/bin/sh, [/bin/sh, NULL]) + Bitmap - 27 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-225.html">Linux/x86 - execve(/bin/sh, [/bin/sh, NULL]) + RIFF Header - 28 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-224.html">Linux/x86 - execve(/bin/sh, [/bin/sh, NULL]) + RTF header - 30 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-223.html">Linux/x86 - execve(/bin/sh, [/bin/sh, NULL]) + ZIP Header - 28 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-229.html">Linux/x86 - execve(/bin/sh, [/bin/sh], NULL) / encoded by +1 - 39 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-231.html">Linux/x86 - open cd-rom loop (follows /dev/cdrom symlink) - 39 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-233.html">Linux/x86 - quick (yet conditional, eax != 0 and edx == 0) exit - 4 bytes</a> <i>by izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-556.html">Linux/x86 - chmod(/etc/shadow, 0666) &amp; exit() - 33 bytes</a> <i>by ka0x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-557.html">Linux/x86 - setuid(0) &amp; execve(/bin/cat /etc/shadow) - 49 bytes</a> <i>by ka0x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-558.html">Linux/x86 - setuid(0) &amp; execve(/sbin/poweroff -f) - 47 bytes</a> <i>by ka0x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-752.html">Linux/x86 - execve (/bin/sh) - 21 Bytes</a> <i>by kernel_panik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-366.html">Linux/x86 - Bindport TCP/3879</a> <i>by lamagra</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-206.html">Linux/x86 - connect back, download a file and execute - 149 bytes</a> <i>by militan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-209.html">Linux/x86 - raw-socket ICMP/checksum shell - 235 bytes</a> <i>by mu-b</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-540.html">Linux/x86 - hence dropping a SUID root shell in /tmp - 126 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-52.html">Linux/x86 - kill snort - 151 bytes</a> <i>by nob0dy</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-261.html">Linux/x86 - setreuid &amp; execve - 31 bytes</a> <i>by oc192</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-221.html">Linux/x86 - rm -rf / which attempts to block the process from being stopped - 132 bytes</a> <i>by onionring</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-235.html">Linux/x86 - portbind (define your own port) - 84 bytes</a> <i>by oveRet</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-798.html">Linux/x86 - setuid(0)+setgid(0)+add user iph without password - 124 bytes</a> <i>by pentesters.ir</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-363.html">Linux/x86 - break chroot execve /bin/sh - 80 bytes</a> <i>by preedator</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-799.html">Linux/x86 - Search html,html writable files and add your code - 380+ bytes</a> <i>by rigan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-566.html">Linux/x86 - chmod 666 /etc/shadow - 27 bytes</a> <i>by root@thegibson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-563.html">Linux/x86 - eject /dev/cdrom - 42 bytes</a> <i>by root@thegibson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-564.html">Linux/x86 - kill all processes - 9 bytes</a> <i>by root@thegibson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-565.html">Linux/x86 - overwrite MBR on /dev/sda with LOL! - 43 bytes</a> <i>by root@thegibson</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-517.html">Linux/x86 - execve(/bin/sh,0,0) - 21 bytes</a> <i>by sToRm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-515.html">Linux/x86 - portbind /bin/sh (port 64713) - 83 bytes</a> <i>by sToRm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-516.html">Linux/x86 - setuid(0) &amp; execve(/bin/sh,0,0) - 28 bytes</a> <i>by sToRm</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-551.html">Linux/x86 - setresuid(0,0,0); execve /bin/sh; exit; - 41 bytes</a> <i>by sacrine</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-61.html">Linux/x86 - setuid(0) &amp; execve(/bin/sh,0,0) - 28 bytes</a> <i>by sch3m4</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-578.html">Linux/x86 - disabled modsecurity - 64 bytes</a> <i>by sekfault</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-369.html">Linux/x86 - shared memory exec - 50 bytes</a> <i>by sloth</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-590.html">Linux/x86 - chmod(/etc/shadow, 0777) - 33 bytes</a> <i>by sm0k</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-220.html">Linux/x86 - setresuid(0,0,0)-/bin/sh - 35 bytes</a> <i>by sorrow</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-311.html">Linux/x86 - Add User USER=t00r PASS=t00r - Encoder PexFnstenvSub - 116 bytes</a> <i>by vlad902</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-465.html">Linux/x86 - disables shadowing - 42 bytes</a> <i>by vlan7</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-466.html">Linux/x86 - setuid() &amp; execve() - 27 bytes</a> <i>by vlan7</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-244.html">Linux/x86 - examples of long-term payloads hide-wait-change - 187 bytes+</a> <i>by xort &amp; izik</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-247.html">Linux/x86 - Alpha-Numeric using IMUL Method - 88 bytes</a> <i>by xort</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-249.html">Linux/x86 - Magic Byte Self Modifying Code for surviving - execve() _exit() - 76 bytes</a> <i>by xort</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-248.html">Linux/x86 - Radically Self Modifying Code - execve &amp; _exit() - 70 bytes</a> <i>by xort</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-246.html">Linux/x86 - alpha-numeric - 64 bytes</a> <i>by xort</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-245.html">Linux/x86 - examples of long-term payloads hide-wait-change (.s)</a> <i>by xort</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-543.html">Linux/x86 - add a passwordless local root account w000t - 177 bytes</a> <i>by zillion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-546.html">Linux/x86 - execve of /bin/sh /tmp/p00p - 70 bytes</a> <i>by zillion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-544.html">Linux/x86 - execve of /sbin/ipchains -F - 70 bytes</a> <i>by zillion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-545.html">Linux/x86 - execve() of /sbin/iptables -F - 70 bytes</a> <i>by zillion</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-542.html">Linux/x86 - mkdir() &amp; exit() - 36 bytes</a> <i>by zillion</i></li>
+<p>&nbsp;</p>
+<h3>NetBSD</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-803.html">NetBSD/x86 - kill all processes shellcode - 23 bytes</a> <i>by Anonymous</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-108.html">NetBSD/x86 - execve(/bin/sh) - 68 bytes</a> <i>by humble</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-110.html">NetBSD/x86 - callback (port 6666) - 83 bytes</a> <i>by minervini</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-109.html">NetBSD/x86 - setreuid(0, 0); execve(/bin//sh, ..., NULL); - 29 bytes</a> <i>by minervini</i></li>
+<p>&nbsp;</p>
+<h3>OpenBSD</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-600.html">OpenBSD/x86 - reboot() - 15 bytes</a> <i>by beosroot</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-163.html">OpenBSD/x86 - execve(/bin/sh) - 23 bytes</a> <i>by hophet</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-165.html">OpenBSD/x86 - add user w00w00 - 112 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-164.html">OpenBSD/x86 - portbind port 6969 - 148 bytes</a> <i>by noir</i></li>
+<p>&nbsp;</p>
+<h3>OSX</h3>
+<b>PPC</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-128.html">Osx/ppc - Add user r00t - 219 bytes</a> <i>by B-r00t</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-127.html">Osx/ppc - add inetd backdoor - 222 bytes</a> <i>by B-r00t</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-126.html">Osx/ppc - create /tmp/suid - 122 bytes</a> <i>by B-r00t</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-121.html">Osx/ppc - remote findsock by recv() key shellcode</a> <i>by Dino Dai Zovi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-122.html">Osx/ppc - Single Reverse TCP</a> <i>by H D Moore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-123.html">Osx/ppc - stager sock find peek</a> <i>by H D Moore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-124.html">Osx/ppc - stager sock find</a> <i>by H D Moore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-125.html">Osx/ppc - stager sock reverse</a> <i>by H D Moore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-312.html">Osx/ppc - Bind Shell PORT TCP/8000 - encoder OSXPPCLongXOR - 300 bytes</a> <i>by H D moore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-120.html">Osx/ppc - shellcode execve(/bin/sh)</a> <i>by ghandi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-129.html">Osx/ppc - execve(/bin/sh,[/bin/sh],NULL)&amp; exit() - 72 bytes</a> <i>by haphet</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-130.html">Osx/ppc - sync(), reboot() - 32 bytes</a> <i>by haphet</i></li>
+<b>Intel x86-64</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-736.html">Osx/x86-64 - setuid shell x86_64 - 51 bytes</a> <i>by Dustin Schultz</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-761.html">Osx/x86-64 - reverse tcp shellcode - 131 bytes</a> <i>by Jacob Hammack</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-786.html">Osx/x86-64 - universal OSX dyld ROP shellcode</a> <i>by pa_kt</i></li>
+<b>Intel x86</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-692.html">Osx/x86 - execve(/bin/sh) - 24 bytes</a> <i>by Simon Derouineau</i></li>
+<p>&nbsp;</p>
+<h3>Solaris</h3>
+<b>MIPS</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-241.html">Solaris/mips - connect-back (with XNOR encoded session) - 600 bytes</a> <i>by Russell Sanford</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-240.html">Solaris/mips - download and execute - 278 bytes</a> <i>by Russell Sanford</i></li>
+<b>SPARC</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-385.html">Solaris/sparc - setreuid(geteuid()), setregid(getegid()), execve /bin/sh</a> <i>by Claes M. Nyberg</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-115.html">Solaris/sparc - Bind /bin/sh TCP port 2001</a> <i>by ghandi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-117.html">Solaris/sparc - portbind | port 6666 - 240 bytes</a> <i>by lhall</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-118.html">Solaris/sparc - setreuid - 56 bytes</a> <i>by lhall</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-116.html">Solaris/sparc - execve(/bin/sh) - 52 bytes</a> <i>by LSD</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-313.html">Solaris/sparc - Single bind TCP shell</a> <i>by vlad902</i></li>
+<b>Intel x86</b>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-769.html">Solaris/x86 - setuid(0)  /bin/cat //etc/shadow - 61 bytes</a> <i>by John Babio</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-616.html">Solaris/x86 - Remote Download file - 79 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-613.html">Solaris/x86 - execve(/bin/sh, /bin/sh, NULL) - 27 bytes</a> <i>by Jonathan Salwan</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-114.html">Solaris/x86 - add services and execve inetd - 201 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-113.html">Solaris/x86 - execve /bin/sh toupper evasion - 84 bytes</a> <i>by n/a</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-386.html">Solaris/x86 - execve /bin/sh - 43 bytes</a> <i>by shellcode.com.ar</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-112.html">Solaris/x86 - setuid(0)&amp;execve(//bin/sh)&amp;exit(0) - 39 bytes</a> <i>by sm4x</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-111.html">Solaris/x86 - setuid(0)&amp;execve(/bin/cat, /etc/shadow)&amp;exit(0) - 59 bytes</a> <i>by sm4x</i></li>
+<p>&nbsp;</p>
+<h3>Windows</h3>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-899.html">Windows/64 - Obfuscated Shellcode x86/x64 Download And Execute [Use PowerShell] - Generator</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-898.html">Windows/64 - Add Admin, enable RDP, stop firewall and start terminal service - 1218 bytes</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-150.html">Windows/64 - (URLDownloadToFileA) download and execute - 218+ bytes</a> <i>by Weiss</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-627.html">Windows/64 - Windows Seven x64 (cmd) - 61 bytes</a> <i>by agix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-897.html">Windows - Add Admin, enable RDP, stop firewall and start terminal service - 1218 bytes</a> <i>by Ali Razmjoo</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-874.html">Windows - Add Admin User Shellcode - 194 bytes</a> <i>by Giuseppe D'Amore</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-673.html">Windows - Safari JS JITed shellcode - exec calc (ASLR/DEP bypass)</a> <i>by Alexey Sintsov</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-767.html">Windows - Vista/7/2008 - download and execute file via reverse DNS channel</a> <i>by Alexey Sintsov</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-568.html">Windows - sp2 (En + Ar) cmd.exe - 23 bytes</a> <i>by AnTi SeCuRe</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-714.html">Windows - add new local administrator - 326 bytes</a> <i>by Anastasios Monachos</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-715.html">Windows - pro sp3 (EN) - add new local administrator 113 bytes</a> <i>by Anastasios Monachos</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-802.html">Windows - xp sp2 PEB ISbeingdebugged shellcode - 56 bytes</a> <i>by Anonymous</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-526.html">Windows - XP Pro Sp2 English Message-Box Shellcode - 16 Bytes</a> <i>by Aodrulez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-513.html">Windows - XP Pro Sp2 English Wordpad Shellcode - 15 bytes</a> <i>by Aodrulez</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-681.html">Windows - Write-to-file Shellcode</a> <i>by Brett Gervasoni</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-148.html">Windows - telnetbind by winexec - 111 bytes</a> <i>by DATA_SNIPER</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-390.html">Windows - useradd shellcode for russian systems - 318 bytes</a> <i>by Darkeagle</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-691.html">Windows - XP SP3 English MessageBoxA - 87 bytes</a> <i>by Glafkos Charalambous</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-576.html">Windows - SP2 english ( calc.exe ) - 37 bytes</a> <i>by Hazem mofeed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-577.html">Windows - SP3 english ( calc.exe ) - 37 bytes</a> <i>by Hazem mofeed</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-573.html">Windows - Shellcode (cmd.exe) for XP SP2 Turkish - 26 Bytes</a> <i>by Hellcode</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-572.html">Windows - Shellcode (cmd.exe) for XP SP3 English - 26 Bytes</a> <i>by Hellcode</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-739.html">Windows - XP SP3 EN Calc Shellcode - 16 Bytes</a> <i>by John Leitch</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-776.html">Windows - win32/PerfectXp-pc1/sp3 (Tr) Add Admin Shellcode - 112 bytes</a> <i>by KaHPeSeSe</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-393.html">Windows - PEB Kernel32.dll ImageBase Finder - 49 Bytes</a> <i>by Koshi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-394.html">Windows - PEB Kernel32.dll ImageBase Finder Alphanumeric - 67 bytes</a> <i>by Koshi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-156.html">Windows - PEB!NtGlobalFlags shellcode - 14 bytes</a> <i>by Koshi</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-581.html">Windows - XP sp3 (Ru) WinExec+ExitProcess cmd shellcode - 12 bytes</a> <i>by Lord Kelvin</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-389.html">Windows - Reverse Generic Shellcode w/o Loader - 249 bytes</a> <i>by Matthieu Suiche</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-161.html">Windows - Pop up message box (XP/SP2) - 110 bytes</a> <i>by Omega7</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-494.html">Windows - sp3 (FR) Sleep - 14 bytes</a> <i>by Optix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-146.html">Windows - XP download and exec source</a> <i>by Peter Winter-Smith</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-648.html">Windows - Allwin MessageBoxA - 238 bytes</a> <i>by RubberDuck</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-766.html">Windows - Allwin WinExec add new local administrator + ExitProcess Shellcode - 272 bytes</a> <i>by RubberDuck</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-662.html">Windows - Allwin WinExec cmd.exe + ExitProcess Shellcode - 195 bytes</a> <i>by RubberDuck</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-567.html">Windows - Shellcode Collection - (calc) 19 bytes</a> <i>by SkuLL-HacKeR</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-700.html">Windows - null-free 32-bit Windows download and LoadLibrary shellcode - 164 bytes</a> <i>by SkyLined</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-701.html">Windows - null-free 32-bit Windows shellcode that executes calc.exe - 100 bytes</a> <i>by SkyLined</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-702.html">Windows - null-free 32-bit Windows shellcode that shows a message box - 140 bytes</a> <i>by SkyLined</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-484.html">Windows - null-free bindshell for Windows 5.0-6.0 all service packs</a> <i>by SkyLined</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-149.html">Windows - XP sp2 (FR) Sellcode cmd.exe - 32 bytes</a> <i>by Stack</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-482.html">Windows - XP/sp2 (EN) cmd.exe - 23 bytes</a> <i>by Stack</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-580.html">Windows - XP Professional SP2 ita calc.exe - 36 bytes</a> <i>by Stoke</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-391.html">Windows - WinExec() Command Parameter - 104 bytes</a> <i>by Weiss</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-392.html">Windows - download and execute - 124 bytes</a> <i>by Weiss</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-159.html">Windows - Download and Execute Shellcode Generator</a> <i>by YAG KOHHA</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-706.html">Windows - sp3 (Tr) Add Admin Account Shellcode - 127 bytes</a> <i>by ZoRLu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-703.html">Windows - sp3 (Tr) MessageBoxA Shellcode - 109 bytes</a> <i>by ZoRLu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-704.html">Windows - sp3 (Tr) calc.exe Shellcode 53 bytes</a> <i>by ZoRLu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-710.html">Windows - sp3 (Tr) cmd.exe Shellcode - 42 bytes</a> <i>by ZoRLu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-705.html">Windows - sp3 (Tr) cmd.exe Shellcode 52 bytes</a> <i>by ZoRLu</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-612.html">Windows - Xp Pro SP3 Fr (calc.exe) - 31 Bytes</a> <i>by agix</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-830.html">Windows - XP PRO SP3 - Full ROP calc shellcode</a> <i>by b33f</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-579.html">Windows - xp pro sp3 (calc) - 57 bytes</a> <i>by cr4wl3r</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-751.html">Windows - win32/xp pro sp3 MessageBox shellcode - 11 bytes</a> <i>by d3c0der</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-162.html">Windows - download &amp; exec shellcode - 226 bytes+</a> <i>by darkeagle</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-697.html">Windows - Shellcode Checksum Routine</a> <i>by dijital1</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-153.html">Windows - IsDebuggerPresent ShellCode (NT/XP) - 39 bytes</a> <i>by ex-pb</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-388.html">Windows - PEB method (9x/NT/2k/XP) - 29 bytes</a> <i>by loco</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-157.html">Windows - connectback, receive, save and execute shellcode</a> <i>by loco</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-173.html">Windows - Bind Shell (NT/XP/2000/2003) - 356 bytes </a> <i>by metasploit</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-175.html">Windows - Create Admin User Account (NT/XP/2000) - 304 bytes</a> <i>by metasploit</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-174.html">Windows - Vampiric Import Reverse Connect - 179 bytes </a> <i>by metasploit</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-260.html">Windows - PEB method (9x/NT/2k/XP)</a> <i>by oc192</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-755.html">Windows - eggsearch shellcode - 33 bytes</a> <i>by oxff</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-147.html">Windows - XP-sp1 portshell on port 58821 - 116 bytes</a> <i>by silicon</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-569.html">Windows - XP SP3 addFirewallRule</a> <i>by sinn3r</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-387.html">Windows - PEB method (9x/NT/2k/XP) - 31 bytes</a> <i>by twoci</i></li>
+<li><a href="http://shell-storm.org/shellcode/files/shellcode-152.html">Windows - Beep Shellcode (SP1/SP2) - 35 bytes</a> <i>by xnull</i></li>
+</ul>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- Shellcode Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://twitter.com/JonathanSalwan" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://github.com/jonathansalwan" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/jonathansalwan/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        <strong><span>Shell-Storm</span></strong> 2008-2022
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  
+  <a href="http://shell-storm.org/shellcode/index.html#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./Shellcodes database for study cases_files/purecounter_vanilla.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/aos.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/bootstrap.bundle.min.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/glightbox.min.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/isotope.pkgd.min.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/swiper-bundle.min.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/typed.min.js.download"></script>
+  <script src="./Shellcodes database for study cases_files/noframework.waypoints.js.download"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./Shellcodes database for study cases_files/main.js.download"></script>
+
+
+
+
+</body></html>

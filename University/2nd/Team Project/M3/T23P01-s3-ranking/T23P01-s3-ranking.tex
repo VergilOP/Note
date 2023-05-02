@@ -1,0 +1,128 @@
+\documentclass[a4paper]{article}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+\usepackage{tocloft} 
+\usepackage{makecell}%导入表格宏包
+\usepackage{bmpsize}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{fancy}
+\lhead{\textsl{\href{https://team23-22.bham.team}{\textcolor{blue}{S3 ranking}}}}
+\chead{}
+\rhead{Page \thepage\ of \pageref{LastPage}}
+\lfoot{}
+\rfoot{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} %单元格内换行
+
+\renewcommand*\contentsname{Table of Contents}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	
+	\rule{\linewidth}{5pt}
+	\raggedleft
+	\fontsize{38pt}{50pt}\selectfont
+    \textbf{\\Team Project\\}
+    \fontsize{28pt}{60pt}\selectfont 
+    for\\
+    \fontsize{38pt}{60pt}\selectfont 
+    \textbf{S3 ranking\\}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{0.93\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large By Team 23-22}\\[4pt] % Extra space after name
+		Bogdan-Marian Gheorghe\_2329324\_bxg125\\
+		Chance Egbon\_2194210\_cee010\\
+		Gilead Bempah\_2296232\_gxb035\\
+		Matthew Goulding\_2330080\_mxg183\\
+		Samuel Okasia\_2345883\_sxo183\\
+		Smit Navinkumar\_2327596\_sxn197\\
+		Zijun Li\_2272583\_zxl183\\
+	}
+	
+\end{titlepage}
+
+\textbf{Criteria for the comments}
+
+\begin{enumerate}
+    \item screenshots of the vertically sliced feature(s) in the deployed app (1 page)
+    \subitem backend
+    \subitem frountend
+    \subitem database
+    \subitem Achieved function(extra score)
+    \subitem Some discriptions under the screenshots(extra score)
+    \item description of the development and integration with the app, use links to gitlab for code commits (1 page)
+    \subitem links to gitlab
+    \subitem detailed developing progress
+    \subitem illustrate the function
+    \subitem illustrate the connection among front-end, back-end and database
+\end{enumerate}
+
+{\noindent\begin{tabular}{|p{0.075\linewidth}|p{0.25\linewidth}|p{0.55\linewidth}|} 
+	\hline
+ \textbf{Rank} & \textbf{Name} & \textbf{Comments} \\
+ \hline
+ 1 & Zijun Li & Zijun's progress The diary of his To-do-list function is simple to use and understand.
+ He provides a succinct, thorough overview of the processes he took to create the To-Do-List feature, including building an entity specifically for that feature, working on the backend, and then working on the front end.
+ After completing his programme, he discusses troubleshooting and enhancements to the backend and interface.
+ He provided screenshots of the vertically sliced functionality, which were quite helpful in providing evidence of the effort put into its creation.\\
+ \hline
+ 2 & Samuel Okasia & Samuel's submission is detailed and shows the vertically sliced features well through relevant screenshots to the front-end, back-end and database. There is a detailed description of development including a good description of backend implementation using an API. It is easy to understand what the feature does by itself but there isn't much detail on how it works with the rest of the app. He has included a valid link to his gitlab commits. Overall, it is a very clear, detailed submission and will help someone understand his part of the app.\\
+ \hline
+\end{tabular}}
+
+ {\noindent\begin{tabular}{|p{0.075\linewidth}|p{0.25\linewidth}|p{0.55\linewidth}|} 
+	\hline
+ \textbf{Rank} & \textbf{Name} & \textbf{Comments} \\
+ \hline
+ 3 & Chance Egbon& The initial section of the submission offers a well-structured overview of the application's backend, frontend, and database. However, it lacks detailed descriptions of the accompanying screenshots. The second section of the submission comprises GitLab links and showcases a comprehensive development process that includes function references and an overview of the connections between the frontend, backend, and database.\\
+ \hline
+ 4 & Gilead Bempah & Screenshots show the different layers of the feature, it shows what the page looks like when you have blocked certain websites, it also shows what it looks like when you try to access the blocked sites. Code and database for the feature is also shown. Description of the development has a nice structure with different sections. I like that it mentions the different things he worked on and what kind of ideas went into the process to develop the feature. It also talks about how the feature integrates with other features and includes a link for contributor statistics for commit.\\
+ \hline
+ 5 & Matthew Goulding & The alarm feature report clearly shows screenshots of the frontend, backend and database showcasing the result from the development process. Although dedicated annotations aren’t present for each screenshot, the screenshots are clear and well-placed on the page.  The report well illustrates the various achieved functions, clearly giving a picture of the purpose of the overall feature with his functions.  One of the weaknesses of the report is that although the functions of the Alarm feature are well talked about and the connection among the front-end, back-end and database is illustrated in a good manner, the development process could be described in more detail.\\
+ \hline
+\end{tabular}}
+
+ {\noindent\begin{tabular}{|p{0.075\linewidth}|p{0.25\linewidth}|p{0.55\linewidth}|} 
+	\hline
+ \textbf{Rank} & \textbf{Name} & \textbf{Comments} \\
+ \hline
+ 6 & Bogdan-Marian Gheorghe & Their submission demonstrates a thorough understanding of the fundamental concepts and careful consideration of design alternatives. Because of how straightforward and well-organized the database schema is, we will find it easier to manage in the future. The API endpoints are well stated, and the design elements are aesthetically beautiful and user-friendly. Overall, it shows how to apply the design and give the feature a modern look using CSS. I believe that my peer's proposal creates a solid foundation for the remainder of our project.\\
+ \hline
+ 7 & Smit Navinkumar & Smit's Scheduler feature screenshot demonstrates adding items and displaying them on the Weekly schedule. However, it lacks clarity on data structure relationships and connections in the database or JDL. A more comprehensive explanation is needed.
+ Description of the development and integration with the app is a very detailed description of the function, which can fully understand the function of this function, but there is no information about how to exchange data between different layers (such as backend and database) and achieve the purpose Enough elaboration. It would be better if it could be supplemented.\\
+ \hline
+\end{tabular}}
+
+\end{document}

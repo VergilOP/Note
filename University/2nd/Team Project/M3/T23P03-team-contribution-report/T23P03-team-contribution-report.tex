@@ -1,0 +1,125 @@
+\documentclass[a4paper]{article}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+\usepackage{tocloft} 
+\usepackage{makecell}%导入表格宏包
+\usepackage{bmpsize}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{fancy}
+\lhead{\textsl{\href{https://team23-22.bham.team}{\textcolor{blue}{Team Contribution Report}}}}
+\chead{}
+\rhead{Page \thepage\ of \pageref{LastPage}}
+\lfoot{}
+\rfoot{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} %单元格内换行
+
+\renewcommand*\contentsname{Table of Contents}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	
+	\rule{\linewidth}{5pt}
+	\raggedleft
+	\fontsize{38pt}{50pt}\selectfont
+    \textbf{\\Team Project\\}
+    \fontsize{28pt}{60pt}\selectfont 
+    for\\
+    \fontsize{38pt}{60pt}\selectfont 
+    \textbf{Team Contribution Report\\}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{0.93\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large By Team 23-22}\\[4pt] % Extra space after name
+		Bogdan-Marian Gheorghe\_2329324\_bxg125\\
+		Chance Egbon\_2194210\_cee010\\
+		Gilead Bempah\_2296232\_gxb035\\
+		Matthew Goulding\_2330080\_mxg183\\
+		Samuel Okasia\_2345883\_sxo183\\
+		Smit Navinkumar\_2327596\_sxn197\\
+		Zijun Li\_2272583\_zxl183\\
+	}
+	
+\end{titlepage}
+
+\section*{Option Two: the team thinks contribution between members was unequal}
+
+\textbf{active member: }
+\begin{itemize}
+    \item Zijun Li
+\end{itemize}
+
+{\noindent\begin{tabular}{|p{0.3\linewidth}|p{0.65\linewidth}|} 
+	\hline
+ \textbf{Member Name} & \textbf{Justifications of work done} \\
+ \hline
+ Zijun Li & Initilize the VM, setup the CI/CD pipeline. Done whole todo list feature and GDPR policy. Created the vertical navbar and fixed some bugs of it. Add switching the theme function. Writen Latex file for every Milestone submission. Organized part of the meetings and content integration for everyone. \\
+ \hline
+ Samuel Okasia & \\
+ \hline
+ Chance Egbon & \\
+ \hline
+ Gilead Bempah & \\
+ \hline
+ Matthew Goulding& \\
+ \hline
+ Bogdan-Marian Gheorghe & \\
+ \hline
+ Smit Navinkumar& \\
+ \hline
+\end{tabular}}
+
+{\noindent\begin{tabular}{|p{0.3\linewidth}|p{0.65\linewidth}|} 
+	\hline
+ \textbf{Member Name} & \textbf{ the contribution score(s) } \\
+ \hline
+ Zijun Li & \\
+ \hline
+ Samuel Okasia & \\
+ \hline
+ Chance Egbon & \\
+ \hline
+ Gilead Bempah & \\
+ \hline
+ Matthew Goulding& \\
+ \hline
+ Bogdan-Marian Gheorghe & \\
+ \hline
+ Smit Navinkumar& \\
+ \hline
+\end{tabular}}
+
+\section*{the outcome of the intervention meeting}
+
+\end{document}
