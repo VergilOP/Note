@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -884,33 +884,42 @@ Overfull \hbox (2.5502pt too wide) in paragraph at lines 119--139
 [] 
  []
 
+<./image/meeting.png, id=13, 669.702pt x 434.8245pt>
+File: ./image/meeting.png Graphic file (type png)
+<use ./image/meeting.png>
+Package pdftex.def Info: ./image/meeting.png  used on input line 141.
+(pdftex.def)             Requested size: 452.9679pt x 294.10426pt.
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 142.
+(C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
+File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
+)
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 140.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 140.
+(Font)              scaled to size 10.0pt on input line 143.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 140.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 140.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 143.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 140.
+(Font)              scaled to size 10.0pt on input line 143.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.140 {\noindent
-                \begin{tabular}{|p{0.2\linewidth}|p{0.75\linewidth}|} [1]
-Underfull \hbox (badness 1502) in paragraph at lines 156--157
+l.143 \end{figure}
+                   [1]
+Underfull \hbox (badness 1502) in paragraph at lines 161--162
 \T1/ClearSans-TLF/regular/n/10.53937 fea-tures, en-sur-ing a com-pre-hen-sive un-der-stand-ing of the project's
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 140--163
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 145--168
 [] 
  []
 
-[2]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 164--183
+[2 <./image/meeting.png>]
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 169--188
 [] 
  []
 
@@ -921,17 +930,17 @@ Package rerunfilecheck Info: File `T23P06-meeting-diary.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25457 strings out of 476331
- 493444 string characters out of 5787765
+ 25504 strings out of 476331
+ 494290 string characters out of 5787765
  1870660 words of memory out of 5000000
- 45389 multiletter control sequences out of 15000+600000
- 567173 words of font info for 57 fonts, out of 8000000 for 9000
+ 45426 multiletter control sequences out of 15000+600000
+ 567443 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,117p,866b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on T23P06-meeting-diary.pdf (4 pages, 55459 bytes).
+Output written on T23P06-meeting-diary.pdf (4 pages, 93558 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 52 PDF objects out of 1000 (max. 8388607)
+ 5 named destinations out of 1000 (max. 500000)
+ 22 words of extra memory for PDF output out of 10000 (max. 10000000)
 
