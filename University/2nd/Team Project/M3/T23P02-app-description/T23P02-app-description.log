@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -861,161 +861,176 @@ LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
 <./image/Todo_list_light.png, id=13, 1156.32pt x 537.207pt>
 File: ./image/Todo_list_light.png Graphic file (type png)
 <use ./image/Todo_list_light.png>
-Package pdftex.def Info: ./image/Todo_list_light.png  used on input line 84.
-(pdftex.def)             Requested size: 452.9679pt x 210.43616pt.
+Package pdftex.def Info: ./image/Todo_list_light.png  used on input line 88.
+(pdftex.def)             Requested size: 221.95676pt x 103.11142pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.53937> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 89.
+<./image/Todo_list_dark.png, id=15, 1156.32pt x 539.616pt>
+File: ./image/Todo_list_dark.png Graphic file (type png)
+<use ./image/Todo_list_dark.png>
+Package pdftex.def Info: ./image/Todo_list_dark.png  used on input line 92.
+(pdftex.def)             Requested size: 221.95676pt x 103.5738pt.
+<./image/BlockedWebsite.png, id=16, 1444.64719pt x 670.00313pt>
+File: ./image/BlockedWebsite.png Graphic file (type png)
+<use ./image/BlockedWebsite.png>
+Package pdftex.def Info: ./image/BlockedWebsite.png  used on input line 109.
+(pdftex.def)             Requested size: 221.95676pt x 102.93953pt.
+<./image/AntiProcr.png, id=17, 1318.9275pt x 665.48625pt>
+File: ./image/AntiProcr.png Graphic file (type png)
+<use ./image/AntiProcr.png>
+Package pdftex.def Info: ./image/AntiProcr.png  used on input line 113.
+(pdftex.def)             Requested size: 221.95676pt x 111.9837pt.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 95.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 116.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 95.
+(Font)              scaled to size 10.0pt on input line 116.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 95.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 116.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 95.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 116.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 95.
+(Font)              scaled to size 10.0pt on input line 116.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.95 
-      [1 <./image/Todo_list_light.png>] [2]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.53937> on input line 99.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 99.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 99.
+l.116 
+       [1 <./image/Todo_list_light.png> <./image/Todo_list_dark.png>] [2 <./image/BlockedWebsite.png> <./image/AntiProcr.png>]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 101.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 124.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 10.53937pt on input line 101.
+(Font)              scaled to size 10.53937pt on input line 124.
 
-Underfull \hbox (badness 1314) in paragraph at lines 103--103
+Underfull \hbox (badness 1314) in paragraph at lines 126--126
 []|\T1/ClearSans-TLF/regular/n/10.53937 Have a web front end
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 []|\T1/ClearSans-TLF/regular/n/10.53937 Store some user-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 \T1/ClearSans-TLF/regular/n/10.53937 specific state in a
  []
 
 
-Underfull \hbox (badness 7522) in paragraph at lines 107--107
+Underfull \hbox (badness 7522) in paragraph at lines 130--130
 \T1/ClearSans-TLF/regular/n/10.53937 pri-vacy pol-icy for all
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 []|\T1/ClearSans-TLF/regular/n/10.53937 The GDPR pri-vacy pol-icy is shown in [][]https://team23-
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 109--109
+Underfull \hbox (badness 1057) in paragraph at lines 132--132
 \T1/ClearSans-TLF/regular/n/10.53937 - team mem-bers must
  []
 
 
-Underfull \hbox (badness 4048) in paragraph at lines 111--111
+Underfull \hbox (badness 4048) in paragraph at lines 134--134
 []|\T1/ClearSans-TLF/regular/n/10.53937 Use a CI/CD pipeline
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 \T1/ClearSans-TLF/regular/n/10.53937 ex-am-ple pipeline and
  []
 
-<./image/CI_CD.png, id=32, 431.81325pt x 118.64325pt>
+<./image/CI_CD.png, id=40, 431.81325pt x 118.64325pt>
 File: ./image/CI_CD.png Graphic file (type png)
 <use ./image/CI_CD.png>
-Package pdftex.def Info: ./image/CI_CD.png  used on input line 111.
+Package pdftex.def Info: ./image/CI_CD.png  used on input line 134.
 (pdftex.def)             Requested size: 284.52756pt x 78.17986pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 []|\T1/ClearSans-TLF/regular/n/10.53937 The app uti-lizes a CI/CD pipeline, au-tomat-ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 \T1/ClearSans-TLF/regular/n/10.53937 in-te-gra-tion and de-ploy-ment pro-cess, re-sult-ing in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 \T1/ClearSans-TLF/regular/n/10.53937 faster, more re-li-able re-leases and eas-ier main-te-nance.
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 113--113
+Underfull \hbox (badness 3690) in paragraph at lines 136--136
 \T1/ClearSans-TLF/regular/n/10.53937 ployed and ac-ces-si-ble
  []
 
-<./image/VM.png, id=33, 767.86874pt x 169.63374pt>
+<./image/VM.png, id=41, 767.86874pt x 169.63374pt>
 File: ./image/VM.png Graphic file (type png)
 <use ./image/VM.png>
-Package pdftex.def Info: ./image/VM.png  used on input line 113.
+Package pdftex.def Info: ./image/VM.png  used on input line 136.
 (pdftex.def)             Requested size: 256.0748pt x 56.57204pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 []|\T1/ClearSans-TLF/regular/n/10.53937 The app is de-ployed on a pro-vided VM(amazon-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 \T1/ClearSans-TLF/regular/n/10.53937 VM), al-low-ing pub-lic ac-cess, en-sur-ing users can con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 \T1/ClearSans-TLF/regular/n/10.53937 ve-niently ac-cess the plat-form's fea-tures from any
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 115--115
+Underfull \hbox (badness 1888) in paragraph at lines 138--138
 \T1/ClearSans-TLF/regular/n/10.53937 (en-crypted) and dis-al-
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 115--116
+Underfull \hbox (badness 1048) in paragraph at lines 138--139
 \T1/ClearSans-TLF/regular/n/10.53937 ing se-cu-rity and pri-vacy, while dis-al-low-ing plain-text HTTP re-
  []
 
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 117.
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 140.
 (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
 File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
 )
-Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 117.
-<./image/Vertical_slice.png, id=36, 1032.85875pt x 355.3275pt>
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 140.
+<./image/Vertical_slice.png, id=44, 1032.85875pt x 355.3275pt>
 File: ./image/Vertical_slice.png Graphic file (type png)
 <use ./image/Vertical_slice.png>
-Package pdftex.def Info: ./image/Vertical_slice.png  used on input line 117.
+Package pdftex.def Info: ./image/Vertical_slice.png  used on input line 140.
 (pdftex.def)             Requested size: 284.52756pt x 97.88072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 []|\T1/ClearSans-TLF/regular/n/10.53937 Features are de-vel-oped us-ing ver-ti-cal slic-ing, al-low-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 \T1/ClearSans-TLF/regular/n/10.53937 ing end-to-end func-tion-al-ity for each fea-ture(frontend,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 \T1/ClearSans-TLF/regular/n/10.53937 back-end and database), stream-lin-ing the de-vel-op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 \T1/ClearSans-TLF/regular/n/10.53937 ment pro-cess and fa-cil-i-tat-ing in-cre-men-tal im-prove-ments.
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 99--120
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 122--143
 [] 
  []
 
@@ -1023,47 +1038,47 @@ Overfull \hbox (2.5502pt too wide) in paragraph at lines 99--120
 Overfull \vbox (49.38481pt too high) has occurred while \output is active []
 
  [3 <./image/CI_CD.png> <./image/VM.png> <./image/Vertical_slice.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
 []|\T1/ClearSans-TLF/bold/n/10.53937 Advanced So-phis-ti-ca-
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 126--126
+Underfull \hbox (badness 4805) in paragraph at lines 149--149
 []|\T1/ClearSans-TLF/regular/n/10.53937 Use com-plex APIs or
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 126--126
+Underfull \hbox (badness 3690) in paragraph at lines 149--149
 \T1/ClearSans-TLF/regular/n/10.53937 li-braries to im-ple-ment
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 129--129
+Underfull \hbox (badness 1320) in paragraph at lines 152--152
 []|\T1/ClearSans-TLF/regular/n/10.53937 Integrate with ex-ist-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--137
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
 []|\T1/ClearSans-TLF/regular/n/10.53937 Demonstrate cre-ativ-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 []|\T1/ClearSans-TLF/regular/n/10.53937 Look aes-thet-i-cally
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 139--139
+Underfull \hbox (badness 2253) in paragraph at lines 162--162
 \T1/ClearSans-TLF/regular/n/10.53937 pleas-ing, with a clear
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 \T1/ClearSans-TLF/regular/n/10.53937 vi-sual iden-tity and
  []
 
 
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 122--142
+Overfull \hbox (25.19998pt too wide) in paragraph at lines 145--165
 [] 
  []
 
@@ -1074,17 +1089,17 @@ Package rerunfilecheck Info: File `T23P02-app-description.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25706 strings out of 476331
- 499619 string characters out of 5787765
+ 25733 strings out of 476331
+ 500295 string characters out of 5787765
  1862660 words of memory out of 5000000
- 45623 multiletter control sequences out of 15000+600000
+ 45645 multiletter control sequences out of 15000+600000
  572721 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,117p,928b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Windows/Fonts/simsun.ttc><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on T23P02-app-description.pdf (5 pages, 195635 bytes).
+Output written on T23P02-app-description.pdf (5 pages, 348170 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 52 words of extra memory for PDF output out of 10000 (max. 10000000)
 
