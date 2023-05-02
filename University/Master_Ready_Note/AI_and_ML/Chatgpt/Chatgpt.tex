@@ -1,0 +1,98 @@
+\documentclass[a4paper]{article}
+
+% Packages
+\usepackage[margin = 1 in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ctex}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{tocloft} 
+
+\pagestyle{fancy}
+% Formatting
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\rhead{\thepage}
+
+% Title and Author
+\title{\textbf{ChatGPT和大语言模型的思考}}
+\author{李子骏}
+\date{}
+
+% Document
+\begin{document}
+\setlength{\parindent}{2em}
+
+% Title Page
+\maketitle
+
+\section{Chatgpt的原理}
+
+我们可以将ChatGPT的全名Generative Pre-trained Transformer拆分为三个部分，以便更好地理解其工作原理。
+
+\begin{itemize}
+    \item 生成型(Generative)\\
+        生成型模型是指那些能够自动产生新数据的模型，而不仅仅是识别或分类现有数据。这类模型在输出过程中会生成独一无二的文本，而不是简单地重复现有的文本。在这个过程中，生成型模型的工作方式与人类思考的过程相似：获取知识->思考->整理->记忆->表达。为了更接近人类的表达方式，ChatGPT需要理解上下文，生成逻辑严密、符合常理的文本，这也是生成型模型的一个重要特点。
+    \item 预训练(Pre-training)\\
+        预训练是训练深度学习模型的一种常用技术，其目的是让模型能够在大量无标签数据上学习语言的基本结构、概念和统计特征。通过预训练，生成的文本可以更好地满足我们的需求。预训练的过程通常包括两个阶段：
+    \begin{enumerate}
+        \item 无监督预训练：在这个阶段，模型学习从大量文本数据中捕获的语言模式。这些数据通常来自互联网的各种来源，如网页、新闻、博客等。训练过程中，模型使用自回归方法（如Transformer架构）预测给定上下文中的下一个词。此阶段的目标是让模型学会理解和生成自然语言文本。
+        \item 有监督微调：在这个阶段，模型针对特定任务（如文本摘要、情感分析、问答等）进行微调。微调过程通常使用标记过的数据集，这些数据集包含了输入文本以及与之对应的期望输出。通过在这些有监督的数据上进行训练，模型能够学会为特定任务生成更准确和相关的输出。
+    \end{enumerate}
+    预训练的优点是，模型可以利用大量无标签数据中的信息，在各种任务上实现更好的性能。此外，通过预训练，模型可以在不同任务之间共享知识，从而降低了训练和部署新任务所需的计算资源。
+\end{itemize}
+
+\section{ChatGPT可能存在的不同受众/引用场景}
+
+受众是面向整个社会的，我根据社会结构对ChatGPT的不同受众进行了分类：
+\begin{enumerate}
+    \item 教育领域\\
+        学生：ChatGPT可以帮助学生进行课题研究(开始)、辅助学习(过程)和解决问题(结果)。它可以根据学生的需求生成相关内容，从而提高学习效率。相当于\textbf{私人教师}\\
+        教师：ChatGPT可以作为教师的辅助工具，帮助他们准备教学材料(课前)、批改作业(课后)和解答学生问题(课后)。相当于\textbf{百科全书}
+    \item 企业\\
+        营销与沟通：ChatGPT可以帮助企业撰写广告文案、撰写新闻稿和维护社交媒体。它可以根据企业的需求生成有吸引力的内容，从而提高品牌形象和市场份额。相当于\textbf{广告撰稿人/公关专家}\\
+        人力资源：ChatGPT可以协助招聘、面试和员工培训。它可以快速生成面试题目、招聘广告和培训材料，从而提高人力资源管理的效率。相当于\textbf{招聘顾问/培训师}\\
+        决策支持：ChatGPT可以为企业提供决策支持，帮助他们分析市场趋势、竞争对手和客户需求。通过智能分析，企业可以做出更明智的决策。相当于\textbf{市场分析师/数据分析师}\\
+    \item 科研\\
+        数据科学家：ChatGPT可以帮助数据科学家编写代码、处理数据。它可以根据用户的需求生成相关代码并且给出建议，从而提高编程效率。相当于\textbf{编程助手/数据处理顾问}\\
+        研究员：ChatGPT可以协助研究员进行文献综述、撰写论文。它可以根据研究员的需求生成高质量的研究总结(结果)，从而提高研究效率。相当于\textbf{研究助手/论文编辑}
+    \item 艺术/创意\\
+        作家：ChatGPT可以为作家提供创作灵感，帮助他们构思故事情节、角色和背景设定。相当于\textbf{创意灵感来源/剧本顾问}\\
+        设计师：ChatGPT可以帮助设计师激发创意、解决设计问题和提供设计建议。通过生成设计草图、概念和设计方案，它可以帮助设计师更好地完成项目。相当于\textbf{设计助手/创意顾问}\\
+        艺术家：ChatGPT可以为艺术家提供灵感，帮助他们探索新的艺术形式和技巧。它可以生成创意艺术作品，从而推动艺术家的创作进程。相当于\textbf{艺术灵感来源/技巧指导}
+    \item 普通大众\\
+        休闲娱乐：ChatGPT可以为普通大众提供休闲娱乐内容，如生成故事和游戏。相当于\textbf{娱乐内容创作者}\\
+        生活辅助：ChatGPT可以帮助普通大众解决日常生活中的问题，如菜谱、家居布置和理财。相当于\textbf{生活顾问}
+\end{enumerate}
+
+通过以上可以发现，Chatgpt确实有能力几乎渗透到社会生活中的每一个部分，但需要注意的是，仍然有些方面，人的存在必不可少。比如教育领域的服务对象是人，教师的存在必不可少，Chatgpt能够提供类似于私人教师的帮助，但授课方面还是需要人来进行。而科研方面，Chatgpt能够做到的是数据的分析与总结而不能做到对新事物的探索，这方面仍然需要人的参与。
+
+\section{对Chatgpt未来的思考}
+
+毫无疑问，ChatGPT作为一款先进的人工智能辅助工具，已经在很多学生的生活(据我在英国的了解)和学习中发挥了积极的作用。特别是在4.0版本推出后，许多逻辑漏洞得到修复，使得ChatGPT能够更好地帮助人们高效地完成学习和工作任务。我们也必须意识到，未来5-10年将是AI风潮席卷全球的时期，而ChatGPT仅仅是这场风潮的一个导火索，让大部分人体验到了大型语言模型所带来的便利性。
+
+然而，当前仍存在关于AI的法律和道德问题尚未解决。例如，ChatGPT的存在是否合理，它是否会被用于制造谣言、假新闻和恶意评论等危害社会的行为。为了确保人工智能技术的健康发展，我们需要建立相应的道德和伦理规范，并将ChatGPT作为辅助工具，为我们提供高效的帮助。
+
+此外，随着ChatGPT等大型语言模型在全球范围内的推广应用，数据隐私和安全问题也是一个需要着重考虑的方面。AI技术在处理和分析用户数据的过程中，由于数据广而杂，可能存在泄露个人信息、侵犯用户隐私等风险。所以，在使用ChatGPT时，需要采取相应的预防措施(加密等)，确保数据的安全和隐私得到充分保护。
+
+基于人类利益优先的原则，我觉得我们应该将ChatGPT视为一个辅助工具，用来提高我们的工作和学习效率。但我们还应该关注AI技术可能带来的负面影响，如过度依赖导致人类失去独立思考和创造的能力，以及对就业市场的影响(应该是近年来影响最大的)。
+
+\end{document}
+
