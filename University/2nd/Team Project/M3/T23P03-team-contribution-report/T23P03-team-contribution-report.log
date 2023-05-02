@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -897,21 +897,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.105 \newpage
                [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}]
-Overfull \hbox (2.55019pt too wide) in paragraph at lines 115--134
+Overfull \hbox (2.55019pt too wide) in paragraph at lines 117--136
 [] 
  []
 
-<./image/Contributor_1.png, id=22, 943.72575pt x 488.42474pt>
+<./image/Contributor_1.png, id=24, 943.72575pt x 488.42474pt>
 File: ./image/Contributor_1.png Graphic file (type png)
 <use ./image/Contributor_1.png>
 Package pdftex.def Info: ./image/Contributor_1.png  used on input line 143.
 (pdftex.def)             Requested size: 221.95676pt x 114.86925pt.
-<./image/Contributor_2.png, id=24, 945.5325pt x 502.87875pt>
+<./image/Contributor_2.png, id=26, 945.5325pt x 502.87875pt>
 File: ./image/Contributor_2.png Graphic file (type png)
 <use ./image/Contributor_2.png>
 Package pdftex.def Info: ./image/Contributor_2.png  used on input line 147.
 (pdftex.def)             Requested size: 221.95676pt x 118.04607pt.
-<./image/Contributor_3.png, id=25, 945.5325pt x 498.06075pt>
+<./image/Contributor_3.png, id=27, 945.5325pt x 498.06075pt>
 File: ./image/Contributor_3.png Graphic file (type png)
 <use ./image/Contributor_3.png>
 Package pdftex.def Info: ./image/Contributor_3.png  used on input line 155.
@@ -978,9 +978,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  87i,11n,117p,888b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on T23P03-team-contribution-report.pdf (4 pages, 188017 bytes).
+Output written on T23P03-team-contribution-report.pdf (4 pages, 188898 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
