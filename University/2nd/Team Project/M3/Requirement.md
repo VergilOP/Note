@@ -1,5 +1,9 @@
 1. S3排名（5%）
 
+• S3 ranking (5%)
+
+One list with rankings individual team members in Submission 3. For each member of the team, include up to 100 words on the criteria and feedback that led to the ranking. Put any non-submissions or too-low-contribution as N/A. Equal ranks are not allowed. Individual grades will not be affected by the ranking unless the no-submissions or too-low-contribution.
+
     - 有一个单独的S3提交排名列表。
     - 排名标准明确，并公平地进行排名。
     - 表现更好或质量更高的个人得分更高。
