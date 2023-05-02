@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 17:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -871,36 +871,36 @@ LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/m/n' in size <10.53937> not av
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/regular/n' will be
 (Font)              scaled to size 10.53937pt on input line 80.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.53937> on input line 83.
+(Font)              <10.53937> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 83.
+(Font)              <7> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 83.
+(Font)              <5> on input line 85.
 
-Overfull \hbox (2.55019pt too wide) in paragraph at lines 83--102
+Overfull \hbox (2.55019pt too wide) in paragraph at lines 85--104
 [] 
  []
 
 
-Overfull \hbox (2.55019pt too wide) in paragraph at lines 103--122
+Overfull \hbox (2.55019pt too wide) in paragraph at lines 105--124
 [] 
  []
 
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 125.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 127.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 125.
+(Font)              scaled to size 10.0pt on input line 127.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 125.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 127.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 125.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 127.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 125.
+(Font)              scaled to size 10.0pt on input line 127.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.125 \end{document}
+l.127 \end{document}
                      [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (T23P03-team-contribution-report.aux)
@@ -910,13 +910,13 @@ Package rerunfilecheck Info: File `T23P03-team-contribution-report.out' has not 
 Here is how much of TeX's memory you used:
  25510 strings out of 476331
  495187 string characters out of 5787765
- 1861660 words of memory out of 5000000
+ 1862660 words of memory out of 5000000
  45435 multiletter control sequences out of 15000+600000
  573120 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,11n,117p,888b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on T23P03-team-contribution-report.pdf (2 pages, 50042 bytes).
+Output written on T23P03-team-contribution-report.pdf (2 pages, 50122 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  4 named destinations out of 1000 (max. 500000)
