@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  2 MAY 2023 19:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  3 MAY 2023 01:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -858,248 +858,273 @@ LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <15.05624> not ava
 (Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
 (Font)              scaled to size 15.05624pt on input line 76.
-<./image/Todo_list_light.png, id=13, 1156.32pt x 537.207pt>
-File: ./image/Todo_list_light.png Graphic file (type png)
-<use ./image/Todo_list_light.png>
-Package pdftex.def Info: ./image/Todo_list_light.png  used on input line 88.
-(pdftex.def)             Requested size: 221.95676pt x 103.11142pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.53937> on input line 89.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 89.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 89.
-<./image/Todo_list_dark.png, id=15, 1156.32pt x 539.616pt>
-File: ./image/Todo_list_dark.png Graphic file (type png)
-<use ./image/Todo_list_dark.png>
-Package pdftex.def Info: ./image/Todo_list_dark.png  used on input line 92.
-(pdftex.def)             Requested size: 221.95676pt x 103.5738pt.
-<./image/BlockedWebsite.png, id=16, 1444.64719pt x 670.00313pt>
-File: ./image/BlockedWebsite.png Graphic file (type png)
-<use ./image/BlockedWebsite.png>
-Package pdftex.def Info: ./image/BlockedWebsite.png  used on input line 109.
-(pdftex.def)             Requested size: 221.95676pt x 102.93953pt.
-<./image/AntiProcr.png, id=17, 1318.9275pt x 665.48625pt>
-File: ./image/AntiProcr.png Graphic file (type png)
-<use ./image/AntiProcr.png>
-Package pdftex.def Info: ./image/AntiProcr.png  used on input line 113.
-(pdftex.def)             Requested size: 221.95676pt x 111.9837pt.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 116.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <9.03374> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 116.
+(Font)              scaled to size 9.03374pt on input line 82.
+<./image/todolist_1.png, id=13, 1156.32pt x 536.60475pt>
+File: ./image/todolist_1.png Graphic file (type png)
+<use ./image/todolist_1.png>
+Package pdftex.def Info: ./image/todolist_1.png  used on input line 96.
+(pdftex.def)             Requested size: 221.95676pt x 102.99582pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.53937> on input line 97.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 97.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 97.
+<./image/todolist_2.png, id=15, 1156.32pt x 533.5935pt>
+File: ./image/todolist_2.png Graphic file (type png)
+<use ./image/todolist_2.png>
+Package pdftex.def Info: ./image/todolist_2.png  used on input line 100.
+(pdftex.def)             Requested size: 221.95676pt x 102.41785pt.
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 102.
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
+File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
+)
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 113.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 113.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 116.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 113.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 116.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 113.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 116.
+(Font)              scaled to size 10.0pt on input line 113.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.116 
-       [1 <./image/Todo_list_light.png> <./image/Todo_list_dark.png>] [2 <./image/BlockedWebsite.png> <./image/AntiProcr.png>]
+l.113 
+       [1 <./image/todolist_1.png> <./image/todolist_2.png>]
+<./image/BlockedWebsite.png, id=29, 1444.64719pt x 670.00313pt>
+File: ./image/BlockedWebsite.png Graphic file (type png)
+<use ./image/BlockedWebsite.png>
+Package pdftex.def Info: ./image/BlockedWebsite.png  used on input line 118.
+(pdftex.def)             Requested size: 221.95676pt x 102.93953pt.
+<./image/AntiProcr.png, id=30, 1318.9275pt x 665.48625pt>
+File: ./image/AntiProcr.png Graphic file (type png)
+<use ./image/AntiProcr.png>
+Package pdftex.def Info: ./image/AntiProcr.png  used on input line 122.
+(pdftex.def)             Requested size: 221.95676pt x 111.9837pt.
+<./image/AlarmTimer_light.png, id=31, 1094.28825pt x 548.64975pt>
+File: ./image/AlarmTimer_light.png Graphic file (type png)
+<use ./image/AlarmTimer_light.png>
+Package pdftex.def Info: ./image/AlarmTimer_light.png  used on input line 133.
+(pdftex.def)             Requested size: 221.95676pt x 111.27676pt.
+<./image/AlarmTimer_dark.png, id=32, 1096.095pt x 555.2745pt>
+File: ./image/AlarmTimer_dark.png Graphic file (type png)
+<use ./image/AlarmTimer_dark.png>
+Package pdftex.def Info: ./image/AlarmTimer_dark.png  used on input line 137.
+(pdftex.def)             Requested size: 221.95676pt x 112.44246pt.
+<./image/history_1.png, id=33, 1164.35pt x 693.59125pt>
+File: ./image/history_1.png Graphic file (type png)
+<use ./image/history_1.png>
+Package pdftex.def Info: ./image/history_1.png  used on input line 148.
+(pdftex.def)             Requested size: 221.95676pt x 132.21762pt.
+<./image/history_2.png, id=34, 1189.44376pt x 689.57625pt>
+File: ./image/history_2.png Graphic file (type png)
+<use ./image/history_2.png>
+Package pdftex.def Info: ./image/history_2.png  used on input line 152.
+(pdftex.def)             Requested size: 221.95676pt x 128.67442pt.
+ [2 <./image/BlockedWebsite.png> <./image/AntiProcr.png> <./image/AlarmTimer_light.png> <./image/AlarmTimer_dark.png>] [3 <./image/history_1.png> <./image/history_2.png>]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 124.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 160.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 10.53937pt on input line 124.
+(Font)              scaled to size 10.53937pt on input line 160.
 
-Underfull \hbox (badness 1314) in paragraph at lines 126--126
+Underfull \hbox (badness 1314) in paragraph at lines 162--162
 []|\T1/ClearSans-TLF/regular/n/10.53937 Have a web front end
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 []|\T1/ClearSans-TLF/regular/n/10.53937 Store some user-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 \T1/ClearSans-TLF/regular/n/10.53937 specific state in a
  []
 
 
-Underfull \hbox (badness 7522) in paragraph at lines 130--130
+Underfull \hbox (badness 7522) in paragraph at lines 166--166
 \T1/ClearSans-TLF/regular/n/10.53937 pri-vacy pol-icy for all
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 []|\T1/ClearSans-TLF/regular/n/10.53937 The GDPR pri-vacy pol-icy is shown in [][]https://team23-
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 132--132
+Underfull \hbox (badness 1057) in paragraph at lines 168--168
 \T1/ClearSans-TLF/regular/n/10.53937 - team mem-bers must
  []
 
 
-Underfull \hbox (badness 4048) in paragraph at lines 134--134
+Underfull \hbox (badness 4048) in paragraph at lines 170--170
 []|\T1/ClearSans-TLF/regular/n/10.53937 Use a CI/CD pipeline
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
 \T1/ClearSans-TLF/regular/n/10.53937 ex-am-ple pipeline and
  []
 
-<./image/CI_CD.png, id=40, 431.81325pt x 118.64325pt>
+<./image/CI_CD.png, id=56, 431.81325pt x 118.64325pt>
 File: ./image/CI_CD.png Graphic file (type png)
 <use ./image/CI_CD.png>
-Package pdftex.def Info: ./image/CI_CD.png  used on input line 134.
+Package pdftex.def Info: ./image/CI_CD.png  used on input line 170.
 (pdftex.def)             Requested size: 284.52756pt x 78.17986pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 []|\T1/ClearSans-TLF/regular/n/10.53937 The app uti-lizes a CI/CD pipeline, au-tomat-ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 \T1/ClearSans-TLF/regular/n/10.53937 in-te-gra-tion and de-ploy-ment pro-cess, re-sult-ing in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 \T1/ClearSans-TLF/regular/n/10.53937 faster, more re-li-able re-leases and eas-ier main-te-nance.
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 136--136
+Underfull \hbox (badness 3690) in paragraph at lines 172--172
 \T1/ClearSans-TLF/regular/n/10.53937 ployed and ac-ces-si-ble
  []
 
-<./image/VM.png, id=41, 767.86874pt x 169.63374pt>
+<./image/VM.png, id=57, 767.86874pt x 169.63374pt>
 File: ./image/VM.png Graphic file (type png)
 <use ./image/VM.png>
-Package pdftex.def Info: ./image/VM.png  used on input line 136.
+Package pdftex.def Info: ./image/VM.png  used on input line 172.
 (pdftex.def)             Requested size: 256.0748pt x 56.57204pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 []|\T1/ClearSans-TLF/regular/n/10.53937 The app is de-ployed on a pro-vided VM(amazon-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 \T1/ClearSans-TLF/regular/n/10.53937 VM), al-low-ing pub-lic ac-cess, en-sur-ing users can con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 \T1/ClearSans-TLF/regular/n/10.53937 ve-niently ac-cess the plat-form's fea-tures from any
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 138--138
+Underfull \hbox (badness 1888) in paragraph at lines 174--174
 \T1/ClearSans-TLF/regular/n/10.53937 (en-crypted) and dis-al-
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 138--139
+Underfull \hbox (badness 1048) in paragraph at lines 174--175
 \T1/ClearSans-TLF/regular/n/10.53937 ing se-cu-rity and pri-vacy, while dis-al-low-ing plain-text HTTP re-
  []
 
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 140.
-(C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
-File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
-)
-Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 140.
-<./image/Vertical_slice.png, id=44, 1032.85875pt x 355.3275pt>
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 176.
+<./image/Vertical_slice.png, id=60, 1032.85875pt x 355.3275pt>
 File: ./image/Vertical_slice.png Graphic file (type png)
 <use ./image/Vertical_slice.png>
-Package pdftex.def Info: ./image/Vertical_slice.png  used on input line 140.
+Package pdftex.def Info: ./image/Vertical_slice.png  used on input line 176.
 (pdftex.def)             Requested size: 284.52756pt x 97.88072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 []|\T1/ClearSans-TLF/regular/n/10.53937 Features are de-vel-oped us-ing ver-ti-cal slic-ing, al-low-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 \T1/ClearSans-TLF/regular/n/10.53937 ing end-to-end func-tion-al-ity for each fea-ture(frontend,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 \T1/ClearSans-TLF/regular/n/10.53937 back-end and database), stream-lin-ing the de-vel-op-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 \T1/ClearSans-TLF/regular/n/10.53937 ment pro-cess and fa-cil-i-tat-ing in-cre-men-tal im-prove-ments.
  []
 
 
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 122--143
+Overfull \hbox (2.5502pt too wide) in paragraph at lines 158--179
 [] 
  []
 
 
 Overfull \vbox (49.38481pt too high) has occurred while \output is active []
 
- [3 <./image/CI_CD.png> <./image/VM.png> <./image/Vertical_slice.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+ [4 <./image/CI_CD.png> <./image/VM.png> <./image/Vertical_slice.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
 []|\T1/ClearSans-TLF/bold/n/10.53937 Advanced So-phis-ti-ca-
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 149--149
+Underfull \hbox (badness 4805) in paragraph at lines 185--185
 []|\T1/ClearSans-TLF/regular/n/10.53937 Use com-plex APIs or
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 149--149
+Underfull \hbox (badness 3690) in paragraph at lines 185--185
 \T1/ClearSans-TLF/regular/n/10.53937 li-braries to im-ple-ment
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 152--152
+Underfull \hbox (badness 1320) in paragraph at lines 188--188
 []|\T1/ClearSans-TLF/regular/n/10.53937 Integrate with ex-ist-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
 []|\T1/ClearSans-TLF/regular/n/10.53937 Demonstrate cre-ativ-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
 []|\T1/ClearSans-TLF/regular/n/10.53937 Look aes-thet-i-cally
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 162--162
+Underfull \hbox (badness 2253) in paragraph at lines 198--198
 \T1/ClearSans-TLF/regular/n/10.53937 pleas-ing, with a clear
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
 \T1/ClearSans-TLF/regular/n/10.53937 vi-sual iden-tity and
  []
 
 
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 145--165
+Overfull \hbox (25.19998pt too wide) in paragraph at lines 181--201
 [] 
  []
 
-[4] 
+[5] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (T23P02-app-description.aux)
 Package rerunfilecheck Info: File `T23P02-app-description.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25733 strings out of 476331
- 500295 string characters out of 5787765
+ 25774 strings out of 476331
+ 501232 string characters out of 5787765
  1862660 words of memory out of 5000000
- 45645 multiletter control sequences out of 15000+600000
- 572721 words of font info for 60 fonts, out of 8000000 for 9000
+ 45675 multiletter control sequences out of 15000+600000
+ 578857 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,12n,117p,928b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Windows/Fonts/simsun.ttc><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on T23P02-app-description.pdf (5 pages, 348170 bytes).
+Output written on T23P02-app-description.pdf (6 pages, 560952 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 52 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
