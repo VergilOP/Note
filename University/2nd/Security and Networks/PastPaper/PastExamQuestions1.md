@@ -15,7 +15,9 @@
 
 2.  
     1. What is a Man-in-the-middle-attack?
+        > A Man-in-the-Middle (MITM) attack is a type of cyber attack where an attacker intercepts the communication between two parties without their knowledge. The attacker can eavesdrop on, modify, or inject new messages into the communication, potentially compromising the confidentiality, integrity, or authenticity of the exchanged information.
     2.  A website uses TLS to ensure credit card data is transmitted securely. Is this enough to protect against malware running on the client? Justify your answer.
+        > TLS (Transport Layer Security) is designed to provide secure communication between a client and a server by encrypting data and authenticating the server. While TLS effectively protects credit card data during transmission, it does not protect against malware running on the client-side. Malware on the client could potentially capture the credit card information before it is encrypted by TLS, or log keystrokes as the user enters their information.
     3.  Consider the following protocol:
         $$
             A \rightarrow B: A\\ 
@@ -23,6 +25,14 @@
             A \rightarrow B: \{N_A\}_{K_{AB}}, \{Pay Elvis \$5\}_{K_{ab}}
         $$
         where $N_A$ is a nonce and $K_{ab}$ is a symmetric key known only to Alice and Bob. Is this protocol secure? If yes, explain why. If not, give an attack in Alice-Bob notation.
+        > The protocol is not secure, as it is vulnerable to a replay attack. An attacker can intercept the message containing ${N_A}{K{AB}}, {Pay Elvis 5}{K{ab}}$ and later send the same message to Bob.  
+        > $A -> E(B): A$  
+        > $E(B) -> A: N_A$  
+        > $A -> E(B): {N_A}_{K_{AB}}, {Pay Elvis 5}_{K_{ab}}$  
+        > $E(B) -> B: {N_A}_{K_{AB}}, {Pay Elvis 5}_{K_{ab}}$  
+        > $(Attacker replays the message)$  
+        > $E(B) -> B: {N_A}_{K_{AB}}, {Pay Elvis 5}_{K_{ab}}$  
+
     4. Consider the following protocol:
         $$
             A \rightarrow B : N_A, A \\
@@ -30,7 +40,7 @@
             A \rightarrow B : \{M\}_{\#(N_A, N_B)}
         $$
         where $N_A$ and $N_B$ are nonces, and $\#(N_A, N_B)$ is a symmetric key based on the hash of $N_A$ and $N_B$, and $pk(A)$ is the public key of A. Is it possible for the attacker to learn M without knowing the private key of A? If so, give an attack in Alice-Bob Notation. If not, explain why
-
+        > In this protocol, it is not possible for an attacker to learn M without knowing the private key of A. Since $N_A$ and $N_B$ are nonces, they ensure freshness in each communication session. The symmetric key, $\#(N_A, N_B)$, is based on the hash of these nonces, which makes it difficult for the attacker to predict or reproduce without knowing both nonces. Furthermore, the message ${N_A, N_B, B}_{pk(A)}$ is encrypted using A's public key, meaning only A, with their private key, can decrypt it to retrieve $N_B$. Without knowing A's private key, the attacker cannot obtain both nonces, and therefore cannot generate the symmetric key or decrypt the message M.
 3. 
     1. What is cross-site scripting?
     2. A website contains the following code which sends a message, user name and password to a server:
