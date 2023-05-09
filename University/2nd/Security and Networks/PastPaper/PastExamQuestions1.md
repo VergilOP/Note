@@ -43,6 +43,7 @@
         > In this protocol, it is not possible for an attacker to learn M without knowing the private key of A. Since $N_A$ and $N_B$ are nonces, they ensure freshness in each communication session. The symmetric key, $\#(N_A, N_B)$, is based on the hash of these nonces, which makes it difficult for the attacker to predict or reproduce without knowing both nonces. Furthermore, the message ${N_A, N_B, B}_{pk(A)}$ is encrypted using A's public key, meaning only A, with their private key, can decrypt it to retrieve $N_B$. Without knowing A's private key, the attacker cannot obtain both nonces, and therefore cannot generate the symmetric key or decrypt the message M.
 3. 
     1. What is cross-site scripting?
+        > Cross-site scripting (XSS) is a type of security vulnerability typically found in web applications. It occurs when an application includes untrusted data in a new web page without proper validation or escaping. This enables attackers to execute malicious scripts in the browser of the end user, leading to a variety of attacks such as stealing user data, hijacking user sessions, or defacing web sites.
     2. A website contains the following code which sends a message, user name and password to a server:
         ```html
             1c <form action=”message.php” method=”get”>
@@ -66,5 +67,23 @@
             11s ?>
         ```
         Describe four security weaknesses in this website, how they might be exploited and rank them in order of severity
+        > The provided code has several security vulnerabilities:
+        > 
+        >     a. The code is vulnerable to Cross-site Scripting (XSS) attacks because it does not validate or sanitize the message input from the user, which is then echoed back to the user. An attacker could inject malicious scripts in the message field, which would then be executed in the user's browser when the message is displayed.
+        > 
+        >     b. The password field is sent as plain text using the GET method, which means the password could be exposed in the URL and server logs, and could be intercepted by network eavesdroppers.
+        > 
+        >     c. The code is vulnerable to SQL Injection because it concatenates user-supplied input (message and user) into an SQL query without sanitization or parameterization. This could allow an attacker to alter the structure of the SQL query and manipulate the database.
+        > 
+        >     d. There's no authentication or authorization check before updating the message in the database. Any user could update messages of any other user, leading to unauthorized data access and modification.
     3. Provide fixes for the security weaknesses you have identified. 
+        > Fixes for the identified vulnerabilities:
+        > 
+        >       a. To prevent XSS, validate and sanitize user input before using it in the application. Use context-specific output encoding/escaping before displaying user-controlled data in a web page.
+        > 
+        >       b. Send the password field as a POST parameter rather than GET, and ensure the connection is over HTTPS to encrypt the data in transit.
+        > 
+        >       c. Prevent SQL Injection by using prepared statements or parameterized queries instead of concatenating user input into SQL queries.
+        > 
+        >       d. Implement proper authentication and authorization mechanisms. Only allow authenticated users to update their own messages, not those of others.
     
