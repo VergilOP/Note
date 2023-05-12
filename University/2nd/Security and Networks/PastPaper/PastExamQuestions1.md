@@ -5,13 +5,17 @@
 1.  
     1. How does padding work?
         > Padding works by adding extra bits or characters to a message to ensure it reaches a fixed length or block size.   
-        This is commonly done in encryption algorithms that operate on fixed-length blocks of data, such as AES. Padding schemes, like PKCS#7, are used to make the message a multiple of the block size, allowing the encryption algorithm to process it properly. When the message is decrypted, the padding is removed to recover the original message.
     2. For full disk encryption would you use AES in CBC-mode or in counter mode? Justify your answer.
-        > For full disk encryption, it's generally better to use AES in counter mode (CTR) rather than in CBC mode. This is because counter mode offers parallelization, allowing for faster encryption and decryption of large amounts of data.
+        > Use Counter mode, as for CBC mode you would to re-encrypt almost the whole disk if you change a block at the beginning of the disk. Counter mode is malleable, but you fix this by adding a MAC.
     3. Alice and Bob use the Diffie-Hellman key exchange protocol to derive a session key. If this is done over an unencrypted wireless connection, can an active attacker learn the session key? Either describe an attack, or explain why no attack exists. 
-        > In a Diffie-Hellman key exchange over an unencrypted wireless connection, an active attacker can perform a man-in-the-middle attack. The attacker intercepts the messages exchanged between Alice and Bob and establishes separate key exchanges with each of them. The attacker then relays the messages between Alice and Bob, but substitutes their own public keys in the process. Alice and Bob will each derive a session key, but these keys will be shared with the attacker, not with each other. As a result, the attacker can decrypt and manipulate the messages exchanged between Alice and Bob.
+        >  A man-in-the middle attack will work. Here are the details:
+        > $$A -> E(B): g^x\\
+        > E(A) -> B: g^{x'}\\
+        > B-> E(A): g^y\\
+        > E(B) -> A: g^{y'}$$
+        > A thinks the session key is $g^{xy'}$, B thinks the session key is $g^{x'y}$, and the attacker knows x' and y', hence the attacker knows both keys and can now decrypt all communication from Alice, re-encrypt it for Bob and vice versa.
     4. Assume the account number is contained in the first block of a message. Assume CBC-mode is used for encryption. Is it possible for an active attacker to change the account number? Either describe an attack, or explain why no attack exists.
-        > If CBC-mode encryption is used and the account number is contained in the first block of a message, an active attacker can change the account number using a bit-flipping attack. In a bit-flipping attack, the attacker modifies the ciphertext of the initialization vector (IV) XORed with the plaintext block containing the account number. This results in a predictable change in the decrypted plaintext block, effectively allowing the attacker to change the account number. 
+        > Yes. The attack works by changing the IV. The modified IV is IV \xor M1 \xor M2, where M1 is the message with the old account number and M2 is the message with the new account number. 
 
 2.  
     1. What is a Man-in-the-middle-attack?
