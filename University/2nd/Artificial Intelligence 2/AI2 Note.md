@@ -109,7 +109,7 @@ $$L(θ|x) = \prod_{i=1}^{N} y_{j}\begin{cases}
     - One naive way is to sweep all the values of parameters θ to find one that generate the maximum likelihood function, or to make the model mostly likely to generate the observation $x$
     - Grid search: usually used for tuning hyper-parameters of a machine learning model
     - For a grid search method, instead of evaluating all possible values of θ, which are spaced at samll intervals, then pick the value of θ that gives you the maximum likelihood.
-  - *Option 2*: Optimization algorithms - a more general way to solve the problem
+  - **Option 2**: Optimization algorithms - a more general way to solve the problem
 
 - Cost functions
   - **Cost function**: A function that maps a set of events into a number that represents the "cost" of theat event occurring. Also known as the loss function or objective function
