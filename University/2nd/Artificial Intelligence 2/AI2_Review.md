@@ -177,7 +177,7 @@
 ## Week 7 Lecture 2: Introduction to Information Theory 
 1. Concept of self-information, page 9
 
-   - Self Information: Given a random variable X with probability mass function $P_x(x)$, the self-information of measuring X as outcome x is defined as
+   - **Self Information**: Given a random variable X with probability mass function $P_x(x)$, the self-information of measuring X as outcome x is defined as
       $$
         I_x(x) = -\log_b[P_x(x)] = \log_b\frac{1}{P_x(x)}
       $$
@@ -312,3 +312,18 @@ Week 8 Lecture 1:  Information Theory II -- Measures for more variables
 
   - Probabilistic relationship: standard structures  
     ![Probabilistic](./images/ProbabilisticRelationship.png)
+
+
+## Notation
+
+**Self Information**: self information is a measure of the unexpectedness or information content of an event
+
+**Entropy**: quantifies “the uncertainty in a random variable X”.
+
+**Joint entropy**: “A measure of the uncertainty associated with a set of variables.”
+
+**Mutual information**: “measures the information that X and Y share”
+
+**Mutual Information feature selection**: Use mutual information to choose a optimal set of independent variables, called features that allow us to classify samples.
+
+**Information gain**: the information we can gain after spiting the samples based on a independent variable (internal node)

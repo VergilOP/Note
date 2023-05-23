@@ -45,33 +45,7 @@
 
 ## Main Summer Examinations 2022
 
-1. Mary is taking the exam of AI2, which has three questions: question A, B and C. For each question, Mary either knows how to solve it and gets the full marks, or does not know and gets 0 marks. Suppose question A has 20 marks, question B has 30 marks, and question C has 50 marks. Suppose Mary knows how to solve question A with probability 0:6, question B with probability 0:5 and question C with probability 0:4. Assume Mary solves these three questions independently.
-    1. Mary can get the first-class degree if she gets at least 70 marks. What is the probability of Mary getting a first-class degree?
-        > $A,B,C = 0.6\times 0.5\times 0.4 = 0.12$  
-        > $A, C = 0.6 \times 0,4 = 0.24$  
-        > $B,C = 0.5 \times 0.4 = 0.2$  
-        > $P(First-class) = 0.56$
-    2. What is the expectation of the marks Mary can get from the exam?
-        > $E = 0.6\times 20+ 0.5\times 30+ 0.4\times 50 = 47$
-    3. Let X1 =`the marks Mary gets from question A`, X2 =`the marks Mary gets from question B` and X3 =`the marks Mary gets from question C`. Let $X = \max\{X_1, X_2, X_3\}$ (the maximum among X1, X2, X3). Write down the probability mass function of X
-        > $P(X_1=20) = 0.6$  
-        > $P(X_2=30) = 0.5$  
-        > $P(X_3=50) = 0.4$  
-        > $P(X=0)=P(X_1=0) \times P(X_2=0) \times P(X_3=0) = 0.4 \times 0.5 \times 0.6 = 0.12$  
-        > $P(X=20)=P(X_1=20) \times P(X_2=0) \times P(X_3=0) = 0.6 \times 0.5 \times 0.6 = 0.18$  
-        > $P(X=30)=P(X_1=0) \times P(X_2=30) \times P(X_3=0)+ P(X_1=20) \times P(X_2=30) \times P(X_3=0)= 0.4 \times 0.5 \times 0.6 + 0.6 \times 0.5 \times 0.6= 0.3$   
-        > $P(X=50)=P(X_1=0) \times P(X_2=0) \times P(X_3=50)+ P(X_1=20) \times P(X_2=0) \times P(X_3=50)+P(X_1=0) \times P(X_2=30) \times P(X_3=50)+P(X_1=20) \times P(X_2=30) \times P(X_3=50)= 0.4 \times 0.5 \times 0.4 + 0.6 \times 0.5 \times 0.4+0.4 \times 0.5 \times 0.4+0.6 \times 0.5 \times 0.4= 0.4$  
-        > $$
-        >   P(x;\theta) =
-        >   \begin{cases}
-        >     0.12  & \text{When X=0}\\
-        >     0.18  & \text{When X=20}\\
-        >     0.3 & \text{When X=30}\\
-        >     0.4 & \text{When X=50}\\
-        >   \end{cases}
-        > $$
-
-2. As a machine learning expert for an AI cyber security company, your task is to design an automated network intrusion detection system. You have collected a large number of records of network activities. Each record includes the log information about network activity, such as protocol types, duration, number of failed logins, which are random variables, denoted as $X = [X_1, X_2, ..., X_n]^T$. Each record also includes a binary random variable Y called label that was labelled by cyber security experts as intrusions (Y=1) or normal connections(Y=0)
+1. As a machine learning expert for an AI cyber security company, your task is to design an automated network intrusion detection system. You have collected a large number of records of network activities. Each record includes the log information about network activity, such as protocol types, duration, number of failed logins, which are random variables, denoted as $X = [X_1, X_2, ..., X_n]^T$. Each record also includes a binary random variable Y called label that was labelled by cyber security experts as intrusions (Y=1) or normal connections(Y=0)
     1. Consider feature selection based on mutual information to reduce the number of independent variables.
        1. Explain to your colleague, who knows nothing about information theory, the concept of mutual information. 
             > Basic motivation behind mutual information is to measure the information that two random variables X and Y share. In other words, it measures how much knowing one of these variables reduces uncertainty about the other.
@@ -110,7 +84,7 @@
             > With $F_2 = 1$, obeserving $F_4 = 1$ still gives us information only about $A_3$  
             > If we observe $F_3 = 1$ instead of $F_2$, then oberving $F_4 = 1$ will give us information about $A_1$ and $A_3$ due to competing causes
 
-3.  1. Consider the following minimax game tree. There are two players Max and Min; the player Max wants to maximise the utility and the player Min wants to minimise the utility. The tree has five layers and we can use Lm-n to denote the nth node from left to right in the layer m; for example, the root node can be denoted by L1-1, the first node at the bottom layer (with value 8) can be denoted by L5-1, and the fourth node at the fourth layer (with value 11) can be denoted by L4-4. Give the value of the root node (L1-1) and the values of the two nodes at the second layer (L2-1 and L2-2).[2 marks]
+2.  1. Consider the following minimax game tree. There are two players Max and Min; the player Max wants to maximise the utility and the player Min wants to minimise the utility. The tree has five layers and we can use Lm-n to denote the nth node from left to right in the layer m; for example, the root node can be denoted by L1-1, the first node at the bottom layer (with value 8) can be denoted by L5-1, and the fourth node at the fourth layer (with value 11) can be denoted by L4-4. Give the value of the root node (L1-1) and the values of the two nodes at the second layer (L2-1 and L2-2).[2 marks]
         ![Pastpaper_2](./images/PastPaper_2.png)
         > L1-1: 12  
         > L2-1: 12  
@@ -120,4 +94,74 @@
 
 ## Information Theory Exercise Problems 1-4
 
-1. Prove that the information measure is additive: that the informatin gained from observing the combination of N independent events, whose probabilities are $p_i$ for $i = 1...N$, is the $sum$ of the information gained from observing each one of these events separately and in any order
+### Exercise 1
+
+1. Prove that the information measure is additive: that the informatin gained from observing the combination of N independent events, whose probabilities are $p_i$ for $i = 1...N$, is the $sum$ of the information gained from observing each one of these events separately and in any order.
+
+    > The information measure assigns $\log _2(p)$ bits to the observation of an event whose probability is p. The joint probability of a combination of N independent events whose probabilities are $p_1...p_N$ is $\prod\limits_{i=1}^Np_i$. Thus the information content of such a combination is:
+    > $$
+    >     \log _2(\prod\limits_{i=1}^Np_i) = \log _2(p_1) + \log _2(p_2) + ... + \log _2(p_N)
+    > $$
+    > which is the sum of the information content of all of the separate events.
+
+2. Calculate the entropy in bits for each of the following random variables:
+   1. Pixel values in an image whose possible grey values are all the integers from 0 to 255 with uniform probability.
+        > In this case each $p_i = \frac{1}{256}$ and the ensemble entropy summation extends over 256 such equiprobable grey values, so $H = -(256)\times \frac{1}{256} \times \log_2(\frac{1}{256}) = 8 bits$
+   2. Humans classified according to whether they are, or are not, mammals.
+        > Since all humans are in this category (humans ⊂ mammals), there is no uncertainty about this classification and hence the entropy is 0 bits.
+   3. Gender in a tri-sexed insect population whose three genders occur with probabilities $\frac{1}{4}$, $\frac{1}{4}$, and $\frac{1}{2}$
+        > The entropy of this distribution is $-\frac{1}{4}\times \log_2\frac{1}{4} -\frac{1}{4}\times \log_2\frac{1}{4} - \frac{1}{2}\times \log_2\frac{1}{2} = 1.5 bits$
+   4. A population of persons classified by whether they are older, or not older, than the population’s median age
+        > By the definition of median, both classes have probability 0.5, so the entropy is 1 bit.$- 2\times \frac{1}{2}\times \log_2\frac{1}{2} = 1 bits$
+
+3. Consider two independent integer-valued random variables, X and Y . Variable X takes on only the values of the eight integers {1, 2, ..., 8} and does so with uniform probability. Variable Y may take the value of any positive integer k, with probabilities $P{Y = k} = 2^ {−k} , k = 1, 2, 3, ...$
+    1. Which random variable has greater uncertainty? Calculate both entropies $H(X)$ and $H(Y)$.
+          > $H(X) = - 8\times \frac{1}{8}\times \log_2\frac{1}{8} = 3 bits$  
+          > $H(Y) = \sum\limits_{k=1}^k[k \times 2^{-k}] = 2 bits$  
+    2. What is the joint entropy $H(X, Y)$ of these random variables, and what is their mutual information $I(X; Y )$?
+          > $H(X, Y) = H(X) + H(Y) = 3 + 2 = 5 (bit)$  
+          > $I(X; Y ) = 0bits$
+
+4. What is the maximum possible entropy H of an alphabet consisting of N different letters? In such a maximum entropy alphabet, what is the probability of its most likely letter? What is the probability of its least likely letter? Why are fixed length codes inefficient for alphabets whose letters are not equiprobable? Discuss this in relation to Morse Cod
+     > $H_{max} = - \sum \frac{1}{N} * \log _2\frac{1}{N} = \log _2(N)$  
+     > This is only achieved if the probability of every letter is 1/N. Thus 1/N is the probability of both the “most likely” and the “least likely” letter.  
+     > Fixed length codes are inefficient for alphabets whose letters are not equiprobable because the cost of coding improbable letters is the same as that of coding more probable ones. It is more efficient to allocate fewer bits to coding the more probable letters, and to make up for the reduced address space of such short strings of bits by making longer codes for the less probable letters. In other words, a variable-length code. An example is Morse Code, in which the most probable English letter, e, is coded by a single dot.
+
+### Exercise 2
+
+1. Suppose that women who live beyond the age of 80 outnumber men in the same age group by three to one. How much information, in bits, is gained by learning that a person who lives beyond 80 is male?
+     > $p(female|old) = 3p(male|old)$  
+     > $p(female|old)+p(male|old)= 1$  
+     > $p(male|old)= 1/4$  
+     > Information gained $-\log _2 \frac{1}{4}=2 bits$
+
+2. Consider n discrete random variables, named $X_1, X_2, ..., X_n$, of which $X_i$ has entropy $H(X_i)$, the largest being $H(X_L)$. What is the upper bound on the joint entropy $H(X_1, X_2, ..., X_n)$ of all these random variables, and under what condition will this upper bound be reached? What is the lower bound on the joint entropy $H(X_1, X_2, ..., X_n)$?
+     > $H(X_L) \leq H(X_1, X_2, ..., X_n) \leq \sum\limits_{i=1}^nH(X_i)$  
+
+3. Suppose that X is a random variable whose entropy $H(X)$ is 8 bits. Suppose that $Y(X)$ is a deterministic function that takes on a different value for each value of X.
+     1. What then is H(Y), the entropy of Y ?
+          > The entropy of Y : H(Y ) = 8 bits also.
+     2. What is H(Y|X), the conditional entropy of Y given X?
+          > The conditional entropy of Y given X: H(Y |X) = 0 because of determinism.
+     3. What is H(X|Y), the conditional entropy of X given Y ?
+          > The conditional entropy of X given Y : H(X|Y ) = 0 also.
+     4. What is H(X,Y), the joint entropy of X and Y ?
+          > The joint entropy H(X, Y) = H(X) + H(Y|X) = 8 bits.
+     5. Suppose now that the deterministic function Y (X) is not invertible; in other words, different values of X may correspond to the same value of Y (X). In that case, what could you say about H(Y)?
+          > Since now different values of X may correspond to the same value of Y (X), the new distribution of Y has lost entropy and so H(Y ) < 8 bits.
+     6. In that case, what could you say about H(X|Y) ?
+          > Now knowledge of Y no longer determines X, and so the conditional entropy H(X|Y) is no longer zero: H(X|Y ) > 0
+
+4. Let the random variable X be five possible symbols {α, β, γ, δ, ε}. Consider two probability distributions p(x) and q(x) over these symbols, and two possible coding schemes C1(x) and C2(x) for this random variable:  
+     | Symbol | p(x) | q(x) | C1(x) | C2(x) |
+     |--------|------|------|-------|-------|
+     | α      | 1/2  | 1/2  | 0     | 0     |
+     | β      | 1/4  | 1/8  | 10    | 100   |
+     | γ      | 1/8  | 1/8  | 110   | 101   |
+     | δ      | 1/16 | 1/8  | 1110  | 110   |
+     | ε      | 1/16 | 1/8  | 1111  | 111   |
+     1. Calculate H(p), H(q), and relative entropies (Kullback-Leibler distances) D(p||q) and D(q||p).
+          > $H(p) = -\sum\limits_ip_i\log _2 p_i=1\frac{7}{8}bits$  
+          > $H(q) = -\sum\limits_iq_i\log _2 q_i=2bits$
+
+
