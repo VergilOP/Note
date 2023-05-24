@@ -281,15 +281,15 @@ Week 8 Lecture 1:  Information Theory II -- Measures for more variables
 1. Bayesian network (BN) representation, page 8
   - **Bayesian Networks**: a kind of probabilistic graphic models that uses the direction of edges to represent the cause-effect relationship and Bayes’ theorem for probabilistic inference
 
-  > Advantages:
-  > - Graphical representation: Provide a visual representation of joint probability distributions of different random variables – reasonably interpretability
-  > - More powerful: can capture complex relationships between random variables
-  > - Combine data and prior knowledge: Prior knowledge can be incorporated and updated with statistically significant information from data – better approximation of true knowledge.
-  > - Generative approach: generate new data similar to existing data
-  > 
-  > Disadvantages: 
-  > - Require prior knowledge of many probabilities.
-  > - Sometimes computationally intractable
+    > Advantages:
+    > - Graphical representation: Provide a visual representation of joint probability distributions of different random variables –  reasonably interpretability
+    > - More powerful: can capture complex relationships between random variables
+    > - Combine data and prior knowledge: Prior knowledge can be incorporated and updated with statistically significant information  from data – better approximation of true knowledge.
+    > - Generative approach: generate new data similar to existing data
+    > 
+    > Disadvantages: 
+    > - Require prior knowledge of many probabilities.
+    > - Sometimes computationally intractable
 
 2. Wet grass example, page 9
 
@@ -327,3 +327,16 @@ Week 8 Lecture 1:  Information Theory II -- Measures for more variables
 **Mutual Information feature selection**: Use mutual information to choose a optimal set of independent variables, called features that allow us to classify samples.
 
 **Information gain**: the information we can gain after spiting the samples based on a independent variable (internal node)
+
+**Backtracking**: A depth first search method with two additional features: 1) Check constraints as we go and 2) Consider one variable at one layer in the search tree.
+
+**Forward checking**: when assigning a variable, cross off anything that is now violated on its neighbours’ domains.
+
+**Ordering**: choose the variable with the fewest legal values left in its domain.
+
+- Main assumptions of Logistic Regression
+  - Binary outcomes
+  - Independent observations: observations are independent of each other. In other words, the observations should not come from repeated measurements or matched data.
+  - Low or no multicollinearity among the independent variables: the independent variables are not too highly correlated with each other.
+  - Linearity of independent variables and log odds. Note: this does not mean logistic regression assumes the dependent and independent variables are related linearly
+  - A large sample size.
