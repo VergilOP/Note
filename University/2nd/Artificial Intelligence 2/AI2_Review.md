@@ -316,9 +316,15 @@ Week 8 Lecture 1:  Information Theory II -- Measures for more variables
 
 ## Notation
 
+**Likelihood**(似然): The probability of observing your data given a particular model.
+
+**Likelihood function**: a Likelihood function measures the goodness of fit of the function and the observation by holding the observation x constant and varying θ
+
 **Self Information**: self information is a measure of the unexpectedness or information content of an event
 
 **Entropy**: quantifies “the uncertainty in a random variable X”.
+
+**Conditional entropy**: quantifies uncertainty of the outcome of a random variable Y given the outcome of another random variable X
 
 **Joint entropy**: “A measure of the uncertainty associated with a set of variables.”
 
