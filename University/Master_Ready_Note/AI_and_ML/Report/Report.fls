@@ -1,6 +1,6 @@
-PWD c:\_Study_Resource\Study_Note\University\Master_Ready_Note\AI_and_ML\Challenges and Strategies for Sentiment Analysis of Satire and Humor in Social Media Based on Machine Learning
+PWD c:\_Study_Resource\Study_Note\University\Master_Ready_Note\AI_and_ML\Report
 INPUT C:\Users\23970\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\_Study_Resource\Study_Note\University\Master_Ready_Note\AI_and_ML\Challenges and Strategies for Sentiment Analysis of Satire and Humor in Social Media Based on Machine Learning\Report.tex
+INPUT c:\_Study_Resource\Study_Note\University\Master_Ready_Note\AI_and_ML\Report\Report.tex
 OUTPUT Report.log
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -1059,10 +1059,39 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\Clea
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1.tfm
-INPUT .\Report.toc
-INPUT Report.toc
-INPUT Report.toc
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-ts1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unikai\unikai20.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Italic-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-ts1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-ts1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\clearsans\clr_nrghxx.enc
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Italic-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1--base.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
@@ -1074,34 +1103,6 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-OUTPUT Report.toc
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-ts1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-ts1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-ts1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\clearsans\clr_nrghxx.enc
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Italic-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1--base.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Italic-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1--base.tfm
 INPUT .\images\SVM_Linear SVM.png
 INPUT .\images\SVM_Linear SVM.png
 INPUT images\SVM_Linear SVM.png
@@ -1116,13 +1117,6 @@ INPUT .\images\SVM_High-dimensional_Space.png
 INPUT .\images\SVM_High-dimensional_Space.png
 INPUT .\images\SVM_High-dimensional_Space.png
 INPUT .\images\SVM_High-dimensional_Space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
-INPUT images\Decision tree-Recursively-partitioned feature space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
-INPUT .\images\Decision tree-Recursively-partitioned feature space.png
 INPUT .\images\Decision tree.png
 INPUT .\images\Decision tree.png
 INPUT images\Decision tree.png
@@ -1130,14 +1124,13 @@ INPUT .\images\Decision tree.png
 INPUT .\images\Decision tree.png
 INPUT .\images\Decision tree.png
 INPUT .\images\Decision tree.png
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi7.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy7.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
+INPUT images\Decision tree-Recursively-partitioned feature space.png
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
+INPUT .\images\Decision tree-Recursively-partitioned feature space.png
 INPUT .\images\CNN_architecture.png
 INPUT .\images\CNN_architecture.png
 INPUT images\CNN_architecture.png
@@ -1166,19 +1159,10 @@ INPUT .\images\AttBiLSTM_architecture.png
 INPUT .\images\AttBiLSTM_architecture.png
 INPUT .\images\AttBiLSTM_architecture.png
 INPUT .\images\AttBiLSTM_architecture.png
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
-INPUT .\images\108_Weibo_emojis.png
-INPUT .\images\108_Weibo_emojis.png
-INPUT images\108_Weibo_emojis.png
-INPUT .\images\108_Weibo_emojis.png
-INPUT .\images\108_Weibo_emojis.png
-INPUT .\images\108_Weibo_emojis.png
-INPUT .\images\108_Weibo_emojis.png
 INPUT Report.aux
 INPUT .\Report.out
 INPUT .\Report.out
+INPUT C:\Windows\Fonts\simkai.ttf
 INPUT C:\Users\23970\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
 INPUT C:\Users\23970\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\intel\clearsans\ClearSans-Bold.pfb
@@ -1187,25 +1171,15 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\intel\clearsans\C
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\intel\clearsans\ClearSans-Italic.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\intel\clearsans\ClearSans-Regular.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\intel\clearsans\ClearSans-Regular.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex8.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex8.pfb
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm7.pfb
-INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm7.pfb

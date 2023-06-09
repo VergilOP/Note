@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  30 MAY 2023 03:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  25 MAY 2023 17:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/_Study_Resource/Study_Note/University/Master_Ready_Note/AI_and_ML/Class_Report/Class_Report.tex
-(c:/_Study_Resource/Study_Note/University/Master_Ready_Note/AI_and_ML/Class_Report/Class_Report.tex
+**c:/_Study_Resource/Study_Note/University/Master_Ready_Note/AI_and_ML/Class_Report/Report.tex
+(c:/_Study_Resource/Study_Note/University/Master_Ready_Note/AI_and_ML/Class_Report/Report.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-03-30> (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -564,99 +564,99 @@ File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
 )
-LaTeX Font Info:    Trying to load font information for T1+ClearSans-TLF on input line 48.
+LaTeX Font Info:    Trying to load font information for T1+ClearSans-TLF on input line 40.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/clearsans\t1clearsans-tlf.fd
 File: T1ClearSans-TLF.fd 2019/10/16 (autoinst) Font definitions for T1/ClearSans-TLF.
 )
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 48.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 40.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.53937pt on input line 48.
- (Class_Report.aux)
-\openout1 = `Class_Report.aux'.
+(Font)              scaled to size 10.53937pt on input line 40.
+ (Report.aux)
+\openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -717,216 +717,226 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 48.
- (Class_Report.out) (Class_Report.out)
+Package hyperref Info: Link coloring OFF on input line 40.
+ (Report.out) (Report.out)
 \@outlinefile=\write3
-\openout3 = `Class_Report.out'.
+\openout3 = `Report.out'.
 
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <18.06749> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 53.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 18.06749pt on input line 53.
+(Font)              scaled to size 18.06749pt on input line 45.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <18.06749> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 53.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 18.06749pt on input line 53.
+(Font)              scaled to size 18.06749pt on input line 45.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 53.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 12.045pt on input line 53.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+(Font)              scaled to size 12.045pt on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <9.03374> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 56.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 48.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 9.03374pt on input line 56.
+(Font)              scaled to size 9.03374pt on input line 48.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <9.03374> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 56.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 48.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 9.03374pt on input line 56.
+(Font)              scaled to size 9.03374pt on input line 48.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/ctex/zhmap\ctex-zhmap-windows.tex
 File: ctex-zhmap-windows.tex 2022/07/14 v2.5.10 Windows font map loader for pdfTeX and DVIPDFMx (CTEX)
 {C:/Users/23970/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1
 
 {C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_zxbkm4.enc}]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 68.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 15.05624pt on input line 68.
+(Font)              scaled to size 15.05624pt on input line 60.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 68.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 15.05624pt on input line 68.
+(Font)              scaled to size 15.05624pt on input line 60.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 81.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 73.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 12.045pt on input line 81.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 84.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 84.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 84.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 84.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 84.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.84 
-      [1]
-LaTeX Font Info:    Trying to load font information for TS1+ClearSans-TLF on input line 86.
+(Font)              scaled to size 12.045pt on input line 73.
+LaTeX Font Info:    Trying to load font information for TS1+ClearSans-TLF on input line 78.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/clearsans\ts1clearsans-tlf.fd
 File: TS1ClearSans-TLF.fd 2019/10/16 (autoinst) Font definitions for TS1/ClearSans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/m/n' in size <10.53937> not available
-(Font)              Font shape `TS1/ClearSans-TLF/regular/n' tried instead on input line 86.
+(Font)              Font shape `TS1/ClearSans-TLF/regular/n' tried instead on input line 78.
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.53937pt on input line 86.
+(Font)              scaled to size 10.53937pt on input line 78.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 86.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 78.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 10.53937pt on input line 86.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/it' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 87.
+(Font)              scaled to size 10.53937pt on input line 78.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 79.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 79.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 79.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.53937pt on input line 87.
-LaTeX Font Info:    Trying to load font information for C70+rm on input line 87.
- (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
-File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
-)
-Package CJKpunct Info: use punctuation spaces for family 'zhkai' with punctstyle (quanjiao) on input line 87.
- [2{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] [3] [4]
-<./images/SVM_Linear SVM.png, id=119, 1159.33125pt x 656.4525pt>
+(Font)              scaled to size 10.0pt on input line 79.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.79     \item {
+                \bf Situational irony} arises when the opposite of what is e... [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}]
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/it' in size <10.53937> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 92.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
+(Font)              scaled to size 10.53937pt on input line 92.
+ [2] [3]
+<./images/SVM_Linear SVM.png, id=100, 1159.33125pt x 656.4525pt>
 File: ./images/SVM_Linear SVM.png Graphic file (type png)
 <use ./images/SVM_Linear SVM.png>
-Package pdftex.def Info: ./images/SVM_Linear SVM.png  used on input line 170.
+Package pdftex.def Info: ./images/SVM_Linear SVM.png  used on input line 131.
 (pdftex.def)             Requested size: 217.42265pt x 123.10457pt.
-<./images/SVM_High-dimensional_Space.png, id=123, 748.29562pt x 374.90062pt>
+<./images/SVM_High-dimensional_Space.png, id=102, 748.29562pt x 374.90062pt>
 File: ./images/SVM_High-dimensional_Space.png Graphic file (type png)
 <use ./images/SVM_High-dimensional_Space.png>
-Package pdftex.def Info: ./images/SVM_High-dimensional_Space.png  used on input line 176.
+Package pdftex.def Info: ./images/SVM_High-dimensional_Space.png  used on input line 137.
 (pdftex.def)             Requested size: 217.42265pt x 108.93005pt.
- [5 <./images/SVM_Linear SVM.png> <./images/SVM_High-dimensional_Space.png>]
-<./images/Decision tree.png, id=142, 568.37344pt x 401.24907pt>
-File: ./images/Decision tree.png Graphic file (type png)
-<use ./images/Decision tree.png>
-Package pdftex.def Info: ./images/Decision tree.png  used on input line 202.
-(pdftex.def)             Requested size: 217.42265pt x 153.49257pt.
-<./images/Decision tree-Recursively-partitioned feature space.png, id=145, 602.25pt x 486.31688pt>
+ [4 <./images/SVM_Linear SVM.png> <./images/SVM_High-dimensional_Space.png>] [5]
+<./images/Decision tree-Recursively-partitioned feature space.png, id=114, 602.25pt x 486.31688pt>
 File: ./images/Decision tree-Recursively-partitioned feature space.png Graphic file (type png)
 <use ./images/Decision tree-Recursively-partitioned feature space.png>
-Package pdftex.def Info: ./images/Decision tree-Recursively-partitioned feature space.png  used on input line 208.
+Package pdftex.def Info: ./images/Decision tree-Recursively-partitioned feature space.png  used on input line 167.
 (pdftex.def)             Requested size: 217.42265pt x 175.57112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--209
-[]\T1/ClearSans-TLF/regular/n/10.53937 Figure 4: |De-ci-sion tree: Recursively-
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
+[]\T1/ClearSans-TLF/regular/n/10.53937 Figure 3: |De-ci-sion tree: Recursively-
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 209--209
+Underfull \hbox (badness 3460) in paragraph at lines 168--168
 \T1/ClearSans-TLF/regular/n/10.53937 partitioned fea-ture space (fea-tures 1 and
  []
 
-[6] [7 <./images/Decision tree.png> <./images/Decision tree-Recursively-partitioned feature space.png>] [8]
-<./images/CNN_architecture.png, id=178, 477.28313pt x 724.20563pt>
+<./images/Decision tree.png, id=115, 568.37344pt x 401.24907pt>
+File: ./images/Decision tree.png Graphic file (type png)
+<use ./images/Decision tree.png>
+Package pdftex.def Info: ./images/Decision tree.png  used on input line 173.
+(pdftex.def)             Requested size: 217.42265pt x 153.49257pt.
+[6 <./images/Decision tree-Recursively-partitioned feature space.png> <./images/Decision tree.png>] [7]
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <7.52812> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 225.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 7.52812pt on input line 225.
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+[]\T1/ClearSans-TLF/regular/n/7.52812 Text clas-si-fi-ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+\T1/ClearSans-TLF/regular/n/7.52812 scalable to large datasets (Ran-dom
+ []
+
+
+Underfull \hbox (badness 4072) in paragraph at lines 225--225
+[]\T1/ClearSans-TLF/regular/n/7.52812 May be prone to over-fit-ting (De-ci-sion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+[]\T1/ClearSans-TLF/regular/n/7.52812 Text clas-si-fi-ca-
+ []
+
+[8]
+<./images/CNN_architecture.png, id=144, 477.28313pt x 724.20563pt>
 File: ./images/CNN_architecture.png Graphic file (type png)
 <use ./images/CNN_architecture.png>
-Package pdftex.def Info: ./images/CNN_architecture.png  used on input line 279.
+Package pdftex.def Info: ./images/CNN_architecture.png  used on input line 252.
 (pdftex.def)             Requested size: 217.42265pt x 329.90083pt.
 
-Underfull \hbox (badness 1152) in paragraph at lines 290--291
+Underfull \hbox (badness 1152) in paragraph at lines 263--264
 []\T1/ClearSans-TLF/regular/n/10.53937 Output layer: The out-put layer yields
  []
 
-<./images/RNN_architecture.png, id=181, 707.64375pt x 324.46219pt>
+
+Overfull \hbox (4.73523pt too wide) in paragraph at lines 268--269
+[]\T1/ClearSans-TLF/regular/n/10.53937 In hu-mor and irony sen-ti-ment anal-y-sis, CNNs typ-i-cally re-ceive text data in-put, such as phrases,
+ []
+
+[9 <./images/CNN_architecture.png>]
+<./images/RNN_architecture.png, id=156, 707.64375pt x 324.46219pt>
 File: ./images/RNN_architecture.png Graphic file (type png)
 <use ./images/RNN_architecture.png>
-Package pdftex.def Info: ./images/RNN_architecture.png  used on input line 310.
+Package pdftex.def Info: ./images/RNN_architecture.png  used on input line 278.
 (pdftex.def)             Requested size: 217.42265pt x 99.68611pt.
-[9 <./images/CNN_architecture.png>]
-<./images/LSTM_architecture.png, id=197, 766.36313pt x 308.65312pt>
+<./images/LSTM_architecture.png, id=157, 766.36313pt x 308.65312pt>
 File: ./images/LSTM_architecture.png Graphic file (type png)
 <use ./images/LSTM_architecture.png>
-Package pdftex.def Info: ./images/LSTM_architecture.png  used on input line 329.
+Package pdftex.def Info: ./images/LSTM_architecture.png  used on input line 299.
 (pdftex.def)             Requested size: 217.42265pt x 87.56673pt.
  [10 <./images/RNN_architecture.png> <./images/LSTM_architecture.png>]
-<./images/AttBiLSTM_architecture.png, id=210, 669.2503pt x 389.95688pt>
+<./images/AttBiLSTM_architecture.png, id=166, 669.2503pt x 389.95688pt>
 File: ./images/AttBiLSTM_architecture.png Graphic file (type png)
 <use ./images/AttBiLSTM_architecture.png>
-Package pdftex.def Info: ./images/AttBiLSTM_architecture.png  used on input line 352.
+Package pdftex.def Info: ./images/AttBiLSTM_architecture.png  used on input line 320.
 (pdftex.def)             Requested size: 217.42265pt x 126.68687pt.
- [11 <./images/AttBiLSTM_architecture.png>] [12]
-Underfull \hbox (badness 2790) in paragraph at lines 490--491
-[]\T1/ClearSans-TLF/regular/n/10.53937 Mustafa Ab-dul-lah, D., & Mohsin Ab-du-lazeez, A. (2021). Ma-chine Learn-ing Ap-pli-ca-
+ [11 <./images/AttBiLSTM_architecture.png>]
+Underfull \hbox (badness 2762) in paragraph at lines 353--353
+[]\T1/ClearSans-TLF/regular/n/7.52812 Addresses van-ish-ing/exploding gra-di-ent
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 490--491
-\T1/ClearSans-TLF/regular/n/10.53937 tions based on SVM Clas-si-fi-ca-tion A Re-view. Quba-han Aca-demic Jour-nal, 1(2), 81^^U90.
+Underfull \hbox (badness 2608) in paragraph at lines 353--353
+[]\T1/ClearSans-TLF/regular/n/7.52812 Handles se-quen-tial data with at-ten-tion
  []
 
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <5> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 386.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 386.
+[12]
+<./images/108_Weibo_emojis.png, id=179, 706.13812pt x 387.69844pt>
+File: ./images/108_Weibo_emojis.png Graphic file (type png)
+<use ./images/108_Weibo_emojis.png>
+Package pdftex.def Info: ./images/108_Weibo_emojis.png  used on input line 399.
+(pdftex.def)             Requested size: 217.42265pt x 119.3748pt.
 
-Underfull \hbox (badness 3417) in paragraph at lines 498--499
-[]\T1/ClearSans-TLF/regular/n/10.53937 Myles, A. J., Feu-dale, R. N., Liu, Y., Woody, N. A., & Brown, S. D. (2004). An
+Underfull \hbox (badness 3746) in paragraph at lines 404--405
+\T1/ClearSans-TLF/regular/n/10.53937 non-ver-bal com-mu-ni-ca-tion can be par-tially
  []
 
-
-Underfull \hbox (badness 5431) in paragraph at lines 498--499
-\T1/ClearSans-TLF/regular/n/10.53937 in-tro-duc-tion to de-ci-sion tree mod-el-ing. Jour-nal of Chemo-met-rics, 18(6), 275^^U285.
+[13 <./images/108_Weibo_emojis.png>]
+Overfull \hbox (0.21223pt too wide) in paragraph at lines 426--427
+[]\T1/ClearSans-TLF/bold/n/10.53937 Language fea-tures\T1/ClearSans-TLF/regular/n/10.53937 : Irony and hu-mor may en-tail in-tri-cate lan-guage fea-tures, in-clud-ing word-
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-[]\T1/ClearSans-TLF/regular/n/10.53937 Kaur, G., & Er. Nee-lam Oberai. (2014). A RE-VIEW AR-TI-CLE ON
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-\T1/ClearSans-TLF/regular/n/10.53937 NAIVE BAYES CLAS-SI-FIER WITH VAR-I-OUS SMOOTH-ING TECH-NIQUES.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-\T1/ClearSans-TLF/regular/n/10.53937 https://www.semanticscholar.org/paper/A-REVIEW-ARTICLE-ON-NAIVE-BAYES-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
-[]\T1/ClearSans-TLF/regular/n/10.53937 To laugh or not to laugh ^^U LSTM based hu-mor de-tec-tion ap-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
-\T1/ClearSans-TLF/regular/n/10.53937 proach. (n.d.). Iee-ex-plore.ieee.org. Re-trieved April 23, 2023, from
- []
-
-[14] 
+[14] [15] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(Class_Report.aux)
-Package rerunfilecheck Info: File `Class_Report.out' has not changed.
-(rerunfilecheck)             Checksum: AC393C191FE6F0925BBD4FB48AE05C87;4113.
+(Report.aux)
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: 0E46710A40835BFB165D967F62B7E168;3850.
  ) 
 Here is how much of TeX's memory you used:
- 17858 strings out of 476331
- 319039 string characters out of 5787765
- 1861660 words of memory out of 5000000
- 37842 multiletter control sequences out of 15000+600000
- 597094 words of font info for 96 fonts, out of 8000000 for 9000
+ 17625 strings out of 476331
+ 313775 string characters out of 5787765
+ 1881660 words of memory out of 5000000
+ 37628 multiletter control sequences out of 15000+600000
+ 609500 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,12n,117p,1588b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Windows/Fonts/simkai.ttf> <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ectt1200.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Class_Report.pdf (15 pages, 1405847 bytes).
+ 78i,21n,117p,923b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Report.pdf (16 pages, 2193546 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 283 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
