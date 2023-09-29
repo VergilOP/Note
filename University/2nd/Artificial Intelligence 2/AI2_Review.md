@@ -164,7 +164,7 @@
     >     \begin{align}
     >       L(\theta|y;x) &= P(Y|X;\theta)  \\
     >                     &= \prod\limits_iP(y_i | x_i;\theta)\\
-    >                     &= \prod\limits_ih_\theta(x_i)^(y_i)(1 - h_\theta(x_i))^(1-y_i)
+    >                     &= \prod\limits_ih_\theta(x_i)^{(y_i)}(1 - h_\theta(x_i))^{(1-y_i)}
     >     \end{align}
     >     $$
     >     We then use the negative logarithm of the likelihood function as the cost function, i.e., $− log(L(θ | y; x)):$
