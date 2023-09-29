@@ -1,47 +1,54 @@
 [![Ver's GitHub stats](https://github-readme-stats.vercel.app/api?username=vergilop&show_icons=true&theme=transparent)](https://github.com/anuraghazra/github-readme-stats)
 
-# Note
+# 📔 My Notes Directory
 
-## [CAIE](CAIE)
+> **🚀 Tip**: All the markdown files can be displayed correctly in VS Code. If you haven't installed it yet, you might want to give it a try. [Here's a recommended editor](https://stackedit.io/app#).
 
-- [9608-Computer Science](CAIE/9608-Computer%20Science)
+---
 
-- [9702-Physics](/CAIE/9702-Physics)
+## 🎓 Educational Resources
 
-## [IELTS](IELTS)
+### 🖥️ [CAIE (Cambridge Assessment International Education)](CAIE)
 
-## [Programming Language](Programming%20Language)
+- 📌 [9608-Computer Science](CAIE/9608-Computer%20Science)
+- 📌 [9702-Physics](/CAIE/9702-Physics)
 
-- [C](Programming%20Language/C)
+### 🌐 [IELTS (International English Language Testing System)](IELTS)
 
-- [Python](Programming%20Language/Python)
+*Coming Soon...*
 
-## [University](University)
+### 🖱️ [Programming Languages](Programming%20Language)
 
-### [1st year](University/1st)
+- 📌 [C (Programming Language)](Programming%20Language/C)
+- 📌 [Python](Programming%20Language/Python)
 
-- [AI](University/1st/AI)
+---
 
-- [Data Structures & Algorithms](University/1st/Data%20Structures%20%26%20Algorithms)
+## 🏛️ University Courses
 
-- [FSAD](University/1st/FSAD)
+### 📘 [1st Year Courses](University/1st)
 
-- [Math + Logic Fou of Com Sci](University/1st/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci)
+- 📌 [AI (Artificial Intelligence)](University/1st/AI)
+- 📌 [Data Structures & Algorithms](University/1st/Data%20Structures%20%26%20Algorithms)
+- 📌 [FSAD (Full Stack App Development?)](University/1st/FSAD)
+- 📌 [Math + Logic Foundation of Computer Science](University/1st/Math%20%2B%20Logic%20Fou%20of%20Com%20Sci)
+- 📌 [Object Oriented Programming Software Workshop 1](University/1st/Object%20Oriented%20Programming%20Software%20Workshop%201)
+- 📌 [TOC (Theory of Computation?)](University/1st/TOC)
 
-- [Object Oriented Programming Software Workshop 1](University/1st/Object%20Oriented%20Programming%20Software%20Workshop%201)
+### 📙 [2nd Year Courses](University/2nd)
 
-- [TOC](University/1st/TOC)
+- 📌 [Functional Programming](University/2nd/Functional%20Programming)
+- 📌 [Operating System](University/2nd/Operating%20System)
+- 📌 [Software Engineering](University/2nd/Software%20Engineering)
+- 📌 [AI2 (Advanced Artificial Intelligence?)](University/2nd/Artificial%20Intelligence%202)
+- 📌 [Security and Networks](University/2nd/Security%20and%20Networks)
+- 📌 [Team Project](University/2nd/Team%20Project)
 
-### [2nd year](University/2nd)
+### 📗 [3rd Year Courses](University/3rd)
 
-- [Functional Programming](University/2nd/Functional%20Programming)
+- 📌 [Machine Learning](University/3rd/Machine%20Learning)
+- 📌 [Neural Computation](University/3rd/Neural%20Computation)
+- 📌 [Project](University/3rd/Project)
 
-- [Operating System](University/2nd/Operating%20System)
+---
 
-- [Software Engineering](University/2nd/Software%20Engineering)
-
-- [AI2](University/2nd/Artificial%20Intelligence%202)
-
-- [Security and Networks](University/2nd/Security%20and%20Networks)
-
-- [Team Project](University/2nd/Team%20Project)
