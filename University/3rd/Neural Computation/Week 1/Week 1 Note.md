@@ -25,7 +25,7 @@
 
 - **Cost function**: 
 
-  $$C(\vec{w}) = \frac{1}{2n}\sum\limits^n_{i=1}(y^i - \vec{x}^{i^T}\vec{w}) = \frac{1}{2n}(\vec{w}^TX^TX\vec{w}-2\vec{w}^TX^Ty + \vec{y}^T\vec{y})$$
+  $$C(\vec{w}) = \frac{1}{2n}\sum\limits^n_{i=1}(y^i - \vec{x}^{i^T}\vec{w})^2 = \frac{1}{2n}(\vec{w}^TX^TX\vec{w}-2\vec{w}^TX^Ty + \vec{y}^T\vec{y})$$
 
   > $X = \begin{pmatrix} \vec{x}^{1^T} \\  ... \\ \vec{x}^{n^T} \end{pmatrix} \in \R^{n \times d}$
   >
