@@ -60,7 +60,7 @@ Q: 文献综述(literature review)/Project demonstrations, 40-credit(10,000 word
 
 - 20% Product
    - Application-based: A fully complete piece of software
-   - Research-based: Acombination of the outcome of the research and analysis and the prototype
+   - Research-based: A combination of the outcome of the research and analysis and the prototype
 
 - 20% Process
    - Application-based: Agile Methodology
@@ -153,3 +153,6 @@ Q: 文献综述(literature review)/Project demonstrations, 40-credit(10,000 word
 ---
 
 这是一个基于你项目的初步框架。为了真正完成这个项目，你可能需要进行更深入的研究，尤其是在文献回顾部分，以及更详细的评估策略。
+
+- Proposal 是否占比. 如果是,包含在process还是product
+- 我的两个主题中哪个更好操作，另一个是否能行

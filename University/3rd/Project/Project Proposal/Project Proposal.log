@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  28 SEP 2023 03:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  4 OCT 2023 03:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,21 +763,30 @@ LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/m/n' in size <10.53937> not av
 (Font)              Font shape `TS1/ClearSans-TLF/regular/n' tried instead on input line 71.
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/regular/n' will be
 (Font)              scaled to size 10.53937pt on input line 71.
+
+Overfull \hbox (2.33821pt too wide) in paragraph at lines 71--72
+[]\T1/ClearSans-TLF/regular/n/10.53937 To de-velop a web-based plat-form that de-liv-ers sum-ma-rized con-tent of ar-ti-cles from renowned
+ []
+
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 72.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
+(Font)              scaled to size 10.53937pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 102.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 102.
+(Font)              scaled to size 10.0pt on input line 100.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 102.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 102.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 102.
+(Font)              scaled to size 10.0pt on input line 100.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.102 \end{document}
+l.100 \end{document}
                      [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (Project Proposal.aux)
@@ -785,15 +794,15 @@ Package rerunfilecheck Info: File `"Project Proposal".out' has not changed.
 (rerunfilecheck)             Checksum: 972E777D4A311B5D976D3B5ACEF105B9;657.
  ) 
 Here is how much of TeX's memory you used:
- 17378 strings out of 476331
- 307837 string characters out of 5787765
- 1856660 words of memory out of 5000000
- 37462 multiletter control sequences out of 15000+600000
- 572444 words of font info for 58 fonts, out of 8000000 for 9000
+ 17381 strings out of 476331
+ 307925 string characters out of 5787765
+ 1857660 words of memory out of 5000000
+ 37464 multiletter control sequences out of 15000+600000
+ 577722 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,11n,117p,850b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on "Project Proposal.pdf" (2 pages, 42821 bytes).
+Output written on "Project Proposal.pdf" (2 pages, 46179 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)

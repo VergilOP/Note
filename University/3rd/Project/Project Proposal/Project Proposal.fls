@@ -1038,6 +1038,7 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clears
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\clearsans\ts1clearsans-tlf.fd
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-ts1.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
@@ -1050,6 +1051,8 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\Cle
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\clearsans\clr_nrghxx.enc
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-tlf-t1.vf
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
+INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
 INPUT Project Proposal.aux
 INPUT .\Project Proposal.out
 INPUT .\Project Proposal.out
