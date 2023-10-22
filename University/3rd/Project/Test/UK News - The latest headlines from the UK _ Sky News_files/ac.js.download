@@ -1,0 +1,138 @@
+(function (window, document, undefined) {
+    var gParams = function (url) {
+        url = typeof url !== 'undefined' ? url : window.location.href;
+        var match,
+            pl = /\+/g,
+            search = /[&\?]([^&=]+)=?([^&]*)/g,
+            decode = function (s) {
+                return decodeURIComponent(s.replace(pl, " "));
+            },
+            params = {};
+
+        while (match = search.exec(url)) {
+            params[decode(match[1])] = decode(match[2]);
+        }
+        return params;
+    };
+
+    var sParams = function (needle, haystack, def) {
+        return typeof haystack[needle] !== 'undefined' ? haystack[needle] : def;
+    };
+
+    var appendFirstChild = function (element, parent) {
+        if (typeof parent.firstChild !== 'undefined') {
+            parent.insertBefore(element, parent.firstChild);
+        } else {
+            parent.appendChild(element);
+        }
+    };
+
+    var setElementPosition = function (element, position) {
+        element.style.top = position[0] + 'px';
+        element.style.right = position[1] + 'px';
+        element.style.bottom = position[2] + 'px';
+        element.style.left = position[3] + 'px';
+    };
+
+    // URL parameters
+    var document_scripts = document.getElementsByTagName('script');
+    var script = document_scripts[document_scripts.length - 1];
+    var url_params = gParams(script.src);
+
+    // Config variables
+    var random = ('1' + Math.random()).replace('.', '');
+    var display_icon = sParams('display_icon', url_params, true);
+    var espans = sParams('espans', url_params, 'top-right');
+    var width = sParams('width', url_params, 0);
+    var height = sParams('height', url_params, 0);
+    var base_url = '//static-tagr.gd1.mookie1.com/s1/sas/eprivacy/';
+    //for local testing only
+    //var base_url = 'http://192.168.33.10/eprivacy/staging/';
+
+    switch (espans) {
+        case 'top-left':
+            position = [1, undefined, undefined, 1];
+            break;
+        case 'top-right':
+            position = [1, 1, undefined, undefined];
+            break;
+        case 'bottom-right':
+            position = [undefined, 1, 1, undefined];
+            break;
+        case 'bottom-left':
+            position = [undefined, undefined, 1, 1];
+            break;
+        default:
+            displayicon = false;
+    }
+
+    var interstitial_display = function () {
+        switch (url_params.lang) {
+            case 'pt':
+                language = '_pt';
+                break;
+            case 'en':
+                language = '';
+                break;
+            default:
+                language = '';
+        }
+        window.open(base_url + 'interstitial' + language + '/index.html', 'adchoicesinterstitial', 'height=509,width=543,position=0, directories=0, menubar=0');
+    };
+
+    window[random + 'show'] = function () {
+        document.getElementById(random + 'icon').style.visibility = "hidden";
+        document.getElementById(random + 'icontext').style.visibility = "visible";
+    };
+
+    window[random + 'hide'] = function () {
+        document.getElementById(random + 'icon').style.visibility = "visible";
+        document.getElementById(random + 'icontext').style.visibility = "hidden";
+    };
+
+    if (display_icon) {
+        var wrapper = document.createElement('div');
+        wrapper.style.padding = '0px';
+        wrapper.style.border = '0px';
+        if (url_params.c) {
+            wrapper.style.margin = '-8px auto 0px auto';
+        } else {
+            wrapper.style.margin = '0px';
+        }
+        wrapper.style.overflow = 'visible';
+        wrapper.style.width = width + 'px';
+        wrapper.style.height = '0px';
+        wrapper.style.position = 'relative';
+
+        var icon = document.createElement('div');
+        icon.id = random + 'icon';
+        icon.style.backgroundImage = "url('" + base_url + "icon.png')";
+        icon.style.position = 'absolute';
+        icon.style.width = '19px';
+        icon.style.height = '15px';
+        icon.style.zIndex = 1000;
+        setElementPosition(icon, position);
+        icon.onmouseover = window[random + 'show'];
+
+        var icontext = document.createElement('div');
+        icontext.id = random + 'icontext';
+        icontext.style.backgroundImage = "url('" + base_url + "icontext.png')";
+        icontext.style.cursor = 'pointer';
+        icontext.style.position = 'absolute';
+        icontext.style.width = '77px';
+        icontext.style.height = '15px';
+        setElementPosition(icontext, position);
+        icontext.style.visibility = 'hidden';
+        icontext.style.zIndex = 1001;
+        icontext.onmouseout = window[random + 'hide'];
+        icontext.onclick = interstitial_display;
+
+
+        wrapper.appendChild(icon);
+        wrapper.appendChild(icontext);
+        appendFirstChild(wrapper, script.parentNode);
+    }
+
+
+})(window, document);
+

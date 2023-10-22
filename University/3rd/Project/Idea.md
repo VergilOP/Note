@@ -156,3 +156,19 @@ Q: 文献综述(literature review)/Project demonstrations, 40-credit(10,000 word
 
 - Proposal 是否占比. 如果是,包含在process还是product
 - 我的两个主题中哪个更好操作，另一个是否能行
+
+- 网页的爬取
+  - 用request直接爬取源网页
+    - 需要自己设置好对应网页的风格与类型
+    - 链接未经过处理，需要一种机制处理对应网站的链接(图片)
+    - 工作量可能偏大，但更易处理
+  - 用Selenium爬取javascript执行之后的网页
+    - 不需要设置风格
+    - 会下载所有内容，时间偏长，冗杂较多
+    - 如果想添加风格不好添加
+
+- report的占分比
+
+- 是否必须ai
+
+- 是否是创新点(Creative idea)

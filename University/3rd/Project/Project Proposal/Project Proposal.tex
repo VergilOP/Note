@@ -68,9 +68,9 @@
 \section{Project Aim:}
 
 \begin{itemize}
-    \item To develop a web-based platform that delivers summarized content of articles from renowned news websites, ensuring that userss ca swiftly grasp the core message without having to dive into the full article.
-    \item {\bf Significance}: As the digital world continues to burgeon, the influx of information has become overwhelming. With countless articles and news pieces flooding the internet daily, it is a challenge for individuals to stay updated without investing a significant amount of time. This platform aims to make new consumption more efficient, saving time while ensuring that users are not missing out on crucial details. The system would also deter misinformation by directing users to legitimate sources and providing concisse, yet comprehensive summaries.
-    \item {\bf Relevance to AI}: The core of this project hinges on Natural Language Processing(NLP) technologies to automatically generate summaries.  
+    \item {\bf Objective}: To construct a "Mirror News Summarizer" system that enables users to swiftly access summarized content from targeted news websites. By mirroring the interface of the original news site and presenting concise summaries, the tool aims to improve the user experience by providing quick insights and reducing the time taken to consume full-length articles.
+    \item {\bf Significance}: With the advent of the digital age and the vast array of information available online, it's becoming increasingly challenging for users to sift through extensive content efficiently. Especially in the realm of news where staying updated is crucial, navigating through lengthy articles can be time-consuming. The "Mirror News Summarizer" strives to bridge this gap by allowing users to view compressed news articles that retain the core essence of the original. This not only ensures the efficient consumption of news but also reduces the cognitive load on the user.
+    \item {\bf Relevance to AI}: This system harnesses the capabilities of advanced Natural Language Processing algorithms and summarization APIs. Leveraging such cutting-edge technology, the project aims to transform the way users engage with news content online.
 \end{itemize}
 
 \section{Literature Review:}
@@ -81,20 +81,99 @@
 
 \section{Project Objectives/Deliverables}
 
-\begin{itemize}
-    \item 
-\end{itemize}
+\begin{enumerate}
+    \item Web Scraping and Content Retrieval
+        \begin{itemize}
+            \item Develop a web scraping mechanism to automatically fetch content from targeted news websites based on specific criteria or keywords using Beautifulsoap library in Python for each supported websites.
+            \item Ensure a robust and efficient system to handle varying webpage structures and unexpected changes in site designs.
+        \end{itemize} 
+    \item Content Filtering and Cleanup
+        \begin{itemize}
+            \item Implement algorithms to meticulously extract relevant sections of the fetched content, focusing on primary news elements.
+            \item Design the system to identify and remove unwanted sections such as advertisements, sidebars, and non-essential footers to improve content clarity.
+        \end{itemize}
+    \item Summarization and Content Condensation
+        \begin{itemize}
+            \item Utilize a state-of-the-art summary-generation API to condense the filtered content into bite-sized, easily digestible summaries while retaining key information
+            \item Ensure that the summarization process maintains the integrity and accuracy of the original content, providing users with a comprehensive understanding in fewer words.
+        \end{itemize}
+    \item Storage and Quick Retrieval System
+        \begin{itemize}
+            \item Design a caching mechanism or database specifically tailored for storing summarized content.
+            \item Ensure quick retrieval capabilities, allowing users to access stored summaries instantaneously, improving the user experience and reducing wait times.
+        \end{itemize}
+    \item User Interface and Content Presentation
+        \begin{itemize}
+            \item Develop a mock version interface that closely resembles the original news website's look and feel.
+            \item Ensure a seamless integration of the summarized content within this interface, enabling users to navigate and read news articles effortlessly, further enhancing user engagement and overall experience.
+        \end{itemize}
+\end{enumerate}
+
+\par These objectives comprehensively address the primary goal of this project: to provide users with an efficient way to access and consume news articles from their favorite websites, without the distractions of unnecessary content. The initial objective guarantees that the system is equipped to fetch content autonomously, enabling a continuous flow of updated news. The following objectives focus on processing and optimizing this content, from extraction and filtering to summarization and storage. The final objective ensures that the users receive their content in a familiar and user-friendly interface, promoting engagement and satisfaction. Overall, this approach ensures users can quickly access the essence of news articles in a format that's convenient and recognizable.
 
 \section{methodologies}
 
-\begin{itemize}
-    \item 
-\end{itemize}
+\begin{enumerate}
+    \item {\bf Website Request from User}: Initiate by prompting the user to input or select the target news website or specific news URL they want summarized.
+    \item {\bf Web Content Retrieval}: Use web scraping techniques to fetch the entire HTML content of the provided news website or URL.
+    \item {\bf Content Filtering and Cleaning}: Extract the main content sections, filtering out non-essential components like advertisements, sidebars, and footers.
+    \item {\bf Summarization Process}: Pass the cleaned content to a summarization API.
+    \item {\bf Storage and Caching Mechanism}:
+        \begin{itemize}
+            \item Check a caching database to see if the provided URL's content has already been summarized recently.
+            \item If it exists, fetch the summarized content from cache. Otherwise, store the new summarized content for future quick access.
+        \end{itemize}
+    \item {\bf User Interface Presentation}: Render the summarized content on a mock version of the original news website's interface, providing a familiar user experience.
+    \item {\bf Optional Content Personalization}: If desired, introduce features where users can adjust the length or style of summaries based on their preferences.
+    \item {\bf Performance and Load Management}:
+        \begin{itemize}
+            \item Regularly monitor website performance, especially during high traffic times.
+            \item Implement strategies for load balancing and optimizing web scraping speed.
+        \end{itemize}
+    \item {\bf Security and Ethical Considerations}:
+        \begin{itemize}
+            \item Ensure the web scraping process adheres to the terms of service of target news websites.
+            \item Implement security measures to prevent potential misuse or over-fetching of content from source websites.
+        \end{itemize}
+    \item {\bf Evaluation and User Testing}:
+        \begin{itemize}
+            \item Conduct user testing sessions to gauge the effectiveness, accuracy, and user satisfaction with the mirrored news summarizer.
+            \item Collect insights and iterate on the platform to address any identified concerns or areas for improvement.
+        \end{itemize}
+\end{enumerate}
 
 \section{Project Plan}
 
 \begin{itemize}
-    \item 
+    \item Week 1-2: Research and select the suitable tools for each component. Start with the implementation of the web crawler.
+    \item Week 3-4: Implement content processing and summary generation functionalities.
+    \item Week 5-6: Develop the caching mechanism or database setup.
+    \item Week 7-8: Build the user interface resembling the target news website.
+    \item Week 9-10: Perform testing, gather feedback, and make necessary refinements.
+\end{itemize}
+
+\section{Risks and contingency plan}
+
+\begin{itemize}
+    \item Risk: Targeted websites implementing anti-crawling measures.
+    \subitem Contingency: Implement rotating user-agents and IPs, or consider other data acquisition methods.
+    \item Risk: Over-reliance on third-party summary-generation API.
+    \subitem Contingency: Have backup APIs or explore open-source summary-generation algorithms.
+    \item Risk: Database overload due to frequent read-writes.
+    \subitem Contingency: Implement an optimal database management strategy, consider using database caching solutions like Redis.
+\end{itemize}
+
+\section{Hardware/Software Resource}
+
+\begin{itemize}
+    \item Hardware: Standard development PC or laptop.
+    \item Software:
+    \subitem Development Environment: VS Code, PyCharm, or any suitable IDE.
+    \subitem Web Crawling: Scrapy, BeautifulSoup.
+    \subitem Backend: Flask, Django, or Node.js.
+    \subitem Frontend: React, Vue.js, or Angular.
+    \subitem Database: MySQL, MongoDB, or any other relevant DBMS.
+    \subitem Others: Git for version control, Postman for API testing.
 \end{itemize}
 
 \end{document}
