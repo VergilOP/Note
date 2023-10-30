@@ -24,7 +24,7 @@ $$
   h(\vec{x}) = 
   \begin{cases}
     +1 \quad\quad if\ \vec{w}^T\vec{x}+b > 0\\
-    -1 \quad\quad if\ \vec{w}^T\vec{x}+b <> 0\\
+    -1 \quad\quad if\ \vec{w}^T\vec{x}+b < 0\\
   \end{cases}
   , \forall\vec{w} \in \R^d, \forall b \in \R
 $$
