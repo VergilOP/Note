@@ -68,9 +68,13 @@
 \section{Project Aim:}
 
 \begin{itemize}
-    \item {\bf Objective}: To construct a "Mirror News Summarizer" system that enables users to swiftly access summarized content from targeted news websites. By mirroring the interface of the original news site and presenting concise summaries, the tool aims to improve the user experience by providing quick insights and reducing the time taken to consume full-length articles.
+    \item {\bf Objective}: The goal is to develop 'Mirror News Summarizer', an advanced platform that revamps the user experience of consuming news online. It extracts content from selected mirror news sites, eliminates advertisements, and replaces full articles with succinct summaries. This system aims to streamline the process of information acquisition, making news reading more efficient, and user-friendly.
     \item {\bf Significance}: With the advent of the digital age and the vast array of information available online, it's becoming increasingly challenging for users to sift through extensive content efficiently. Especially in the realm of news where staying updated is crucial, navigating through lengthy articles can be time-consuming. The "Mirror News Summarizer" strives to bridge this gap by allowing users to view compressed news articles that retain the core essence of the original. This not only ensures the efficient consumption of news but also reduces the cognitive load on the user.
-    \item {\bf Relevance to AI}: This system harnesses the capabilities of advanced Natural Language Processing algorithms and summarization APIs. Leveraging such cutting-edge technology, the project aims to transform the way users engage with news content online.
+    \item {\bf Relevance to AI}: The `Mirror News Summarizer' leverages cutting-edge AI technologies and methodologies for several core functionalities:
+    \subitem {\bf Content Retrieval}: Utilizes `request crawlers' for scraping news content from various sources, ensuring real-time, diverse, and vast information procurement.
+    \subitem {\bf Summarization}: Employs Summary APIs, capitalizing on advanced NLP models like GPT (Generative Pre-trained Transformer), to generate precise and coherent news summaries. This AI-driven approach understands the context and extracts essential details, contributing to a succinct yet comprehensive summary.
+    \subitem {\bf Recommendation System}: Integrates existing AI recommendation models that analyze user behavior, preferences, and interaction history to provide personalized news content, enhancing user engagement and satisfaction.
+    \subitem {\bf Text Similarity Analysis}: Implements AI algorithms for text similarity checks to identify and eliminate duplicate content from different sources, presenting unique content to the users.
 \end{itemize}
 
 \section{Literature Review:}
@@ -82,30 +86,35 @@
 \section{Project Objectives/Deliverables}
 
 \begin{enumerate}
-    \item Web Scraping and Content Retrieval
+    \item User-Centric News Access and Customization
         \begin{itemize}
-            \item Develop a web scraping mechanism to automatically fetch content from targeted news websites based on specific criteria or keywords using Beautifulsoap library in Python for each supported websites.
-            \item Ensure a robust and efficient system to handle varying webpage structures and unexpected changes in site designs.
+            \item Develop a user interface within the 'Mirror News Summarizer' that allows individuals to choose their preferred news sources and categories, enhancing personalized interaction.
+            \item Implement a content filtration and retrieval system that curates and presents news from selected mirror news websites, optimizing the influx of information based on user preferences.
         \end{itemize} 
-    \item Content Filtering and Cleanup
+    \item Enhanced Content Presentation
         \begin{itemize}
-            \item Implement algorithms to meticulously extract relevant sections of the fetched content, focusing on primary news elements.
-            \item Design the system to identify and remove unwanted sections such as advertisements, sidebars, and non-essential footers to improve content clarity.
+            \item Design an intuitive layout to display summarized news content, incorporating essential details like the headline, source, publication date, and core points, all within a user-friendly, visually appealing framework.
+            \item Establish a mechanism for users to customize the news summary display, including aspects like theming (dark mode, font choices) and organization (list view, card view), further improving user experience and accessibility.
         \end{itemize}
-    \item Summarization and Content Condensation
+    \item Intelligent Content Summarization and Duplication Check
         \begin{itemize}
-            \item Utilize a state-of-the-art summary-generation API to condense the filtered content into bite-sized, easily digestible summaries while retaining key information
-            \item Ensure that the summarization process maintains the integrity and accuracy of the original content, providing users with a comprehensive understanding in fewer words.
+            \item Execute an AI-driven process for dynamic news content summarization, ensuring that the essence and critical points of the full articles are cohesively maintained in the shortened version.
+            \item Integrate a text similarity analysis feature that identifies and filters out repetitive news from different sources, thereby avoiding content redundancy and enhancing the quality of content presented to the user.
         \end{itemize}
-    \item Storage and Quick Retrieval System
+    \item Adaptive Recommendation and Interaction System
         \begin{itemize}
-            \item Design a caching mechanism or database specifically tailored for storing summarized content.
-            \item Ensure quick retrieval capabilities, allowing users to access stored summaries instantaneously, improving the user experience and reducing wait times.
+            \item Construct a recommendation engine that analyses user interactions, preferences, and trending news to suggest relevant content, thereby personalizing the user's news feed and improving content relevancy.
+            \item Develop interactive components within the platform, such as feedback options for summaries and bookmarking capabilities for preferred news articles, fostering user engagement and platform loyalty.
         \end{itemize}
-    \item User Interface and Content Presentation
+    \item Voice Integration and Multilingual Support
         \begin{itemize}
-            \item Develop a mock version interface that closely resembles the original news website's look and feel.
-            \item Ensure a seamless integration of the summarized content within this interface, enabling users to navigate and read news articles effortlessly, further enhancing user engagement and overall experience.
+            \item Integrate a text-to-speech feature, enabling users to listen to news summaries, thereby accommodating different user needs and enhancing accessibility.
+            \item Incorporate a multilingual interface, allowing the platform to serve a broader demographic, catering to users from various linguistic backgrounds, and expanding the platform's reach.
+        \end{itemize}
+    \item User Engagement and Analytic Reports
+        \begin{itemize}
+            \item Implement a system for tracking user engagement metrics, preferences, and feedback, utilized for continuous improvement of the platform's features and user experience.
+            \item Generate periodic analytic reports summarizing user interaction trends, content popularity, and feedback, providing valuable insights for future enhancements and content curation strategies.
         \end{itemize}
 \end{enumerate}
 
@@ -114,66 +123,73 @@
 \section{methodologies}
 
 \begin{enumerate}
-    \item {\bf Website Request from User}: Initiate by prompting the user to input or select the target news website or specific news URL they want summarized.
-    \item {\bf Web Content Retrieval}: Use web scraping techniques to fetch the entire HTML content of the provided news website or URL.
-    \item {\bf Content Filtering and Cleaning}: Extract the main content sections, filtering out non-essential components like advertisements, sidebars, and footers.
-    \item {\bf Summarization Process}: Pass the cleaned content to a summarization API.
-    \item {\bf Storage and Caching Mechanism}:
-        \begin{itemize}
-            \item Check a caching database to see if the provided URL's content has already been summarized recently.
-            \item If it exists, fetch the summarized content from cache. Otherwise, store the new summarized content for future quick access.
-        \end{itemize}
-    \item {\bf User Interface Presentation}: Render the summarized content on a mock version of the original news website's interface, providing a familiar user experience.
-    \item {\bf Optional Content Personalization}: If desired, introduce features where users can adjust the length or style of summaries based on their preferences.
-    \item {\bf Performance and Load Management}:
-        \begin{itemize}
-            \item Regularly monitor website performance, especially during high traffic times.
-            \item Implement strategies for load balancing and optimizing web scraping speed.
-        \end{itemize}
-    \item {\bf Security and Ethical Considerations}:
-        \begin{itemize}
-            \item Ensure the web scraping process adheres to the terms of service of target news websites.
-            \item Implement security measures to prevent potential misuse or over-fetching of content from source websites.
-        \end{itemize}
-    \item {\bf Evaluation and User Testing}:
-        \begin{itemize}
-            \item Conduct user testing sessions to gauge the effectiveness, accuracy, and user satisfaction with the mirrored news summarizer.
-            \item Collect insights and iterate on the platform to address any identified concerns or areas for improvement.
-        \end{itemize}
+    \item {\bf User Preferences and Customization Setup}: Initiate user interaction by offering a setup interface where they can select preferred news categories, sources, and UI/UX elements (e.g., dark mode, text size). This step personalizes the subsequent content curation.
+    \item {\bf Content Aggregation and Filtration}: Utilize web scraping tools (like requests) and APIs to aggregate news content from various mirror websites selected by the user. This process includes filtering out ads and non-essential elements, focusing solely on the actual news content.
+    \item {\bf AI-driven News Summarization}: Implement an AI model API to generate concise, coherent summaries of the aggregated news articles. This step requires maintaining the integrity and critical nuances of the original news content while reducing the length.
+    \item {\bf Duplication and Redundancy Removal}: Apply text similarity algorithms to identify and eliminate duplicate content across multiple news sources, ensuring a unique, clutter-free user feed.
+    \item {\bf Dynamic Content Presentation}:Display the summarized content to users in a structured, customizable UI, allowing for different viewing preferences (e.g., list view, card view). This stage involves frontend technologies like React for a responsive design.
+    \item {\bf User-Interactive Recommendation System}: Integrate a recommendation system that tracks user engagement (clicks, reading time) and utilizes existing models to suggest relevant news, enhancing the personalization aspect of content delivery.
+    \item {\bf User Feedback and Continuous Improvement}: Allow users to provide feedback on news summaries and recommendations, which the system will use for continuous learning and improvement. This iterative process is crucial for maintaining content relevance and accuracy.
+    \item {\bf Text-to-Speech (TTS) and Multilingual Support Integration}:Incorporate TTS functionality for users to listen to summaries, enhancing accessibility, and convenience. Additionally, implement multilingual support to cater to a diverse user base.
+    \item {\bf Backend Support and Data Management}: Use backend technologies like Flask for managing data transactions, user requests, and system responses, ensuring a seamless, efficient backend operation.
+    \item {\bf Evaluation and User Testing}: Conduct comprehensive user testing to evaluate the system's performance, particularly the accuracy of news summaries, effectiveness of the recommendation engine, and overall user satisfaction. Collect feedback for future enhancements.
 \end{enumerate}
+
+This methodology embodies a holistic approach to developing the 'Mirror News Summarizer' platform. Each step is designed to ensure that the final product is efficient, user-centric, and innovative, significantly enhancing the digital news consumption experience for users.
 
 \section{Project Plan}
 
-\begin{itemize}
-    \item Week 1-2: Research and select the suitable tools for each component. Start with the implementation of the web crawler.
-    \item Week 3-4: Implement content processing and summary generation functionalities.
-    \item Week 5-6: Develop the caching mechanism or database setup.
-    \item Week 7-8: Build the user interface resembling the target news website.
-    \item Week 9-10: Perform testing, gather feedback, and make necessary refinements.
-\end{itemize}
+\begin{table}
+    \centering
+    \begin{tabular}{lll}
+        Week & Dates & Tasks \\
+        1    & 1     & 1     \\
+        1    & 1     & 1     \\
+        1    & 1     & 1     
+    \end{tabular}
+\end{table}
 
 \section{Risks and contingency plan}
 
 \begin{itemize}
-    \item Risk: Targeted websites implementing anti-crawling measures.
-    \subitem Contingency: Implement rotating user-agents and IPs, or consider other data acquisition methods.
-    \item Risk: Over-reliance on third-party summary-generation API.
-    \subitem Contingency: Have backup APIs or explore open-source summary-generation algorithms.
-    \item Risk: Database overload due to frequent read-writes.
-    \subitem Contingency: Implement an optimal database management strategy, consider using database caching solutions like Redis.
+    \item \textbf{Risk}: Web scraping tools often depend on the consistent structure of a webpage. If major news sites undergo a significant design overhaul, the scraping tools developed for the 'Mirror News Summarizer' might fail to aggregate content effectively.
+    \subitem \textbf{Contingency}: Should our primary targeted news sources change their webpage structures, we plan to quickly adapt our scraping scripts. Furthermore, we'll set up periodic monitoring tools to check the efficiency of our scrapers and get alerts for potential failures.
+    \item \textbf{Risk}: News websites frequently employ anti-scraping technologies and techniques to prevent automated bots from accessing their content. This can hinder the consistent inflow of news data to the platform.
+    \subitem \textbf{Contingency}: In the event we encounter difficulties accessing content from a particular source, we'll pivot to integrate RSS feeds or official news APIs, which offer structured and consistent access to news articles.
+    \item \textbf{Risk}: Third-party APIs often have usage limits or rate limits that could restrict the extent and frequency of operations, affecting the performance of our summarization system if the project scales up.
+    \subitem \textbf{Contingency}: If we approach the API rate limits, our plan is to integrate caching mechanisms to store frequently accessed summaries. Additionally, we'll explore the possibility of incorporating other summarization algorithms or tools to diversify our backend and reduce dependency on a single API.
 \end{itemize}
 
 \section{Hardware/Software Resource}
 
+\begin{enumerate}
+    \item Hardware:
+    \begin{itemize}
+        \item RAM: 4 GB (recommended for efficient data processing and handling multiple tasks)
+        \item Storage: 50 GB SSD (for faster read/write speeds and storage of large datasets, cache data, and logs)
+    \end{itemize}
+    \item Software Requirements:
+    \begin{itemize}
+        \item OS: Windows (with the latest security updates)
+        \item Python 3.8 or later (for compatibility with the latest libraries and frameworks)
+        \item Text Editor or IDE: VS Code/PyCharm (equipped with relevant Python extensions and plugins)
+        \item Browser: Google Chrome/Edge (latest version, needed for testing the web interface)
+        \item Database Management System: MySQL/PostgreSQL/SQLite (for storing user profiles, interactions, and logs)
+        \item Backend: Flask/Django (Python-based web frameworks for handling backend operations)
+        \item Frontend: React.js (for building a dynamic and responsive user interface)
+        \item Web scraping tools: Beautiful Soup/Selenium (libraries for scraping news content)
+        \item Summary API key (for content summarization functionalities)
+        \item Version Control: Git (for source code management and collaborative development)
+    \end{itemize}
+\end{enumerate}
+
+\section{Data}
+
 \begin{itemize}
-    \item Hardware: Standard development PC or laptop.
-    \item Software:
-    \subitem Development Environment: VS Code, PyCharm, or any suitable IDE.
-    \subitem Web Crawling: Scrapy, BeautifulSoup.
-    \subitem Backend: Flask, Django, or Node.js.
-    \subitem Frontend: React, Vue.js, or Angular.
-    \subitem Database: MySQL, MongoDB, or any other relevant DBMS.
-    \subitem Others: Git for version control, Postman for API testing.
+    \item The primary data for the project comprises news articles and content fetched from various online news websites through web scraping techniques.
+    \item The data includes textual content, publication dates, author names, and other relevant metadata associated with each news article.
+    \item User interaction data, such as reading preferences, feedback on summaries, and browsing history, will be collected through the platform to enhance the recommendation system.
+    \item Ethical considerations and privacy compliance measures are in place for handling user data, with protocols established for secure data storage, retrieval, and processing.
 \end{itemize}
 
 \end{document}

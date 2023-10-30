@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  12 OCT 2023 04:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  29 OCT 2023 02:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -768,43 +768,50 @@ LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not ava
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
 (Font)              scaled to size 10.53937pt on input line 71.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 94.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 94.
+(Font)              scaled to size 10.0pt on input line 91.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 94.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 91.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 94.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 91.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 94.
+(Font)              scaled to size 10.0pt on input line 91.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.94         \end{itemize}
-                           [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] [2]
-Overfull \hbox (3.95377pt too wide) in paragraph at lines 119--120
-[]\T1/ClearSans-TLF/bold/n/10.53937 Content Fil-ter-ing and Clean-ing\T1/ClearSans-TLF/regular/n/10.53937 : Ex-tract the main con-tent sec-tions, fil-ter-ing out non-essential
+l.91             \item D
+                        evelop a user interface within the 'Mirror News Summ... [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] [2] [3]
+Overfull \hbox (3.53749pt too wide) in paragraph at lines 131--132
+[]\T1/ClearSans-TLF/bold/n/10.53937 User-Interactive Rec-om-men-da-tion Sys-tem\T1/ClearSans-TLF/regular/n/10.53937 : In-te-grate a rec-om-men-da-tion sys-tem that tracks
  []
 
-[3] [4] 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 144.
+(C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 144.
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [4] [5] [6] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (Project Proposal.aux)
 Package rerunfilecheck Info: File `"Project Proposal".out' has not changed.
-(rerunfilecheck)             Checksum: 11D5E366E053C4B59023BF3F46CEF2E7;1015.
+(rerunfilecheck)             Checksum: B43184B7E6A12E45BB918D0A3A08C40C;1078.
  ) 
 Here is how much of TeX's memory you used:
- 17405 strings out of 476331
- 308125 string characters out of 5787765
+ 17465 strings out of 476331
+ 309087 string characters out of 5787765
  1860660 words of memory out of 5000000
- 37468 multiletter control sequences out of 15000+600000
- 577722 words of font info for 60 fonts, out of 8000000 for 9000
+ 37508 multiletter control sequences out of 15000+600000
+ 580261 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,11n,117p,897b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on "Project Proposal.pdf" (5 pages, 60967 bytes).
+Output written on "Project Proposal.pdf" (7 pages, 69296 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 

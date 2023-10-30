@@ -979,13 +979,20 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\tex\latex\ctex\fd\c70rm.fd
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unisong\unisong20.tfm
-INPUT .\images\Mockup_Scheduler.png
-INPUT .\images\Mockup_Scheduler.png
-INPUT images\Mockup_Scheduler.png
-INPUT .\images\Mockup_Scheduler.png
-INPUT .\images\Mockup_Scheduler.png
-INPUT .\images\Mockup_Scheduler.png
-INPUT .\images\Mockup_Scheduler.png
+INPUT .\images\Main Page.png
+INPUT .\images\Main Page.png
+INPUT images\Main Page.png
+INPUT .\images\Main Page.png
+INPUT .\images\Main Page.png
+INPUT .\images\Main Page.png
+INPUT .\images\Main Page.png
+INPUT .\images\Main Page 2.png
+INPUT .\images\Main Page 2.png
+INPUT images\Main Page 2.png
+INPUT .\images\Main Page 2.png
+INPUT .\images\Main Page 2.png
+INPUT .\images\Main Page 2.png
+INPUT .\images\Main Page 2.png
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\zhmetrics\unisong\unisong56.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Italic-tlf-t1.tfm
@@ -995,174 +1002,69 @@ INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\Clea
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-tlf-t1--base.tfm
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\vf\intel\clearsans\ClearSans-Bold-tlf-t1.vf
 INPUT C:\Users\23970\AppData\Local\Programs\MiKTeX\fonts\tfm\intel\clearsans\ClearSans-Bold-tlf-t1--base.tfm
-INPUT .\images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Todo_list.png
-INPUT images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Todo_list.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Anti-procrastination.png
-INPUT .\images\Mockup_Diary.jpg
-INPUT .\images\Mockup_Diary.jpg
-INPUT images\Mockup_Diary.jpg
-INPUT .\images\Mockup_Diary.jpg
-INPUT .\images\Mockup_Diary.jpg
-INPUT .\images\Mockup_Diary.jpg
-INPUT .\images\Mockup_Diary.jpg
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_AlarmTimer.png
-INPUT .\images\Mockup_History.png
-INPUT .\images\Mockup_History.png
-INPUT images\Mockup_History.png
-INPUT .\images\Mockup_History.png
-INPUT .\images\Mockup_History.png
-INPUT .\images\Mockup_History.png
-INPUT .\images\Mockup_History.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email_normal.png
-INPUT .\images\Mockup_Email.png
-INPUT .\images\Mockup_Email.png
-INPUT images\Mockup_Email.png
-INPUT .\images\Mockup_Email.png
-INPUT .\images\Mockup_Email.png
-INPUT .\images\Mockup_Email.png
-INPUT .\images\Mockup_Email.png
-INPUT .\images\Persona_Zijun.jpg
-INPUT .\images\Persona_Zijun.jpg
-INPUT images\Persona_Zijun.jpg
-INPUT .\images\Persona_Zijun.jpg
-INPUT .\images\Persona_Zijun.jpg
-INPUT .\images\Persona_Zijun.jpg
-INPUT .\images\Persona_Zijun.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT images\Persona_Chance.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT .\images\Persona_Chance.jpg
-INPUT .\images\Persona_Gilead.png
-INPUT .\images\Persona_Gilead.png
-INPUT images\Persona_Gilead.png
-INPUT .\images\Persona_Gilead.png
-INPUT .\images\Persona_Gilead.png
-INPUT .\images\Persona_Gilead.png
-INPUT .\images\Persona_Gilead.png
-INPUT .\images\Persona_Bogdan.png
-INPUT .\images\Persona_Bogdan.png
-INPUT images\Persona_Bogdan.png
-INPUT .\images\Persona_Bogdan.png
-INPUT .\images\Persona_Bogdan.png
-INPUT .\images\Persona_Bogdan.png
-INPUT .\images\Persona_Bogdan.png
-INPUT .\images\Persona_Samuel.jpg
-INPUT .\images\Persona_Samuel.jpg
-INPUT images\Persona_Samuel.jpg
-INPUT .\images\Persona_Samuel.jpg
-INPUT .\images\Persona_Samuel.jpg
-INPUT .\images\Persona_Samuel.jpg
-INPUT .\images\Persona_Samuel.jpg
-INPUT .\images\Persona_Smit.png
-INPUT .\images\Persona_Smit.png
-INPUT images\Persona_Smit.png
-INPUT .\images\Persona_Smit.png
-INPUT .\images\Persona_Smit.png
-INPUT .\images\Persona_Smit.png
-INPUT .\images\Persona_Smit.png
-INPUT .\images\Persona_Matt.png
-INPUT .\images\Persona_Matt.png
-INPUT images\Persona_Matt.png
-INPUT .\images\Persona_Matt.png
-INPUT .\images\Persona_Matt.png
-INPUT .\images\Persona_Matt.png
-INPUT .\images\Persona_Matt.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_install_gitlab_runner.png
-INPUT .\images\pipeline_work.png
-INPUT .\images\pipeline_work.png
-INPUT images\pipeline_work.png
-INPUT .\images\pipeline_work.png
-INPUT .\images\pipeline_work.png
-INPUT .\images\pipeline_work.png
-INPUT .\images\pipeline_work.png
-INPUT .\images\pipeline_success.png
-INPUT .\images\pipeline_success.png
-INPUT images\pipeline_success.png
-INPUT .\images\pipeline_success.png
-INPUT .\images\pipeline_success.png
-INPUT .\images\pipeline_success.png
-INPUT .\images\pipeline_success.png
-INPUT .\images\S2_Scheduler.png
-INPUT .\images\S2_Scheduler.png
-INPUT images\S2_Scheduler.png
-INPUT .\images\S2_Scheduler.png
-INPUT .\images\S2_Scheduler.png
-INPUT .\images\S2_Scheduler.png
-INPUT .\images\S2_Scheduler.png
-INPUT .\images\S2_To-do_List.png
-INPUT .\images\S2_To-do_List.png
-INPUT images\S2_To-do_List.png
-INPUT .\images\S2_To-do_List.png
-INPUT .\images\S2_To-do_List.png
-INPUT .\images\S2_To-do_List.png
-INPUT .\images\S2_To-do_List.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Anti-Procrastination.png
-INPUT .\images\S2_Diary.png
-INPUT .\images\S2_Diary.png
-INPUT images\S2_Diary.png
-INPUT .\images\S2_Diary.png
-INPUT .\images\S2_Diary.png
-INPUT .\images\S2_Diary.png
-INPUT .\images\S2_Diary.png
-INPUT .\images\S2_Alarm.png
-INPUT .\images\S2_Alarm.png
-INPUT images\S2_Alarm.png
-INPUT .\images\S2_Alarm.png
-INPUT .\images\S2_Alarm.png
-INPUT .\images\S2_Alarm.png
-INPUT .\images\S2_Alarm.png
-INPUT .\images\S2_Email.png
-INPUT .\images\S2_Email.png
-INPUT images\S2_Email.png
-INPUT .\images\S2_Email.png
-INPUT .\images\S2_Email.png
-INPUT .\images\S2_Email.png
-INPUT .\images\S2_Email.png
-INPUT .\images\S2_History.png
-INPUT .\images\S2_History.png
-INPUT images\S2_History.png
-INPUT .\images\S2_History.png
-INPUT .\images\S2_History.png
-INPUT .\images\S2_History.png
-INPUT .\images\S2_History.png
+INPUT .\images\Recommand.png
+INPUT .\images\Recommand.png
+INPUT images\Recommand.png
+INPUT .\images\Recommand.png
+INPUT .\images\Recommand.png
+INPUT .\images\Recommand.png
+INPUT .\images\Recommand.png
+INPUT .\images\Recommand 2.png
+INPUT .\images\Recommand 2.png
+INPUT images\Recommand 2.png
+INPUT .\images\Recommand 2.png
+INPUT .\images\Recommand 2.png
+INPUT .\images\Recommand 2.png
+INPUT .\images\Recommand 2.png
+INPUT .\images\Favorite.png
+INPUT .\images\Favorite.png
+INPUT images\Favorite.png
+INPUT .\images\Favorite.png
+INPUT .\images\Favorite.png
+INPUT .\images\Favorite.png
+INPUT .\images\Favorite.png
+INPUT .\images\Favorite 2.png
+INPUT .\images\Favorite 2.png
+INPUT images\Favorite 2.png
+INPUT .\images\Favorite 2.png
+INPUT .\images\Favorite 2.png
+INPUT .\images\Favorite 2.png
+INPUT .\images\Favorite 2.png
+INPUT .\images\Sky news 2.png
+INPUT .\images\Sky news 2.png
+INPUT images\Sky news 2.png
+INPUT .\images\Sky news 2.png
+INPUT .\images\Sky news 2.png
+INPUT .\images\Sky news 2.png
+INPUT .\images\Sky news 2.png
+INPUT .\images\Sky news.png
+INPUT .\images\Sky news.png
+INPUT images\Sky news.png
+INPUT .\images\Sky news.png
+INPUT .\images\Sky news.png
+INPUT .\images\Sky news.png
+INPUT .\images\Sky news.png
+INPUT .\images\Persona_1.png
+INPUT .\images\Persona_1.png
+INPUT images\Persona_1.png
+INPUT .\images\Persona_1.png
+INPUT .\images\Persona_1.png
+INPUT .\images\Persona_1.png
+INPUT .\images\Persona_1.png
+INPUT .\images\Persona_2.png
+INPUT .\images\Persona_2.png
+INPUT images\Persona_2.png
+INPUT .\images\Persona_2.png
+INPUT .\images\Persona_2.png
+INPUT .\images\Persona_2.png
+INPUT .\images\Persona_2.png
+INPUT .\images\Persona_3.png
+INPUT .\images\Persona_3.png
+INPUT images\Persona_3.png
+INPUT .\images\Persona_3.png
+INPUT .\images\Persona_3.png
+INPUT .\images\Persona_3.png
+INPUT .\images\Persona_3.png
 INPUT M1.aux
 INPUT .\M1.out
 INPUT .\M1.out
