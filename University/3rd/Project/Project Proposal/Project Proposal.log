@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  29 OCT 2023 02:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.4.22)  4 NOV 2023 02:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,104 +559,370 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforetabskip=\skip95
 \cfttabindent=\skip96
 \cfttabnumwidth=\skip97
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen182
+\ar@mcellbox=\box60
+\extrarowheight=\dimen183
+\NC@list=\toks31
+\extratabsurround=\skip98
+\backup@length=\skip99
+\ar@cellbox=\box61
+)
+\TX@col@width=\dimen184
+\TX@old@table=\dimen185
+\TX@old@col=\dimen186
+\TX@target=\dimen187
+\TX@delta=\dimen188
+\TX@cols=\count311
+\TX@ftn=\toks32
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgfgantt\pgfgantt.sty
+Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks33
+\pgfutil@tempdima=\dimen189
+\pgfutil@tempdimb=\dimen190
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box62
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks36
+))
+\pgf@x=\dimen191
+\pgf@y=\dimen192
+\pgf@xa=\dimen193
+\pgf@ya=\dimen194
+\pgf@xb=\dimen195
+\pgf@yb=\dimen196
+\pgf@xc=\dimen197
+\pgf@yc=\dimen198
+\pgf@xd=\dimen199
+\pgf@yd=\dimen256
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count312
+\c@pgf@countb=\count313
+\c@pgf@countc=\count314
+\c@pgf@countd=\count315
+\t@pgf@toka=\toks37
+\t@pgf@tokb=\toks38
+\t@pgf@tokc=\toks39
+\pgf@sys@id@count=\count316
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count317
+\pgfsyssoftpath@bigbuffer@items=\count318
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen257
+\pgfmath@count=\count319
+\pgfmath@box=\box63
+\pgfmath@toks=\toks40
+\pgfmath@stack@operand=\toks41
+\pgfmath@stack@operation=\toks42
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count320
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen258
+\pgf@picmaxx=\dimen259
+\pgf@picminy=\dimen260
+\pgf@picmaxy=\dimen261
+\pgf@pathminx=\dimen262
+\pgf@pathmaxx=\dimen263
+\pgf@pathminy=\dimen264
+\pgf@pathmaxy=\dimen265
+\pgf@xx=\dimen266
+\pgf@xy=\dimen267
+\pgf@yx=\dimen268
+\pgf@yy=\dimen269
+\pgf@zx=\dimen270
+\pgf@zy=\dimen271
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen272
+\pgf@path@lasty=\dimen273
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen274
+\pgf@shorten@start@additional=\dimen275
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count321
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen276
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen277
+\pgf@pt@y=\dimen278
+\pgf@pt@temp=\dimen279
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen280
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen281
+\pgf@sys@shading@range@num=\count322
+\pgf@shadingcount=\count323
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box67
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box68
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen282
+\pgf@nodesepend=\dimen283
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen284
+\pgffor@skip=\dimen285
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count324
+\pgfplotmarksize=\dimen286
+)
+\tikz@lastx=\dimen287
+\tikz@lasty=\dimen288
+\tikz@lastxsaved=\dimen289
+\tikz@lastysaved=\dimen290
+\tikz@lastmovetox=\dimen291
+\tikz@lastmovetoy=\dimen292
+\tikzleveldistance=\dimen293
+\tikzsiblingdistance=\dimen294
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count325
+\tikznumberofchildren=\count326
+\tikznumberofcurrentchild=\count327
+\tikz@fig@count=\count328
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count329
+\pgfmatrixcurrentcolumn=\count330
+\pgf@matrix@numberofcolumns=\count331
+)
+\tikz@expandcount=\count332
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen295
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box73
+\pgf@layerboxsaved@background=\box74
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfcalendar.sty (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfcalendar.code.tex
+File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfcalendarcurrentjulian=\count333
+\pgf@cal@easter@Y=\count334
+\pgf@cal@easter@G=\count335
+\pgf@cal@easter@C=\count336
+\pgf@cal@easter@X=\count337
+\pgf@cal@easter@Z=\count338
+\pgf@cal@easter@D=\count339
+\pgf@cal@easter@E=\count340
+\pgf@cal@easter@N=\count341
+\pgf@cal@easter@M=\count342
+\pgf@cal@easter@julianday=\count343
+))
+\gtt@currentline=\count344
+\gtt@lasttitleline=\count345
+\gtt@currgrid=\count346
+\gtt@chartwidth=\count347
+\gtt@lasttitleslot=\count348
+\gtt@elementid=\count349
+\gtt@today@slot=\count350
+\gtt@startjulian=\count351
+\gtt@endjulian=\count352
+\gtt@chartid=\count353
+\gtt@vrule@slot=\count354
+\gtt@calendar@slots=\count355
+\gtt@calendar@weeknumber=\count356
+\gtt@calendar@startofweek=\count357
+\gtt@left@slot=\count358
+\gtt@right@slot=\count359
 ) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.enc
 File: UTF8.enc 2021/10/16 4.8.5
 ) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/cjk/UTF8\UTF8.chr
 File: UTF8.chr 2021/10/16 4.8.5
 )
-LaTeX Font Info:    Trying to load font information for T1+ClearSans-TLF on input line 34.
+LaTeX Font Info:    Trying to load font information for T1+ClearSans-TLF on input line 36.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/clearsans\t1clearsans-tlf.fd
 File: T1ClearSans-TLF.fd 2019/10/16 (autoinst) Font definitions for T1/ClearSans-TLF.
 )
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 34.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.53937pt on input line 34.
+(Font)              scaled to size 10.53937pt on input line 36.
  (Project Proposal.aux)
 \openout1 = `"Project Proposal.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -692,21 +958,21 @@ LaTeX Font Info:    ... okay on input line 34.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count311
-\c@mv@boldtabular=\count312
+\c@mv@tabular=\count360
+\c@mv@boldtabular=\count361
 (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count313
-\scratchdimen=\dimen182
-\scratchbox=\box60
-\nofMPsegments=\count314
-\nofMParguments=\count315
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count316
-\MPscratchDim=\dimen183
-\MPnumerator=\count317
-\makeMPintoPDFobject=\count318
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count362
+\scratchdimen=\dimen296
+\scratchbox=\box75
+\nofMPsegments=\count363
+\nofMParguments=\count364
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count365
+\MPscratchDim=\dimen297
+\MPnumerator=\count366
+\makeMPintoPDFobject=\count367
+\everyMPtoPDFconversion=\toks46
 ) (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -717,101 +983,124 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 34.
+Package hyperref Info: Link coloring OFF on input line 36.
  (Project Proposal.out) (Project Proposal.out)
-\@outlinefile=\write3
-\openout3 = `"Project Proposal.out"'.
+\@outlinefile=\write4
+\openout4 = `"Project Proposal.out"'.
 
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <38> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 44.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 38.0pt on input line 44.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <38> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 45.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 38.0pt on input line 45.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <28> not available
 (Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 28.0pt on input line 46.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 64.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 12.045pt on input line 64.
-LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <12.045> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 64.
+(Font)              scaled to size 38.0pt on input line 46.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <38> not available
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 12.045pt on input line 64.
+(Font)              scaled to size 38.0pt on input line 47.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <28> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 28.0pt on input line 48.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <12.045> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 66.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
+(Font)              scaled to size 12.045pt on input line 66.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <12.045> not available
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 66.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
+(Font)              scaled to size 12.045pt on input line 66.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/generic/ctex/zhmap\ctex-zhmap-windows.tex
 File: ctex-zhmap-windows.tex 2022/07/14 v2.5.10 Windows font map loader for pdfTeX and DVIPDFMx (CTEX)
 {C:/Users/23970/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{UGBK.sfd}{Unicode.sfd}) [1
 
 {C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_zxbkm4.enc}]
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 68.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 70.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 15.05624pt on input line 68.
+(Font)              scaled to size 15.05624pt on input line 70.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <15.05624> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 68.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 70.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 15.05624pt on input line 68.
-LaTeX Font Info:    Trying to load font information for TS1+ClearSans-TLF on input line 71.
+(Font)              scaled to size 15.05624pt on input line 70.
+LaTeX Font Info:    Trying to load font information for TS1+ClearSans-TLF on input line 73.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/clearsans\ts1clearsans-tlf.fd
 File: TS1ClearSans-TLF.fd 2019/10/16 (autoinst) Font definitions for TS1/ClearSans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/m/n' in size <10.53937> not available
-(Font)              Font shape `TS1/ClearSans-TLF/regular/n' tried instead on input line 71.
+(Font)              Font shape `TS1/ClearSans-TLF/regular/n' tried instead on input line 73.
 LaTeX Font Info:    Font shape `TS1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.53937pt on input line 71.
+(Font)              scaled to size 10.53937pt on input line 73.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/b/n' in size <10.53937> not available
-(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 71.
+(Font)              Font shape `T1/ClearSans-TLF/bold/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/bold/n' will be
-(Font)              scaled to size 10.53937pt on input line 71.
+(Font)              scaled to size 10.53937pt on input line 74.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/n' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 91.
+(Font)              Font shape `T1/ClearSans-TLF/regular/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 91.
+(Font)              scaled to size 10.0pt on input line 85.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 91.
+(Font)              Font shape `T1/ClearSans-TLF/regular/sl' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/sl' in size <10> not available
-(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 91.
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 91.
+(Font)              scaled to size 10.0pt on input line 85.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91             \item D
-                        evelop a user interface within the 'Mirror News Summ... [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}] [2] [3]
-Overfull \hbox (3.53749pt too wide) in paragraph at lines 131--132
+l.85 \textbf{Inshorts}
+                      \cite{ref_web1} has positioned itself as a forerunner ... [1{C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/clearsans/clr_nrghxx.enc}]
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 85.
+ (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fd\c70rm.fd
+File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
+)
+Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (quanjiao) on input line 85.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/m/it' in size <10.53937> not available
+(Font)              Font shape `T1/ClearSans-TLF/regular/it' tried instead on input line 85.
+LaTeX Font Info:    Font shape `T1/ClearSans-TLF/regular/it' will be
+(Font)              scaled to size 10.53937pt on input line 85.
+ [2] [3] [4] [5]
+Overfull \hbox (3.53749pt too wide) in paragraph at lines 222--223
 []\T1/ClearSans-TLF/bold/n/10.53937 User-Interactive Rec-om-men-da-tion Sys-tem\T1/ClearSans-TLF/regular/n/10.53937 : In-te-grate a rec-om-men-da-tion sys-tem that tracks
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 144.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 242.
 (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 144.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 242.
  (C:\Users\23970\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [4] [5] [6] 
+)
+Overfull \hbox (17.19763pt too wide) in paragraph at lines 242--255
+[][] 
+ []
+
+[6]
+
+pdfTeX warning: pdflatex (file ./images/Online Gantt 20231101.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<./images/Online Gantt 20231101.pdf, id=110, 3334.4575pt x 1292.83pt>
+File: ./images/Online Gantt 20231101.pdf Graphic file (type pdf)
+<use ./images/Online Gantt 20231101.pdf>
+Package pdftex.def Info: ./images/Online Gantt 20231101.pdf  used on input line 259.
+(pdftex.def)             Requested size: 452.9679pt x 175.6095pt.
+[7] [8 <./images/Online Gantt 20231101.pdf>] [9] [10] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (Project Proposal.aux)
 Package rerunfilecheck Info: File `"Project Proposal".out' has not changed.
-(rerunfilecheck)             Checksum: B43184B7E6A12E45BB918D0A3A08C40C;1078.
+(rerunfilecheck)             Checksum: F91325BA05F6BBBA07C57F21A0289B85;1159.
  ) 
 Here is how much of TeX's memory you used:
- 17465 strings out of 476331
- 309087 string characters out of 5787765
- 1860660 words of memory out of 5000000
- 37508 multiletter control sequences out of 15000+600000
- 580261 words of font info for 71 fonts, out of 8000000 for 9000
+ 30231 strings out of 476331
+ 597458 string characters out of 5787765
+ 1866660 words of memory out of 5000000
+ 49991 multiletter control sequences out of 15000+600000
+ 587171 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,11n,117p,897b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
-Output written on "Project Proposal.pdf" (7 pages, 69296 bytes).
+ 103i,14n,117p,1089b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ectt1000.pk><C:/Windows/Fonts/simsun.ttc> <C:\Users\23970\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Bold.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Italic.pfb><C:/Users/23970/AppData/Local/Programs/MiKTeX/fonts/type1/intel/clearsans/ClearSans-Regular.pfb>
+Output written on "Project Proposal.pdf" (11 pages, 241406 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 50 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

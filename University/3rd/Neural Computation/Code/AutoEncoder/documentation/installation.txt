@@ -1,0 +1,3 @@
+Pip install torch (1.10)
+Pip install torchvision   (0.11.1)
+Pip install image (2.10.3) (to replace scipy.misc.imread)

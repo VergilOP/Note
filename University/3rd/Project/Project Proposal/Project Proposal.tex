@@ -21,6 +21,8 @@
 \usepackage{lipsum}
 \usepackage{geometry}
 \usepackage{tocloft} 
+\usepackage{tabularx}
+\usepackage{pgfgantt}
 
 \pagestyle{fancy}
 % Formatting
@@ -68,10 +70,9 @@
 \section{Project Aim:}
 
 \begin{itemize}
-    \item {\bf Objective}: The goal is to develop 'Mirror News Summarizer', an advanced platform that revamps the user experience of consuming news online. It extracts content from selected mirror news sites, eliminates advertisements, and replaces full articles with succinct summaries. This system aims to streamline the process of information acquisition, making news reading more efficient, and user-friendly.
-    \item {\bf Significance}: With the advent of the digital age and the vast array of information available online, it's becoming increasingly challenging for users to sift through extensive content efficiently. Especially in the realm of news where staying updated is crucial, navigating through lengthy articles can be time-consuming. The "Mirror News Summarizer" strives to bridge this gap by allowing users to view compressed news articles that retain the core essence of the original. This not only ensures the efficient consumption of news but also reduces the cognitive load on the user.
+    \item The goal is to develop `Mirror News Summarizer', an advanced platform that significantly enhances the user experience of consuming news online. It extracts content from selected news sites and, while maintaining a similar format reminiscent of the original website, eliminates advertisements and replaces full articles with succinct summaries to present on a mirror news platform. Furthermore, it offers a dedicated interface for tailored recommendations and a favorites section, ensuring personalized and engaging content for users. This system is meticulously designed to streamline the process of information acquisition, making news reading more efficient and user-friendly.
+    \item {\bf Significance}: In today's digital age, users grapple with the deluge of information, often finding it challenging to decipher extensive content swiftly. The 'Mirror News Summarizer', with its mirror-style approach, elegantly addresses this by presenting concise news articles that encapsulate the essence of the original. This mirroring feature offers users a sense of familiarity and consistency, enhancing readability and reducing decision fatigue. By reducing the often dizzying array of design choices, it enhances readability and combats decision fatigue. Coupled with tailored recommendations and a favorites section, the platform not only ensures efficient news consumption but also elevates the user experience, crafting a more immersive and customized reading journey.
     \item {\bf Relevance to AI}: The `Mirror News Summarizer' leverages cutting-edge AI technologies and methodologies for several core functionalities:
-    \subitem {\bf Content Retrieval}: Utilizes `request crawlers' for scraping news content from various sources, ensuring real-time, diverse, and vast information procurement.
     \subitem {\bf Summarization}: Employs Summary APIs, capitalizing on advanced NLP models like GPT (Generative Pre-trained Transformer), to generate precise and coherent news summaries. This AI-driven approach understands the context and extracts essential details, contributing to a succinct yet comprehensive summary.
     \subitem {\bf Recommendation System}: Integrates existing AI recommendation models that analyze user behavior, preferences, and interaction history to provide personalized news content, enhancing user engagement and satisfaction.
     \subitem {\bf Text Similarity Analysis}: Implements AI algorithms for text similarity checks to identify and eliminate duplicate content from different sources, presenting unique content to the users.
@@ -79,18 +80,110 @@
 
 \section{Literature Review:}
 
-\begin{itemize}
-    \item
-\end{itemize}
+In this chapter, we delve into an insightful comparison of some of the leading news recommendation and summarization platforms in the digital realm. 
 
-\section{Project Objectives/Deliverables}
+\textbf{Inshorts}\cite{ref_web1} has positioned itself as a forerunner in the concise news space. Its backend, fortified by a rich tech stack of 22 products, from HTML5 to Google Analytics, ensures a seamless and responsive experience for its users.\cite{ref_web4} On the frontend, its minimalist yet impactful design delivers 60-word summaries that cut through the noise, making news consumption swift and straightforward. The user-centric mobile interface ensures quick access and readability, vital in today’s fast-paced world. However, its primary challenge remains its concentrated regional appeal, especially with India as its prime audience. Venturing into this space, the \textit{Mirror News Summarizer} encompasses advanced AI-driven personalization algorithms. Not only does it aggregate news, but it also tailors content based on individual preferences, enhancing global reach and user engagement.
+
+\textbf{Feedly}\cite{ref_web2} is a master curator, with a technologically robust foundation that comprises 30 essential products, ensuring optimal content delivery from varied sources.\cite{ref_web5} Its interface is a blend of simplicity and categorization, allowing users to tailor their feeds based on interests. Yet, where it excels in aggregation, there's room for improvement in content condensation. As users demand both breadth and brevity, the \textit{Mirror News Summarizer} bridges this gap. By employing advanced algorithms, it not only collates content but also presents it in easily digestible chunks, ensuring that users receive depth without the associated reading time.
+
+\textbf{Flipboard}\cite{ref_web3} is the epitome of visual storytelling in the digital news domain. Supported by an expansive tech stack and 182 website technologies, it offers a fluid, magazine-esque reading experience.\cite{ref_web6} The emphasis on visual elements, combined with its robust technological deployment, ensures users are always engaged. However, the focus on visuals sometimes comes at the cost of brevity. Recognizing this, the \textit{Mirror News Summarizer} marries visual appeal with content succinctness. The result is a platform that offers visual richness, but without compromising on the essence of the news.
+
+Lastly, the \textit{Mirror News Summarizer} emerges as a holistic solution. It's not just about presenting news but doing so in a manner that resonates with the user's preferences and pace. Advanced AI algorithms, combined with user feedback loops, ensure that the platform learns and evolves with each user interaction. The addition of features like a 'favorites' section adds a layer of personal touch, ensuring users always have their preferred content at their fingertips.
+
+\section{Project Objectives}
+
+\begin{enumerate}
+    \item \textbf{Interview \& User Persona Analysis}
+    \subitem Understand the unique needs, preferences, and pain points of potential users of the Mirror News Summarizer through comprehensive interviews and persona analysis.
+    % {\small\begin{itemize}
+    %     \item \textbf{Zijun Li}
+    %     \begin{itemize}
+    %         \item Need for quick overviews of major news.
+    %         \item Wants a platform that provides critical information rapidly.
+    %         \item Prioritizes accuracy and reliability in news sources.
+    %         \item Desires an interface free from ads or irrelevant content.
+    %     \end{itemize}
+    %     \item \textbf{Binghao Liu}
+    %     \begin{itemize}
+    %         \item Requires efficient and quick information access.
+    %         \item Desires a platform that offers multimedia content for an enhanced learning experience.
+    %         \item Values aesthetics and personalization in digital spaces, frequently customizing them.
+    %         \item Hopes for an interface that can be modified according to his preferences.
+    %         \item Expects concise yet comprehensive news summaries to stay informed without spending excessive time.
+    %     \end{itemize}
+    %     \item \textbf{Sabour}
+    %     \begin{itemize}
+    %         \item Needs personalized news recommendations.
+    %         \item Desires bookmarking capabilities for ease of access.
+    %         \item Values adaptive content that changes based on her reading habits and preferences.
+    %         \item Expects a structured way to manage saved articles, including easy sorting and categorization.
+    %     \end{itemize}
+    % \end{itemize}}
+    {\begin{itemize}
+        \item \textbf{Feature List Compilation:}
+        \begin{itemize}
+            \item Quick News Summaries
+            \item Personalized User Interface
+            \item Aesthetic and User-Friendly Design
+            \item Intelligent Content Filtering
+            \item Distraction-Free Reading Mode
+            \item Reliable News Sources Integration
+        \end{itemize}
+    \end{itemize}}
+    \item \textbf{Agile Development Process}
+    \begin{itemize}
+        \item \textbf{MVP (Minimum Viable Product)}
+        \begin{itemize}
+            \item Develop a news summary tool that offers concise overviews of major news topics by mirroring a specific website and successfully implementing web scraping for that site.
+            \item Implement a reliable and accurate news aggregation algorithm.
+            \item Establish a basic recommendation system to curate news articles for individual users.
+        \end{itemize}
+        \item \textbf{Iterative Enhancements:}
+        \begin{itemize}
+            \item Personalized news recommendation engine that evolves based on users' reading habits.
+            \item Bookmarking feature, allowing users to save and return to articles at their convenience.
+            \item Ad-free and distraction-free user interface to enhance readability and user experience.
+            \item Categorization and sorting options for saved articles, providing better organization.
+        \end{itemize}
+        \item \textbf{Feedback \& Iteration:}
+        \begin{itemize}
+            \item Continually gather feedback from the user personas (and broader user base) to refine and improve features.
+            \item Prioritize feature developments based on both user feedback and technological advancements in the field.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Test \& Evaluation}
+    \begin{itemize}
+        \item \textbf{Continuous Integration (CI):}
+        \begin{itemize}
+            \item Implement CI tools to ensure code quality and to detect issues early.
+            \item Regularly test new features in isolation before merging them with the main application.
+        \end{itemize}
+        \item \textbf{Continuous Deployment (CD):}
+        \begin{itemize}
+            \item Automated deployment of the application to a production environment after passing CI tests.
+        \end{itemize}
+        \item \textbf{User Acceptance Testing (UAT):}
+        \begin{itemize}
+            \item Before major releases, conduct UAT with real users to ensure the application meets their needs and expectations.
+            \item Adjust features based on feedback from UAT.
+        \end{itemize}
+        \item \textbf{Debugging:}
+        \begin{itemize}
+            \item Regularly monitor application logs and user feedback to identify and fix bugs.
+            \item Prioritize bugs based on their impact on user experience and application stability.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\section{Project Deliverables}
 
 \begin{enumerate}
     \item User-Centric News Access and Customization
         \begin{itemize}
+            \item Develop a user authentication and login system, ensuring secure and consistent access to personalized news settings across different devices.
             \item Develop a user interface within the 'Mirror News Summarizer' that allows individuals to choose their preferred news sources and categories, enhancing personalized interaction.
             \item Implement a content filtration and retrieval system that curates and presents news from selected mirror news websites, optimizing the influx of information based on user preferences.
-        \end{itemize} 
+        \end{itemize}
     \item Enhanced Content Presentation
         \begin{itemize}
             \item Design an intuitive layout to display summarized news content, incorporating essential details like the headline, source, publication date, and core points, all within a user-friendly, visually appealing framework.
@@ -114,15 +207,13 @@
     \item User Engagement and Analytic Reports
         \begin{itemize}
             \item Implement a system for tracking user engagement metrics, preferences, and feedback, utilized for continuous improvement of the platform's features and user experience.
-            \item Generate periodic analytic reports summarizing user interaction trends, content popularity, and feedback, providing valuable insights for future enhancements and content curation strategies.
         \end{itemize}
 \end{enumerate}
 
-\par These objectives comprehensively address the primary goal of this project: to provide users with an efficient way to access and consume news articles from their favorite websites, without the distractions of unnecessary content. The initial objective guarantees that the system is equipped to fetch content autonomously, enabling a continuous flow of updated news. The following objectives focus on processing and optimizing this content, from extraction and filtering to summarization and storage. The final objective ensures that the users receive their content in a familiar and user-friendly interface, promoting engagement and satisfaction. Overall, this approach ensures users can quickly access the essence of news articles in a format that's convenient and recognizable.
-
-\section{methodologies}
+\section{Methodologies}
 
 \begin{enumerate}
+    \item {\bf User Authentication and Login}: Develop a secure user registration and login mechanism using technologies like JWT (JSON Web Tokens) and OAuth. This step ensures a protected, personalized space for each user and sets the foundation for subsequent personalized interactions.
     \item {\bf User Preferences and Customization Setup}: Initiate user interaction by offering a setup interface where they can select preferred news categories, sources, and UI/UX elements (e.g., dark mode, text size). This step personalizes the subsequent content curation.
     \item {\bf Content Aggregation and Filtration}: Utilize web scraping tools (like requests) and APIs to aggregate news content from various mirror websites selected by the user. This process includes filtering out ads and non-essential elements, focusing solely on the actual news content.
     \item {\bf AI-driven News Summarization}: Implement an AI model API to generate concise, coherent summaries of the aggregated news articles. This step requires maintaining the integrity and critical nuances of the original news content while reducing the length.
@@ -135,19 +226,39 @@
     \item {\bf Evaluation and User Testing}: Conduct comprehensive user testing to evaluate the system's performance, particularly the accuracy of news summaries, effectiveness of the recommendation engine, and overall user satisfaction. Collect feedback for future enhancements.
 \end{enumerate}
 
-This methodology embodies a holistic approach to developing the 'Mirror News Summarizer' platform. Each step is designed to ensure that the final product is efficient, user-centric, and innovative, significantly enhancing the digital news consumption experience for users.
-
 \section{Project Plan}
 
-\begin{table}
-    \centering
-    \begin{tabular}{lll}
-        Week & Dates & Tasks \\
-        1    & 1     & 1     \\
-        1    & 1     & 1     \\
-        1    & 1     & 1     
+% \begin{table}[h!]
+%     \begin{tabularx}{\linewidth}{|c|c|X|}
+%     \hline
+%     Week       & Dates         & Tasks                                                                                                                              \\ \hline
+%     Week 1-6   & 9.25 - 11.5   & \begin{tabular}[c]{@{}l@{}}- Make Mockup and Personas \\ - Write Proposal\end{tabular}                                              \\ \hline
+%     Week 7-8   & 11.6 - 11.19  & \begin{tabular}[c]{@{}l@{}}- Initialize the frontend: Set up tools and frameworks\\ - Initialize the backend: Set up server and database\\ - Design a simple Interface prototype\end{tabular}                          \\ \hline
+%     Week 9-10  & 11.20 - 12.3  & \begin{tabular}[c]{@{}l@{}}- Develop a Website crawler: Define sources and extractors\\ - Integrate Content Summarizer(API): Set up API calls and \\responses\end{tabular}                                   \\ \hline    
+%     \end{tabularx}
+% \end{table}
+
+\begin{table}[h!]
+    \begin{tabular}{|c|c|l|}
+    \hline
+    Week       & Dates         & Tasks                                                                                                                              \\ \hline
+    Week 1-6   & 9.25 - 11.5   & \begin{tabular}[c]{@{}l@{}}- Make Mockup and Personas \\ - Write Proposal\end{tabular}                                              \\ \hline
+    Week 7-8   & 11.6 - 11.19  & \begin{tabular}[c]{@{}l@{}}- Initialize the frontend: Set up tools and frameworks\\ - Initialize the backend: Set up server and database\\ - Design a simple Interface prototype\end{tabular}                          \\ \hline
+    Week 9-10  & 11.20 - 12.3  & \begin{tabular}[c]{@{}l@{}}- Develop a Website crawler: Define sources and extractors\\ - Integrate Content Summarizer(API): Set up API calls and \\responses\end{tabular}                                   \\ \hline    
+    Week 11-12 & 12.4 - 12.17  & \begin{tabular}[c]{@{}l@{}}- Implement Recommend System: Design algorithms and \\interfaces\\ - Develop a Repeat Content Checker: Set up detection algorithms\\ - Draft 50\% of the report: Define structure and content\end{tabular} \\ \hline
+    Week 13-14 & 12.18 - 12.31 & \begin{tabular}[c]{@{}l@{}}- Set up a Feedback System: Design UI and backend handlers\\ - Optimize UI: Improve navigation menu, Redesign key pages \\ - Finish MVP(Minimum Viable Product) \end{tabular}                                                     \\ \hline
+    Week 15-16 & 1.1 - 1.14    & \begin{tabular}[c]{@{}l@{}}- Implement Voice Integration: Choose voice API and integrate\\ - Add Multilanguage Support: Define languages and integrate \\translation APIs\\ - Implement CI/CD: Set up pipelines and deployment strategies\\ \end{tabular}        \\ \hline
+    Week 17-18 & 1.15 - 1.28   & \begin{tabular}[c]{@{}l@{}}- Get feedback using UAT \\ - Draft GDPR policy: Define data collection and usage\\ - Create DPIA form: Define risk assessment criteria\\ - Draft 80\% of the report: Refine content and gather feedback\end{tabular}                                                                                                      \\ \hline
+    Week 19-20 & 1.29 - 2.11   & \begin{tabular}[c]{@{}l@{}}- Debug the system: Set up testing environments and fix issues\\ - Adjust according to UAT\\ - Finalize and proofread the report\end{tabular}                    \\ \hline
+    Week 21-22 & 2.12 - 2.25   & \begin{tabular}[c]{@{}l@{}}- Create app-demo: Showcase key features and functionalities\\ - Design a11y-demo: Highlight accessibility features and \\improvements\end{tabular}                                                                                                        \\ \hline
     \end{tabular}
 \end{table}
+
+\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
+	\centering %图片居中
+	\includegraphics[width=1\textwidth]{./images/Online Gantt 20231101.pdf} %插入图片，[]中设置图片大小，{}中是图片文件名
+	\label{Fig.Gantt} %用于文内引用的标签
+\end{figure}
 
 \section{Risks and contingency plan}
 
@@ -165,21 +276,21 @@ This methodology embodies a holistic approach to developing the 'Mirror News Sum
 \begin{enumerate}
     \item Hardware:
     \begin{itemize}
-        \item RAM: 4 GB (recommended for efficient data processing and handling multiple tasks)
-        \item Storage: 50 GB SSD (for faster read/write speeds and storage of large datasets, cache data, and logs)
+        \item RAM: 4 GB
+        \item Storage: 50 GB
     \end{itemize}
     \item Software Requirements:
     \begin{itemize}
-        \item OS: Windows (with the latest security updates)
-        \item Python 3.8 or later (for compatibility with the latest libraries and frameworks)
-        \item Text Editor or IDE: VS Code/PyCharm (equipped with relevant Python extensions and plugins)
-        \item Browser: Google Chrome/Edge (latest version, needed for testing the web interface)
-        \item Database Management System: MySQL/PostgreSQL/SQLite (for storing user profiles, interactions, and logs)
-        \item Backend: Flask/Django (Python-based web frameworks for handling backend operations)
-        \item Frontend: React.js (for building a dynamic and responsive user interface)
-        \item Web scraping tools: Beautiful Soup/Selenium (libraries for scraping news content)
-        \item Summary API key (for content summarization functionalities)
-        \item Version Control: Git (for source code management and collaborative development)
+        \item OS: Windows
+        \item Python 3.8 or later
+        \item Text Editor or IDE: VS Code/PyCharm
+        \item Browser: Google Chrome/Edge
+        \item Database Management System: MySQL/PostgreSQL/SQLite
+        \item Backend: Flask
+        \item Frontend: React.js
+        \item Web scraping tools: Beautiful Soup
+        \item Summary API key: OpenAI API
+        \item Version Control: Git
     \end{itemize}
 \end{enumerate}
 
@@ -191,5 +302,27 @@ This methodology embodies a holistic approach to developing the 'Mirror News Sum
     \item User interaction data, such as reading preferences, feedback on summaries, and browsing history, will be collected through the platform to enhance the recommendation system.
     \item Ethical considerations and privacy compliance measures are in place for handling user data, with protocols established for secure data storage, retrieval, and processing.
 \end{itemize}
+
+\newpage
+
+\begin{thebibliography}{}
+    \bibitem{ref_web1}
+    Inshorts. (n.d.). Retrieved from \url{https://www.inshorts.com/en/read}
+    
+    \bibitem{ref_web2}
+    Feedly: Discover. (n.d.). Retrieved from \url{https://feedly.com/i/discover}
+    
+    \bibitem{ref_web3}
+    Flipboard. (n.d.). Retrieved from \url{https://flipboard.com/}
+    
+    \bibitem{ref_web4}
+    Inshorts - Technology. (n.d.). Crunchbase. Retrieved from \url{https://www.crunchbase.com/organization/news-in-shorts/technology}
+    
+    \bibitem{ref_web5}
+    DevHD - Technology. (n.d.). Crunchbase. Retrieved from \url{https://www.crunchbase.com/organization/devhd/technology}
+    
+    \bibitem{ref_web6}
+    Flipboard - Technology. (n.d.). Crunchbase. Retrieved from \url{https://www.crunchbase.com/organization/flipboard/technology}
+\end{thebibliography}
 
 \end{document}
