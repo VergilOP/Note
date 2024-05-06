@@ -62,6 +62,8 @@
         - `Categorical`
 
 > Use `Training Examples` $J = \{(\vec{x}^i,y^i)\}^N_{i = 1}$ and `Hypothesis Set` $h(\vec{x}) = \vec{a}^T\vec{x}+b, \forall \vec{a} \in \R^d, b\in \R$ to `Learn Algorithm` and get `Final Hypothesis` $g \approx f$
+>
+> ![](./images/Screenshot%202024-04-20%20170805.png)
 
 - Problem Setting
   - `Given` a set of training examples $J = \{(\vec{x}^1, y^1), (\vec{x}^2, y^2),...,(\vec{x}^n,y^n)\}$   

@@ -2,6 +2,96 @@
 
 ## Machine Learning Linear Regression
 
+- Ordinary Least Squares(OLS)
+  $$
+    R(\omega) = \sum^N_{i=1}r^2_i = \sum^N_{i=1}(y_i - \hat{y}_i(x_i, \omega))^2
+  $$
+  - Setting derivates of R w.r.t $\omega$ to 0:
+    $$
+    \frac{\partial R(\omega_0, \omega_1)}{\partial \omega_0} = 0
+    $$
+
+    $$
+    \frac{\partial R(\omega_0, \omega_1)}{\partial \omega_1} = 0
+    $$
+
+  - This results in a linear system of two equations with two unknown($\omega_0, \omega_1$)
+    $$
+    \sum_{i=1}^{N} x_i y_i = \omega_0 \sum_{i=1}^{N} x_i + \omega_1 \sum_{i=1}^{N} x_i^2
+    $$
+
+    $$
+    \sum_{i=1}^{N} y_i = \omega_0 N + \omega_1 \sum_{i=1}^{N} x_i
+    $$
+
+  - Expressing the system of equations in matrix form:
+    $$
+    \begin{pmatrix}
+    \sum_{i=1}^{N} x_i y_i \\
+    \sum_{i=1}^{N} y_i
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    \sum_{i=1}^{N} x_i & \sum_{i=1}^{N} x_i^2 \\
+    N & \sum_{i=1}^{N} x_i
+    \end{pmatrix}
+    \begin{pmatrix}
+    \omega_0 \\
+    \omega_1
+    \end{pmatrix}
+    $$
+
+    $$
+    \begin{pmatrix}
+    \omega_0 \\
+    \omega_1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    \sum_{i=1}^{N} x_i & \sum_{i=1}^{N} x_i^2 \\
+    N & \sum_{i=1}^{N} x_i
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+    \sum_{i=1}^{N} x_i y_i \\
+    \sum_{i=1}^{N} y_i
+    \end{pmatrix}
+    $$
+  
+  - The equation is the OLS solution for $\omega_0, \omega_1$ for a degree = 1 polynomial regression function
+
+- OLS: For arbitrary degree polynomial
+  - Fitting an M-degree polynomial requires estimation of M + 1 parameters in $\omega$
+  - Using $\omega, \phi$ we can define $R(\omega)$ as: $R(\omega) = \sum^N_{i=1}(y_i - \omega^T\phi(x_i))^2$
+  - As before we can estimate $\omega_{OLS}$ by minimising $R(\omega)$
+    $$
+    \frac{\partial R(\omega)}{\partial \omega} = \sum_{i=1}^{N} (y_i - \omega^T \phi(x_i))\phi(x_i)^T = 0
+    $$
+    $$
+    \sum_{i=1}^{N} y_i \phi^T (x_i) = \omega^T \left( \sum_{i=1}^{N} \phi(x_i) \phi^T (x_i) \right)
+    $$
+  - $\Phi \text{ is an } N \times (M+1) \text{ matrix where each } x_i \text{ has an associated basis function vector } \phi(x_i)$
+
+  - By defining design matrix \( \Phi \) as:
+
+    $$
+    \Phi = \begin{pmatrix}
+    \phi_0(x_1) & \phi_1(x_1) & \cdots & \phi_M(x_1) \\
+    \phi_0(x_2) & \phi_1(x_2) & \cdots & \phi_M(x_2) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \phi_0(x_N) & \phi_1(x_N) & \cdots & \phi_M(x_N)
+    \end{pmatrix}
+    $$
+
+  - $\omega_{OLS}$is given by solving: $\Phi^T Y = \Phi^T \Phi \omega$ -- the normal equation
+
+    $$
+    \omega_{OLS} = (\Phi^T \Phi)^{-1} \Phi^T Y
+    $$
+
+  - $(\Phi^T \Phi)^{-1} \Phi^T = \Phi^+$ is also known as the Moore-Penrose pseudoinverse of $\Phi$
+
+> - The solution can be obtained by this set of linear equations (the normal equation).
+> - However, numerical inversion of matrices can be troublesome, especially if the matrix is large.
+
+
 - Evaluating Regression Models
   - Common metrics for evaluating regression models
     - Coefficient of determination or $R^2 = 1 - \frac{\sum_i(y_i-\hat{y}_i)^2}{\sum_i(y_i-\bar{y})^2}$; $\bar{y}$ is the mean of the observed targets
@@ -85,12 +175,11 @@
   >   $$
 
   $$
-    maximize \begin{cases}
-      -\frac{1}{2}\sum^l_{i,j=1}(\alpha_i - \alpha_i^*)(\alpha_j - \alpha_j^*)\langle x_i, x_j\rangle\\
-      -\epsilon\sum^l_{i=1}(\alpha_i+\alpha_i^*)+\alpha^l_{i=1}y_i(\alpha_i-\alpha_i^*)
-    \end{cases}
+    maximize\\
+      -\frac{1}{2}\sum^l_{i,j=1}(\alpha_i - \alpha_i^*)(\alpha_j - \alpha_j^*)\langle x_i, x_j\rangle-\epsilon\sum^l_{i=1}(\alpha_i+\alpha_i^*)+\alpha^l_{i=1}y_i(\alpha_i-\alpha_i^*)
+
   $$
-  Subject to $\sum^l_{i=1}(\alpha_i-\alpha_i^*) = 0$ and $\alpha_i, \alpha_i^* \in [0, C]$
+  > Subject to $\sum^l_{i=1}(\alpha_i-\alpha_i^*) = 0$ and $\alpha_i, \alpha_i^* \in [0, C]$
 
 - SVM: Regression vs Classification  
   ![](./images/SVM.png)

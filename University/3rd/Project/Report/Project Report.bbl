@@ -1,0 +1,283 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{feedlyFeatures}{misc}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2024-03-01}
+      \field{title}{Feedly - More signal, less noise}
+      \verb{urlraw}
+      \verb https://feedly.com
+      \endverb
+      \verb{url}
+      \verb https://feedly.com
+      \endverb
+    \endentry
+    \entry{flipboardMagazine}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=529d55c0cc6c67fba8fec636cca67aa3}{%
+           family={Flipboard},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \strng{fullhash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \strng{bibnamehash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \strng{authorbibnamehash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \strng{authornamehash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \strng{authorfullhash}{529d55c0cc6c67fba8fec636cca67aa3}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2024-03-01}
+      \field{title}{Flipboard - Your Personal Magazine}
+      \verb{urlraw}
+      \verb https://flipboard.com
+      \endverb
+      \verb{url}
+      \verb https://flipboard.com
+      \endverb
+    \endentry
+    \entry{django}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4b391b2392458f3f1f92f0b33887d9f4}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={Django\bibnamedelima Software},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \strng{fullhash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \strng{bibnamehash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \strng{authorbibnamehash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \strng{authornamehash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \strng{authorfullhash}{4b391b2392458f3f1f92f0b33887d9f4}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Web Application Framework}
+      \field{title}{Django}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.djangoproject.com/
+      \endverb
+      \verb{url}
+      \verb https://www.djangoproject.com/
+      \endverb
+    \endentry
+    \entry{rubyonrails}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ca6260ffd40b61a84c7d07d314436fea}{%
+           family={Hansson},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima Heinemeier},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ca6260ffd40b61a84c7d07d314436fea}
+      \strng{fullhash}{ca6260ffd40b61a84c7d07d314436fea}
+      \strng{bibnamehash}{ca6260ffd40b61a84c7d07d314436fea}
+      \strng{authorbibnamehash}{ca6260ffd40b61a84c7d07d314436fea}
+      \strng{authornamehash}{ca6260ffd40b61a84c7d07d314436fea}
+      \strng{authorfullhash}{ca6260ffd40b61a84c7d07d314436fea}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Web Application Framework}
+      \field{title}{Ruby on Rails}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://rubyonrails.org/
+      \endverb
+      \verb{url}
+      \verb https://rubyonrails.org/
+      \endverb
+    \endentry
+    \entry{expressjs}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5173215c55c17603df7cfd12916e5a3f}{%
+           family={Holowaychuk},
+           familyi={H\bibinitperiod},
+           given={TJ},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{5173215c55c17603df7cfd12916e5a3f}
+      \strng{fullhash}{5173215c55c17603df7cfd12916e5a3f}
+      \strng{bibnamehash}{5173215c55c17603df7cfd12916e5a3f}
+      \strng{authorbibnamehash}{5173215c55c17603df7cfd12916e5a3f}
+      \strng{authornamehash}{5173215c55c17603df7cfd12916e5a3f}
+      \strng{authorfullhash}{5173215c55c17603df7cfd12916e5a3f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Web Application Framework}
+      \field{title}{Express.js}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://expressjs.com/
+      \endverb
+      \verb{url}
+      \verb https://expressjs.com/
+      \endverb
+    \endentry
+    \entry{cookiecutterflask}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a9f10d7654c3e4ae11d7c68773b47fee}{%
+           family={Name},
+           familyi={N\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \strng{fullhash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \strng{bibnamehash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \strng{authorbibnamehash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \strng{authornamehash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \strng{authorfullhash}{a9f10d7654c3e4ae11d7c68773b47fee}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Web Application Framework}
+      \field{title}{Cookiecutter Flask}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://github.com/cookiecutter-flask/cookiecutter-flask
+      \endverb
+      \verb{url}
+      \verb https://github.com/cookiecutter-flask/cookiecutter-flask
+      \endverb
+    \endentry
+    \entry{pewnewsplatforms}{online}{}
+      \name{author}{1}{}{%
+        {{hash=83778ea1c38ca19c82fc35bb68b48c1b}{%
+           family={{Pew Research Center}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \strng{fullhash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \strng{bibnamehash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \strng{authorbibnamehash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \strng{authornamehash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \strng{authorfullhash}{83778ea1c38ca19c82fc35bb68b48c1b}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{News Platform Fact Sheet}
+      \field{urlday}{21}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.pewresearch.org/journalism/fact-sheet/news-platform-fact-sheet/
+      \endverb
+      \verb{url}
+      \verb https://www.pewresearch.org/journalism/fact-sheet/news-platform-fact-sheet/
+      \endverb
+    \endentry
+    \entry{inshorts2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4b4b4c784162bdfc29750ccc9ebae49c}{%
+           family={Team},
+           familyi={T\bibinitperiod},
+           given={Inshorts},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \strng{fullhash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \strng{bibnamehash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \strng{authorbibnamehash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \strng{authornamehash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \strng{authorfullhash}{4b4b4c784162bdfc29750ccc9ebae49c}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2024-03-01}
+      \field{title}{Inshorts - About Us}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.inshorts.com/
+      \endverb
+      \verb{url}
+      \verb https://www.inshorts.com/
+      \endverb
+    \endentry
+    \entry{frontiersinpsych2022}{online}{}
+      \name{author}{4}{}{%
+        {{hash=227e34554b27c77e2d042504ef1edb97}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=d8d5b842016f3fb589f75fcbff831dec}{%
+           family={Akhter},
+           familyi={A\bibinitperiod},
+           given={Shamim},
+           giveni={S\bibinitperiod}}}%
+        {{hash=08b7bd4d77aa2199a61948f93c5928d6}{%
+           family={Nassani},
+           familyi={N\bibinitperiod},
+           given={Abdelmohsen\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5540588095eb4652c31b162a443a59fc}{%
+           family={Haffar},
+           familyi={H\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{eebb4a1ca4788ca9e5946611a9e12c02}
+      \strng{fullhash}{c607486ca4b116854f53399f84d248c5}
+      \strng{bibnamehash}{eebb4a1ca4788ca9e5946611a9e12c02}
+      \strng{authorbibnamehash}{eebb4a1ca4788ca9e5946611a9e12c02}
+      \strng{authornamehash}{eebb4a1ca4788ca9e5946611a9e12c02}
+      \strng{authorfullhash}{c607486ca4b116854f53399f84d248c5}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Psychology}
+      \field{title}{Title of the article}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2022}
+      \field{volume}{13}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.3389/fpsyg.2022.865246
+      \endverb
+      \verb{urlraw}
+      \verb https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865246/full
+      \endverb
+      \verb{url}
+      \verb https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865246/full
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

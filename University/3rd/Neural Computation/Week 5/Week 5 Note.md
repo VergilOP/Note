@@ -3,8 +3,8 @@
 ## Unsupervised Learning and Auto-Encoders
 
 - Unsupervised Learning
-  - **Available data**: $x_1, ..., x_N ~ P_\text{data}(x)$
-  - **Goal**: Learn "useful features" of the data/Learn "the structure" of the data
+  - **Available data**: $x_1, ..., x_N \sim P_\text{data}(x)$
+  - **Goal**: Learn `useful features` of the data/Learn `the structure` of the data
   - Useful for:
     - Dimensionality Reduction(compression)
       - Learn $f: \R^d \rarr \R^m$ where $d > m$
@@ -24,7 +24,11 @@
   - Given for training: Input & Label  
     ![](./images/Supervised_Classifier.png)
 
-- Unsupervised Auto-Encoder(AE)
+- Supervised Encoder: $X \rarr Z$
+  - Given for training: Only input samples  
+    ![](./images/Screenshot%202024-04-12%20114143.png)
+
+- Unsupervised Auto-Encoder(AE): 
   - Given for training: $X$  
   ![](./images/AE.png)
   - Encoder: 
@@ -56,7 +60,7 @@
 >   \hat{x} = g_\theta(z) = z
 > $$
 
-- SolutionL Bottleneck layer
+- Solution: Bottleneck layer
   $$
     f_\phi: X\in \R^d \rarr Z \in \R^v, \text{where}\ v < d
   $$

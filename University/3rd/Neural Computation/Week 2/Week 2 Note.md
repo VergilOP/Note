@@ -1,8 +1,8 @@
 # Week 2 Note
 
-## 2.1 Gradient descent(GD)
+## Gradient descent(GD)
 
-### 2.1.1 Introduction
+### Introduction
 
 - The <ins>gradient vector</ins> at a point $x$ points in the direction of greatest increase of the function $f$: each element of the gredient shows how fast $f(x)$ is changing
 
@@ -15,7 +15,7 @@
     >         \triangledown f(x_1,x_2) = \begin{pmatrix} 12x_1 - 4x_2 \\  8x_2 - 4x_1\end{pmatrix}
     >     $$
 
-### 2.1.2 Optimisation
+### Optimisation
 
 - Optimisation algorithm  
   1. Start with a point $w$(initial guess)
@@ -23,9 +23,9 @@
   3. Determine how far $(\eta)$ to move along $d$
   4. Update: $w = w + \eta d$
 
-### 2.1.3 Minimisation
+### Minimisation
 
-- it is an iterative algorithm, starting from $\vec{w}^{(0)}$ and producing a new $\vec{w}^{(t+1)}$ at each iteration as:
+- It is an iterative algorithm, starting from $\vec{w}^{(0)}$ and producing a new $\vec{w}^{(t+1)}$ at each iteration as:
 
   $$
     \vec{w}^{(t+1)} = \vec{w}^{(t)} - \eta_t\triangledown C(\vec{w}^{(t)})
@@ -35,13 +35,12 @@
 
   > $\eta_t > 0$ is the <ins>learning rate</ins> or <ins>step size</ins>
 
-### 2.1.4 Choosing a step size
+### Choosing a step size
 
-- Choosing a step size
-  - If step size is too large - algorithm may never converge
-  - If step size is too small - convergence may be very slow
+- If step size is `too large` - algorithm may `never converge`
+- If step size is `too small` - convergence may be `very slow`
 
-### 2.1.5 GD for least squares regression
+### GD for least squares regression
 
 - Least squares regression
   - For least square regression, let's recall:
@@ -61,45 +60,44 @@
         \vec{w}^{(t+1)} = \vec{w}^{(t)} - \frac{\eta}{n}(X^TX\vec{w}^{(t)} - X^T\vec{y})
     $$
 
-## 2.2 Stochastic gradient descent(SGD)
+## Stochastic gradient descent(SGD)(随机梯度下降)
 
-### 2.2.1 Introduction
+### Introduction
 
-- Replace the computationally expensive term $\triangledown C(\vec{w}^{(t)})$ by a stochastic gradient computed on a random example
+- Replace the computationally expensive term $\triangledown C(\vec{w}^{(t)})$ by a stochastic gradient computed on a `random` example
 
-### 2.2.2 Algorithm
+### Algorithm
 
-- Alogirithm
-  1. Intialise the weights $\vec{w}^{(0)}$
-  2. For $t = 0,1,...,T$
-    - Draw $i_t$ from ${1,2,...,n}$ with equal probability
-    - Compute stochastic gradient $\triangledown C_i(\vec{w}^{(0)})$ and update
-      $$
-        \vec{w}^{(t+1)} = \vec{w}^{(t)} - \eta_t\triangledown C_i(\vec{w}^{(t)})
-      $$
+1. Intialise the weights $\vec{w}^{(0)}$
+2. For $t = 0,1,...,T$
+  - Draw $i_t$ from ${1,2,...,n}$ with equal probability
+  - Compute stochastic gradient $\triangledown C_i(\vec{w}^{(0)})$ and update
+    $$
+      \vec{w}^{(t+1)} = \vec{w}^{(t)} - \eta_t\triangledown C_i(\vec{w}^{(t)})
+    $$
 
-### 2.2.3 SGD vs GD
+### SGD vs GD
 
-- GD requires more computations per iteration but makes a good progress per iteration
-  - It needs few iterations to get a good solution
-- SGD requires less computations per iteration but makes less update per iteration
-  - Therefore, it needs more iterations to get a good solution
+- `GD requires more computations per iteration` but makes a `good progress per iteration`
+  - It needs `few iterations to get a good` solution
+- SGD requires `less computations per iteration` but makes `less update per iteration`
+  - Therefore, it `needs more iterations to get a good` solution
 - GD and SGD cannot always dominate the other.
   - If we want <ins>high accuracy</ins> and 𝑛 is small, then **GD** is better
   - If we want <ins>moderate accuracy</ins> and 𝑛 is large, then **SGD** is better
 
-### 2.2.4 Effect of learning rates
+### Effect of learning rates
 
-- If we choose a low learning rate, then SGD would converge very slowly
-- If we choose a large learning rate, then SGD would not go further as we run more and more iterations
-- If we choose a huge learning rate, then SGD would become unstable
+- If we choose a `low` learning rate, then SGD would converge very `slowly`
+- If we choose a `large` learning rate, then SGD would `not go further` as we run more and more iterations
+- If we choose a `huge` learning rate, then SGD would become `unstable`
 - A typical choice is $\eta_t = \frac{c}{\sqrt{t}}$, where $c$ is a parameter needed to tune
 
 ![](./images/effect_of_learning_rates.png)
 
-## 2.3 Minibatch SGD
+## Minibatch SGD(小批次随机梯度下降)
 
-### 2.3.1 Introduction
+### Introduction
 
 - Randomly select a batch of indices: $B_t \subseteq \{1,2,...,n\}$ and update the model
 
@@ -109,9 +107,9 @@
 
   where $b$ is the batch size
 
-  > If $b= 1$, it is cler that minibatch SGD is SGD
+  > If $b= 1$, it is cler that minibatch SGD is SGD(仅一次就是随机梯度下降了)
 
-### 2.3.2 Algorithm
+### Algorithm
 
 - Let $\{\eta_t\}$ be a sequence of step sizes
 - Algorithm
@@ -123,19 +121,23 @@
         \vec{w}^{(t)} = \vec{w}^{(t)} - \frac{\eta_t}{b}\sum_{i \in B_t}\triangledown C_i(\vec{w}^{(t)})
       $$
 
-### 2.3.3 minibatch selection
+- minibatch selection
+  - There are two ways to sample the minibatch $B_t$
+    - sampling with replacement(if b = 2, it is possible to get $B_t \subseteq \{2,2\}$)
+    - sampling without replacement(if b = 2, it is not possible to get $B_t \subseteq \{2,2\}$)
 
-- There are two ways to sample the minibatch $B_t$
-  - sampling with replacement
-  - sampling without replacement
+### Minibatch SGD vs SGD vs GD
 
-### 2.3.4 Minibatch SGD vs SGD vs GD
+- Minibatch SGD requires more computations that SGD per iteration to build stochastic gradient
+- Minibatch SGD is more accurate than SGD. Therefor, it converges faster w.r.t. the iteration number
+- We need to balance the accuracy and computation by choosing an appropriate $b$
+  - Typical choices: b = 32; b = 64; b = 128
 
 ![](./images/GD_SGD_MSGD.png)
 
-## 2.4 Linear classification
+## Linear classification
 
-### 2.4.1 Introduction
+### Introduction
 
 - Suppose we have 
   $$
@@ -145,9 +147,9 @@
   $$
     y^i \in \{-1, +1\}
   $$
-- To build a linear model to separate posite examples from negative examples
+- To build a linear model to `separate` posite examples from negative examples
 
-### 2.4.2 0-1 loss
+### 0-1 loss
 
 $$
   L(\hat{y}, y) = II[\hat{y} \neq y] = 
@@ -164,7 +166,7 @@ $$
 
 > The surrogate of $C(\vec{w})$ which is easy to minimise
 
-### 2.4.3 margin-based loss
+### Margin-based loss
 
 - Margin
   - The margin of a model $\vec{w}$ on an example($\vec{x}, y$)is defined as $y\vec{w}^T\vec{x}$
@@ -176,7 +178,7 @@ $$
 
 > Margin(边距)，正确分类的情况下，距离决策边界越远的数据预测的越准确
 >
-> This further motivateds a model with large margin: a large margin means the model is robust in making a correct prediction
+> This further motivateds a model with large margin: a large margin means the model is robust in making a correct prediction(这进一步激发了具有大裕度的模型：大裕度意味着模型在做出正确预测方面具有鲁棒性。)
 
 - Loss function of the form:
     $$
@@ -187,16 +189,20 @@ $$
 - minimising L means maximising the margin
   - Maximising the margin means getting a model with good performance
 
-### 2.4.4 Surrogate loss
+### Surrogate loss functions
 
 - We mainly consider
   $$
-    g(t) = \frac{1}{2}(max{0, 1-t})^2 = 
+    g(t) = \frac{1}{2}(max\{0, 1-t\})^2 = 
     \begin{cases}
       θ \qquad\qquad if\ t \geq 1\\
       \frac{1}{2}(1-t)^2 \quad otherwise\\
     \end{cases}
   $$
+
+> 即 loss 没有负数(负数变为0)
+>
+> 为什么要加这一步: 使g/L differentiable(可导)
 
 - The loss function becomes
   $$
@@ -224,7 +230,7 @@ $$
 >     - $\min\limits_{\vec{w}}\frac{1}{n}\sum^n_{i=1}\log(1 + \exp(-y^i\vec{w}^T\vec{x}^i))$
 >   ![](./images/surrogate%20loss.png)
 
-### 2.4.5 SGD for linear classification
+### SGD for linear classification
 
 - Consider linear classification with the hinge loss
   $$
