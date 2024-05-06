@@ -49,6 +49,8 @@
 - 📌 [Machine Learning](University/3rd/Machine%20Learning)
 - 📌 [Neural Computation](University/3rd/Neural%20Computation)
 - 📌 [Project](University/3rd/Project)
+- 📌 [Natural Language Processing](University/3rd/Natural%20Language%20Processing)
+- 📌 [Computer Vision and Images](University/3rd/Computer%20Vision%20and%20images)
 
 ---
 
