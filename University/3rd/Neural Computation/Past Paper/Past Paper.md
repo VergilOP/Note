@@ -125,6 +125,7 @@ We have the following questions related to convolutional neural networks(CNNs). 
    $$
    As is the case with neural networks, the weights of a CNN will be updated using backpropagation which relies on the chain rule to calculate the derivates of the loss function with respect to the weights. Use the chain rule to calculate and evaluate the derivatives $\frac{\partial f}{\partial w_{11}}$ and $\frac{\partial f}{\partial a_{11}}$, where $w_{11}$ and $a_{11}$ are the first entry of W and A respectively. Note that W and A are given in the question (a).
    - This question is about the chain rules, which we have covered in the first few lectures. To answer this question correctly, the student should understand how convolutions work as well as how to derive a derivative when it comes to convolutions. We have designed the question carefully by using same coefficients so the derivations should have a pattern and hence is easier
+   - 这个问题是关于链式法则的，我们在前几节课中已经讲过了。为了正确回答这个问题，学生应该理解卷积的工作原理，以及如何在卷积中导出导数。我们精心设计了这个问题，使用相同的系数，因此导出应该有一个模式，因此更容易
     1. 对 $\frac{\partial f}{\partial w_{11}}$ 的计算：
 
        $$
@@ -142,16 +143,21 @@ We have the following questions related to convolutional neural networks(CNNs). 
 1. An auto-encoder(AE) consists of an encoding unit $f_\varphi$, a latent representation z, and a decoding uniy $g_\theta$. The goal of an auto-encode is to learn to produce output $\hat{x} = g_\theta(z) = g_\theta(f_\varphi(x))$ for a given input x, such that $\hat{x} = x$ and where $z = f_\varphi(x)$
    1. During the model training process, the auto-encoder model can naively learn the identity function making it a useless model. Describe briefly why we consider such a model as a useless model and how we make the auto-encoder learn a useful latent representation z instead of an identity function
        - The model is considered useless as it is learning $z = f_\varphi(x)$ and $\hat{x} = g_\theta(Z)$. This does not enable the model to learn any latent representation which can be useful for dimensionality reduction, compression, clustering, or semi-supervised learning. 
+          - 该模型被视为无用，因为它正在学习 $z = f_\varphi(x)$ 和 $\hat{x} = g_\theta(Z)$。这不允许模型学习任何可用于降维、压缩、聚类或半监督学习的潜在表示。 
        - The solution to this problem is the introduction of a layer between the encoder $f_\varphi$ and the decoder $g_θ$ as a ’bottleneck’ layer, such that it forces the latent representation z by having its dimensionality much smaller than the dimensionality of the input x.
+          - 解决此问题的方法是在编码器 $f_\varphi$ 和解码器 $g_θ$ 之间引入一个层作为“瓶颈”层，这样它就强制潜在表示 z 的维数远小于输入 x 的维数。
    2. Given the trained auto-encoder consisting of $f_{\varphi}$, $g_\theta$ and z, consider that it has the ability for good self-reconstruction. Is this auto-encoder suitable for generating synthetic(or new) data? Justify your answer with brief reasoning.
        - The AE is not trained for generation since it is trained primarily for self-reconstruction. In the latent representation z space, there are gaps as the model tries to keep similar data mapped to ’clusters’ while keeping gap between dissimilar data to achieve good self-reconstruction ability. This gap, however, does not allow it to learn to generate new data.
+            - AE 未接受生成训练，因为它主要接受自我重建训练。在潜在表示 z 空间中，存在差距，因为模型试图将相似的数据映射到“聚类”，同时保持不同数据之间的差距以实现良好的自我重建能力。然而，这种差距不允许它学习生成新数据。
 2. A variational auto-encoder(VAE) relies on the following loss function which consists of two terms:
    $$
     L_{VAE} = L_{rec} + L_{reg}
    $$
    where $L_{rec}$ represents the reconstruction loss and $L_{reg}$ represents the regularisation loss. Briefly describe about what happens if we exclude the $L_{reg}$ term from the VAE loss function such that $L_{VAE} = L_{rec}$ to train the VAE
     - If we minimize only the reconstruction loss, the encoder in VAE can learn to predict means that are arbitrarily far. 
+        - 如果我们仅最小化重建损失，VAE 中的编码器就可以学会预测任意远的均值。
     - They can take values outside the area covered by the ’prior’. In such case, the ’ideal’ standard deviations for reconstruction loss are zero for every x.
+        - 它们可以取“先验”覆盖区域之外的值。在这种情况下，对于每个 x，重建损失的“理想”标准差为零。
 3. A generative adversarial network (GAN) consists of two units: a generator $G_θ$ to generate fake data samples and a discriminator $D_\varphi$ to recognise whether a sample is real or fake. We need to design a good loss function to train the GAN discriminator unit for learning its parameters $\varphi$. We have designed the below loss function for discriminator learning:
    $$
     \min_\varphi E_{x∼p_{data}(x)} \left[-\log(1 - D_{\varphi}(x)) \right] + E_{z∼p(z)}[-\log(D_\varphi(G_\theta(z)))]
@@ -159,6 +165,7 @@ We have the following questions related to convolutional neural networks(CNNs). 
    where E denotes the expectation operator, $x~p_{data}(x)$ denotes input sample x drawn from real data distribution $p_{data}(x)$, and $z∼p(z)$ denotes GAN generated data z drawn from fake data distribution p(z).   
    Briefly describe what this loss function is doing and how it can be changed to help in GAN discriminator training.
     - The current loss function assigns a high loss value $−\log(1 − D_\varphi(x))$ when the sample x is real and a low loss value $−\log(D_\varphi(G_θ(z)))$ when the sample z is fake. This is opposite of what it should be doing.
+        - 当前损失函数在样本 x 为真时分配较高的损失值 $−\log(1 − D_\varphi(x))$，而在样本 z 为假时分配较低的损失值 $−\log(D_\varphi(G_θ(z)))$。这与它应该做的事情正好相反。
     - To correct it, we need to change this loss function to the following form to make it work for discriminator learning:
         $$
             \min_\varphi E_{x∼p_{data}(x)} \left[-\log(D_{\varphi}(x)) \right] + E_{z∼p(z)}[-\log(1 - D_\varphi(G_\theta(z)))]
@@ -257,6 +264,7 @@ Answer the following questions related to convolutional neural networks (CNNs):
         \end{bmatrix}
         $$
         - One of kernels should detect dark/light horizontal boundaries, while the other should detect light/dark horizontal boundaries. It does not matter which one is $W_1$ or $W_2$. One kernel should have a positive gradient in the up-down direction while another kernel should have a negative gradient in the up-down direction.
+            - 其中一个内核应检测暗/亮水平边界，而另一个内核应检测亮/暗水平边界。哪一个是 $W_1$ 或 $W_2$ 并不重要。一个内核应在上下方向上具有正梯度，而另一个内核应在上下方向上具有负梯度。
    2. Design appropriate convolution kernels of size 3 × 3 for the output layer such that the output is that displayed in the figure. Please justify your answer.
         $$
         W_3 = \begin{bmatrix}
@@ -333,8 +341,8 @@ Answer the following questions related to convolutional neural networks (CNNs):
 
 ### Question 3
 
-1. Consider the standard Variational Auto-Encoder (VAE), with encoder $f_\phi(x)$ param- eterized by $\phi$ that predicts mean $\mu_\phi(x)$ and standard deviation $\sigma_\phi(x)$ of a multi- dimensional Gaussian that is the conditional (posterior) $p_\phi(z|x) = N(\mu_\phi(x), \sigma^2_\phi(x))$, and a decoder $g_\theta(z)$ parameterized by $\theta$.  
-    Assume that half-way through VAE training we process input x1 and get encoder out- puts $\mu_\phi(x_1) = (0.1, 0.2)$, and $\sigma_\phi(x_1) = (0.05, 0.2)$. Using the re-parameterization trick, we sample code ˜z to give as input to the decoder. What value of ˜z is most likely to give the best reconstruction of x1? Explain why.
+1. Consider the standard Variational Auto-Encoder (VAE), with encoder $f_\phi(x)$ parameterized by $\phi$ that predicts mean $\mu_\phi(x)$ and standard deviation $\sigma_\phi(x)$ of a multidimensional Gaussian that is the conditional (posterior) $p_\phi(z|x) = N(\mu_\phi(x), \sigma^2_\phi(x))$, and a decoder $g_\theta(z)$ parameterized by $\theta$.  
+    Assume that half-way through VAE training we process input x1 and get encoder outputs $\mu_\phi(x_1) = (0.1, 0.2)$, and $\sigma_\phi(x_1) = (0.05, 0.2)$. Using the re-parameterization trick, we sample code ˜z to give as input to the decoder. What value of ˜z is most likely to give the best reconstruction of x1? Explain why.
     - The mean $\mu_\phi$ predicted by the encoder. 
         - 编码器预测的均值$\mu_\phi$。 
     - Explanation 1: According to the posterior $p_\phi(z|x)$ by encoder, the mean is the most probably code for input x, therefore will give the reconstruction that best matches x. 
@@ -345,8 +353,10 @@ Answer the following questions related to convolutional neural networks (CNNs):
 2. Consider a Generative Adversarial Network (GAN) that consists of Generator G that takes as input noise vector z, and of a Discriminator D that given input x it outputs D(x). We assume that value D(x) = 1 means that D predicts with certainty that input x is a real data point, and D(x) = 0 means D predicts with certainty that x is a fake, generated sample.
    1. Assume that at the beginning of training, parameters of G and D are initialized randomly. Then, D is trained for few SGD iterations, while G remains fixed (untrained). After the few updates to D’s parameters, is the value D(G(z)) likely to be closer to 0 or 1? Explain why.
        - The value is likely to be closer to 0. This is because G with random weights will produce terrible images. D will easily learn to separate bad fakes from real examples, even with a few SGD iterations, therefore predicting D(G(z)) ≈ 0.
+            - 该值可能更接近 0。这是因为具有随机权重的 G 会产生糟糕的图像。即使只进行几次 SGD 迭代，D 也可以轻松学会将劣质假货与真实示例区分开来，因此预测 D(G(z)) ≈ 0。
    2. After the whole training process of the GAN has finished, assume that G has been optimized ideally. What would be the most likely value for D(G(z))? Explain why. 
        - The ideal value would be D(G(z)) = 0.5. Explanation 1: Ideally, G has learned to generated data that are are perfectly realistic. Then D cannot distinguish between real and fake data and its accuracy is chance, 50%. Explanations 2: It has been theoretically proven that the optimal discriminator predicts the ratio pdata(x)/(pdata(x) + pmodel (x)). If the two distributions are the same for optimal G, the ratio is 0.5. 
+           - 理想值应该是 D(G(z)) = 0.5。解释 1：理想情况下，G 已经学会生成完全真实的数据。那么 D 就无法区分真实数据和虚假数据，其准确率是偶然的 50%。解释 2：理论上已经证明，最佳判别器预测比率 pdata(x)/(pdata(x) + pmodel (x))。如果最佳 G 的两个分布相同，则比率为 0.5。
 
 3. Assume you are a Machine Learning Engineer. You are given a large database of photos of objects (all from same data distribution). You wish to create an object classifier based on neural-networks. The object class is labelled only on a few of the images. Assume the number of unlabelled data is high (no possible overfit). You are instructed to train an unsupervised model on the unlabelled data, and afterwards use its trained parameters to initialize a classifier, which you can then refine with supervised learning on the few labelled images. You can choose between a basic Auto-Encoder (AE), a Variational Auto-Encoder (VAE) and a Generative Adversar- ial Network (GAN) (basic versions taught). What model would you choose? Explain why the other two are suboptimal. 
    - The AE is the most optimal. 
