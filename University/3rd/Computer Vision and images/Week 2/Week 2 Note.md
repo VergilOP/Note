@@ -249,8 +249,11 @@ The typical setting is `th = 2 * tl`, but this can vary based on the specific re
 
 - The aperture problem 光圈问题
   - The grating appears to be moving down and to the right
+    - 光栅似乎正在向下和向右移动
   - But it could be moving in many other directions
+       - 但它可能会朝许多其他方向发展
     - such as only down, or only to the right
+           - 例如仅向下或仅向右
 
 ### Motion correspondence
 

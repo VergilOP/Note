@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Past Paper</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="past-paper">Past Paper</h1>
+<h2 id="main">Main</h2>
+<h3 id="question-1">Question 1</h3>
+<ol>
+<li>How does inflectional and derivational morpholoy affect the computational performance of NLP applications? Give an example of this issue in relation ot a particular application in your answer. Be clear to distinguish inflectional from derivational morphology
+<ul>
+<li>屈折和派生形态如何影响 NLP 应用的计算性能？ 请在您的答案中给出与特定应用程序相关的此问题的示例。 清楚地区分屈折形态和派生形态</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<h4 id="inflectional-morphology">Inflectional Morphology</h4>
+<p>屈折形态</p>
+<p><strong>Definition:</strong> Inflectional morphology involves the modification of words to express different grammatical categories such as tense, case, voice, aspect, person, number, gender, and mood. Inflection does not change the part of speech of a word nor create a new word, but rather provides <strong>different grammatical forms of the same word</strong>.<br>
+<strong>定义：</strong> 屈折形态涉及对单词进行修饰以表达不同的语法类别，例如时态、格、语态、体、人称、数字、性别和语气。 词形变化不会改变单词的词性，也不会创建新单词，而是为同一单词提供不同的语法形式。</p>
+<p><strong>Impact on NLP:</strong> Inflectional morphology primarily affects NLP applications by increasing the number of word forms that a system needs to recognize as essentially the same lexical item. This can impact computational performance by inflating the vocabulary size, which in turn can increase the computational resources needed for processes like parsing, tagging, and indexing.<br>
+<strong>对 NLP 的影响：</strong> 屈折形态主要通过增加系统需要识别为基本相同词汇项的词形数量来影响 NLP 应用。 这可能会通过扩大词汇量来影响计算性能，进而增加解析、标记和索引等过程所需的计算资源。</p>
+<p><strong>Example:</strong> Consider a machine translation system. In languages with rich inflectional morphology, like Russian or Arabic, verbs and nouns undergo numerous inflections. For instance, the English verb &quot;run&quot; can be translated into Russian as &quot;бегу&quot; (first person), &quot;бежит&quot; (third person), &quot;бежал&quot; (past tense), etc. If the system does not appropriately handle these inflections, it might fail to recognize that these words are related, potentially leading to errors in translation where verb forms are mismatched or misunderstood.<br>
+<strong>示例：</strong> 考虑一个机器翻译系统。 在具有丰富屈折形态的语言中，例如俄语或阿拉伯语，动词和名词会经历多种屈折变化。 例如，英语动词“run”可以翻译成俄语为“бегу”（第一人称）、“бежит”（第三人称）、“бежал”（过去时）等。如果系统没有正确处理这些词形变化 ，它可能无法识别这些单词是相&gt; 关的，从而可能导致翻译错误，即动词形式不匹配或被误解。</p>
+<h4 id="derivational-morphology">Derivational Morphology</h4>
+<p>衍生形态学</p>
+<p><strong>Definition:</strong> Derivational morphology involves creating a new word from an existing one, often changing the part of speech or the basic meaning of the original word. For example, the noun &quot;activation&quot; is derived from the verb &quot;activate&quot;.<br>
+<strong>定义：</strong> 派生词法涉及从现有单词创建新单词，通常会改变词性或原始单词的基本含义。 例如，名词“activation”源自动词“activate”。</p>
+<p><strong>Impact on NLP:</strong> Derivational morphology complicates NLP by adding layers of semantic complexity and ambiguity. New words must be understood and processed within their specific contexts, which may vary widely in meaning from the root word. This  increases the lexical richness and ambiguity that NLP systems must manage, impacting their computational performance by requiring more sophisticated semantic analysis tools and larger, more complex linguistic databases.<br>
+<strong>对 NLP 的影响：</strong> 派生形态学通过增加语义复杂性和歧义性使 NLP 变得复杂。 新词必须在其特定的上下文中被理解和处理，其含义可能与词根有很大不同。 这增加了 NLP 系统必须管理的词汇丰富性和歧义性，需要更复杂的语义分析工具和更大、更复杂的语言数据库，从而影响其计算性能。</p>
+<p><strong>Example:</strong> In sentiment analysis, understanding the sentiment conveyed in text is crucial. Derivational morphology can affect sentiment polarity. For instance, from the verb &quot;excite&quot; (which may carry a positive sentiment), we derive &quot;excitable&quot;  (often positive) and &quot;excitation&quot; (neutral). An NLP system must parse these derivations correctly to maintain the sentiment context in user reviews or social media posts. Misinterpreting these can lead to incorrect sentiment results, affecting the  overall accuracy of sentiment analysis applications.<br>
+<strong>示例：</strong> 在情感分析中，理解文本中传达的情感至关重要。 派生形态可以影响情感极性。 例如，从动词“兴奋”（可能带有积极情绪），我们派生出“兴奋”（通常是积极的）和“兴奋”（中性）。 NLP 系统必须正确解析这些推导，以维护用户评论或社交媒体帖子中的情绪上下文。 误解这些可能会导致错误的&gt; 情绪结果，影响情绪分析应用程序的整体准确性。</p>
+<h4 id="addressing-morphological-challenges-in-nlp">Addressing Morphological Challenges in NLP</h4>
+<p>解决 NLP 中的形态挑战</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><strong>Lemmatization and Stemming:</strong> These techniques reduce words to their base or root form, helping to manage the inflectional forms in text data.
+<ul>
+<li><strong>词形还原和词干提取：</strong> 这些技术将单词简化为其基本形式或词根形式，有助于管理文本数据中的屈折形式。</li>
+</ul>
+</li>
+<li><strong>Morphological Parsing:</strong> Advanced parsing techniques can analyze the structure of words to identify root words and affixes, helping to manage derivational changes.
+<ul>
+<li><strong>词法解析：</strong> 先进的解析技术可以分析单词的结构，识别词根和词缀，帮助管理派生变化。</li>
+</ul>
+</li>
+<li><strong>Rich Morphological Tagging:</strong> Using detailed part-of-speech tags that include morphological information can help in accurately capturing the syntactic and semantic properties of words.
+<ul>
+<li><strong>丰富的形态标记：</strong> 使用包含形态信息的详细词性标记可以帮助准确捕获单词的句法和语义属性。</li>
+</ul>
+</li>
+<li><strong>Contextual Embeddings:</strong> Modern NLP models use contextual embeddings (like BERT or ELMo) that inherently capture different word forms and their meanings from large-scale text corpora, addressing both inflectional and derivational variations.
+<ul>
+<li><strong>上下文嵌入：</strong> 现代 NLP 模型使用上下文嵌入（如 BERT 或 ELMo），它本质上从大规模文本语料库中捕获不同的词形及其含义，解决词形变化和派生变化。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>Propose two techniques to attempt to deal with the issues with morphology you have identified in part(a). Describe how the techniques could be implemented and how their performance could be tested.</li>
+</ol>
+<blockquote>
+<h4 id="1-morphological-parsing">1. Morphological Parsing</h4>
+<p>形态解析</p>
+<p><strong>Implementation:</strong></p>
+<ul>
+<li><strong>Parsing Tool Development:</strong> Develop or utilize an existing morphological parsing tool that can decompose words into their base forms and affixes. This parser should be capable of recognizing both inflectional forms (like plurals, tenses) and derivational changes (like suffixes indicating part-of-speech changes).<br>
+<strong>解析工具开发：</strong> 开发或利用现有的形态解析工具，可以将单词分解为其基本形式和词缀。 该解析器应该能够识别屈折形式（如复数、时态）和派生变化（如表示词性变化的后缀）。</li>
+<li><strong>Integration with NLP Systems:</strong> Integrate the morphological parser into the preprocessing step of various NLP applications, such as text analysis tools, machine translation systems, or semantic parsing systems. For instance, before processing text for sentiment analysis, run the text through the morphological parser to normalize words to a form that reflects both their root meaning and morphological variations.<br>
+<strong>与 NLP 系统集成：</strong> 将形态解析器集成到各种 NLP 应用程序的预处理步骤中，例如文本分析工具、机器翻译系统或语义解析系统。 例如，在处理文本进行情感分析之前，通过形态解析器运行文本，将单词规范化为既反映其根源含义又反映形态变化的形式。</li>
+</ul>
+<p><strong>Testing Performance:</strong></p>
+<ul>
+<li><strong>Benchmark Testing:</strong> Utilize standard linguistic corpora that include morphologically rich languages. Measure the parser's accuracy in identifying correct base forms and affixes across a variety of word types and morphological transformations.<br>
+<strong>基准测试：</strong> 利用包含形态丰富的语言的标准语言语料库。 测量解析器在识别各种单词类型和形态转换中的正确基本形式和词缀方面的准确性。</li>
+<li><strong>Application-Specific Performance:</strong> Integrate the parser into a specific NLP application (e.g., a machine translation system) and compare the system's performance with and without morphological parsing. Metrics such as translation accuracy, fluency (using BLEU scores), and the system's ability to handle morphological variance can be particularly revealing.<br>
+<strong>特定于应用程序的性能：</strong> 将解析器集成到特定的 NLP 应用程序（例如机器翻译系统）中，并比较使用和不使用词法解析的系统性能。 翻译准确性、流畅性（使用 BLEU 分数）以及系统处理形态差异的能力等指标尤其能说明问题。</li>
+</ul>
+<h4 id="2-contextual-word-embeddings">2. Contextual Word Embeddings</h4>
+<p>上下文词嵌入</p>
+<p><strong>Implementation:</strong></p>
+<ul>
+<li><strong>Model Selection and Training:</strong> Choose a contextual embedding model like BERT or ELMo, which are pretrained on large corpora and are known for capturing nuanced word uses in different contexts. Fine-tune these models on domain-specific corpora if necessary, especially if working with specialized jargon or less-common languages.<br>
+<strong>模型选择和训练：</strong> 选择 BERT 或 ELMo 等上下文嵌入模型，这些模型在大型语料库上进行了预训练，以捕获不同上下文中细微的单词用法而闻名。 如有必要，请在特定领域的语料库上微调这些模型，特别是在使用专门术语或不太常见的语言时。</li>
+<li><strong>Embedding Integration:</strong> Implement these embeddings in the NLP system's architecture. For example, in a text classification system, replace traditional word vectors with contextual embeddings to better capture the implications of morphological changes in input texts.<br>
+<strong>嵌入集成：</strong> 在 NLP 系统架构中实现这些嵌入。 例如，在文本分类系统中，用上下文嵌入替换传统的词向量，以更好地捕获输入文本中形态变化的含义。</li>
+</ul>
+<p><strong>Testing Performance:</strong></p>
+<ul>
+<li><strong>Contextual Understanding:</strong> Test how well the embeddings handle words with multiple morphological forms in different contexts by setting up controlled experiments where the same word appears in different morphological forms and checking if the embeddings can maintain semantic consistency across forms.<br>
+<strong>上下文理解：</strong> 通过设置受控实验（其中相同单词以不同形态形式出现）并检查嵌入是否可以保持跨形式的语义一致性，来测试嵌入在不同上下文中处理具有多种形态形式的单词的效果。</li>
+<li><strong>End-to-End System Evaluation:</strong> Evaluate the overall impact of implementing these embeddings in specific applications. For instance, in sentiment analysis, assess whether the use of contextual embeddings leads to more accurate sentiment predictions in texts with high morphological diversity. Metrics could include precision, recall, F1-score, and user feedback.<br>
+<strong>端到端系统评估：</strong> 评估在特定应用程序中实现这些嵌入的总体影响。 例如，在情感分析中，评估使用上下文嵌入是否可以在形态多样性较高的文本中实现更准确的情感预测。 指标可以包括精确度、召回率、F1 分数和用户反馈。</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>“The more often term x is used in a document, the more relevant that document becomes to a query containing x amongst its query terms.” Discuss the degree to which you agree with this statement.</li>
+</ol>
+<blockquote>
+<p>I partially agree with the statement that &quot;The more often term x is used in a document, the more relevant that document becomes to a query containing x amongst its query terms.” This approach, central to many information retrieval models, particularly those based on term frequency (TF), holds true under certain circumstances but has significant limitations and requires careful application.<br>
+我部分同意这样的说法：“文档中使用术语 x 的频率越高，该文档与查询术语中包含 x 的查询就越相关。” 这种方法是许多信息检索模型的核心，特别是基于词频 (TF) 的模型，在某些情况下是正确的，但有很大的局限性，需要仔细应用。</p>
+<h4 id="agreement">Agreement</h4>
+<p><strong>Term Frequency as a Relevance Indicator:</strong></p>
+<ul>
+<li><strong>Basic Validity:</strong> In principle, if a term appears frequently in a document, it suggests that the document might be more relevant to that term. For example, a document that mentions &quot;chocolate&quot; twenty times is likely more relevant to a query about chocolate than a document that mentions it once. This is the foundational idea behind the term frequency component of TF-IDF (Term Frequency-Inverse Document Frequency), which has been successfully used in search engines and document classification.
+<ul>
+<li><strong>基本有效性：</strong> 原则上，如果某个术语在文档中频繁出现，则表明该文档可能与该术语更相关。 例如，提及“巧克力”二十次的文档可能比提及一次的文档与有关巧克力的查询更相关。 这是 TF-IDF（词频-逆文档频率）词频组件背后的基本思想，已成功应用于搜索引擎和文档分类。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Empirical Effectiveness:</strong></p>
+<ul>
+<li><strong>Information Retrieval Success:</strong> Many traditional search algorithms that prioritize term frequency have shown good performance in standard retrieval tasks, making documents with higher occurrences of a query term more accessible.
+<ul>
+<li><strong>信息检索成功：</strong> 许多优先考虑术语频率的传统搜索算法在标准检索任务中表现出了良好的性能，使得查询术语出现率较高的文档更容易访问。</li>
+</ul>
+</li>
+</ul>
+<h4 id="disagreement">Disagreement</h4>
+<p><strong>Context and Semantics:</strong></p>
+<ul>
+<li><strong>Lack of Contextual Understanding:</strong> Term frequency alone does not account for the context or the way terms are used in the document. For instance, a document could mention &quot;apple&quot; frequently but be discussing the fruit, not the technology company, which might be the intended query context.
+<ul>
+<li><strong>缺乏上下文理解：</strong> 术语频率本身并不能解释文档中的上下文或术语使用方式。 例如，文档可能会频繁提及“苹果”，但讨论的是水果，而不是技术公司，这可能是预期的查询上下文。</li>
+</ul>
+</li>
+<li><strong>Synonymy and Polysemy Issues:</strong> Simple term frequency does not handle well cases where multiple words mean the same thing (synonyms) or where a word has multiple meanings (polysemy).
+<ul>
+<li><strong>同义词和一词多义问题：</strong> 简单的术语频率不能很好地处理多个单词表示同一事物（同义词）或一个单词具有多种含义（一词多义）的情况。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Quality and Spam:</strong></p>
+<ul>
+<li><strong>Keyword Stuffing:</strong> High frequency of a term can sometimes result from manipulative practices such as keyword stuffing, where terms are unnaturally repeated to boost document relevance in search results.
+<ul>
+<li><strong>关键字堆砌：</strong> 术语的高频率有时可能是由于诸如关键字堆砌之类的操纵行为造成的，其中术语不自然地重复以提高搜索结果中的文档相关性。</li>
+</ul>
+</li>
+<li><strong>Irrelevance Despite High Frequency:</strong> A document might repetitively use a term without actually providing valuable content about it.
+<ul>
+<li><strong>尽管高频但不相关：</strong> 文档可能会重复使用某个术语，但实际上并未提供有关该术语的有价值的内容。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Better Alternatives:</strong></p>
+<ul>
+<li><strong>Semantic Search Technologies:</strong> Modern advancements like NLP and machine learning models (e.g., BERT, Word2Vec) provide ways to understand the meaning of text better and can determine relevance based on the semantic relationships and the document's overall topic, not just keyword frequency.
+<ul>
+<li><strong>语义搜索技术：</strong> NLP 和机器学习模型（例如 BERT、Word2Vec）等现代进步提供了更好地理解文本含义的方法，并且可以根据语义关系和文档的整体主题确定相关性，而不仅仅是 关键词频率。</li>
+</ul>
+</li>
+<li><strong>Weighting with Inverse Document Frequency:</strong> TF-IDF improves upon simple TF by diminishing the weight of terms that occur very commonly across many documents, helping to balance term frequency with term uniqueness.
+<ul>
+<li><strong>使用逆文档频率进行加权：</strong> TF-IDF 通过减少许多文档中经常出现的术语的权重来改进简单的 TF，从而有助于平衡术语频率与术语唯一性。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>What are the advantages and disadvantages of using Mean Recriprocal Rank as an evaluation method for an Information Retrieval system? What are the risks of solely using this as an evaluation method?</li>
+</ol>
+<blockquote>
+<h4 id="advantages-of-mean-reciprocal-rank">Advantages of Mean Reciprocal Rank:</h4>
+<ol>
+<li>
+<p><strong>Simplicity and Interpretability:</strong>
+<strong>简单性和可解释性：</strong></p>
+<ul>
+<li>MRR is straightforward to calculate and easy to understand. It focuses on the rank of the first correct answer in a list of responses, which simplifies its application and interpretation in scenarios where finding an initial correct answer is critical.
+<ul>
+<li>MRR 计算简单且易于理解。 它侧重于响应列表中第一个正确答案的排名，这简化了其在寻找初始正确答案至关重要的场景中的应用和解释。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Emphasis on Top Results:</strong>
+<strong>强调最佳结果：</strong></p>
+<ul>
+<li>MRR inherently values the performance at the top of the result set. Since it is based on the reciprocal of the rank of the first relevant answer, it effectively emphasizes the importance of being accurate at the beginning of the search results, which aligns well with user satisfaction where early results are more likely to be noticed and used.
+<ul>
+<li>MRR 本质上重视结果集顶部的性能。 由于它基于第一个相关答案的排名的倒数，因此它有效地强调了搜索结果开始时准确的重要性，这与用户满意度非常吻合，因为早期结果更有可能被注意到和使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Useful for Systems with One Correct Answer:</strong>
+<strong>对于只有一个正确答案的系统有用：</strong></p>
+<ul>
+<li>It is particularly suitable for tasks where a single correct answer is sufficient for the user, such as in question-answering systems or when a single document is needed to satisfy a query.
+<ul>
+<li>它特别适合用户只需一个正确答案即可完成的任务，例如在问答系统中或需要单个文档来满足查询时。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="disadvantages-of-mean-reciprocal-rank">Disadvantages of Mean Reciprocal Rank:</h4>
+<ol>
+<li>
+<p><strong>Limited to the First Relevant Result:</strong>
+<strong>仅限于第一个相关结果：</strong></p>
+<ul>
+<li>MRR considers only the rank of the first relevant or correct answer. This limitation means it does not account for the possibility of multiple relevant documents, nor does it reflect the overall quality of all returned results beyond the first correct one.
+<ul>
+<li>MRR 仅考虑第一个相关或正确答案的排名。 这种限制意味着它没有考虑多个相关文档的可能性，也没有反映除第一个正确结果之外的所有返回结果的整体质量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Insensitive to Changes Beyond the First Hit:</strong>
+<strong>对第一次点击之后的变化不敏感：</strong></p>
+<ul>
+<li>If the first relevant result remains constant, any improvements or deteriorations in the ranks of subsequent relevant results do not affect the MRR. This can provide a skewed view of the system's overall effectiveness in retrieving all relevant documents.
+<ul>
+<li>如果第一个相关结果保持不变，后续相关结果排名的任何改进或恶化都不会影响 MRR。 这可以提供系统在检索所有相关文档方面的整体有效性的倾斜视图。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Not Reflective of User Experience in All Scenarios:</strong>
+<strong>不能反映所有场景下的用户体验：</strong></p>
+<ul>
+<li>In situations where users might benefit from multiple relevant results, MRR may not accurately reflect user satisfaction as it does not measure how many relevant results are returned or their distribution across the result set.
+<ul>
+<li>在用户可能从多个相关结果中受益的情况下，MRR 可能无法准确反映用户满意度，因为它无法衡量返回的相关结果数量或其在结果集中的分布。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="risks-of-solely-using-mrr-as-an-evaluation-method">Risks of Solely Using MRR as an Evaluation Method:</h4>
+<ol>
+<li>
+<p><strong>Overlooking Result Diversity:</strong>
+<strong>忽视结果多样性：</strong></p>
+<ul>
+<li>Solely using MRR might lead developers to optimize retrieval systems in a way that ensures the first result is always relevant, potentially at the cost of overall result diversity and richness. This optimization could lead to a decrease in the variety of answers or content that users are exposed to, which can be especially problematic in educational or exploratory search scenarios.
+<ul>
+<li>单独使用 MRR 可能会导致开发人员以确保第一个结果始终相关的方式优化检索系统，但可能会牺牲整体结果的多样性和丰富性。 这种优化可能会导致用户接触到的答案或内容的多样性减少，这在教育或探索性搜索场景中尤其成问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ignoring Comprehensive Relevance:</strong>
+<strong>忽略综合相关性：</strong></p>
+<ul>
+<li>Because MRR does not account for the presence and ranking of other relevant documents beyond the first, systems evaluated solely on this metric may ignore the importance of retrieving a broader set of relevant documents. This could lead to a development focus that overly prioritizes the algorithms’ ability to &quot;guess&quot; the first correct answer without ensuring comprehensive coverage of the topic or query.
+<ul>
+<li>由于 MRR 不考虑第一个相关文档之外的其他相关文档的存在和排名，因此仅根据此指标评估的系统可能会忽略检索更广泛的相关文档集的重要性。 这可能会导致开发重点过度优先考虑算法“猜测”第一个正确答案的能力，而不确保主题或查询的全面覆盖。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Misalignment With User Needs in Broad Queries:</strong>
+<strong>广泛查询与用户需求不一致：</strong></p>
+<ul>
+<li>For broad or exploratory queries where users benefit from seeing multiple viewpoints or detailed information, MRR's focus on the first result does not align well with actual user needs. Relying solely on MRR could misguide system tuning, leading to less effective user support in complex information-seeking tasks.
+<ul>
+<li>对于广泛或探索性查询（用户可以从查看多个观点或详细信息中受益），MRR 对第一个结果的关注与实际用户需求不太相符。 仅仅依赖 MRR 可能会误导系统调整，从而导致在复杂的信息查找任务中用户支持效率较低。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h3 id="question-2">Question 2</h3>
+<ol>
+<li>
+<p>Give a definition of Mutual Information in the context of the text classification pipeline and explain its role.</p>
+<ul>
+<li><strong>Definition of Mutual Information in Text Classification</strong>
+<strong>文本分类中互信息的定义</strong>
+<ul>
+<li><strong>Mutual Information (MI)</strong> in the context of text classification is a measure of the amount of information that a particular feature (such as a word) provides about the class variable. It quantifies the statistical dependence between the feature and the class, with a higher MI indicating that knowledge of the feature's presence or absence significantly reduces uncertainty about the class.</li>
+<li>文本分类上下文中的互信息 (MI) 是对特定特征（例如单词）提供的有关类变量的信息量的度量。 它量化了特征和类别之间的统计依赖性，较高的 MI 表明对特征存在或不存在的了解可以显着降低类别的不确定性。</li>
+</ul>
+</li>
+<li><strong>Role in Text Classification Pipeline:</strong>
+<strong>在文本分类管道中的作用：</strong>
+<ul>
+<li><strong>Feature Selection:</strong> MI is commonly used for feature selection in text classification. By evaluating the MI between each feature in the dataset and the class labels, one can identify and retain the most informative features, thereby reducing the dimensionality of the feature space and improving model performance. Features with higher MI are more relevant for classification because they have a greater impact on class determination.</li>
+<li><strong>特征选择：</strong> MI通常用于文本分类中的特征选择。 通过评估数据集中每个特征与类标签之间的MI，可以识别并保留信息量最大的特征，从而降低特征空间的维数并提高模型性能。 MI 较高的特征与分类更相关，因为它们对类别确定有更大的影响。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>What makes a Naive Bayes classifier naive? Given a practical example for text classification of overcoming this naivety.</p>
+<ul>
+<li>A <strong>Naive Bayes classifier</strong> is considered naive because it assumes that all features (e.g., words in text classification) are conditionally independent given the class. This assumption is naive because it simplifies the computation drastically by decoupling the features, but it is often not true in practice as features can be correlated.
+<ul>
+<li><strong>朴素贝叶斯分类器</strong>被认为是朴素的，因为它假设所有特征（例如，文本分类中的单词）在给定类别的情况下都是条件独立的。 这种假设很幼稚，因为它通过解耦特征极大地简化了计算，但在实践中通常并不正确，因为特征可以相互关联。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Practical Example to Overcome Naivety:</strong><br>
+<strong>克服天真的实际例子：</strong></p>
+<ul>
+<li><strong>Using Bigrams or N-grams:</strong> Instead of using only individual words (unigrams) as features, incorporating bigrams (pairs of consecutive words) or n-grams (sequences of n consecutive words) can capture some of the relationships between words. For instance, while individual words &quot;not&quot; and &quot;interesting&quot; might not be very informative, the bigram &quot;not interesting&quot; captures a specific sentiment that can be very informative for sentiment analysis. This approach partially addresses the conditional independence assumption by modeling local context.
+<ul>
+<li><strong>使用二元组或 N 元组：</strong> 不只使用单个单词（一元组）作为特征，合并二元组（连续单词对）或 n 元组（n 个连续单词的序列）可以捕获之间的一些关系 字。 例如，虽然单独的单词“不”和“有趣”可能提供的信息不多，但二元词“不有趣”捕获了特定的情感，这对于情感分析来说可以提供非常丰富的信息。 该方法通过对局部上下文进行建模来部分解决条件独立性假设。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Maximum Likelihood training in Na¨ıve Bayes for text classification is problematic. Describe the problem and give a practical solution.
+<strong>Problem:</strong><br>
+<strong>问题：</strong></p>
+<ul>
+<li><strong>Zero Frequency Problem:</strong> When using maximum likelihood estimates for probabilities in Naive Bayes, if a feature (word) does not appear in the training data for a particular class, the estimated probability for that feature given the class becomes zero. This leads to a zero probability for the entire class when that feature is present in a new sample, skewing predictions unrealistically.
+<ul>
+<li><strong>零频率问题：</strong> 当在朴素贝叶斯中使用最大似然估计概率时，如果某个特征（单词）没有出现在特定类的训练数据中，则给定该类的该特征的估计概率将变为零。 当该特征出现在新样本中时，这会导致整个类别的概率为零，从而使预测不切实际。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Practical Solution:</strong><br>
+<strong>实际解决方案：</strong></p>
+<ul>
+<li><strong>Additive Smoothing (Laplace Smoothing):</strong> A common solution is to add a small constant (usually 1, known as Laplace smoothing) to the count of each word for each class before dividing by the total number of words in the class. This technique adjusts the maximum likelihood estimates to be more robust to unseen words, preventing any class probability from becoming zero due to the presence of a previously unseen feature in the test data.
+<ul>
+<li><strong>加法平滑（拉普拉斯平滑）：</strong> 常见的解决方案是在除以该类中的单词总数之前，向每个类的每个单词的计数添加一个小常数（通常为 1，称为拉普拉斯平滑） 。 该技术调整最大似然估计，使其对未见过的单词更加稳健，从而防止由于测试数据中存在先前未见过的特征而导致任何类别概率变为零。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Assume the following likelihoods from Table 1 (on the following page) for each word being part of a positive or negative book review and equal prior probabilities for each class.<br>
+Show, with your workings, what class Na¨ıve Bayes will assign to the sentence “Its redeeming strength is authenticity.”</p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Positive</th>
+<th>Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Its</td>
+<td>0.01</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>redeeming</td>
+<td>0.1</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>strength</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>weakness</td>
+<td>0.003</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>is</td>
+<td>0.05</td>
+<td>0.005</td>
+</tr>
+<tr>
+<td>authenticity</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Given the sentence &quot;Its redeeming strength is authenticity,&quot; we need to calculate the posterior probabilities for each class (Positive, Negative) and choose the class with the highest probability.</p>
+<p><strong>Likelihoods for Words:</strong></p>
+<ul>
+<li>Its: Positive = 0.01, Negative = 0.2</li>
+<li>redeeming: Positive = 0.1, Negative = 0.001</li>
+<li>strength: Positive = 0.1, Negative = 0.01</li>
+<li>is: Positive = 0.05, Negative = 0.005</li>
+<li>authenticity: Positive = 0.1, Negative = 0.01</li>
+</ul>
+<p><strong>Calculate Posterior for Each Class (assuming equal priors, say P(Positive) = P(Negative) = 0.5):</strong></p>
+<p><strong>Positive:</strong></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>P</mi><mi>o</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi mathvariant="normal">∣</mi><mtext>sentence</mtext><mo stretchy="false">)</mo><mo>∝</mo><mi>P</mi><mo stretchy="false">(</mo><mi>P</mi><mi>o</mi><mi>s</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>Its|Positive</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>redeeming|Positive</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>strength|Positive</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>is|Positive</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>authenticity|Positive</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Positive | \text{sentence}) \propto P(Positive) \times P(\text{Its|Positive}) \times P(\text{redeeming|Positive}) \times P(\text{strength|Positive}) \times P(\text{is|Positive}) \times P(\text{authenticity|Positive})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">os</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord">∣</span><span class="mord text"><span class="mord">sentence</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">os</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">Its|Positive</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">redeeming|Positive</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">strength|Positive</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">is|Positive</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">authenticity|Positive</span></span><span class="mclose">)</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mn>0.5</mn><mo>×</mo><mn>0.01</mn><mo>×</mo><mn>0.1</mn><mo>×</mo><mn>0.1</mn><mo>×</mo><mn>0.05</mn><mo>×</mo><mn>0.1</mn><mo>=</mo><mn>0.0000025</mn></mrow><annotation encoding="application/x-tex">= 0.5 \times 0.01 \times 0.1 \times 0.1 \times 0.05 \times 0.1 = 0.0000025
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.05</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.0000025</span></span></span></span></span></p>
+<p><strong>Negative:</strong></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>N</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi mathvariant="normal">∣</mi><mtext>sentence</mtext><mo stretchy="false">)</mo><mo>∝</mo><mi>P</mi><mo stretchy="false">(</mo><mi>N</mi><mi>e</mi><mi>g</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>Its|Negative</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>redeeming|Negative</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>strength|Negative</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>is|Negative</mtext><mo stretchy="false">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>authenticity|Negative</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Negative | \text{sentence}) \propto P(Negative) \times P(\text{Its|Negative}) \times P(\text{redeeming|Negative}) \times P(\text{strength|Negative}) \times P(\text{is|Negative}) \times P(\text{authenticity|Negative})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord">∣</span><span class="mord text"><span class="mord">sentence</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">Its|Negative</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">redeeming|Negative</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">strength|Negative</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">is|Negative</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">authenticity|Negative</span></span><span class="mclose">)</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mn>0.5</mn><mo>×</mo><mn>0.2</mn><mo>×</mo><mn>0.001</mn><mo>×</mo><mn>0.01</mn><mo>×</mo><mn>0.005</mn><mo>×</mo><mn>0.01</mn><mo>=</mo><mn>0.00000005</mn></mrow><annotation encoding="application/x-tex">= 0.5 \times 0.2 \times 0.001 \times 0.01 \times 0.005 \times 0.01 = 0.00000005
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.001</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.005</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.00000005</span></span></span></span></span></p>
+<p><strong>Decision:</strong></p>
+<ul>
+<li>Since (0.0000025 &gt; 0.00000005), the Naive Bayes classifier assigns the class <strong>Positive</strong> to the sentence &quot;Its redeeming strength is authenticity.&quot;</li>
+</ul>
+</li>
+</ol>
+<h3 id="question-3">Question 3</h3>
+<p>Consider the following &quot;document&quot;, where Word1 to Word6 are the words in the vocabulary and each line(enclosed by brackets) represents a sentence:<br>
+[ Word3 Word3 Word6 Word6 Word2 ]<br>
+[ Word1 Word2 Word3 Word5 Word2 Word4 ]<br>
+[ Word4 Word6 Word6 Word4 Word6 ]<br>
+[ Word2 Word6 Word5 Word1 ]<br>
+[ Word3 Word6 Word3 Word2 Word1 ]</p>
+<ol>
+<li>
+<p>Given the above &quot;document&quot;, obtain a (distributional) semantic representation of each word, based on co-occurrence. Write down the full co-occurrence matrix for the document, following the rules:</p>
+<ul>
+<li>Two words co-occur if they appear in the same sentence</li>
+<li>Ignore multiple co-occurrences of the same word pair within the same sentence</li>
+<li>Co-occurrences of the same word pairs in different sentences count separately</li>
+</ul>
+<p>To create the co-occurrence matrix, we follow the rule that two words co-occur if they appear in the same sentence, ignoring multiple occurrences of the same pair within a single sentence but counting each sentence separately.</p>
+<p>Step-by-Step Calculation:</p>
+<ul>
+<li><strong>Sentence 1:</strong> [ Word3, Word3, Word6, Word6, Word2 ]
+<ul>
+<li>Unique words: Word3, Word6, Word2</li>
+<li>Co-occurrences: Word3 with Word6, Word2; Word6 with Word2</li>
+</ul>
+</li>
+<li><strong>Sentence 2:</strong> [ Word1, Word2, Word3, Word5, Word2, Word4 ]
+<ul>
+<li>Unique words: Word1, Word2, Word3, Word5, Word4</li>
+<li>Co-occurrences: Word1 with Word2, Word3, Word5, Word4; Word2 with Word3, Word5, Word4; Word3 with Word5, Word4; Word5 with Word4</li>
+</ul>
+</li>
+<li><strong>Sentence 3:</strong> [ Word4, Word6, Word6, Word4, Word6 ]
+<ul>
+<li>Unique words: Word4, Word6</li>
+<li>Co-occurrences: Word4 with Word6</li>
+</ul>
+</li>
+<li><strong>Sentence 4:</strong> [ Word2, Word6, Word5, Word1 ]
+<ul>
+<li>Unique words: Word2, Word6, Word5, Word1</li>
+<li>Co-occurrences: Word2 with Word6, Word5, Word1; Word6 with Word5, Word1; Word5 with Word1</li>
+</ul>
+</li>
+<li><strong>Sentence 5:</strong> [ Word3, Word6, Word3, Word2, Word1 ]
+<ul>
+<li>Unique words: Word3, Word6, Word2, Word1</li>
+<li>Co-occurrences: Word3 with Word6, Word2, Word1; Word6 with Word2, Word1; Word2 with Word1</li>
+</ul>
+</li>
+</ul>
+<p>Co-occurrence Matrix:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Word1</th>
+<th>Word2</th>
+<th>Word3</th>
+<th>Word4</th>
+<th>Word5</th>
+<th>Word6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Word1</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Word2</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Word3</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Word4</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Word5</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Word6</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Calculate the cosine similarity between Word1 and each other word in the corpus. Which word is most similar to Word1?</p>
+<p>To find the cosine similarity between Word1 and the other words, use the formula:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Cosine similarity</mtext><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>A</mi><mi>i</mi></msub><mo>×</mo><msub><mi>B</mi><mi>i</mi></msub></mrow><mrow><msqrt><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>A</mi><mi>i</mi><mn>2</mn></msubsup></mrow></msqrt><mo>×</mo><msqrt><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>B</mi><mi>i</mi><mn>2</mn></msubsup></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{Cosine similarity} = \frac{\sum_{i=1}^{n} A_i \times B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \times \sqrt{\sum_{i=1}^{n} B_i^2}} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Cosine similarity</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.624em;vertical-align:-1.13em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.494em;"><span style="top:-2.1727em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9373em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7959em;"><span style="top:-2.4231em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.0448em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8973em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3027em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9373em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7959em;"><span style="top:-2.4231em;margin-left:-0.0502em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.0448em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2769em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8973em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3027em;"><span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.6897em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0502em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Calculations:</p>
+<ul>
+<li><strong>Vector for Word1</strong>: [0, 3, 2, 1, 2, 2]</li>
+<li><strong>Vectors for Other Words</strong>:
+<ul>
+<li>Word2: [3, 0, 3, 2, 2, 4]</li>
+<li>Word3: [2, 3, 0, 1, 1, 3]</li>
+<li>Word4: [1, 2, 1, 0, 1, 2]</li>
+<li>Word5: [2, 2, 1, 1, 0, 2]</li>
+<li>Word6: [2, 4, 3, 2, 2, 0]</li>
+</ul>
+</li>
+</ul>
+<p><strong>Calculate</strong> cosine similarities manually or using a software tool.</p>
+</li>
+<li>
+<p>Are there other ways to measure similarity in distributional space? Can you explain how they would work? With reference to the methods you have presented, outline the key differences between the method and cosine similarity?</p>
+</li>
+</ol>
+<p>Euclidean Distance:</p>
+<ul>
+<li><strong>Method</strong>: Measures similarity based on the straight line distance between points in a vector space.
+<ul>
+<li><strong>方法</strong>：根据向量空间中点之间的直线距离来测量相似度。</li>
+</ul>
+</li>
+<li><strong>Difference</strong>: It is sensitive to the magnitude of vector elements and better for numerical
+<ul>
+<li><strong>差异</strong>：它对向量元素的大小敏感，并且对于数值更好</li>
+</ul>
+</li>
+</ul>
+<p>stability in high dimensional spaces, contrasting with cosine similarity's focus on orientation regardless of magnitude.</p>
+<p><strong>Key Differences</strong>: Euclidean distance provides different insights than cosine similarity, with Euclidean on absolute distances, while cosine assesses orientation and alignment, ideal for normalized vectors in text analysis.<br>
+<strong>主要区别</strong>：杰卡德距离和欧几里德距离都提供了与余弦相似性不同的见解，杰卡德距离侧重于二元存在，欧几里德距离侧重于绝对距离，而余弦评估方向和对齐，非常适合文本分析中的归一化向量。</p>
+<h3 id="question-4">Question 4</h3>
+<p>Intelligently discuss the components required to build a system for Automatic Fact-Checking. This discussion should be no more than 2 pages in length. The discussion should be structured around the NLP pipeline and how this framework could be applied to the task of Automatic Fact-Checking.</p>
+<h4 id="1-input-processing">1. <strong>Input Processing</strong></h4>
+<ul>
+<li>
+<p><strong>Text Acquisition</strong>: The first step in the pipeline is acquiring the text to be checked. This could be from news articles, social media posts, speeches, or transcripts. It involves scraping or using APIs to gather large volumes of text data from diverse sources to ensure a comprehensive analysis.</p>
+</li>
+<li>
+<p><strong>Preprocessing</strong>: This involves cleaning the text data and preparing it for analysis. Common tasks include <strong>tokenization</strong> (breaking the text into words or phrases), <strong>removing stop words</strong> (common words that don't contribute to the deeper meaning, such as &quot;and&quot;, &quot;the&quot;, etc.), <strong>normalization</strong> (converting text to a standard form, like lowercasing), and <strong>stemming/lemmatization</strong> (reducing words to their base or root form).</p>
+</li>
+</ul>
+<h4 id="2-natural-language-understanding">2. <strong>Natural Language Understanding</strong></h4>
+<ul>
+<li>
+<p><strong>Parsing and Part-of-Speech Tagging</strong>: Analyzing the grammatical structure of sentences and identifying the part of speech for each word. This helps in understanding the grammatical relationships and roles of different words, which is crucial for interpreting the meaning of sentences.</p>
+</li>
+<li>
+<p><strong>Named Entity Recognition (NER)</strong>: Identifying and classifying key elements in text into predefined categories such as names of persons, organizations, locations, dates, etc. This is critical for fact-checking as it helps in pinpointing the subjects and objects that need verification.</p>
+</li>
+<li>
+<p><strong>Dependency Parsing</strong>: Understanding the dependencies between words helps in constructing the relationships and logical structure of the sentence, which is necessary for interpreting complex statements that may contain conditional or hypothetical scenarios.</p>
+</li>
+</ul>
+<h4 id="3-claim-detection">3. <strong>Claim Detection</strong></h4>
+<ul>
+<li>
+<p><strong>Claim Identification</strong>: Using models to identify sentences or phrases that contain a factual claim. This involves determining whether a statement is verifiable and factual as opposed to being an opinion, a question, or an ambiguous statement.</p>
+</li>
+<li>
+<p><strong>Claim Classification</strong>: Categorizing the types of claims (e.g., numerical, categorical, existence) to tailor the subsequent verification process according to the type of fact-check required.</p>
+</li>
+</ul>
+<h4 id="4-information-retrieval">4. <strong>Information Retrieval</strong></h4>
+<ul>
+<li>
+<p><strong>Data Sources</strong>: Establishing reliable and authoritative sources for verification, such as trusted news databases, official records, scientific journals, and verified data repositories.</p>
+</li>
+<li>
+<p><strong>Search Algorithms</strong>: Implementing sophisticated search algorithms capable of fetching information from structured and unstructured data sources. This could involve keyword matching, semantic search, or more advanced AI-driven query systems.</p>
+</li>
+</ul>
+<h4 id="5-fact-verification">5. <strong>Fact Verification</strong></h4>
+<ul>
+<li>
+<p><strong>Evidence Gathering</strong>: Extracting information pertinent to the claims from various sources. This includes pulling relevant documents, statistics, previous reports, or historical data that can confirm or refute the claim.</p>
+</li>
+<li>
+<p><strong>Consistency Checking</strong>: Comparing the claim against the gathered evidence using logical rules, statistical models, or even deep learning models trained to evaluate the alignment and discrepancies between the claim and the data.</p>
+</li>
+</ul>
+<h4 id="6-presentation-and-visualization">6. <strong>Presentation and Visualization</strong></h4>
+<ul>
+<li>
+<p><strong>Result Presentation</strong>: Displaying the fact-checking results in a user-friendly manner, categorizing statements as true, false, or partially true/false with accompanying evidence.</p>
+</li>
+<li>
+<p><strong>Explanation Generation</strong>: Providing explanations and justifications for the verdict, which includes citing sources and explaining the reasoning process that led to the conclusion.</p>
+</li>
+</ul>
+<h4 id="7-feedback-loop">7. <strong>Feedback Loop</strong></h4>
+<ul>
+<li>
+<p><strong>User Feedback</strong>: Incorporating user feedback mechanisms to allow end-users to question or challenge the fact-check results, which can help in refining and improving the system.</p>
+</li>
+<li>
+<p><strong>Continuous Learning</strong>: Using feedback and new data to continuously train and update the models to adapt to new forms of misinformation and changing information landscapes.</p>
+</li>
+</ul>
+<h4 id="evaluation-and-iteration">Evaluation and Iteration</h4>
+<p>Regularly evaluating the system’s performance using standard metrics like accuracy, precision, recall, and F1-score, and making iterative improvements based on performance metrics and user feedback. This helps ensure the system remains effective and trustworthy.</p>
+<h2 id="resit">Resit</h2>
+<h3 id="question-1-1">Question 1</h3>
+<ol>
+<li>
+<p>What is a Markov Chain? Illustrate your answer with an example with respect to Natural Language Processing
+A <strong>Markov Chain</strong> is a statistical model that describes a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. This property is known as the <strong>Markov property</strong>.</p>
+<p>In NLP, Markov Chains are used to model language in a probabilistic manner. They can predict the next word in a sentence given the current word, effectively handling sequences in text data. One of the most straightforward applications of Markov Chains in NLP is in the development of simple text generators, which can generate sentences that mimic a particular style or corpus.</p>
+<p>Example: Generating Text Using Markov Chains</p>
+<p>Suppose you have a small corpus of text: <strong>&quot;Ask not what your country can do for you ask what you can do for your country.&quot;</strong></p>
+<ol>
+<li><strong>Tokenization</strong>: First, split the text into tokens (words in this case).</li>
+<li><strong>State Transition Construction</strong>: Next, construct a state transition table that counts how often each word follows another. For simplicity, consider each word as a state.</li>
+<li><strong>Text Generation</strong>: To generate new text, start with a seed word (e.g., &quot;ask&quot;) and then:
+<ul>
+<li>Use the transition probabilities to randomly select the next word (either &quot;not&quot; or &quot;what&quot; following &quot;ask&quot;).</li>
+<li>Continue selecting the next word based on the current word's transitions until a stopping condition is met (e.g., a maximum number of words or a punctuation mark that signifies the end of a sentence).</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Propose an area of Natural Language Processing that makes use of Hidden Markov Models. Ensure you fully describe, with appropriate definitions, how Hidden Markov Models are applicable to that area.</p>
+</li>
+<li>
+<p>One of the assumptions made with Hidden Markov Models is the ’bigram’ assumption. If this was changed to a ’unigram’ assumption, how would this affect the performance of the model? You may want to refer to your previous answer for part (b) to help exemplify this.</p>
+</li>
+<li>
+<p>Suppose the transition and emission probabilities are as exemplified in the following tables:</p>
+<table>
+<thead>
+<tr>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">a_{ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th>s1 = verb</th>
+<th>s2 = noun</th>
+<th>s3 = adjective</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">s_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> = FINISH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s0 = START</td>
+<td>a₀₁ = 0.6</td>
+<td>a₀₂ = 0.4</td>
+<td>a₀₃ = 0.0</td>
+<td>a₀ₓ = 0.0</td>
+</tr>
+<tr>
+<td>s1 = verb</td>
+<td>a₁₁ = 0.01</td>
+<td>a₁₂ = 0.84</td>
+<td>a₁₃ = 0.0</td>
+<td>a₁ₓ = 0.15</td>
+</tr>
+<tr>
+<td>s2 = noun</td>
+<td>a₂₁ = 0.6</td>
+<td>a₂₂ = 0.1</td>
+<td>a₂₃ = 0.0</td>
+<td>a₂ₓ = 0.3</td>
+</tr>
+<tr>
+<td>s3 = adjective</td>
+<td>a₃₁ = 0.0</td>
+<td>a₃₂ = 0.79</td>
+<td>a₃₃ = 0.01</td>
+<td>a₃ₓ = 0.2</td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: Transition Probability Matrix A</p>
+<table>
+<thead>
+<tr>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">b_{it}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th>fly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s1 = verb</td>
+<td>b₁(fly) = 0.8</td>
+</tr>
+<tr>
+<td>s2 = noun</td>
+<td>b₂(fly) = 0.7</td>
+</tr>
+<tr>
+<td>s3 = adjective</td>
+<td>b₃(fly) = 0.4</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2: Emission Probability Matrix B</p>
+<p>Using the Viterbi algorithm, find the most probable tag sequence that generated the observation sequence &quot;Fly!&quot; and estimate its probability. Show your working.</p>
+</li>
+</ol>
+<h3 id="question-2-1">Question 2</h3>
+<ol>
+<li>
+<p>What makes Logistic Regression a discriminative classifier for NLP tasks? Compare this to another type of model used by supervised machine learning classifiers in your answer.
+Logistic Regression is a statistical method that models the probability of a binary outcome based on one or more predictor variables. It is termed a <strong>discriminative classifier</strong> because it directly models the decision boundary between classes. In other words, Logistic Regression doesn’t aim to model the underlying probability distributions of each class (as generative models do). instead, it models the probability that a given input belongs to a particular class.</p>
+<p>Comparison with Naive Bayes (A Generative Model)</p>
+<ol>
+<li><strong>Modeling Approach</strong>:
+<ul>
+<li><strong>Naive Bayes</strong> models the joint distribution of the feature <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and target <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> and then uses Bayes' theorem to compute the conditional probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mi mathvariant="normal">∣</mi><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Y|X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>. It assumes that all features are independent given the class label, which simplifies computations but can be unrealistic (hence &quot;naive&quot;).</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Logistic Regression</strong>, on the other hand, directly models the conditional probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mi mathvariant="normal">∣</mi><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Y|X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span> without making assumptions about the independence of features. It directly learns a decision boundary from the features.</li>
+</ul>
+<ol>
+<li><strong>Performance in Different Scenarios</strong>:
+<ul>
+<li><strong>Naive Bayes</strong> can perform better when the independence assumption holds true or when data for each category are well-represented and abundant. It also tends to perform well with smaller datasets and can handle multiple classes naturally.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Logistic Regression</strong> may outperform Naive Bayes when the relationship between features is important and dependencies exist. Logistic Regression can also be extended to non-linear boundaries using polynomial or complex feature transformations.</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>Interpretability</strong>:</p>
+<ul>
+<li>Both models offer good interpretability. Naive Bayes clearly shows how prior probabilities and feature likelihoods contribute to posterior probabilities. Logistic Regression coefficients can be interpreted as the strength of the relationship between features and the probability of belonging to a class, adjusting for other features.</li>
+</ul>
+</li>
+<li>
+<p><strong>Probabilistic Output</strong>:</p>
+<ul>
+<li>Both models provide probabilities as output. In Logistic Regression, the probabilities are modeled directly. In Naive Bayes, probabilities are derived using Bayes' theorem from the generative model of the data.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Design and give a rationale for your choice of 5 features for a Logistic Regression classifier that would be used for authorship attribution.</p>
+<p>Authorship attribution is the process of identifying the author of a text based on the writing style. Logistic Regression can be used effectively in this domain by leveraging various stylistic and linguistic features that capture unique aspects of an author's writing style. Here are five features that can be especially powerful for such a classifier, along with rationales for their selection:</p>
+<ol>
+<li>
+<p><strong>Average Sentence Length</strong></p>
+<ul>
+<li><strong>Feature Description</strong>: The average number of words in sentences across a text.</li>
+<li><strong>Rationale</strong>: Different authors tend to have distinct preferences for sentence complexity and length. Some may use longer, more complex sentences, while others prefer shorter, clearer sentences. This feature helps capture that stylistic signature.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lexical Diversity</strong></p>
+<ul>
+<li><strong>Feature Description</strong>: The ratio of unique words to the total number of words used in the text.</li>
+<li><strong>Rationale</strong>: Lexical diversity measures the range of different words an author uses. High lexical diversity may indicate a rich vocabulary or a formal writing style, while a lower score could suggest repetitive or simplified writing. This feature is useful in distinguishing between authors with different vocabulary usages.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use of Function Words</strong></p>
+<ul>
+<li><strong>Feature Description</strong>: Frequency of function words (e.g., &quot;the&quot;, &quot;and&quot;, &quot;of&quot;, &quot;to&quot;). This could be represented as a vector of frequencies for a curated list of function words.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Rationale</strong>: Function words are often used subconsciously and are less influenced by the topic of the text, making them good indicators of writing style. Different authors demonstrate consistent patterns in their use of function words, which can serve as reliable stylistic fingerprints.</li>
+</ul>
+<ol start="4">
+<li>
+<p><strong>Average Word Length</strong></p>
+<ul>
+<li><strong>Feature Description</strong>: The average length of words in a text.</li>
+<li><strong>Rationale</strong>: This feature provides insight into an author’s preference for word complexity. Authors writing on technical or specific subjects might use longer words, while those focusing on broader audiences might use shorter, more common words. This metric can help differentiate authors based on the complexity of the vocabulary used.</li>
+</ul>
+</li>
+<li>
+<p><strong>Punctuation Usage</strong></p>
+<ul>
+<li><strong>Feature Description</strong>: Frequency and types of punctuation used (e.g., commas, semicolons, question marks).</li>
+<li><strong>Rationale</strong>: Punctuation is a crucial part of writing that affects readability and style. Some authors might use many commas and semicolons to create complex sentence structures, while others might use fewer punctuation marks. This feature helps to capture those unique stylistic choices.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>For a given input to a binary Logistic Regression classifier for Sentiment Classification, the feature vector has the following values: [3, 2, 1, 3, 0, 4.19], the weights are [−5.0, 2.5, −1.2, 0.5, 2.0, 0.7], there is a bias of 0.1 and the class should be ’1’ if P (y = 1 | x) &gt; 0.5, else it is ’0’. By showing your calculations give the class that the input will be categorized as.</p>
+<p>The logistic regression model calculates the probability that an instance <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">x</mi></mrow><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4444em;"></span><span class="mord mathbf">x</span></span></span></span> belongs to the positive class <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> as follows:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>y</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">∣</mi><mi mathvariant="bold">x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><mi mathvariant="bold">w</mi><mo>⋅</mo><mi mathvariant="bold">x</mi><mo>+</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(y = 1 | \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1∣</span><span class="mord mathbf">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord mathbf" style="margin-right:0.01597em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathbf">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span></span></p>
+<p>where:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>z</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\sigma(z) = \frac{1}{1 + e^{-z}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2484em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7027em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> is the logistic (sigmoid) function.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">w</mi><mo>⋅</mo><mi mathvariant="bold">x</mi></mrow><annotation encoding="application/x-tex">\mathbf{w} \cdot \mathbf{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathbf" style="margin-right:0.01597em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4444em;"></span><span class="mord mathbf">x</span></span></span></span> is the dot product of the weights and the feature vector.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> is the bias.</li>
+</ul>
+<p>Given:</p>
+<ul>
+<li>Feature vector <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">x</mi><mo>=</mo><mo stretchy="false">[</mo><mn>3</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>4.19</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\mathbf{x} = [3, 2, 1, 3, 0, 4.19]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4444em;"></span><span class="mord mathbf">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4.19</span><span class="mclose">]</span></span></span></span></li>
+<li>Weights <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">w</mi><mo>=</mo><mo stretchy="false">[</mo><mo>−</mo><mn>5.0</mn><mo separator="true">,</mo><mn>2.5</mn><mo separator="true">,</mo><mo>−</mo><mn>1.2</mn><mo separator="true">,</mo><mn>0.5</mn><mo separator="true">,</mo><mn>2.0</mn><mo separator="true">,</mo><mn>0.7</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\mathbf{w} = [-5.0, 2.5, -1.2, 0.5, 2.0, 0.7]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4444em;"></span><span class="mord mathbf" style="margin-right:0.01597em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">5.0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2.5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord">1.2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2.0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.7</span><span class="mclose">]</span></span></span></span></li>
+<li>Bias <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">b = 0.1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span></span></span></span></li>
+</ul>
+<p>Dot Product Calculation</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="bold">w</mi><mo>⋅</mo><mi mathvariant="bold">x</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>5.0</mn><mo>×</mo><mn>3</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>2.5</mn><mo>×</mo><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1.2</mn><mo>×</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>0.5</mn><mo>×</mo><mn>3</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>2.0</mn><mo>×</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>0.7</mn><mo>×</mo><mn>4.19</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathbf{w} \cdot \mathbf{x} = (-5.0 \times 3) + (2.5 \times 2) + (-1.2 \times 1) + (0.5 \times 3) + (2.0 \times 0) + (0.7 \times 4.19) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathbf" style="margin-right:0.01597em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4444em;"></span><span class="mord mathbf">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">5.0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2.0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4.19</span><span class="mclose">)</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mo>−</mo><mn>15</mn><mo>+</mo><mn>5</mn><mo>−</mo><mn>1.2</mn><mo>+</mo><mn>1.5</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>2.933</mn></mrow><annotation encoding="application/x-tex">= -15 + 5 - 1.2 + 1.5 + 0 + 2.933 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">15</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2.933</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mo>−</mo><mn>15</mn><mo>+</mo><mn>5</mn><mo>−</mo><mn>1.2</mn><mo>+</mo><mn>1.5</mn><mo>+</mo><mn>2.933</mn></mrow><annotation encoding="application/x-tex">= -15 + 5 - 1.2 + 1.5 + 2.933 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">15</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2.933</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mo>−</mo><mn>8.767</mn></mrow><annotation encoding="application/x-tex">= -8.767 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">8.767</span></span></span></span></span></p>
+<p>Logistic Function Evaluation<br>
+Now, compute the logistic function:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>z</mi><mo>=</mo><mi mathvariant="bold">w</mi><mo>⋅</mo><mi mathvariant="bold">x</mi><mo>+</mo><mi>b</mi><mo>=</mo><mo>−</mo><mn>8.767</mn><mo>+</mo><mn>0.1</mn><mo>=</mo><mo>−</mo><mn>8.667</mn></mrow><annotation encoding="application/x-tex">z = \mathbf{w} \cdot \mathbf{x} + b = -8.767 + 0.1 = -8.667 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathbf" style="margin-right:0.01597em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathbf">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">8.767</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">8.667</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>y</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">∣</mi><mi mathvariant="bold">x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><mo>−</mo><mn>8.667</mn><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mo stretchy="false">(</mo><mo>−</mo><mn>8.667</mn><mo stretchy="false">)</mo></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">P(y = 1 | \mathbf{x}) = \sigma(-8.667) = \frac{1}{1 + e^{-(-8.667)}} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1∣</span><span class="mord mathbf">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord">−</span><span class="mord">8.667</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1088em;vertical-align:-0.7873em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.296em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.814em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mopen mtight">(</span><span class="mord mtight">−</span><span class="mord mtight">8.667</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7873em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mn>8.667</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \frac{1}{1 + e^{8.667}} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8.667</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Sigmoid Calculation</p>
+</li>
+<li>
+<p>The authorship classifier above has an accuracy of 0.95. Discuss the extent to which this is an appropriate method of classifier evaluation for authorship attribution. Ensure you include a comparison to other metrics in your discussion.</p>
+</li>
+</ol>
+<h3 id="question-3-1">Question 3</h3>
+<p>Consider the following sentence:<br>
+Julie loves the exciting section of The New York Times.</p>
+<ol>
+<li>
+<p>Given the above sentence, identify all tokens.</p>
+<ul>
+<li>Julie</li>
+<li>loves</li>
+<li>the</li>
+<li>exciting</li>
+<li>section</li>
+<li>of</li>
+<li>The</li>
+<li>New</li>
+<li>York</li>
+<li>Times</li>
+</ul>
+</li>
+<li>
+<p>Given the above sentence, assign the correct part-of-speech tag to each token.</p>
+<ul>
+<li>Julie - NNP (Proper Noun, Singular)</li>
+<li>loves - VBZ (Verb, 3rd person singular present)</li>
+<li>the - DT (Determiner)</li>
+<li>exciting - JJ (Adjective)</li>
+<li>section - NN (Noun, Singular)</li>
+<li>of - IN (Preposition)</li>
+<li>The - DT (Determiner)</li>
+<li>New - NNP (Proper Noun, Singular)</li>
+<li>York - NNP (Proper Noun, Singular)</li>
+<li>Times - NNP (Proper Noun, Singular)</li>
+</ul>
+</li>
+<li>
+<p>Describe three different ways of representing syntactic structure? What are the advantages and disadvantages of each of them?</p>
+<ol>
+<li><strong>Phrase Structure Trees (Constituency Parsing)</strong>
+<ul>
+<li><strong>Advantages</strong>: Visual and hierarchical representation of sentence structure that shows how words group into nested constituents. Useful for understanding the sentence structure and grammatical relationships.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Disadvantages</strong>: Can become complex and large for long sentences. It does not explicitly represent dependencies between words that are far apart in the tree.</li>
+</ul>
+<ol start="2">
+<li><strong>Dependency Grammar</strong>
+<ul>
+<li><strong>Advantages</strong>: Focuses on the dependencies and semantic relationships between words, showing which words depend on others. It is less structured and more flexible, often simpler and more useful for semantic analysis and natural language understanding tasks.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Disadvantages</strong>: Does not reveal the hierarchical structure of a sentence as explicitly as phrase structure trees, which can be important in some syntactic analyses.</li>
+</ul>
+<ol start="3">
+<li><strong>Feature-Based Grammar</strong>
+<ul>
+<li><strong>Advantages</strong>: Includes detailed linguistic features in the grammar, such as gender, number, case, etc. Allows for very sophisticated parsing strategies that can handle complex syntactic phenomena.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>Disadvantages</strong>: Can be very complex to implement and computationally expensive. Also requires detailed linguistic knowledge to construct.</li>
+</ul>
+</li>
+<li>
+<p>Can the following Context Free Grammar parse the above sentence? N.B the grammar is missing the lexicon part, you should have that if you did part of speech tagging. Punctuation is not part of the grammar. If the grammar can parse the sentence, then draw the parse tree. Otherwise, suggest a grammar that can parse the sentence.</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mo>→</mo><mi>N</mi><mi>P</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi>P</mi><mspace linebreak="newline"></mspace><mi>V</mi><mi>P</mi><mo>→</mo><mi>V</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi>N</mi><mi>P</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi>P</mi><mi>P</mi><mi mathvariant="normal">∣</mi><mi>V</mi><mi>P</mi><mi>P</mi><mi>N</mi><mi>P</mi><mspace linebreak="newline"></mspace><mi>P</mi><mi>P</mi><mo>→</mo><mi>P</mi><mi>N</mi><mi>P</mi><mspace linebreak="newline"></mspace><mi>N</mi><mi>P</mi><mo>→</mo><mi>N</mi><mi mathvariant="normal">∣</mi><mi>D</mi><mi>e</mi><mi>t</mi><mi>N</mi><mi mathvariant="normal">∣</mi><mi>A</mi><mi>d</mi><mi>j</mi><mi>N</mi><mi mathvariant="normal">∣</mi><mi>D</mi><mi>e</mi><mi>t</mi><mi>A</mi><mi>d</mi><mi>j</mi><mi>N</mi><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">S → NP | V P\\
+V P → V | V NP | V P P | V P P NP\\
+P P → P NP\\
+NP → N | Det N | Adj N | Det Adj N\\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">NP</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.13889em;">NP</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.13889em;">PP</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.13889em;">PPNP</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">PP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">PNP</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">NP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">∣</span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.10903em;">tN</span><span class="mord">∣</span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">∣</span><span class="mord mathnormal">De</span><span class="mord mathnormal">t</span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span><span class="mspace newline"></span></span></span></span></p>
+</li>
+</ol>
+<h3 id="question-4-1">Question 4</h3>
+<p>Toxicity Detection on Social Media is the task of detecting hate speech, abuse and other toxic language.<br>
+Intelligently discuss the components required to build a system for Toxicity Detection on Social Media. This discussion should be no more than 2 pages in length. The discussion should be structured around the NLP pipeline and how this framework could be applied to the task of Toxicity Detection on Social Media.</p>
+<h4 id="overview-of-nlp-pipeline-for-toxicity-detection">Overview of NLP Pipeline for Toxicity Detection</h4>
+<p>An NLP pipeline for detecting toxicity in social media content generally follows these steps: data collection, preprocessing, feature extraction, model training, evaluation, and deployment. Each component must be carefully designed to handle the specifics of social media text, which often includes informal language, slang, misspellings, and emojis.</p>
+<ol>
+<li>
+<p><strong>Data Collection</strong></p>
+<ul>
+<li><strong>Source Identification</strong>: Collect data from various social media platforms like Twitter, Facebook, and Reddit, considering the platform-specific language and interactions.</li>
+<li><strong>Data Diversity</strong>: Ensure the dataset reflects diverse demographics to avoid bias in toxicity detection. Include various languages, dialects, and cultural contexts where possible.</li>
+</ul>
+</li>
+<li>
+<p><strong>Preprocessing</strong></p>
+<ul>
+<li><strong>Text Normalization</strong>: Convert text to a uniform format, dealing with case, encoding, and removing URLs and user mentions, which are common in social media texts.</li>
+<li><strong>Noise Removal</strong>: Social media texts often contain hashtags, emojis, and unconventional punctuation which need to be either removed or encoded depending on their relevance to the task.</li>
+<li><strong>Handling Slang and Abbreviations</strong>: Use specialized dictionaries or translation techniques to handle slang and abbreviations prevalent in social media.</li>
+</ul>
+</li>
+<li>
+<p><strong>Feature Extraction</strong></p>
+<ul>
+<li><strong>Lexical Features</strong>: Extract features such as n-grams, word frequencies, and presence of specific toxic keywords or phrases.</li>
+<li><strong>Syntactic Features</strong>: Parse trees and part-of-speech tags can help understand the structure of sentences, which might be useful for distinguishing harmful sentences from non-harmful ones.</li>
+<li><strong>Semantic Features</strong>: Embeddings from models like Word2Vec, GloVe, or BERT can capture the context around certain words, helping to identify subtle forms of toxicity that depend on context rather than explicit language.</li>
+</ul>
+</li>
+<li>
+<p><strong>Model Training</strong></p>
+<ul>
+<li><strong>Choosing a Model</strong>: Start with baseline models like logistic regression or SVM for initial benchmarks. Gradually move to more complex models such as neural networks (CNNs, RNNs) or transformers if the task benefits from deeper semantic analysis.</li>
+<li><strong>Handling Imbalanced Data</strong>: Toxic comments are typically much fewer than non-toxic ones. Techniques such as oversampling, undersampling, or anomaly detection methods should be considered.</li>
+</ul>
+</li>
+<li>
+<p><strong>Evaluation</strong></p>
+<ul>
+<li><strong>Metrics</strong>: Accuracy, Precision, Recall, and F1-score are standard metrics. Given the high cost of false negatives (failing to detect toxic comments), recall might be more emphasized.</li>
+<li><strong>Validation</strong>: Use cross-validation and external validation sets to ensure the model generalizes well across different types of social media content and demographics.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment and Monitoring</strong></p>
+<ul>
+<li><strong>Real-time Processing</strong>: Deploy models that can operate in real-time or near-real-time, given the rapid pace of social media.</li>
+<li><strong>Continuous Learning</strong>: Implement feedback loops where the model can be updated with new data, adapting to evolving language use and new forms of toxicity.</li>
+<li><strong>Human in the Loop</strong>: Integrate human review to handle ambiguous cases and to provide overrides, which can also serve as new training data for the model.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ethical Considerations</strong></p>
+<ul>
+<li><strong>Bias and Fairness</strong>: Monitor and mitigate any biases in the model, ensuring it does not disproportionately flag content from certain groups.</li>
+<li><strong>Transparency</strong>: Maintain transparency about how content is moderated, offering explanations for decisions made by AI systems.</li>
+</ul>
+</li>
+</ol>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

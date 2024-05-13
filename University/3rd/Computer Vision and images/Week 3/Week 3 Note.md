@@ -56,7 +56,7 @@
     - 逐像素（全局统计）阈值化
     - Image gradient(energy driven)Active contours
       - 图像梯度（能量驱动）活动轮廓
-  - Groups of pixels(similarity)Clustering Region growing Releaxation
+  - Groups of pixels(similarity)Clustering Region growing Relaxation
     - 像素组（相似性）聚类区域增长松弛
     - Model based(statistics of shape)Active shape models
       - 基于模型（形状统计）活动形状模型
@@ -285,6 +285,7 @@
 ### Mutual Information
 
 - Algorithms for maximising mutual information (between intensities) have been some of the most popular for medical image registration to date
+  - 最大化互信息（强度之间）的算法是迄今为止医学图像配准中最流行的算法
   $$
   MI(I, J | T) = \sum_{i,j} p_{i,j} \log \left( \frac{p_{i,j}}{p_i p_j} \right)
   $$
