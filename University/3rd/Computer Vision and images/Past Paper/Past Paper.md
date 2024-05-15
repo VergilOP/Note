@@ -165,14 +165,12 @@ Most of the algorithms developed in the field of Computer Vision and Imaging are
 
 - Neurons respond to pairs of primary colours
     - 神经元对原色对做出反应
-  - Red-Green & Yellow-Blue
-       - 红-绿和黄-蓝
 - Some respond in centre-surround fashion
     - 有些以中心环绕的方式响应
 - Response characteristics determined by appropriate ganglion cells connections
     - 由适当的神经节细胞连接决定的反应特征
 
-2. Name four factors that cause discontinuity in intensities, which leads to edges appearing in images.
+1. Name four factors that cause discontinuity in intensities, which leads to edges appearing in images.
     Four factors that cause discontinuity in intensities, leading to edges appearing in images, include:
    1. **Surface Orientation Discontinuities**: Changes in the angle or orientation of a surface, leading to different reflectance properties.
      - **表面方向不连续性**：表面角度或方向的变化，导致不同的反射特性。
