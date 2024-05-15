@@ -95,21 +95,21 @@ Feature detection as used for objection recognition and tracking needs to be rob
        - **语义分割**：为图像中的每个像素分配一个类（例如，SegNet、Mask R-CNN）。
 
 2. Please choose below (all) the activation functions used in Deep Neural Networks: 
-  1. Sigmoid
-  2. Logistic
-  3. ReLU
-  4. Softmax
-  5. Cosine
-  6. Leaky ReLU
-  7. dying ReLU
+   1. Sigmoid
+   2. Logistic
+   3. ReLU
+   4. Softmax
+   5. Cosine
+   6. Leaky ReLU
+   7. dying ReLU
 
-  - The activation functions used in deep neural networks include:
-    1. **Sigmoid**: Used for binary classification, outputs values between 0 and 1.
-    2. **ReLU (Rectified Linear Unit)**: The most common activation function, allowing for faster and more effective training of deep neural architectures.
-    3. **Softmax**: Often used in the output layer for multi-class classification problems, converts logits into probabilities.
-    4. **Leaky ReLU**: A variant of ReLU that allows a small, non-zero gradient when the unit is not active to prevent dying ReLU issues.  
+   - The activation functions used in deep neural networks include:
+     1. **Sigmoid**: Used for binary classification, outputs values between 0 and 1.
+     2. **ReLU (Rectified Linear Unit)**: The most common activation function, allowing for faster and more effective training of deep neural architectures.
+     3. **Softmax**: Often used in the output layer for multi-class classification problems, converts logits into probabilities.
+     4. **Leaky ReLU**: A variant of ReLU that allows a small, non-zero gradient when the unit is not active to prevent dying ReLU issues.  
 
-  -  Other functions listed in the options, such as Logistic, Cosine, and Dying ReLU, are not typically used as activation functions in deep neural networks.
+   -  Other functions listed in the options, such as Logistic, Cosine, and Dying ReLU, are not typically used as activation functions in deep neural networks.
 
 3. What does ‘overfitting’ mean in the context of Deep Learning? What are activation functions? What does loss function do?
 
