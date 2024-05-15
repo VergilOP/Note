@@ -131,7 +131,7 @@
 
 3. Apply non-maxima suppression.
 
-4. Apply hysteresis thresholding/edge linking.
+4. Apply **hysteresis** thresholding/edge linking.
 
 ### Hysteresis Thresholding
 

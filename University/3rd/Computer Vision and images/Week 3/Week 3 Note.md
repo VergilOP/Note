@@ -188,7 +188,7 @@
 
 - Rigid Transformation Model
   - 刚性变换模型
-  - Used for within-subject registration when there is no distortion
+  - Used for within-subject registration when there is no **distortion**
     - 用于无失真时的主体内配准
   - Composed of 3 rotations and 3 translations
     - 由 3 次旋转和 3 次平移组成
@@ -204,7 +204,7 @@
       ![](./images/Screenshot%202024-05-02%20035355.png)
 
 
-- Affine Transformation Model
+- **Affine** Transformation Model
   - 仿射变换模型
   - Used for within-subject registration when there is global gross-overall distortion
     - 当存在全局总体失真时，用于对象内配准
