@@ -135,3 +135,6 @@
   - Underfitting
   - Overfitting
   - Regularisation
+
+
+offset / flexible / degree of freedom / interpretable
