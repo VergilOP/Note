@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Note</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="note">Note</h1>
+<h2 id="lecture-1---introduction-to-robotic">Lecture 1 - Introduction to Robotic</h2>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>Objectives:</p>
+<ol>
+<li>Definition of robotics &amp; it's history<br>
+机器人定义以及历史</li>
+<li>Current robotic sectors<br>
+当前的机器人领域</li>
+<li>Industrial robotics &amp; manipulators<br>
+工业机器人和操纵者</li>
+</ol>
+<h3 id="robot-definition">Robot Definition</h3>
+<p>Two common definitions are:</p>
+<ul>
+<li>(old)An industrial robot is a reprogrammable, multifunctional manipulator designed to move parts, tools or special devices through variable programmed motions for the performance of a variety of tasks<br>
+（旧）工业机器人是一种可重新编程的多功能操纵器，旨在通过可变的编程动作移动零件、工具或特殊设备，以执行各种任务</li>
+<li>A robot is an artificial physical agent that perceives its environment through <code>sensors</code> and acts upon that environment through <code>actuators</code>.<br>
+机器人是一种人工物理代理，它通过传感器感知其环境并通过执行器对该环境采取行动。</li>
+</ul>
+<h3 id="current-robotic-application-sectors">Current Robotic Application Sectors</h3>
+<ul>
+<li>Manufacturing  制造业</li>
+<li>Surgical  外科</li>
+<li>Service  服务业</li>
+<li>Military  军事</li>
+<li>Healthcare  医疗保健</li>
+<li>Home  家居</li>
+<li>Space  太空</li>
+<li>Farming  农业</li>
+<li>Security/surveillance  安全/监视</li>
+<li>Rescue  救援</li>
+<li>Extreme Environments  极端环境</li>
+</ul>
+<h2 id="lecture-2---actuators--sensors">Lecture 2 - Actuators &amp; Sensors</h2>
+<h3 id="learning-objectives-1">Learning Objectives</h3>
+<p>Objectives:</p>
+<ul>
+<li>Different Types of Actuators  不同类型的执行器</li>
+<li>Sensors  传感器</li>
+</ul>
+<h3 id="actuators">Actuators</h3>
+<p>Three commonly used actuator types:</p>
+<ul>
+<li>Electromagnetic(The most common types of actuators)  电磁</li>
+<li>Hydraulic  液压</li>
+<li>Pneumatic  气动</li>
+</ul>
+<h4 id="electromagnetic-actuators--电磁执行器">Electromagnetic Actuators  电磁执行器</h4>
+<ul>
+<li>
+<p>Brushed DC Motor  有刷直流电动机</p>
+<ul>
+<li>Current flowing through armature generates a magnetic field and permanent magnets torque the armature<br>
+通过电枢的电流产生磁场，永久磁铁扭转电枢
+<ul>
+<li>Advantages: Provicdes variable speeds, low-cost<br>
+优点：提供可变速度，成本低</li>
+<li>Disadvantages: Brush wear out, low precision<br>
+缺点：刷子磨损，精度低</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Brushless DC Motor  无刷直流电动机</p>
+<ul>
+<li>Armature is fixed, and permanent magnets rotate<br>
+电枢固定，永久磁铁旋转
+<ul>
+<li>Advantages: Efficiency, Low noise, Cooling, Water-resistant<br>
+优点：效率高、噪音低、散热、耐水</li>
+<li>Disadvantages: low percision, costly<br>
+缺点：精度低，成本高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Stepper Motor  步进电动机</p>
+<ul>
+<li>Brushless, synchronous motor that moves in discrete steps<br>
+无刷、同步电机，以离散步进运动
+<ul>
+<li>Advantage: Precise, quantized control without feedback  优点：精确、量化控制，无需反馈</li>
+<li>Disadvantages: Slow and moves in discrete steps, expensive  缺点：速度慢，以离散步进移动，成本高</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="hydraulic-actuators--液压执行器">Hydraulic Actuators  液压执行器</h4>
+<ul>
+<li>
+<p>Cylinders(linear actuators):  气缸（线性执行器）</p>
+<ul>
+<li>Advantages:
+<ul>
+<li>Very powerful that offer very large force capability, but expensive  非常强大，提供极大的力输出，但成本高</li>
+<li>High power-to-weight ratio  功率与重量比高</li>
+</ul>
+</li>
+<li>Drawbacks:
+<ul>
+<li>Their power supplies are bulky and heavy  电源体积大且沉重</li>
+<li>Oil leakage  漏油问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Motors(rotary actuators)  马达（旋转执行器）</p>
+</li>
+<li>
+<p>Integrated Smart Hydraulic Actuator  集成智能液压执行器</p>
+<ul>
+<li>Usual hydraulic actuator-valve configuration  常见的液压执行器-阀门配置</li>
+</ul>
+</li>
+</ul>
+<h4 id="pneumatic-actuators--气动执行器">Pneumatic Actuators  气动执行器</h4>
+<ul>
+<li>
+<p>Cylinders(linear actuators)  气缸（线性执行器）</p>
+</li>
+<li>
+<p>Motors(rotary actuators)  马达（旋转执行器）</p>
+</li>
+</ul>
+<h3 id="sensors">Sensors</h3>
+<h4 id="motivation">Motivation</h4>
+<p>A robot would be easily controlled if a complete model of the environment was available for the robot, and if tis actuators could execute motion commands perfectly relative to this model<br>
+如果机器人拥有完整的环境模型，并且其执行器能够相对于该模型完美执行运动命令，则机器人将更容易控制。</p>
+<h4 id="robotic-sensor-classsification">Robotic sensor classsification</h4>
+<ul>
+<li>
+<p>Proprioceptive  本体感知</p>
+<ul>
+<li>Internal state of the robot  机器人的内部状态</li>
+<li>Measures values (e.g. wheels position, joint angle, battery level, etc)</li>
+</ul>
+</li>
+<li>
+<p>Exteroceptive  外感知</p>
+<ul>
+<li>External state of the system  系统的外部状态</li>
+<li>Observing environment, detecting objects, etc</li>
+</ul>
+</li>
+<li>
+<p>Active  主动</p>
+<ul>
+<li>Emits energy(e.g. radar)</li>
+</ul>
+</li>
+<li>
+<p>Passive  被动</p>
+<ul>
+<li>Receives energy(e.g. camera)</li>
+</ul>
+</li>
+<li>
+<p>Real-world Characteristics of sensors</p>
+<ul>
+<li><strong>Sensitivity</strong>: Ratio of output change to input change<br>
+灵敏度：输出变化与输入变化的比率</li>
+<li><strong>Error/Accuracy</strong>: Difference between the sensor's output and the true value<br>
+误差/准确度：传感器输出与真实值之间的差异
+<ul>
+<li><strong>Systematic/Deterministic Error</strong>: Caused by factors that can be modelled(in theory), e.g., calibration of a laser sensor<br>
+系统/确定性误差：由可建模的因素引起（理论上），如激光传感器的校准</li>
+<li><strong>Random Error</strong>: e.g., hue instability of camera, black level noise of camera<br>
+随机误差：如相机色调不稳定、相机的黑电平噪声</li>
+</ul>
+</li>
+<li><strong>Reproducibility</strong>: Reproducibility of sensor results<br>
+再现性：传感器结果的可重复性</li>
+</ul>
+</li>
+</ul>
+<h4 id="various-sensors-overview">Various sensors overview</h4>
+<ul>
+<li>
+<p>A simple On/Off switch</p>
+</li>
+<li>
+<p>Titl sensor(mercury titl)  倾斜传感器（汞倾斜）</p>
+</li>
+<li>
+<p>Dual axis inclinometer  双轴倾斜仪</p>
+</li>
+<li>
+<p>Potentiometer  电位器</p>
+</li>
+<li>
+<p>Bumpers  缓冲器</p>
+<ul>
+<li>Mechanical switches</li>
+</ul>
+</li>
+<li>
+<p>Light sensors</p>
+<ul>
+<li>Photoresistors, light dependent resistors(LDR)</li>
+<li>Phototransistors  光电晶体管</li>
+</ul>
+</li>
+<li>
+<p>Thermal sensor</p>
+<ul>
+<li>Thermal resistor</li>
+<li>Temperature sensors
+<ul>
+<li>Analogue</li>
+<li>Digital</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Proximity sensors  接近传感器</p>
+<ul>
+<li>Non-contact</li>
+<li>Devices that can be used in areas that are near to an object to be sensed</li>
+<li>Different types of Proximity Sensors
+<ul>
+<li>Infrared</li>
+<li>Ultrasonic</li>
+<li>Inductive  电感</li>
+<li>Capacitive  电容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Position Sensors</p>
+<ul>
+<li>Potentiometer  电位器</li>
+<li>Resolver  解算器</li>
+<li>Optical Encoders
+<ul>
+<li>Relative position</li>
+<li>Absolue position</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Heading sensors:  方位传感器</p>
+<ul>
+<li>Heading sensors can be proprioceptive(gyroscope, inclinometer) or exteroceptive(compass)<br>
+方位传感器可以是本体感知（陀螺仪、倾角仪）或外感知（指南针）</li>
+<li>Used to determine the robots orientation and inclination<br>
+用于确定机器人的方位和倾斜角</li>
+</ul>
+</li>
+<li>
+<p>Accelerometer</p>
+<ul>
+<li>be made to sense acceleration by simply measuring the force on a mass</li>
+</ul>
+</li>
+<li>
+<p>Gyroscope  陀螺仪</p>
+<ul>
+<li>Heading seonsors for measuring and to keep the orientation to a fixed frame<br>
+用于测量和保持相对于固定框架的方向的方位传感器</li>
+<li>Two methods:
+<ul>
+<li>Mechanical(flywheel)</li>
+<li>Electronic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="components-used-for-manipulators">Components used for Manipulators</h3>
+<ul>
+<li>Components in a joint:
+<ul>
+<li>Moters(electric or hydraulic)</li>
+<li>Moter Encoders
+<ul>
+<li>Angle(joint angle)</li>
+<li>Displacement sensor  位移传感器</li>
+</ul>
+</li>
+<li>Gearbox  齿轮箱</li>
+</ul>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
