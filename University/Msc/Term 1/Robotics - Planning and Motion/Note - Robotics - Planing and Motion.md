@@ -283,3 +283,68 @@ n links -> 9n parameters (3 vectors: Each vector has 3 parameters)
     n number of DOF of the manipulator  
     m number of DOF of the end effector(operational space)  
     Degreee of Redundancy: n - m  
+
+## Lecture 4 - Kinematics
+
+### Learning Objectives
+
+Objectives:
+1. Spatial Description
+2. Transformation
+  - Rotation
+  - Translation
+
+### Spatial Description
+
+- Position of a Point 点的位置
+  - With respect to a fixed origin O, the position of a point P is described by the vector OP(p)  
+    相对于固定原点 O，点 P 的位置由向量 OP(p) 描述
+
+- Coordinate Frames:
+  - Rotation
+  - Translation
+
+- Rigid body configuration:
+  - Position: $^AP$
+  - Orientation: {^AX_B, ^AY_B, ^AZ_B}
+
+> These vectors describe rotation of {B} with respect to {A}
+
+### Transformation
+
+#### Rotation
+
+- Rotation Matrix:
+  $$
+    ^A_BR =  \begin{bmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+    \end{bmatrix} 
+    = \begin{bmatrix} ^A \hat{X}_B & ^A \hat{Y}_B & ^A \hat{Z}_B \end{bmatrix}
+    = \begin{bmatrix} ^A \hat{X}_B & ^A \hat{Y}_B & ^A \hat{Z}_B \end{bmatrix} 
+    = \begin{bmatrix} {^B \hat{X}_A}^T \\ {^B \hat{Y}_A}^T \\ {^B \hat{Z}_A}^T \end{bmatrix} = {^B_A R}^T
+  $$
+  > - Inverse of Rotation Matrix(Orthonormal Matrix)
+  >   $$
+  >     ^A_BR^{-1} =\ ^B_AR =\ ^A_BR^T
+  >   $$
+
+- State description: $^A\hat{X}_B = ^A_BR\ \ ^B\hat{X}_B$
+
+$$
+  ^A \hat{X}_B = {^A_B R} \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\\
+  ^A \hat{Y}_B = {^A_B R} \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\\
+  ^A \hat{Z}_B = {^A_B R} \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+$$
+
+- Dot product:
+  $$
+    ^A \hat{X}_B 
+    = \begin{bmatrix} \hat{X}_B \cdot \hat{X}_A \\ \hat{X}_B \cdot \hat{Y}_A \\ \hat{X}_B \cdot \hat{Z}_A \end{bmatrix}\\
+    ^A \hat{Y}_B 
+    = \begin{bmatrix} \hat{Y}_B \cdot \hat{X}_A \\ \hat{Y}_B \cdot \hat{Y}_A \\ \hat{Y}_B \cdot \hat{Z}_A \end{bmatrix}\\
+    ^A \hat{Z}_B 
+    = \begin{bmatrix} \hat{Z}_B \cdot \hat{X}_A \\ \hat{Z}_B \cdot \hat{Y}_A \\ \hat{Z}_B \cdot \hat{Z}_A \end{bmatrix}
+  $$
+
