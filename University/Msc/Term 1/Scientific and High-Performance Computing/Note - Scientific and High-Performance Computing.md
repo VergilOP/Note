@@ -202,3 +202,169 @@ $$
     $$
 - Fourth-order scheme(precision $O[(\Delta t)^4]$)
 
+## Lecture 3 - Harmonic Motion
+
+### Mathematical model & analytic solution
+
+- Force is proportional to displacement
+  $$
+    m\frac{d^2x}{dt^2} = -kx
+  $$
+  > $k$ is a constant, m is mass of object  `k 是一个常数，表示恢复力的刚度系数（例如弹簧常数）`  
+  > $k > 0$: minus sign result in a restoring force(osillations)   `恢复力总是指向平衡位置`
+
+  $2^{nd}$ order DE: need to specify $x(t = 0) = x_0, \dot{x}(t = 0) = \dot{x}_0$
+
+- Analytical solution
+  $$
+    x(t) = A\cos(\Omega t) + B\sin(\Omega t); \Omega^2 = \frac{k}{m}\\
+    x_0 = A; \dot{x_0} = \Omega B
+  $$
+  Initial conditions determine A and B
+  > $\Omega$是角频率，rad/s(弧度每秒)
+  > $$
+  >   T = \frac{2\pi}{\Omega}\\
+  >   f = \frac{\Omega}{2\pi}
+  > $$
+
+#### Example of harmonic motion: pendulum 摆
+
+- Pendulum bob
+  - mass `m`
+  - length `l`
+  - deflection angle from vertical $\theta$
+
+- $F_\theta = - mg\sin\theta \approx - mg\theta$
+  > in the `small angle approximation` 小角近似
+
+- Apply Newton's law:
+  $$
+    m\ddot{r} = ml\ddot{\theta} = -mg\theta; \ddot{\theta} = -\frac{g}{l}\theta\\
+    m\ddot{x} = -kx; x = \theta \& \frac{k}{m} = \frac{g}{l} = \Omega^2
+  $$
+  
+---
+
+- Analytical solution(small angles): $\theta(t) = A\cos(\Omega t) + B\sin(\Omega t)$
+- Angular eigen-frequency: $\Omega = \sqrt{\frac{g}{l}}$
+- Choose initial conditions:
+  - Maximal amplitude: $\theta = \theta_0$ when $t = 0 \rarr A = \theta_0$
+  - Angular velocity: $\omega \equiv \dot{\theta} = 0$ when $t = 0 \rarr B = 0$
+- Energy E of pendulum is conserved:
+  $$
+    E = \frac{1}{2}ml^2\omega^2 + mgl(1 - \cos\theta) \approx \frac{1}{2}ml^2\omega^2 + \frac{1}{2}mgl\theta^2\\
+    \dot{E} = ml\omega(l\dot{\omega} + g\theta) = 0; \text{since } \dot{\omega} = \ddot{\theta} = -\frac{g}{l}\theta
+  $$
+  > $1 - \cos(\theta) \approx \frac{\theta^2}{2}$ in the small angle approximation
+
+> 这里所有的导数皆是比$dt$
+
+### Numerical solution: Euler's method
+
+- Replace $2^{nd}$ order DE by two $1^{st}$ order DEs
+  $$
+    \frac{d^2\theta}{dt^2} = -\frac{g}{l}\theta \rarr \frac{d\theta}{dt} = \omega;\ \frac{d\omega}{dt} = -\frac{g}{l}\theta
+  $$
+- Discretise: $dt \rarr \Delta t$
+  $$
+    \theta^{n + 1} = \theta^n + \omega^n\Delta t\\
+    \omega^{n + 1} = \omega^n - \frac{g}{l}\theta^n\Delta t\\
+    t^{n + 1} = t^n + \Delta t
+  $$
+- Choose time-step to be small compared to period:
+  $$
+    \Delta \ll \frac{2\pi}{\Omega}
+  $$
+
+> - Problem: Amplitude increases with time(even for small $\Delta t$)
+>
+> Why does it fail?
+> - Increasing amplitude implies energy of numerical solution increases
+> - Evaluate numerical energy:
+>   $$
+>     E^{n + 1} = \frac{ml^2}{2}[(\omega^{n + 1})^2 + \frac{g}{l}(\theta^{n+1})^2]\\
+>     = \frac{ml^2}{2}[(\omega^{n} - \frac{g}{l}\theta^n\Delta t)^2 + \frac{g}{l}(\theta^{n} + \omega^n \theta)^2]\\
+>     = E^{n} + \frac{mgl}{2}(\frac{g}{l}(\theta^n)^2 + (\omega^n)^2)\Delta t^2\\
+>     > E^n
+>   $$
+>   for any choice of time-step
+> - Numerical scheme does not conserve energy!
+>
+> - Euler method not good for harmonic motion
+> - Why was it good before? Was energy conserved applying Euler's method to ballistic motion?
+>   - Remember the trajectory of the cannon ball: For larger step-size higher peak in trajectory than for smaller step-size(with roughly the same range)  
+>     在以前处理抛体运动（如炮弹运动）时，欧拉法表现得还算可以。虽然在较大的步长下，弹道轨迹的峰值较高，但总的射程保持相对准确。因此在单次抛射的情况中，能量守恒的误差影响较小，但在多次周期振荡（如简谐运动）中，误差会随着时间的推移累积，导致能量越来越大。
+> - In practise: only calculate parabolic trajectory(cannon ball) compared to many oscillations(harmonic motion)
+>   - Euler's method OK for trajectories - but not for harmonic motion
+> - There is no single method that is perfect for all problems
+
+### Improving the Euler method: Euler-Cromer
+
+- Obvious solution: use Runge-Kutta instead
+- However, consider following small change to Euler's method:
+  - Instead of
+    $$
+      \omega^{n + 1} = \omega^{n} - \frac{g}{l}\theta^n\Delta t \text{ and } \theta^{n + 1} = \theta^n + \omega^{n}\Delta t
+    $$
+  - use
+    $$
+      \omega^{n + 1} = \omega^{n} - \frac{g}{l}\theta^n\Delta t \text{ and } \theta^{n + 1} = \theta^n + \omega^{n + 1}\Delta t
+    $$
+  - That is: use new value of $\omega$ to update $\theta$
+
+#### Results with Euler-Cromer
+
+- Amplitude does not increase rapidly, even if $\Delta t$ is no very small!
+
+### Damping: mathematical model 阻尼模型
+- Damping slows down the pendulum bob: 阻尼使摆在运动时逐渐减速
+  $$
+    \ddot{\theta} = - \Omega^2\theta \rarr \ddot{\theta} = -\Omega^2\theta - q\dot{\theta}; q > 0
+  $$
+- Form of analytical solutoin depends on value of q
+  1. **Under-damped regime**: amplitude decays exponentially 欠阻尼情况，振幅逐渐衰减
+    $$
+      \theta(t) = \theta_0\exp(-\frac{qt}{2})\sin(\sqrt{\Omega^2 - \frac{q^2}{4}} · t + \phi)
+    $$
+  2. **Over-damped regime**: no oscillations 过阻尼情况，不在振荡
+    $$
+      \theta(t) = \theta_0\exp[-(\frac{q}{2} + \sqrt{\frac{q^2}{4 - \omega}} · t)]
+    $$
+  3. **Critically damped regime**: Pendulum "crawls" to 0 临界阻尼情况，迅速衰减到平衡
+    $$
+      \theta(t) = (\theta_0 + C_t)\exp(-\frac{qt}{2})
+    $$
+
+- Amplitude decreases with time
+
+- Add a time-varying force
+  $$
+    \ddot{\theta} = - \Omega^2\theta - q\dot{\theta} \text{ without driving force}
+    \ddot{\theta} = - \Omega^2\theta - q\dot{\theta} + F_d\sin(\Omega_Dt) \text{ driving force}
+  $$
+  > strictly speaking, $F_D$ is an acceleration, not a force - we will still call it force  
+  > driving force has amplitude $F_D > 0$ and varies sinusoidally with constant frequency $\Omega_D$
+- Driving increases energy of the system.  
+  After initial transient:
+  - Frequency changes $\Omega \rarr \Omega_d$
+  - amplitude changes  
+  Analytical solution
+  $$
+    \theta(t) = \theta_{\max}\sin(\Omega_D t + \phi)\\
+    \theta_{\max} = \frac{F_D}{\sqrt{(\Omega^2 - \Omega^2_D)^2 + (q\Omega_D)^2}}
+  $$
+
+### Real oscillator: adding non-linearity 增加非线性
+
+- So far assumed amplitude is small: not always a good approximation
+- For the description of a more realistic pendulum, we reinstate the non-linearity, and we will use $\sin\theta$
+- This will have interesting consequences:
+  - In the non-driven, non-dissipative pendulum, the eigen-frequency depends on the amplitude  
+    在非驱动、非耗散钟摆中，特征频率取决于振幅
+  - Driving force leads to chaotic motion  
+    驱动力导致混沌运动
+
+## Lecture 4 - Chaos
+
+
+
