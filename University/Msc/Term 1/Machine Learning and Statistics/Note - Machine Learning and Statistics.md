@@ -293,7 +293,8 @@ $$
 
 #### non-uniform error bars
 
-Need to perform a **weighted** least-squares fit to take them into account
+Need to perform a **weighted** least-squares fit to take them into account  
+需要执行**加权**最小二乘法才能将它们考虑在内
 $$
     R_i = \frac{y_i - y(x_i)}{\alpha_i}
 $$
