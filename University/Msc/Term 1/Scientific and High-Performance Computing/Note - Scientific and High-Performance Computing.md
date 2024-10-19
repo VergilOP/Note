@@ -366,5 +366,128 @@ $$
 
 ## Lecture 4 - Chaos
 
+### Driven, non-linear pendulum, with dissipation
+
+- Add drivin force and dissipation
+  $$
+    \ddot{\theta} = - \frac{g}{l}\sin\theta + F_D\sin(\Omega_D t) - q\dot{\theta}
+  $$
+- Numerical solution: **Euler-Cromer method**
+- $\theta$ coordinate has 'periodic boundary' conditions
+  > meaning $\theta = \pi$ is the same position of pendulum as $\theta = -\pi$ for example  
+  > may lead to 'jumps' in a plot of $\theta(t)$ vs time $t$
+- When $F_D = 0$ but $q > 0$: amplitude decreases with time
+- When $F_D > 0: Different regimes$:
+  - pendulum **in resonance** with driving force  可能处于共振
+    > frequency is $\Omega_D$, amplitude may increase
+  - $\theta(t)$ plot may appear **chaotic** 混沌
+
+- $\theta(t)$ for $F_D = 0.5$ is periodic but $F_D = 1.2$ is **chaotic**
+  > **no apparent periodicity**, even at much later times: we call this choas  无明显的周期性
+- This 'chaotic' is in:
+  - $\theta(t)$ appears to be 'unpredictable' 不可预测
+    > no obvious pattern emerges 没有明显的模式
+  - Yet solution is determined uniquely by the DE and its initial condition
+- Example of **deterministic chaos**:  确定性混沌
+  - Small differences in initial conditions get amplified
+    $$
+      |\theta_1(t = 0) - \theta_2(t = 0)| < \epsilon \rarr |\theta_1(t) - \theta_2(t)| \gg \epsilon
+    $$
+  > 即便两个系统的初始条件差异极小，随着时间推移，这种微小差异会被放大，最终导致两者的表现完全不同。
+
+### Chaos: dependence on initial conditions
+
+- Compare evolution for small change in initial value $\theta_0 = 0.2 \pm \Delta\theta_0$
+  > $F_D = 0.5$: small differences in ICs stay small  
+  > $F_D = 1.2$: small differences in ICs amplify rapidly
 
 
+- Vary start condition(initial displacement $\theta_0 = 0.2$)
+- Compute evolution of two identical pendulums, differing by $\Delta\theta_0 = O(0.0001)$
+- Plot difference $\Delta\theta = |\theta^{(1)} - \theta^{(2)}|$ as function of time
+- Findings:
+  - For $F_D = 0.5$ dampening dominates and $|\Delta\theta|$ decreases
+  - For $F_D = 1.2$ $\Delta\theta$ increases (up to max = $\pi$)  
+  In both cases for t small: $|\Delta\theta| \sim e^{\lambda t}$
+  > $\lambda < 0$ not chatic, $\lambda > 0$: chaotic
+- $\lambda$ is called **Lyapunov exponent**  Lyapunov指数
+  > Simple test: $\lambda > 0 \rArr \text{chaotic}$, $\lambda < 0 \rArr \text{not chaotic}$  
+- Definition of **deterministic chaos**:  确定性混沌   
+  System shows deterministic chaos, if its evolution depends sensitively on the initial conditions  
+  演化轨迹高度依赖于初始条件
+
+### Visualising chaos: Phase space
+
+> Position-velocity space aka 'phase space'. For pendulum: $\theta, \omega = \dot{\theta}$ space  相空间(相图)
+
+- Small driving force
+  - Transient time at beginning: eigen-frequency decays  特征频率衰减
+  - pendulum quickly settles into a regular orbit  经过暂态后，会迅速进入到一个**规律的轨道**
+  - shape of $\omega(\theta)$ curve is independent of initial conditions(in agreement with $\lambda < 0$)  曲线形状稳定，与系统的初始条件无关
+- Large driving force
+  - Expectation of no structure in this panel is not true 预期相图中的轨迹会变得毫无规律
+    > Notice that there is no maximum $\theta$  无最大摆角$\theta$的限制
+  - Surprise: recognizable orbits, even though chaotic  仍能存在一些可识别的轨道
+    > but a given orbit is traversed only a few times  但是这些轨道会被摆动几次后就改变
+  - Examine phase space by plotting its **Poincare section**  Poincaré截面  
+    - Plot $\omega$ vs $\theta$ but only when $\Omega t = 2n\pi$, with $n \in N$   
+    - 只在$\Omega t = 2n\pi$时 记录$\omega$ vs $\theta$
+    > meaning: plot position inphase space when the driving term is zero but increasing  
+    含义：当驱动项为零但增加时，绘制相空间中的位置
+
+### Chaos: Poincare section
+
+- value of $\omega(\theta)$ when driving force is zero: Poincare section
+- non-chaotic: just two points(shown as red dots)
+- chaotic: a curve called strange attractor
+
+#### Chaos: Strange attractors
+
+- Poincare section is very different for chaotic versus non-chaotic motion  Poincare截面
+  - non-chaotic: just a few points  只有少数几个点  
+    original motion at eigen frequency, the driven motion with $\Omega = \Omega_d$  规律性的周期运动
+  - chaotic: a fuzzy surface  模糊表面
+    - 'Fuzziness' is not due to numerics 模糊表面不是由数值计算误差引起的。
+    - Shape of surface is largely independent of initial conditions
+      > important: implies that the Poincare section is a good way to examine deterministic chaos  表面的形状与初始条件无关
+    - A fractal structure  分形结构(无论放大多少倍，局部结构和整体相似)
+
+#### Chaos: Period Doubling
+
+- What happens to solution when $F_D = 0.5 \rarr 1.2$?
+  > non-chaotic $\rarr$ chaotic
+- Answer: Not only one, but a chain of transitions: Hard to study  周期加倍
+- Therefore: look for $F_D \in [1.3, 1.48]$ (fix $\Omega_D = 3\pi$)
+  > nature of the transition is clearer for this choice of $F_D$
+- In this region, the **period starts doubling**!
+  > periodic motion with frequencies $\frac{\Omega_D}{2}$, $\frac{\Omega}{4}$ etc.
+- Typically the opposite happens in a **harmonic oscillator** 谐波现象
+  > when harmonics appear - oscilations with period $P / 2$, $P / 3$. etc
+- In the chaotic pendulum, periodicities with period 2P, 4P etc appear - **sub-harmonics** 亚谐波
+  > P is the period of the driving force
+
+![](./imgs/Period%20Doubling.png)
+
+> Amplitude of the second maximum is smaller - true(almost periodic) cycle has a period twice that of the driving force(for $F_D = 1.44$) - and 4P(for $F_D = 1.465$)
+
+#### Chaos: Bifurcations 分岔
+
+- Plot $\theta$ when $\Omega_D t = 2\pi$ n with $n \in N$
+
+![](./imgs/Bifurcations.png)
+
+- At low $F_D$
+  > At a given phase of the driving force, pendulum is at a single value of $\theta$  只有单一的$\theta$值
+- At $F_D \approx 1.43$: **First period doubling**
+  > two possible values for $\theta$ at a given phase of drivin, small or large amplitude oscillation 首次周期加倍
+- At $F_D \approx 1.46$: **Second period doubling**
+  > four possible values for $\theta$ at a given phase of driving - 4 different possible amplitudes 第二次周期加倍
+- At larger $F_D$ - more and more period doublings appear
+- Introduce $F_n = F_D$ for $n$th period doubling and  (Feigenbaum常数)
+  $$
+    \delta_n = \frac{F_n - F_{n - 1}}{F_{n+1} - F_n}
+  $$ 
+  In limit of $n \rarr \infin$, $\delta_n \rarr \delta_\infin \approx 4.669$
+- Universal feature: $\delta_\infin$ seemingly the same for all systems  
+  (所有经历周期加倍转变为混沌系统的共有特性)
+  > for which where period doubling leads to chaos, see Feigenbaum's original 1987 papaer 
