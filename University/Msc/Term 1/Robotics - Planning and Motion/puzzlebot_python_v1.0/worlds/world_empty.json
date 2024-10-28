@@ -1,0 +1,9 @@
+{
+    "category": "world",
+    "dimension": 2,
+    "description": "N/A",
+    "color": "black",
+    "min_corner": [-5, -5],
+    "max_corner": [5, 5],
+    "shapes": [    ]
+}

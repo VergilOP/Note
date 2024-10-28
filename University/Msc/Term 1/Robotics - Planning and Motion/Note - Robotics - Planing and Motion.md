@@ -316,14 +316,19 @@ Objectives:
 
 - Rotation Matrix:
   $$
-    ^A_BR =  \begin{bmatrix}
-    r_{11} & r_{12} & r_{13} \\
-    r_{21} & r_{22} & r_{23} \\
-    r_{31} & r_{32} & r_{33}
-    \end{bmatrix} 
+    ^A_BR 
+    = \begin{bmatrix}
+      r_{11} & r_{12} & r_{13} \\
+      r_{21} & r_{22} & r_{23} \\
+      r_{31} & r_{32} & r_{33}
+      \end{bmatrix} 
     = \begin{bmatrix} ^A \hat{X}_B & ^A \hat{Y}_B & ^A \hat{Z}_B \end{bmatrix}
-    = \begin{bmatrix} ^A \hat{X}_B & ^A \hat{Y}_B & ^A \hat{Z}_B \end{bmatrix} 
     = \begin{bmatrix} {^B \hat{X}_A}^T \\ {^B \hat{Y}_A}^T \\ {^B \hat{Z}_A}^T \end{bmatrix} = {^B_A R}^T
+    = \begin{bmatrix} 
+      \hat{X}_B \cdot \hat{X}_A & \hat{Y}_B \cdot \hat{X}_A & \hat{Z}_B \cdot \hat{X}_A\\ 
+      \hat{X}_B \cdot \hat{Y}_A & \hat{Y}_B \cdot \hat{Y}_A & \hat{Z}_B \cdot \hat{Y}_A\\ 
+      \hat{X}_B \cdot \hat{Z}_A & \hat{Y}_B \cdot \hat{Z}_A & \hat{Z}_B \cdot \hat{Z}_A 
+      \end{bmatrix}
   $$
   > - Inverse of Rotation Matrix(Orthonormal Matrix)
   >   $$
@@ -348,3 +353,238 @@ $$
     = \begin{bmatrix} \hat{Z}_B \cdot \hat{X}_A \\ \hat{Z}_B \cdot \hat{Y}_A \\ \hat{Z}_B \cdot \hat{Z}_A \end{bmatrix}
   $$
 
+- Description of a Frame:
+  - Frame{B}: $^A \hat{X}_B, ^A \hat{Y}_B,  ^A \hat{Z}_B$, $^AP_{Borg}$
+  $$
+    \{B\} = \{^A_BR\space\space^AP_{Borg}\}
+  $$
+- Mapping:
+  - Changing descriptions from frame to frame
+- Rotations  
+  ![](./imgs/Rotations.png)
+  - If $P$ is in $\{B\}$: $^BP$
+  $$
+    ^AP = \begin{bmatrix}
+            ^B \hat{X}_A. ^BP \\ ^B \hat{Y}_A. ^BP \\ ^B \hat{Z}_A. ^BP
+          \end{bmatrix}
+        = \begin{bmatrix}
+            ^B \hat{X}_A^T \\ ^B \hat{Y}_A^T \\ ^B \hat{Z}_A^T
+          \end{bmatrix}
+          \cdot\ ^BP
+  $$
+  $$
+    ^AP =\ ^A_BR\ ^BP
+  $$
+
+#### Translation
+
+![](./imgs/Translation.png)
+
+$$
+  ^AP_{OA} = ^AP_{OB} + ^AP_{BOrg}
+$$
+
+#### General Transformation
+
+$$
+  ^AP =\ ^A_BR\ ^BP +\ ^AP_{Borg} \\
+  \begin{bmatrix}
+    ^AP \\ 
+    1
+  \end{bmatrix}
+  = \begin{bmatrix}
+    ^A_BR &\ ^AP_{Borg} \\
+    0\ 0\ 0 & 1
+  \end{bmatrix}
+  = \begin{bmatrix}
+    ^BP\\
+    1
+  \end{bmatrix}
+$$
+
+- Homogeneous Transformation:
+  $$
+    ^AP_{(4\times1)} =\ ^A_BT_{(4\times4)}\ ^BP_{(4\times1)}
+  $$
+
+- General Operators:
+  $$
+    P_2 = 
+    \begin{bmatrix}
+      R_k(\theta) & Q \\
+      0\ 0\ 0 & 1
+    \end{bmatrix}P_1
+  $$
+  $$
+    P_2 = T\ P_1
+  $$
+
+- Inverse Transform
+  $$
+    ^A_B T = \begin{bmatrix} 
+    ^A_B R & ^A P_{Borg} \\ 
+    0\ 0\ 0 & 1 \end{bmatrix}
+  $$
+
+  $$
+    ^A_B T^{-1} = ^B_A T = 
+    \begin{bmatrix} 
+    ^A_B R^T & -^A_B R^T \cdot\ ^AP_{Borg} \\ 
+    0\ 0\ 0 & 1 \end{bmatrix}
+  $$
+
+- Homogeneous Transform Interpretations:
+- Description of a frame  
+  ![](./imgs/Description%20of%20a%20frame.png)
+  $$
+    ^A_BT:\{B\} = \{^A_BR\ \ ^AP_{Borg}\}
+  $$
+
+- Transform mapping  
+  ![](./imgs/Transform%20mapping.png)
+  $$
+    ^A_BT:\ ^BP \rarr\ ^AP
+  $$
+
+- Transform operator  
+  ![](./imgs/Transform%20operator.png)
+  $$
+    T: P_1 \rarr P_2
+  $$
+
+- Compound Transformation:
+  $$
+  B_P = ^B_C T \ C_P
+  $$
+
+  $$
+  A_P = ^A_B T \ B_P
+  $$
+
+  $$
+  A_P = ^A_B T \ ^B_C T \ C_P
+  $$
+
+  $$
+  ^A_C T = ^A_B T \ ^B_C T
+  $$
+
+  $$
+  ^A_C T = \begin{bmatrix} ^A_B R \ ^B_C R & ^A_B R \ ^B P_{Corg} + ^A P_{Borg} \\ 0\ 0\ 0 & 1 \end{bmatrix}
+  $$
+
+- Transform Equation
+  $$
+    ^A_B T \ ^B_C T \ ^C_D T \ ^D_A T = I
+  $$
+
+#### Representations
+
+- End-effector Configuration  
+  ![](./imgs/End-effector%20Configuration.png)
+  $$
+    ^B_ET: Position + Orientation
+  $$
+- End-effector configuration parameters:
+  $$
+    X = \begin{bmatrix}
+      X_P \\
+      X_R
+    \end{bmatrix}
+  $$
+
+- Position representation:  
+  ![](./imgs/Position%20representation.png)
+  - Cartesian: (x, y, z)
+  - Cylindrical: $(\rho, \theta, z)$
+  - Spherical: $(r, \theta, \phi)$
+
+## Lecture 5 - Manipulator Kinematics
+
+### Learning Objectives
+
+- Objectives
+  - Link Description
+  - Denavit-Hartenberg(D-H parameters)
+  - Manipulator Kinematics
+
+### Link Description
+
+![](./imgs/Link%20Description.png)
+
+- $\vec{a}_{i-1}$: Link Length - mutual perpendicular  
+- $\vec{\alpha}_{i-1}$: Link Twist - angle between axes $i$ and $i-1$
+
+#### Link Connection:
+
+![](./imgs/Link%20Connection.png)
+
+- $d_i$ is link offset, constant for revolting joint and variable for prismatic
+- $\theta_i$ is joint angle, variable for revolting joint and constant for prismatic
+
+#### First and last links:
+
+$a_i$ and $\alpha_i$ depend on joint axes $i$ and $i + 1$
+
+Convention:
+$$
+  a_0 = a_n = 0 \text{ and } \alpha_0 = \alpha_n = 0
+$$
+
+- First link:  
+  ![](./imgs/First%20link.png)
+
+- Last link:  
+  ![](./imgs/Last%20link.png)
+
+- Denavit-Hartenberg(D-H) Parameters:
+  - Four D-H parameters are $(\alpha_i, a_i, d_i, \theta_i)$
+- Three fixed link parameters and
+- One joint variable:$\left\{\begin{array}{ll}\theta_i & \text{Revolute joint} \\d_i & \text{Prismatic joint}\end{array}\right.$
+
+> - $\alpha_i$ and $a_i$ describe the link $i$
+> - $d_i$ and $\theta_i$ connection between the links
+
+#### Frame attachment
+
+1. Common Normals
+2. Origins
+3. Z-axis
+4. X-axis
+
+![](./imgs/Frame%20attachment.png)
+
+#### Summary
+
+![](./imgs/Summary.png)
+
+$\alpha_i$: angle between $z_i$ and $z_{i+1}$ about $x_i$
+$a_i$: distance between $z_i$ and $z_{i+1}$ along $x_i$
+
+$d_i$: distance between $x_{i-1}$ and $x_i$ along $z_i$
+$\theta_i$: angle between $x_{i-1}$ and $x_i$ about $z_i$
+
+- Forward Kinematics:  
+  $$
+    ^{i-1}_iT = ^{i-1}_RT\ ^R_QT\ ^Q_PT\ ^P_iT
+  $$
+
+  $$
+  {}^{i-1}_i T(\alpha_{i-1}, a_{i-1}, \theta_i, d_i) = R_x(\alpha_{i-1}) D_x(a_{i-1}) R_z(\theta_i) D_z(d_i)
+  $$
+
+  $$
+  {}^{i-1}_i T =
+  \begin{bmatrix}
+  c\theta_i & -s\theta_i c\alpha_{i-1} & s\theta_i s\alpha_{i-1} & a_{i-1} c\theta_i \\
+  s\theta_i & c\theta_i c\alpha_{i-1} & -c\theta_i s\alpha_{i-1} & a_{i-1} s\theta_i \\
+  0 & s\alpha_{i-1} & c\alpha_{i-1} & d_i \\
+  0 & 0 & 0 & 1
+  \end{bmatrix}
+  $$
+
+- Symbols:
+  - Revolute Joints:  
+    ![](./imgs/Revolute%20Joints.png)
+  - Prismatic joints:  
+    ![](./imgs/Prismatic%20joints.png)

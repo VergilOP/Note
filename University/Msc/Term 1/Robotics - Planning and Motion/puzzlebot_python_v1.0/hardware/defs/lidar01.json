@@ -1,0 +1,10 @@
+{
+    "type": "lidar-2d",
+    "angle_min": -3.1415926,
+    "angle_max": 3.1415926,
+    "angle_res": 0.01,
+    "range_min": 0.2,
+    "range_max": 4.0,
+    "range_standard_deviation": 0.01,
+    "topic": "LidarScan"
+}

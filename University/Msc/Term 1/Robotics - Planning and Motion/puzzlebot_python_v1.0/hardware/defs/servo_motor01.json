@@ -1,0 +1,6 @@
+{
+    "type": "servo-motor",
+    "angle_min": -90,
+    "angle_max": 90,
+    "topic": "ServoAngle"
+}

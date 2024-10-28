@@ -1,0 +1,35 @@
+{
+    "type": "ddr",
+    "name": "robot",
+    "model": "puzz_model01.json",
+    "cmdR_topic": "VelocitySetR",
+    "cmdL_topic": "VelocitySetL",
+    "encR_topic": "VelocityEncR",
+    "encL_topic": "VelocityEncL",
+    "pose_topic": "Pose",
+    "cmd_max": 8.0,
+    "dt": 0.07,
+    "comm":
+    {
+        "ip": "192.168.1.1",
+        "port": 3142
+    },
+    "sensors": [
+        {
+            "type": "range",
+            "name": "laser",
+            "file": "laser_range01.json",
+            "parent": "servo",
+            "pose": [0.0, 0.0, 0.0]
+        }
+    ],
+    "actuators": [
+        {
+            "type": "servo-motor",
+            "name": "servo",
+            "file": "servo_motor01.json",
+            "parent": "robot",
+            "pose": [0.05, 0.0, 0.0]
+        }
+    ]
+}

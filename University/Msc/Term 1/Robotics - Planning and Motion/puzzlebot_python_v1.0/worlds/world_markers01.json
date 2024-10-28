@@ -1,0 +1,34 @@
+{
+    "category": "world",
+    "dimension": 2,
+    "description": "N/A",
+    "color": "black",
+    "min_corner": [-5, -5],
+    "max_corner": [5, 5],
+    "shapes": [
+        {
+            "type": "marker_bearing",
+            "id": 1,
+            "coordinates": [1.6, -1],
+            "color": "yellow"
+        },
+        {
+            "type": "marker_bearing",
+            "id": 2,
+            "coordinates": [2.6, -2],
+            "color": "yellow"
+        },
+        {
+            "type": "marker_bearing",
+            "id": 3,
+            "coordinates": [-2, 1],
+            "color": "yellow"
+        },
+        {
+            "type": "marker_bearing",
+            "id": 4,
+            "coordinates": [-1, -2],
+            "color": "yellow"
+        }
+    ]
+}
