@@ -304,3 +304,193 @@ This is now a weighted fit, and we need to take this into account in the analyti
 
 > Points with small errors are more important!
 
+## Lecture 3
+
+### Least-squares fit to an arbitrary function
+
+- Arbitrary non-linear function with N parameters
+  $$
+    y(x) = f(x; a_1, a_2, ..., a_N)
+  $$
+- Procedure:
+  1. for each value of the independent variable, $x_i$, calculate $y(x_i)$ using an estimated set of values for the parameters
+  2. for each value of the independent variables, calculate the square of the normalised residual, $[^{(y_i-y(x_i))}/_{\alpha i}]^2$
+  3. calculate $\chi^2$(sum the square of the normalised residuals)
+  4. minimise $\chi^2$ by optimising the fit parameters
+
+### Residuals for a least-squares fit to an arbitrary function
+
+- Voltage across an inductor as a function of time - $V(t; a_1, a_2, ..., a_N)$ is a non-linear function
+  - $V(t;V_{bat}, V_0, T, \phi, \tau)$
+  - Use model and reasonable estimates of parameters to calculate values of the voltage for a range of times
+  - Calculate $\chi^2$
+  - Minimise $\chi^2$ by varying all 5 parameters to give best fit
+
+$$
+    V(t) = V_{bgt} + V_0\cos(2\pi\frac{t}{T}+\phi)\exp(\frac{-t}{\tau})
+$$
+
+Data and weighted least-squares-fit for X-ray diffraction of copper
+
+- Fit data with a double-peak model:  
+  ![](./images/double_peak%20model.png)
+  - residuals randomly distributed -> good fit
+- Fit data with a single-peak model:  
+  ![](./images/single_peak%20model.png)
+  - residuals show structure -> bad fit
+
+- To better visualise structure in residuals: make a lag plot -> normalised residuals $R_i$ vs lagged residuals $R_{i-k}$(k is usually 1)
+- Good fit  
+  ![](./images/good_fit%20lag_plot.png)
+  - Random parttern
+  - at least 91% of data points in a 2D box of $\pm2$ limits
+- Bad fit:  
+  ![](./images/bad_fit%20lag_plot.png)
+  - non-random pattern
+  - < 91% of data points in a 2D box of $\pm2$ limits
+
+### Durbin-Watson statistic
+
+The degree of correlation in the lag plot can be reduced to a single numerical value by evaluating the **Durbin-Waston statistic, D**
+
+$$
+    D = \frac{\sum\limits^N_{i=2}[R_i - R_{i-1}]^2}{\sum\limits^2_{i=1}[R_i]^2}
+$$
+> What does it mean?
+> - 0 < D < 4
+> - D = 0: systematically correlated residuals
+> - D = 2: randomly distributed residuals with Gaussian distribution
+> - D = 4: systematically anticorrelated residuals
+
+### Calculating the error in a least-squares-fit
+
+#### the error surface
+
+- Remember how $\chi^2$ evolved with the gradient m of a straight line?
+- More generic:
+  - Function is more complex
+  - Non-uniform error bars
+  - Goodness-of-fit remains $\chi^2$, but now it evolves over **surface** defined by the fit parameters
+
+- Shape of error surface is important:
+  - Many(few) contours on axis of a parameter = high(low) sensitivity of fit to that parameter
+  - Tilted ellipses $\rarr$ correlation between uncertainties of parameter
+  - No tilt $\rarr$ no correlation between $\alpha_A, \alpha_B$
+
+- Investigate shape of error surface via Taylor expansion of $\chi^2$
+- Taylor expansion: behavior in close vicinty to a value
+  $$
+    f(x, a + \Delta a) = f(x, a) + \Delta a\frac{\partial f}{\partial a} + \frac{1}{2}\frac{\partial^2 f}{\partial a^2}(\Delta a)^2 + \dots
+  $$
+  $$
+    \chi^2(\overline{a}_j + \Delta a_j) = \chi^2(\overline{a}_j) + \frac{1}{2}\frac{\partial^2\chi^2}{\partial a^2_j}
+  $$
+
+If $\Delta a_j$ (the deviation from the best-fit value) is similar to uncertainty
+$$
+    \chi^2 \rarr \chi^2_{\min} + 1
+$$
+$\chi^2$ increases by 1  
+This effectively corresponds to the $1\sigma$ contour
+
+Can now express the standard error in terms of the curvature of the error surface
+$$
+    \alpha_j = \sqrt{\frac{2}{(\frac{\partial^2\chi^2}{\partial a^2_j})}}
+$$
+
+### Curvature matrix for straight line fit
+
+- Let's stay with straight line fit and introduce the concept of curvature matrix
+- We will see later that the uncertainties for N fit parameters can be calculated from the inverse of the curvature matrix, i.e. the error matrix 
+- For a straight line fit, the $\chi^2$ surface is perfectly parabolic with respect to both variabels, such that:
+  - There is only 1 minimum
+  - Finding the minimum is easy
+  - The curvature matrix has analytic results that let you calculate errors easily$A=\begin{bmatrix}A_{cc}&&A_{cm}\\A_{mc}&&A_{mm}\end{bmatrix}$
+    $$
+        A_{cc}=\sum_{i}\frac{1}{\alpha_{i}^{2}}\quad A_{cm}=A_{mc}=\sum_{i}\frac{x_{i}}{\alpha_{i}^{2}}\quad  A_{mm}=\sum_{i}\frac{x_{i}^{2}}{\alpha_{i}^{2}}
+    $$
+
+### The $\chi^2$ surface for an arbitrary function
+
+Arbitrary function: the $\chi^2$ surface can be very complicated!
+- Multiple local minima
+- Need an initial guess for the best-fit parameters(to avoid being trapped in a local minimum)
+- The $\Delta \chi^2$ contours can be asymmetric(might not be able limits)
+- The elements of the curvature matrix might not have analytic results $\rarr$ need numerical techniques to calculate them
+
+- Newton-Raphson
+- Technique that numerically solves $f(x) = 0$
+  1. First (approximate) solution is $x_1$
+  2. Let $f(x)$ crosses zero at $x_1 + h, f(x_1 + h) = 0$
+  3. If h is small, can use Taylor expansion to find second approximation for zero crossing point $x_2$, $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)}$
+  4. Repeat this to get successively closer approximation,
+    $$
+        x_{s+1} = x_s - \frac{f(x_s)}{f'(x_s)}
+    $$
+  5. Procedure ends when the zero-crossing point is found(within given tolerance)
+
+- Grid search
+- The goodness-of-fit parameter is minimized by changing each parameter in turn, based on input step sizes
+  1. Gradient is keptt the same, intercept is increased. If $\chi^2$ increases, the direction of motion across surface is reversed
+  2. Parameters are changed in turn until convergence  
+  Inefficient method, because parameters are changed sequentially
+
+### How do fitting programs minimise?
+
+Iterative approaches
+
+- Gradient descent
+  - Change all parameters simultaneously, with vector directed towards minimum
+    1. Vector $\triangledown \chi^2$ is along direction along which $\chi^2$ varies most rapidly
+    2. Take steps along this steepest descent util convergence, with the gradient being
+        $$
+            \left(\nabla\chi^{2}\right)_{j}=\frac{\partial\chi^{2}}{\partial a_{j}}\approx\frac{\chi^{2}\left(a_{j}+\delta a_{j}\right)-\chi^{2}\left(a_{j}\right)}{\delta a_{j}}
+        $$
+    3. Update rule: $a_{s+1}=a_{s}-B \nabla\chi^{2} (a_{s})$
+        > B is scaling factor
+
+- Second-order expansion
+  - An excellent approximation of the local minimum is a second-order expansion in the parameters about the minimum, i.e. perform a Taylor expansion of $\chi^2$ about the set of parameters $a_s$
+    $$
+        \chi^{2}\left(\mathrm{a}_{s}+\mathrm{h}\right)\approx\chi^{2}\left(\mathrm{a}_{s}\right)+\mathrm{g}_{s}^{\mathrm{T}}\mathrm{h}+\frac{1}{2}\mathrm{h}^{\mathrm{T}}\mathrm{H}_{s}\mathrm{h}
+    $$
+    $$
+        \mathfrak{g}_s=\nabla\chi^2\left(\mathfrak{a}_s\right)=\left[\frac{\partial\chi^2}{\partial a_1},\cdots,\frac{\partial\chi^2}{\partial a_{\mathcal{N}}}\right]^\mathrm{T}
+    $$
+
+- Marquardt-Levenburg method
+- Combines best features of gradient and expansion approaches
+  - Uses method of steepest descent to progress towards minimum when initial guess was far from optimum value
+  - Smooth transition to expansion method when goodness-of-fit parameter reduces, and surface becomes parabolic(no multiple local minima)
+  $$
+    \mathrm{a}_{s+1}=\mathrm{a}_{s}-\left(\mathrm{H}_{s}+\lambda\mathrm{diag}\left[\mathrm{H}_{s}\right]\right)^{-\mathrm{1}}\mathrm{g}_{s}
+  $$
+
+### Covariance(error) matrix and uncertainties in fit parameters
+
+- Simply: the curvature matrix, A, is one half of the Hessian matrix
+  - It is also an NxN matrix
+  - It has components $A_{jk} = \frac{1}{2}\frac{\partial x^2}{\partial a_j \partial a_k}$
+  - Off-diagonal terms are related to degree of correlation of parameter uncertainties(they describe the curvature of the surface, remember!)
+
+- Inverse of curvature matrix = covariance(error) matrix
+  $$
+    [C] = [A]^{-1}
+  $$
+  And finally: the uncertainty $a_j$ of the parameter $a_i$ is $\alpha_j = \sqrt{C_{jj}}$, so $a_j + a_j = a_j \pm \sqrt{C_{jj}}$
+
+### Correlation between uncertainties of fit parameters
+
+- The off-diagonal elements of the covariance matrix are the correlation coefficients
+- It's easier to use a dimensionless measure for the correlation matrix:
+  - Diagonal elements are all 1
+  - Correlation coefficients $\rho_{AB} = \frac{c_{AB}}{\sqrt{c_{AA}c_{BB}}}$
+    $$
+        -1 \leq \rho \leq 1 \\
+        \text{0 when A, B uncorrelated}
+    $$
+
+- What is the voltage and its error for $f = 75Hz$?
+  - Without correlation: $\alpha_{V}^{2}=f^{2}\alpha_{m}^{2} + \alpha_{c}^{2}=f^{2}C_{22}+C_{11}$
+  - With correlation: $\alpha_{V}^{2}=f^{2}C_{22}+C_{11}+2fC_{12}$
+    
