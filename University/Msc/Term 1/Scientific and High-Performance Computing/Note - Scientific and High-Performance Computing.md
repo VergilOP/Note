@@ -491,3 +491,437 @@ $$
 - Universal feature: $\delta_\infin$ seemingly the same for all systems  
   (所有经历周期加倍转变为混沌系统的共有特性)
   > for which where period doubling leads to chaos, see Feigenbaum's original 1987 papaer 
+
+## Lecture 5 - Root finding & numerical integration
+
+### Mathematical problem
+
+Common problems in computational physics include root finding and *numerical integration*
+
+- **Root-finding**: Find a (the) value('s) x, for which求根  
+  找到使函数等于0的点
+  $$
+    f(x) = 0
+  $$
+  > usually within a range $x \in [a, b]$
+- **Numerical integration**: evaluate数值积分  
+  计算函数在特定范围内的面积
+  $$
+    I = \int^b_af(x)dx
+  $$
+  > for a given function f(x), where a and b are given
+  Both problems can occur in more than on dimension
+
+### Root finding
+- Cooling in cosmological simulations:$\rho\frac{dT}{dt} = - \Lambda(T)\rho^2$ solved numerically(implicity) as 
+  > T is temperature, t is time, rho is density, $\Lambda$ is cooling rate
+  $$
+    \frac{T(t+\Delta t)- T(t)}{\Delta t} = - \Lambda(T + \Delta t)\rho
+  $$
+  ![](./imgs/root%20finding.png)
+
+### Numerical integration
+
+- The energy radiated by cosmic gas
+  > during an interval $\Delta t$
+  $$
+    \Delta E = \int^{t + \Delta t}_t \Lambda(T)\rho^2 dt
+  $$
+
+#### Newton-Raphson
+
+> Find value X for a given function f(x), so that f(x) = 0
+- Assume $x_i$ starting point for root, develop f as a Taylor series expansion close to $x_i$  
+  假设起始点$x_i$是我们求解根的初始猜测
+  $$
+    f(x_i) + f'(x_i)(X - x_i) + \dots \approx f(x) = 0
+  $$
+  and solve for X
+  $$
+    X = x_i - \frac{f(x_i)}{f'(x_i)} \equiv x_{i+1}
+  $$
+  $x_{i + 1}$ is improved estimate for root  
+  这个$X$是下一个改进的根的估计
+
+- Newton-Raphson is the iterative scheme
+  $$
+    x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+  $$
+
+- $x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}$
+- Termination criterion
+  > for the iteration: $|x_{i+1} - x_i|$ is 'small enough'
+- Method requies that f' be calculable 可计算的
+- Method needs a guess for start of iteration 猜测一个初始值
+- Which root is found if there is more than one? 无法算出多根
+
+##### Convergence 收敛性
+
+- To estimate the error rewrite $x_{i+1} = X + \Delta x_{i+1}$ as
+  $$
+    X + \Delta{x_{i+1}} = X + \Delta x_i - \frac{f(X + \Delta x_i)}{f'(X + \Delta x_i)}
+  $$
+- Solve for $\Delta{x_{i+1}}$ & expand last term in a Taylor series:
+  $$
+    \Delta x_{i+1} = \Delta x_i - \frac{f(X) + \Delta x_i f'(X) + \frac{1}{2}(\Delta x_i)^2f''(X) + \dots}{f'(X) + \Delta x_if''(X) + \dots}\\
+    = \frac{f''(X)}{2f'(X)}(\Delta x_i)^2 + O[(\Delta x_i)^3]
+  $$
+- Error term is quadratic in $\Delta x$ $\rarr$ decreases quickly convergence rate depends on $f'$ and $f''$  
+  因为误差的二次项$(\Delta x_i)^2$ 主导, 所以误差会迅速减少
+  > $f'$ small and/or $f''$ large $\rarr$ convergence is slow  
+  如果$f'$太小, 或者$f''$很大, 算法的收敛速度会变慢。
+
+#### Secant method 割线法
+
+- If $f'$ is not known, we can't apply Newton-Raphson
+- Instead use **Secant method: compute $f'$ numerically** from actual and previous guesses. 数值估计导数
+  $$
+    f'(x_i) \approx \frac{f(x_i) - f(x_{i-1})}{x_i - x_{i-1}} + O[(x_i - x_{i-1})^2]
+  $$
+- Use this estimate in Newton-Raphson method
+  $$
+    x_{i+1} = x_i - f(x_i)\frac{x_i - x_{i-1}}{f(x_i) - f(x_{i-1})}
+  $$
+  > requires that we ahve two guesses to start iteration, $x_1$ and $x_2$
+- Depending on smoothess of f, secant method may converge faster than Newton-Raphson. Asymptotically,  
+  割线法的收敛速度依赖于函数的光滑程度。在某些情况下，割线法可能比牛顿-拉弗森法收敛的更快
+  $$
+    \lim_{i \rarr \infin}|\Delta x_{i+1}| \approx |\Delta x_i|^{1.618}
+  $$
+  > $\Delta x_i = X - x_i$. Exponent is called the 'golden ratio'. $(\sqrt{5}+1)/2 \approx 1.618$  
+  割线法的渐进收敛速度为 1.618
+
+#### Bisection 二分法
+
+- Robust method that relies on subdividing intervals
+  - Use: $f(x_0) \cdot f(x_1) < 0 \rArr \exist X \in [x_0, x_1]: f(X) = 0$  
+    Provided $f$ is continuous
+  - Find interval $[x_i, x_{i+1}]$ with $f(x_i)f(x_{i+1}) < 0$  
+    for example $f(x_i) < 0$ but $f(x_{i+1}) > 0$
+  - **Bisection**: divide interval at $x_{i+2} = \frac{x_{i} + x_{i+1}}{2}$. Replace either $x_i$ or $x_{i+1}$ with $x_{i+2}$ such that for new interval limits still one function value above and one below zero.  
+    利用二分法，逐渐接近函数的零点
+
+
+#### Comparison of convergence
+
+![](./imgs/Comparition.png)
+
+Summary
+- We discussed Iterative procedures - must provide guess, and stop iteration when accuracy goal is reached. Typical condition:  
+  停止条件
+  $$
+    |\frac{x_{i+1} - x_{i}}{x_{i+1} + x_{i}}| \leq p
+  $$
+  > can be absolute criterion as well, $|x_{i+1} - x_i| < q$
+- Complications cases with several roots, extrema and saddle points, etc.  
+  当存在多个根，极值点，和鞍点时，根查找可能变得复杂。 需要特别注意这些情况
+- Newton-Raphson: fastest convergence
+  > requires calculation of $f'$ 要求可以计算出导数
+- Secant method: fast
+  > compute $f'$ numerically 通过数值方式计算
+- Bisections: Slowest convergence but very robust  
+  很慢，但是robust性很强，即在各种条件下都能很好地工作
+- In more than one dimension: very tricky business, would use gradient. Estimating convergence also tricky  
+  在多维情况下，根查找变得更加复杂，通常需要梯度信息来处理，收敛速度也变得很慢
+
+---
+
+- Evaluate
+  $$
+    I = \int^b_a f(x) dx
+  $$
+  > for given integration limits a and b, and given function f
+
+- Example: period of non-linear pendulum  非线性摆的周期
+  $$
+    T = \sqrt{\frac{8l}{g}}\int^{\theta_{\max}}_0\frac{d\theta}{\sqrt{\cos\theta - \cos\theta_{\max}}}
+  $$
+  Elliptic integral(椭圆积分), closed form `analytic` solution not known
+
+Newton-Cotes method
+- $$
+    I = \int^b_a f(x) dx
+  $$
+- Newton-Cotes: divide interval $[a, b]$ in N subintervals of size $\Delta x = (b - a)/N$ and approximae integral by a sum  
+  Newton-Cotes方法是一种通过将函数近似为小区间上的分段常数来求解积分的数值方法
+  $$
+    \int^b_a f(x) dx \approx \sum^{N-1}_{i=0}f(x_i)\Delta x = \sum^{N-1}_{i=0}f(a + i\Delta x)\Delta x
+  $$
+- Replace integration by sum over rectanglar segments
+  > approximate f as being piece-wise constant when segments are 'small enough'
+
+Convergence of Newton-Cotes 收敛性
+- The **Euler-Maclaurin** summation formula is:  
+  sum over integers, requires that *all* derivatives of F exist
+  $$
+    \sum^{N - 1}_{i = 1} F(i) = \int^N_0F(u)du - \frac{1}{2}[F(0) + F(N)] + \sum^\infin_{k = 1}\{\frac{B_{2k}}{(2k)!}[F^{(2k - 1)}(N) = F^{(2k-1)}(0)]\}
+  $$
+  $F^{(n)}(u) = n^{th}$ derivative of F  
+  $B_{2k}$ are the **Bernoulli numbers**
+
+- Setting $u = \frac{x-a}{\Delta x}$, $F(u) = f(x)$
+  > E-M summation formula becomes
+  $$
+    \sum^{N-1}_{i=1}f(x_i) = \frac{1}{\Delta x}\int^b_a f(x) dx - \frac{1}{2}[f(a) + f(b)] + \sum^\infin_{k = 1}\{\frac{B_{2k}}{(2k)!}[f^{(2k-1)}(b) - f^{(2k-1)}(a)](\Delta x)^{2k-1}\}
+  $$
+
+- Rearrange and adjust the summation index:
+  $$
+    \int^b_a f(x) dx = \sum^{N-1}_{i=0} f(x_i) \Delta x + \frac{\Delta x}{2}[f(b) - f(a)] - \frac{(\Delta x)^2}{12}[f'(b) - f'(a)] + O[(\Delta x)^4]
+  $$
+
+#### trapezoidal rule
+
+- Imporve convergence of N-C by including the term $\frac{[f(b) - f(a)]}{2}$
+  $$
+    \int^b_a f(x) dx = \sum^{N-1}_{i=0} f(x_i) \Delta x + \frac{\Delta x}{2}[f(b) - f(a)] + \dots
+  $$
+
+- Trapezoidal rule accurate upt to second order in $\Delta x$ - Newton-Cotes accurate to first order in $\Delta x$
+
+#### Simpson's rule
+
+- Use higher-order interpolation
+  > rather than linear interpolation of trapezoidal rule
+- Simpson's rule: Fit parabolic segments through the top edges of two neighbouring segments. If $A_i$ is the area of the segment between $x_i$ and $x_{i+1}$ in the parabolic fit, then
+  $$
+    A_i + A_{i+1} = \frac{\Delta x}{3}[f(x_i) + 4f(x_{i+1}) + f(x_{i+2})]
+  $$
+- This can be seen by using
+  $$
+    A_i + A_{i+1} = \int^{x_{i+1}}_{x_i} (ax^2 + bx + c) dx
+  $$
+  and the parabolic fit
+  $$
+    f(x_{j = i, i+1, i+2}) = ax^2_j + bx_j + c
+  $$
+
+- From the area $A_i + A_{i + 1}$ of two neighbouring segments in the parabolic fit we have
+  $$
+    \int^b_a f(x) dx \approx \frac{\Delta x}{3} [f(a) + 4f(x_1) + 2f(x_2) + 4f(x_3) + ... + 2f(x_{N-2}) + 4f(x_{N-1}) + f(b)]
+  $$
+- Convergence of Simpson's rule: $\propto (\Delta x)^4$
+
+- Trivial test: Elliptic integral
+  $$
+    I=\intop_0^{\pi/2}\left(1-k^2\sin^2\theta\right)^{1/2}\mathrm{~d}\theta\xrightarrow{k\to1}1
+  $$
+  ![](./imgs/Error%20for%20evaluation%20of%20elliptic%20integral.png)
+
+- Harder test - function with diverging derivative at $x = 2$:
+  $$
+    I=\intop_0^2\left(4-x^2\right)^{1/2}\mathrm{~d}x=\pi 
+  $$
+  ![](./imgs/Error%20for%20evaluation%20of%20tricky%20square-root.png)
+
+#### Monte Carlo integration
+
+- Example: calculating $\pi$. Compare surface area of sphere $(S = \pi r^2)$ to that of a square with length $2r (S = 4r^2)$
+- Use pseudo-random number generator  
+  ![](./imgs/pseudo-random%20number%20generator.png)  
+  Ratio of surface of quarter circle $(S = \pi r^2 / 4)$ over that of square $(S = r^2)$ is fraction of points that land inside the circle
+  ![](./imgs/Monte%20Carlo%20integration.png)
+
+- MC integration: Estimate integral by N probes
+  $$
+    I=\intop_a^bf(x)\mathrm{~d}x\longrightarrow\langle I\rangle=\frac{b-a}N\sum_{i=1}^Nf(x_i)=\langle f\rangle_{a,b} ,
+  $$
+  where $x_i$ are `random numbers` homogeneously distributed in [a, b]
+- Basic idea for error estimate: statistical sample $\rArr$ use standard deviation as error estimate
+  $$
+    \langle E_f(N)\rangle=\sigma=\left[\frac{\langle f^2\rangle_{a,b}-\langle f\rangle_{a,b}^2}N\right]^{1/2}
+  $$
+  ![](./imgs/MC-integration%20convergence.png)
+
+#### Comparing convergence rates in numerical integration
+- Interesting question: How do error estimates scale with the number of function calls?
+- May become crucial, if function calls "expensive"
+- Trapezium: $\sim N^{-2 / d}$, Simpson: $\sim N^{-4 / d}$, MC: $\sim N^{-1 / 2}$ for d dimensions
+- Therefore: For $d \leq 8$ dimensions MC wins!
+- Method of choice for high-dimensional integration
+
+#### Summary
+- When to favour higher-order over lower-order and vice versa?
+  - integral needed only once: knowing accuracy important convergence
+  - Integral needs evaluating many times  
+    In general: smooth function $\rarr$ use higher-order method non-smooth function $\rarr$ use low-order method
+- Very smooth function: use Gaussian integration
+
+#### Application - Hyperspheres
+
+> Hypersphere is a sphere in $d > 3$ dimensions
+
+- Volume in spherical coordinates:
+  $$
+    V_d = \int^R_0 r^{d-1} dr \int d \Omega_n = \frac{R^d}{d} \int d\Omega
+  $$
+  R is radius of the sphere, $\int d \Omega_n$ is the 'angular bit'
+
+##### Analytical calculation
+
+- Transform to d-dimensional polar coordinates
+  $$
+    \begin{aligned}
+    &x_{1}=&& r\sin\theta_1\sin\theta_2\ldots\sin\theta_{d-3}\sin\theta_{d-2}\sin\theta_{d-1} \\
+    &x_{2}=&& = r\sin\theta_1\sin\theta_2\ldots\sin\theta_{d-3}\sin\theta_{d-2}\cos\theta_{d-1} \\
+    &x_{3}=&& r\sin\theta_1\sin\theta_2\ldots\sin\theta_{d-3}\cos\theta_{d-2} \\
+    ... \\
+    &x_{d-1}&& =-r\sin\theta_1\cos\theta_1 \\
+    &x_{d}=&& =-r\cos\theta_1 \\
+    \end{aligned}
+  $$
+- Volume elements:
+  $$
+    \mathrm{d}V_d=\intop_0^Rr^{d-1}\mathrm{d}r\left[\prod_{i=1}^{d-2}\intop_0^\pi\sin^{d-1-i}\theta_i \mathrm{d}\theta_i\right]\intop_0^{2\pi}\mathrm{d}\theta_{d-1}
+  $$
+
+- For integral above, use(with $\beta = -\frac{1}{2}$)
+  $$
+    \int^\pi_0 \sin^{2\alpha + 1}(x)\cos^{2\beta+1}(x)dx = \frac{\Gamma(\alpha+1)\Gamma(\beta+1)}{\Gamma(2+\alpha+\beta)}
+  $$
+
+- Therefore volume of d-dimension Hypersphere
+  $$
+    V_d=\frac{\pi^{d/2}R^d}{\Gamma\left(1+\frac d2\right)}
+  $$
+
+- Remember Gaussian integral: $\int_{-\infty}^\infty\exp(-x^2) \mathrm{d}x=\pi^{1/2}$
+- Therefore:
+  $$
+    \begin{aligned}\left(\int_{-\infty}^\infty\exp(-x^2) \mathrm{d}x\right)^n&=\quad\pi^{n/2}\\&=\quad\int_0^\infty r^{n-1} \exp(-r^2)\mathrm{d}r \int d\Omega_n\end{aligned}
+  $$
+
+- But $\int_0^\infty r^{n-1}\exp(-r^2)\mathrm{d}r=\Gamma(n/2)/2$
+- Therefore
+  $$
+    \int\mathrm{d}\Omega_n=\frac{2\pi^{n/2}}{\Gamma(n/2)}
+  $$
+
+##### The $\Gamma$-function
+
+- Properties:
+  - $\Gamma(x+1)=x\Gamma(x)$, for $n \in N$: $\Gamma(n+1)=n!$
+  - $\Gamma(1/2)=\sqrt{\pi}$, $\Gamma(1+n/2) = \sqrt{\pi / 2^{n+1}}n!!$
+- Integral representation:
+  $$
+    \Gamma(z) = \int^\infin_0 t^{z-1}e^{-t} dt = \int^1_0 (\ln\frac{1}{u})^{z-1} du
+  $$
+- First derivative:
+  $$
+    \Gamma^{\prime}(z)=\Gamma(z)\psi^{(0)}(z)=\Gamma(z)\left[\intop_{0}^{1}\mathrm{d}t\frac{1-t^{z-1}}{1-t}-\gamma_{E}\right]
+  $$
+  where Euler-Mascheroni number $\gamma_E = 0.577215665$  
+  ![](./imgs/Volume%20of%20unit%20hyperspheres.png)
+
+
+## Lecture 6 - Random Walks
+
+### Random systems
+
+- Motivation
+  - Random system are described **probabilistically** rather than **deterministically**. Probabilistic means described by a **probability distribution**  
+    随机系统是通过概率性而非确定性来描述的，概率性描述意味着用一个概率分布来表述系统。
+  - Two generic cases of system that are described probabilistically
+    - Quantum mechanical system
+      > wave function descirbes probability of being in a given state
+    - System with large number of degrees of freedom(dof)
+      > deterministic describption impossible: equations cannot be solved and initial conditions cannot be determined anyway.  
+      > Examples: Brownian motion, stirring of creeam in coffee or tea
+  - 'Random' has well defined meaning: probability distribution is known result of computation is mean value and dispersion around mean, rather tahn detailed 'microscopic' state
+
+- Pseudo-random numbers 伪随机数
+  - Desired: generate a set of numbers that correctly sample a given probability distribution
+    > Example: random numbers uniform in the interval $x = [0,1]; P(x) = 1$  
+    > return a random set of choices from a given set
+  - Extensive literature for generating 'pseudo' random numbers
+    > set of numbers that samples a distribution function without **artificail correlations** or **periodicity**  
+    > Pseudo random numbers because any random number generator does have artificial correlations
+  - Seed: often it is useful to be able to generate the same random sequence multiple times. This can be done by starting the random sequence from a given seed
+
+- Random walk
+  - 1D: each step changes the location of the walker by $\pm 1$
+  - nD: randomly choose dimension to step in
+  > Pseudo-code
+  > - Initialise: start m random walkers at $x = 0, i = 0, 1, ..., m - 1$
+  > - Calculations:
+  >   - For each walker: coose direction to step in
+  >   - After each (time) step t compute
+  >     - the mean displacement $\langle x(t)\rangle$
+  >     - the mean squared displacement $\langle x^2(t)\rangle$
+  > - Plot the results
+  - Results
+    - 'No' identical random walkers
+    - Average(signed) displacement of all random walkers
+      $$
+        \langle x(t)\rangle = 0
+      $$
+      as expected, since $\Delta x = + 1$ equally likely as $\Delta x = -1$
+    - Average mean squared displacement
+      $$
+        \langle x^2(t)\rangle=t ;\quad\langle x(t)^2\rangle^{1/2}\propto t^{1/2} .
+      $$
+      - **Increases linearly** in time meaning with the number of steps taken
+      - Closely realted to the physics of **diffusion**
+  - Analytical analysis
+    - Write the position of walker after n steps as:
+      $$
+        x_{n}=\sum_{i=1}^{n}s_{i} ,\quad\mathrm{where~} s_{i}=\pm1 \mathrm{with~equal~probability}\\\langle s_{i}\rangle=0 ;\quad\langle s_{i}^{2}\rangle=1 ;\quad\langle s_{i}s_{j}\rangle=0 \mathrm{if} i\neq j
+      $$
+    - Therefore
+      - $\langle x_n\rangle=\sum_{i=1}^n\langle s_i\rangle=0$
+      - $\langle x_n^2\rangle=\langle\sum_{i=1}^n\sum_{j=1}^ns_is_j\rangle=\sum_{i=1}^n\langle s_i^2\rangle+\sum_{i=1}^n\sum_{j>i}^n\langle s_is_j\rangle=n+0 = n$
+    - Assume duration of each step is $\Delta t$, $\langle x_n^2\rangle=n=\frac t{\Delta t}$
+      > $\langle x_n^2\rangle $ incerases linearly with time t
+
+### The diffusion equation
+
+- Introduction
+  - Consider the continuity equation
+    $$
+      \frac{\mathrm{d}\rho}{\mathrm{d}t}=-\nabla\mathbf{j}=-\nabla\rho\mathbf{v}
+    $$
+  - In diffusion, flux is proportional the gradient of $\rho$
+    $$
+      j=-D\nabla\rho 
+    $$
+    diffusion from high to low density. D > 0
+  - Combining these yields the diffusion equation
+    $$
+      \frac{\mathrm{d}\rho}{\mathrm{d}t}=+D\nabla^2\rho 
+    $$
+    provided the diffusion coefficient, D, is uniform - the same everywhere in space
+
+### Random walks connection to diffusion
+
+- Consider random walk on 2D lattice with spacing $\Delta x$
+- Let $P_{ij}(n)$ be the probability to find the walker at lattice position ij after n steps
+- At step n - 1, there is an equal probability ot find the walker at any of its 2N neighbouring sites
+  > N is the dimension, consider below N = 2
+  Therefore
+  $$
+    P_{ij}(n)=\frac{1}{4}\left[P_{i-1j}(n-1)+P_{i+1j}(n-1)+P_{ij-1}(n-1)+P_{ij+1}(n-1)\right]
+  $$
+- This can be re-written as
+  $$
+    \begin{aligned}&P_{ij}(n)-P_{ij}(n-1)\\&=\quad\frac{1}{4}\left[P_{i-1j}(n-1)-2P_{ij}(n-1)+P_{i+1j}(n-1) +P_{ij-1}(n-1)-2P_{ij}(n-1)+P_{ij+1}(n-1)\right]\end{aligned}
+  $$
+
+We can convert this to the diffusion equation as follows
+- Define time $t = n\Delta t$
+  $$
+    \begin{aligned}
+    P(n)-P(n-1)& =\quad P(\frac t{\Delta t})-P(\frac{t-\Delta t}{\Delta t}) \\
+    &\approx\quad\Delta t \frac{\mathrm{d}P(t)}{\mathrm{d}t}
+    \end{aligned}
+  $$
+- Similarly, define position $x = i\Delta x$
+  $$
+    P_{i-1}-2P_i+P_{i+1}\approx(\Delta x)^2\frac{\mathrm{d}^2P(x)}{\mathrm{d}x^2}
+  $$
+- Combining these yields the diffusion equation,
+  $$
+    \dot{P}(t)=\frac{\Delta x^2}{2N\Delta t}\nabla^2P
+  $$
+  the diffusion constant is $D=\frac{\Delta x^2}{2N \Delta t}$, where N is the dimension of the lattice
+
+  
