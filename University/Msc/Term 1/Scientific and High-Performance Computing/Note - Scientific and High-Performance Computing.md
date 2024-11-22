@@ -2216,6 +2216,212 @@ $\rArr$ Fork can be read as one-to-all information propagation (done implicitly 
 
 > Collective operation: A collective operation is an operation that involves multiple cores/threads
 
+- Any synchronisation is a collective operation
+- BSP/OpenMP implicitly synchronises threads, i.e. we have used synchronisation
+- Synchronisation however does not compute any value
 
+```cpp
+double result = 0.0;
+#pragma omp parallel
+{
+  double myResult = 0.0;
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    myResult += a[i] * b[i];
+  }
+  #pragma omp barrier
+}
+```
+
+- The above fragment synchronises all threads
+- This type is a special type of a collective operation
+- Barriers are implicitly inserted by BSP programming model
+
+```cpp
+double result = 0.0;
+#pragma omp parallel
+{
+  double myResult = 0.0;
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    myResult += a[i] * b[i];
+  }
+  #pragma omp critical
+  result += myResult;
+}
+```
+
+- The above fragment mimics an all-to-one operation (all threads aggregate their data in the manager threads result variable)
+- This type is called reduction which is a special type of a collective operation
+- OpenMP provides a special clause for this
+
+#### Reduction operator
+
+- We have been looking at various ways to combine the results from parallel computation on a group of threads into a single value
+- This is a classic parallel computing communication pattern – think about computing the norm of a vector!  
+$\rArr$ This pattern is called a reduction
+- Thread communication relies on shared memory
+- Writing this communication manually is tedious – OpenMP provides a clause:
+
+```cpp
+#pragma omp parallel for reduction([operator]:[variable])
+```
+
+- Some restrictions for reduction:
+  - operator must be binary associative; e.g., a ⇥ (b ⇥ c) ⌘ (a ⇥ b) ⇥ c
+  - operator must have an identity value for initialisation – e.g., 1 for ⇥
+  - variable must be built-in type – e.g., int or double
+  - variable must not appear in (other) data clauses – reduction takes primacy
+
+#### Reduction pragma
+
+```cpp
+double result = 0;
+#pragma omp parallel for reduction(+:result)
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i];
+}
+```
+
+#### Performance
+
+```cpp
+double result = 0.0;
+#pragma omp parallel
+{
+  double myResult = 0.0;
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    myResult += a[i] * b[i];
+  }
+  #pragma omp critical
+  result += myResult;
+}
+```
+
+![](imgs/2024-11-22-12-15-32.png)
+
+```cpp
+double result = 0;
+#pragma omp parallel for reduction(+:result)
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i];
+}
+```
+
+![](imgs/2024-11-22-12-15-50.png)
+
+#### Concept of building block
+
+- Content
+  - Introduce term collective
+  - Introduce reduction syntax
+  - Study (potential) impact of reduction feature
+- Expected Learning Outcomes
+  - The student knows of reductions in OpenMP and their variants
+  - The student can identify reductions in given codes
+  - The student can program with reductions
 
 ### Tasks
+
+#### My work is more varied than iterating over a loop...
+
+Sometimes we will have a large set of loosely-related subproblems with relatively shallow dependencies.
+
+Or sometimes we will have multiple computations which are independent, but need to be combined in some way for another computation.
+
+The archetypal parallelization method for this type of problem is tasking.
+
+#### If not all threads shall do the same
+
+A manual task implementation:
+```cpp
+#pragma omp parallel for schedule(static:1)
+for (int i=0; i<2; i++) {
+  if (i==0) {
+    foo();
+  }
+  else {
+    bar();
+  }
+}
+```
+
+Shortcomings:
+- Syntactic overhead
+- If bar depends at one point on data from foo, code deadlocks if ran serial
+- Not a real task system, as two tasks are synchronised at end of loop
+
+#### Task example
+
+```cpp
+#pragma omp parallel
+{
+  #pragma omp single
+  {
+    #pragma omp task
+    {
+    printf( "Task A\n" );
+    printf( "we stop Task A now\n" );
+    #pragma omp task
+    {
+      printf( "Task A.1\n" );
+    }
+    #pragma omp task
+    {
+      printf( "Task A.2\n" );
+    }
+    #pragma omp taskwait
+      printf( "resume Task A\n" );
+    }
+    #pragma omp task
+    {
+      printf( "Task B\n" );
+    }
+    #pragma omp taskwait
+    #pragma omp task
+    printf( "Task A and B now have finished\n" );
+  }
+}
+```
+
+![](imgs/2024-11-22-12-18-45.png)
+
+- Either ‘Task A’ or ‘Task B’ lines print first
+- Task A stop line always follows ‘Task A’
+- ‘Task A.1’ and ‘Task A.2’ should precede ‘resume Task A’
+- ‘Task A and B have finished’ is always last
+
+#### Task communication
+
+- Tasks may communicate through shared memory
+- Critical sections remain available
+
+```cpp
+#pragma omp parallel
+{
+  #pragma omp single
+  {
+    #pragma omp task
+      foo();
+    #pragma omp task
+      bar();
+  }
+}
+```
+
+Observations:
+- OpenMP pragmas are ignored if we compile without OpenMP  
+$\rArr$ Code still deadlocks if bar depends on  
+$\rArr$ Should work with OMP NUM THREADS=1
+- There is still an implicit join where omp parallel terminates  
+$\rArr$ Task paradigm is embedded into fork-join model
+
+#### Concept of building block
+
+- Content
+  - Introduce task parallelism
+  - Discuss task features compared to “real” tasking systems
+- Expected Learning Outcomes
+  - The student can analyse OpenMP’s task concept and upcoming features
+  - The student can write a task-based OpenMP code
