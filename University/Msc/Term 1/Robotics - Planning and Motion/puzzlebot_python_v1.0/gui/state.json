@@ -1,10 +1,10 @@
 {
     "ip": "192.168.1.1",
-    "world": "world_empty.json",
+    "world": "world01.json",
     "robot": "puzzlebot01.json",
     "pose": "0.0, 0.0, 0.0",
-    "module": "drive_straight",
-    "real": true,
+    "module": "driveToGoal",
+    "real": false,
     "path": true,
     "sensor": true,
     "robot_gui": "Puzzlebot"
