@@ -924,4 +924,1298 @@ We can convert this to the diffusion equation as follows
   $$
   the diffusion constant is $D=\frac{\Delta x^2}{2N \Delta t}$, where N is the dimension of the lattice
 
+## Lecture 7 - The lsing model
+
+### Introduction
+
+- Build-on previous lectures(random walks, cluster growth, percolation) by adding interactions between particles  
+  在之前的讲座（随机游走、团簇生长、渗透）的基础上，增加粒子间的相互作用
+- In addition, add a random component to mimic the effects of temperature on the system  
+  此外，增加一个随机组件来模拟温度对系统的影响
+- We will use this lsing model as a model for ferro-magnetism  
+  我们将使用这个 lsing 模型作为铁磁性的模型
+
+### Mathematical model
+
+- Consider a 2D square lattice with spins at each lattice site  
+  有一个二维正方晶格，每个晶格点都有一个自旋
+- Spins can have two values: $s_i = \pm 1$
+- Take into account only nearest neighbour interactions  
+  只考虑最近邻居的相互作用
+- Write total energy due to electron interactions as
+  $$
+    E = \sum\limits^N_{i = 1}E_i;\ E_i = -\frac{J}{2}\sum\limits_{j=i\pm1}s_is_j
+  $$
+  Sum $i$ runs over all N lattice sites on the square lattice, sum j runs over neighbours of $i$; factor $1/2$ to avoid double counting pairs.
+- $J$ is the exchange constant
+- Look at units: $\tilde{J}\times(\tilde{s})^2$ has dimension of energy, where $\tilde{s}$ is physical spin with units $\hbar$, and $\tilde{J}$ is the exchange constant
+- In our notation, $\tilde{s} = \frac{\hbar}{2}s$, so $\tilde{s}=\pm\frac\hbar2$ implies $s = \pm 1$
+- Therefore $\tilde{J}=\tilde{J}(\frac\hbar2)^2s^2\equiv Js^2$ and J has dimension of energy
+- Energy of lattice depends on whether spins are mostly aligned, or mostly random
+  - If all spins are aligned, $E = -2JN$ - lowest energy state
+  - If spins are random, $E \approx 0$
+
+Consider a 2D lattice of spins, at a given temperature, $T$. Temperature means electrons can jiggle about:  
+if $T$ is sufficiently high, spins can flip randomly
+- Probability of spin flip from state 1 $\rarr$ state 2  
+  is the Boltzmann factor
+  $$
+    \mathcal{P}_{12}\propto\exp\left(-\frac{E_{12}}{k_BT}\right)
+  $$
+  $E_{12} \equiv E_{2} - E_{1}$, the difference between the energy in the final state and initial state: $k_B$ is Boltzmann's constant
+- if $E_{2}<E_{1}\to E_{12}<0, P_{12}>P_{21}$ more likely to flip to lower energy state
+- if $|E_{12}|\ll k_{B} T, P_{12}\approx P_{21}$ at high $T$, flip in either direction equally likely
+
+Suppose we have a spin lattice at a given value of T. Spin may or may not flip. Which macroscopic quantities can we compute, and how are they related to the individual spin states?
+- For a given spin configuration, called 'micro states'
+  - Total energy: $E=-\frac j2\sum_{i=1}^Ns_i\left(\sum_{j=i\pm1}s_j\right)$ 
+  - Magnetisation: $M=\sum_i^Ns_i$
+    > M is dimensionless, get physcial magnetization by multiplying with electron's magnetic moment
+- A given value of T can correspond to many micro state. The macroscopic state's properties are
+  - $E=\sum_\alpha E_\alpha \mathcal{P}_\alpha$
+  - $M=\sum_\alpha M_\alpha P_\alpha$  
+  Weigh each micro state by its probability, $P_\alpha$  
+  Problematic because computational expensive: there are very many possible micro state
+- Need good way of calculating these macroscopic values - we discuss two of them
+
+### Mean Field Approximation
+
+> MFA - for `Mean Field Approximation`
+
+- Elegant method - but its predictions are not very accurate
+- MFA: Replace individual spins with average spin,  
+  $s_i=\pm1\to\langle s\rangle$
+  $$
+    M=\sum_is_i\longrightarrow M=\sum_i\langle s\rangle=N\langle s\rangle\equiv N\langle s_i\rangle 
+  $$
+- Works well for infinitely large system where all spins are equivalent
   
+- Add an external magnetic field
+  $$
+    E=-\frac J2\sum_{i=1}^N\left(\sum_{j=i\pm1}s_is_j\right)-\mu H\sum_is_i
+  $$
+  (External magnetic field H interacts with spins through their magnetic moment, $\mu$)
+- Apply this to a system with just one spin:
+  $$
+    E_\pm = \mp \mu H
+  $$
+  notice how $\pm \rarr \mp$: spin aligned with H has less energy than anti-aligned
+- This has two micro state, with probabilities $P_\pm = C \exp[\pm \frac{\mu H}{k_B T}]$
+- Determine normalisation C by requiring $P_+ + P_- = 1$
+  $$
+    \rArr C=\frac1{\exp\left(\frac{\mu H}{k_BT}\right)+\exp\left(-\frac{\mu H}{k_BT}\right)}=\frac1{2\cosh\left(\frac{\mu H}{k_BT}\right)}
+  $$ 
+- Therefore thermal average of the single spin:
+  $$
+    \langle s_i\rangle=\mathcal{P}_+-\mathcal{P}_-=\tanh\frac{\mu H}{k_BT}
+  $$
+
+- Having the solution for a single spin in a background field, we replace the background field with the average spins!
+  $$
+    E=-\sum_i\left(\frac{J}{2}\sum_{j=i\pm1}s_j+\mu H\right)s_i\equiv-\mu H_{\mathrm{eff}}\sum_is_i
+  $$
+- The effective magnetic field is therefore
+  $$
+    H_{\mathrm{eff}}=\frac J{2\mu}\sum_{j=i\pm1}s_j+H
+  $$
+- Mean field approximation: set $s_j\to\langle s\rangle$ and $H \rarr 0$:
+  $$
+    H_{\mathrm{MFA}}=\frac{nJ}{2\mu}\langle s\rangle 
+  $$
+  Here, n is the number of nearest neighbours, n = 4 in our 2D case
+- Combining this with $\langle s\rangle=\tanh\frac{\mu H_{\mathrm{MFA}}}{k_BT}$ yields a non-linear equation for $\langle s \rangle$
+  $$
+    \langle s\rangle=\tanh\left(\frac{T_c}T\langle s\rangle\right);\quad T_c\equiv\frac{nJ}{2k_B} .
+  $$
+  $T_c$ is called the critical temperature
+
+- Notice the two different regimes:
+  3 solutions $T < T_c$, left or 1 solution which = 0 $T > T_c$, right  
+  ![](./imgs/Mean%20Field%20Approximation.png)  
+  left panel: low T, magnetization, can be up, $\langle s \rangle = 1$, or down, $\langle s \rangle = -1$, or no magnetization, $\langle s \rangle = 0$  
+  right panel: high T, no net magnetization, $\langle s \rangle = 0$
+
+- Solve numerically $f(\langle s\rangle)=\langle s\rangle-\tanh\frac{T_c\langle s\rangle}\tau=0$  
+  ![](./imgs/Mean%20Field%20Approximation_1.png)
+
+- plot M in units of $M_{\max} = N$, and set $J = k_B$ for simplicity
+- Plots illustrates a phase transition at $T = T_c (T_c = 2J/k_B = 2)$ of second order  
+  meaning 1st derivative of order parameter, in this case magnetisation, is discontinous at transition
+- Around $T_c: \frac{dM}{dT} \rarr \infin$
+- Exact form of singularity from Taylor expansion of tanh:
+  $$
+    \tanh x=x-\frac{x^3}3+\mathcal{O}(x^4)
+  $$
+- Therefore, around $T = T_c$:
+  $$
+    \langle s\rangle=\frac{T_{s}}{T}\langle s\rangle-\frac{1}{3}\left(\frac{T_{s}}{T}\right)^{3}\langle s\rangle^{3}
+  $$
+
+- Examine behaviour around $T = T_c$: define $\mu \equiv \frac{T_c}{T} - 1$, with $0 < \mu \ll$
+  $$
+    \langle s\rangle=(3\eta)^{1/2}\propto(T_c-T)^{1/2}\propto(T_c-T)^\beta 
+  $$
+- Critical temperature and critical exponent:
+  $$
+    T_c=\frac{nJ}{2k_B};\quad\beta=\frac12
+  $$
+- Exact analytical (non MFA) result is:
+  $$
+    T_c=\frac{2.27J}{k_B};\quad\beta=\frac18
+  $$
+  for a square lattice with n = 4
+
+
+### Numerical treatment
+
+- Strategy very similar to what's been done before: Use a random number generator to decide whether to flip a spin  
+  spin flip probability is Boltzmann factor
+- Algorithm: loop over spins one at a time, decide whether it flips(compare $P_{flip}$ with number from RNG), repeat until M equilibrates
+- To calculate $P_{flip}$: Use energy of the two micro-states(beform and after flip) and Boltzmann factor
+- While running, evaluate observables directly and take thermal average(average over many steps)
+
+Layout of programme:
+1. Initialise the lattice, i.e. choose $s_i$ for each spin(either at random, or $s_i = 1\forall i$, or similar)
+2. Sweep over all spins
+   At each step, decide whether or not to flip spin:
+   - Calculate the system's energy $E = - J/2 \sum s_i s_j$
+     - for current spin state, energy $E_1$
+     - if spin were flipped, energy $E_2$
+   - Calculate $\Delta E = E_2 - E_1$
+     - $\Delta E < 0$: flip spin
+     - $\Delta E \leq 0$: flip spin if
+        $$
+          \exp\left(-\frac{\Delta E}{k_BT}\right)>\mathcal{R}
+        $$
+        where $R$ is a random number $\in [0,1]$
+3. Repeat step 2 until magnetization in equilibrium
+
+- Consider spin flips between states 1 and 2
+- Metropolis algorithm:
+  - Probability spin flip $1 \rarr 2$ is $P_{1 \rarr 2} = 1$
+  - Probability spin flip $2 \rarr 1$ is $P_{2 \rarr 1} = \exp(-\frac{E_1 - E_2}{k_B T}) \leq 1$
+- Analysis: Let $W_1$ be the fraction of spins in state 1 & $W_2$ for state 2  
+  The rate of transitions from $1 \rarr 2$ and vice versa is:
+  $$
+    R_{1 \rarr 2} = W_1P_{1 \rarr 2} = W_1 ; \quad R_{2 \rarr 1} = W_2P_{2\rarr1} = W_2 \exp(-\frac{E_1 - E_2}{k_B T})
+  $$
+  the product of the fraction of spins in a given state times the probability that a spin flips  
+  In thermal equilibrium, $R_{1 \rarr 2} = R_{2 \rarr 1}$, in which case  
+  $W_1/W_2=\exp(-(E_1-E_2)/k_BT)$ that is, states are occupied according to the Boltzmann distribution. Applying the Metropolis algorithm therefore drives systems to thermal equilibrium
+
+- Metropolis algorithm drives system to thermal equilibirium
+  $$
+    \frac{W_1}{W_2} = \exp(-(E_1 - E_2)/k_BT)
+  $$
+  $W_1$ and $W_2$ fraction of spin in states 1, and 2, with energies $E_1$ and $E_2$
+- In principle, all systems in thermal equilibrium can be studied with Metropolis - just need to write transition probabilities in accordance with detailed balance, as above.
+- Metropolis algorithm simulates the canonical ensemble by summing over micro-states with a Monte Carlo method
+
+Example of M as a function of sweep number
+- At choosen T, sweeps on an 10 $\times$ 10 lattice  
+  ![](./imgs/Numerical%20treatment.png)
+
+Analysis of result
+- At low temperature (T = 1 or T = 1.5 $\ll T_c \approx 2$): system quite stable, with small fluctuations around $M = M_{\max}$
+- At high temperature (T = 4 $\ll T_c \approx 2$): system has $M \approx 0$, with relatively large fluctuations around $M = 0$
+- At intermediate temperatures (T = 2) we see very large fluctuations
+- Close to the critical value (T = 2.25 $\approx T_c$) see even large fluctuations, with $M \approx 1$ for a large number of sweeps, followed by a jump to $M = -1$ for a large number of sweeps
+
+Phase transition - the MC look at things
+- Analyse 10 $\times$ 10 lattice as function of temperature  
+  ![](./imgs/Numerical%20treatment_1.png)  
+  As expected from MFA: when $T \ll T_c$: spins are aligned, $M \approx M_{\max}$  
+  When $T \gg T_c$ spins are not aligned, $M \approx 0$. Second-order phase-transition around $T = T_c \approx 2J/k_B$
+
+Discussion
+- Results above plotted when system is in equilibrium
+- critical slowdown around critical point:  
+  The system's time to equilibrate diverges(never in equilibrium)
+- Independent of this: Monte Carlo results in agreement with exact calculation and MFA calculation not very accurate but does describe generic behaviour correctly
+
+### Lecture 8 - Percolation
+
+#### Cluster growth: Eden model
+
+A useful description for the growth of a tumour of cancer cells - hence also known as the 'cancer' model
+- Start with a seed for example at location (x, y) = (0, 0)
+- Growth rule: any unoccupied nearest neighbour is equally eligible for growth  
+  'nearest neighbour' means differs by $\pm$ one step in x xor y(xor is exclusive or)  
+  pick any unoccupied nearest neighbour at random, and grow cluster
+- Repeat until cluster is finished, according to predefined size, number of sites included,...
+- Note: unoccupied neighbours can also refer to holes inside the cluster
+- After many steps, cluster is approximately circular, with a somewhat "fuzzy" edge and some holes in it.
+
+![](./imgs/Eden%20model.png)
+
+#### Cluster growth: DLA model
+
+DLA = diffusion limited aggregation - useful model for describing growth of a snowflake
+- Start with a seed for example at location (x, y) = (0, 0), as in the Eden model
+- Growth rule: Initialise a random walker at a large enough distance from the cluster an let it walk. The random walker is added to cluster when it hits it
+- Repeat as in Eden model
+- For efficient implementation: discard random walkers moving too far away or “direct” the walk towards the cluster
+- Resulting cluster has significantly different shape from an Eden cluster: a fluffy object of irregular shape, with filaments delineating large empty regions.  
+  Once a DLA cluster develops a hole, it becomes unlikely or even impossible for the hole to be filled in
+
+![](./imgs/DLA%20model.png)
+
+#### Cluster shape: fractal dimension
+
+Eden and DLA clusters have very different shape. One way to quantify a shape is by computing its fractal dimension
+- What is the dimension of an Eden or a DLA cluster?  
+  seems like a silly question - they are both 2D structures! So consider following examples.
+  - The mass of a disc with radius r is
+    $$
+      m(r)\propto r^2
+    $$
+  - The mass of a straight rod with length r is
+    $$
+      m(r)\propto r^1
+    $$
+- Therefor $m(r)\propto r^2$ (2D object, e.g. disc) and $m(r)\propto r$ (1D object. e.g. rod)
+- Suppose an object has $m(r)\propto r^d$
+- d is called the fractal dimension of the object
+
+![](./imgs/fractal%20dimension.png)
+
+mass increases as a power law in radius, until it saturates(becomes a constant) at large r when whole cluster is inside r and hence mass stops increasing with increasing r
+
+- $d \approx 1.99$ for an Eden cluster
+- $d \approx 1.65$ for a DLA cluster
+
+fits with our expectations: Eden cluster is almost a disc: its fractal dimension should be close to 2  
+DLA cluster more filamentary: has smaller dimension than a disc
+
+#### Percolation
+
+- Percolation as a physical process: for example the percolation of ground water through soil, percolation of oil oozing through a porous rock, a coffee percolator
+  Fluid follows a path through the substrate (ground, rock, coffee). In on one side, out on the other side.
+- Random processes where cells with a finite size within an area or volume are filled or activated closely related to cluster growth
+- Large number of applications in science and industry
+- Closely related to the physics of phase transitions  
+  e.g. liquid-solid transition when water freezers, but also ferro-magnetism discussed in next lecture
+- We'll simplify: lattice has finite size, the sites are filled randomly, etc. clearly can do better to get more realistic model
+
+Plcae green elements randomly on lattice, with some probability p. Clearly closely connected to cluster growth.
+- Lattice of dimension 40 $\times$ 40.  
+  ![](./imgs/Percolation.png)  
+  for p large enough, large cluster percolates - i.e. crosses the whole lattice left to right, or top to bottom, or both
+
+##### Percolation: phenomenology
+
+- Definition: cluster is structure of connected sites  
+  ‘sites’ are the particles discussed previously.  
+  ‘Connected’ means mutual nearest neighbours, $\Delta x = \pm 1$ xor $\Delta y = \pm 1$
+- At p = 0.2, most clusters contain 1-2 sites
+- At p = 0.4, most clusters contain 8-10 sites
+- At p = 0.8, most sites are in a single, large, cluster
+- Interesting transition occurs around a value of $p = 0.6$
+  - Typically at this value the first percolating cluster emerges  
+    a cluster that connects at least two opposite sides of the lattice. Whether or not there is a percolating cluster depends on actual distribution of occupied sites
+  - Presence of such a cluster indicates percolation
+  - Often, cluster stops percolating when only a few sites are removed
+  - Stated differently: Occupancy of single sites determines average cluster size $\rArr$ a phase transition  
+    between percolation and no percolation. See also next lecture on the Ising model.
+
+##### Percolation: numberical analysis
+
+- Analyse emergence of percolating cluster as function of p.
+- Transition between two regimes (no percolating cluster present, or percolating cluster
+present) is sharp and depends on size of lattice d in addition to p
+- In the limit of $L \rarr \infin$ (L is the size of the grid) the critical probability for appearance of a percolating cluster can be shown to be $p_c \approx 0.593$  
+  comfortingly close to the value of $p = 0.6$ we noticed
+- Simple brute force method: keep increasing number of sites, until a percolating cluster emerges. Record value of p. Repeat process many times.
+
+pseudo-code for cluster identification
+- Main routine:
+  1. Begin with an empty lattice, label all sites as empty, ’0’
+  2. Pick a site at random, label it as occupied, ’1’  
+     this is the ﬁrst site hence the ﬁrst cluster - label clusters consecutively
+  3. Repeat step 2 until a percolating cluster emerges  
+      Pick a site at random. Check for occupied neighbours:
+      - No neighbours $\rarr$ new cluster & new integer label for clusters
+      - Neighbour(s) $\rarr$ add to existing cluster or join existing clusters
+  4. If a spanning cluster has emerged keep track of pc , the fraction of occupied sites.
+
+Cluster labelling - pseudo-code(cont'd)
+- Bridging sites:  
+  For every bridging site (BS), examine occupied neighbours:
+  1. One occupied neighbour: BS inherits label of adjacent cluster.
+  2. Two or more occupied neighbours:
+    - Calculate minimum label of adjacent cluster labels, i
+    - BS inherits this number
+    - All adjacent clusters inherent label i
+      $\rArr$ merged cluster has unique label, i
+- Examine presence of a percolating cluster:  
+  For each cluster keep track of sites at edge of grid - need four booleans (top,bottom,left,right)
+
+value of critical probability, $p_c$ , as a function of 1/L, the inverse of the number of 1D lattice sites
+- Lattice with dimension L, sampled over 50L runs.
+- Statistical fluctuations, linear fit in agreement with 0.593 for 1/L $\rarr$ 0  
+  ![](./imgs/Percolation_numerical%20analysis.png)
+
+##### Percolation and phase transitions
+
+- **Examine the behaviour near the percolation threshold** $p_c$$
+- **Second order phase transition** (first derivative jumps).
+  - First-order phase transition involves latent heat, for example ice to liquid water. Both states (ice and liquid water) are present at the transition.
+  - Second-order phase transition: substance is in either one state or the other.
+- **Here**: transition between macroscopically connected and disconnected phases.
+- **Typical for phase transitions**: Singular behaviour of some properties, often described by power laws.
+- **Property in this case** is the fraction of occupied elements that is in the percolating clusters.  
+  Therefore, percolation is a second-order phase transition: percolating cluster is either present, or not present!
+
+‘rel. occupancy of spanning’ is the ratio F , where F is the number of sites in the percolating cluster / total number
+of occupied sites
+- Results for L = 25 square lattices  
+  ![](./imgs/Percolation%20and%20phase%20transitions.png)
+
+- Number of percolating clusters and their relative occupancy drops very steeply at around 0.6.
+- Write this as $N = N_0 (p - p_0)^\gamma$ where $N$ is the number of percolating clusters and $F = F_0 (p - p_0)^\beta$, where $p_0$, $N_0$, $\gamma$, $F_0$, and $\beta$ are fitting parameters.
+- $\beta$ and $\gamma$ are known as critical exponents (more in lecture 8).
+- Guess: $\text{d}\{F, N\} / \text{d}p \to \infty$ for $p \to p_0$.
+- For infinitely large lattices, finite size effects are unimportant, and $p_0 \to p_c$ as $d \to \infty$.
+- Also for $d \to \infty$: for all two-dimensional lattices
+  $$\beta = \frac{5}{36}.$$
+- Also: $F \to 0$ for $d \to \infty$  
+  $\iff$ the percolating cluster has infinite size but zero volume – a fractal!
+
+------
+------
+------
+
+## Week 6
+
+### No free lunch
+
+Moore's Law: The complexity for minimum component costs has increased at a rate of roughly a factor of two per year  
+摩尔定律：最低组件成本的复杂性每年大约增加一倍
+
+### Flynn's taxonomy
+
+- **Instruction stream**: sequence of commands (top-down classification)
+- **Data stream**: sequence of data (left-right classification)
+
+The combination of data stream and instruction stream yields four combination
+- SISD
+- SIMD
+- MISD
+- MIMD
+
+SISD
+- SISD architecture: One ALU and one activity a time
+  - Runtime: (2 · load + add + store) · N
+  - Usually load, add, store require multiple cycles (depend both on hardware and environment such as caches; cf. later sessions)
+  > This is the model of a computer most people will typically employ when reasoning about their program – a sequence of operations, completing in order, without the details of data locality or hardware.
+
+MIMD
+  > MIMD describes many processors working on their data independently.  
+  >
+  > Thus MIMD is frequently thought about as multiple SISD computers working collaboratively on sub-problems.
+- SPMD - Single Program Multiple Data
+  - Not a hardware type but a programming paradigm
+  - All chips run same instruction stream, but they might process different steps at the same time (no sync)
+  - But: MIMD doesn’t say that we have to run the same program/algorithm everywhere
+
+SIMD
+- ALU: One activity a time
+- Registers: Hold two pieces of data (think of two logical regs)
+- Arithmetics: Update both sets at the same time
+- Runtime: (4 · load + add + 2 · store) · N/2
+- load, add, store slightly more expensive than in SIMD
+- load and store can grab two pieces of data in one rush when they are stored next to each other
+
+> SIMD operates at a lower level of hardware parallelism than the CPU core – it operates at the level of execution units (ALU & FPU). Likewise, it is frequently preferable to implement SIMD parallelism automatically, using compiler optimization or #pragmas.
+
+#### AVE/SSE
+
+Vectorisation: Rewrite implementation to make it work with small/tiny vectors.
+- Extension to four or eight (single precision) straightforward
+- Technique: Vectorisation/vector computing
+- Hardware realisation: Large registers holding multiple (logical) registers
+
+SSE
+- SSE = Streaming SIMD Extension
+- SIMD instruction instruction set introduced with Pentium III (1999)
+- Answer to AMD’s 3DNow (computer games)
+- Concept stems from the days when Cray was a big name
+- Around 70 single precision instructions
+- AMD implements SSE starting from Athlong XP (2001)
+
+AVX
+- Double number of registers
+- However, multiple cores might share registers (MIC)
+- Operations may store results in third register (original operand not overwritten)
+- AVX 2–AVX512: Gather and scatter operations and fused multiply-add
+
+#### Classification
+
+- SISD
+  - von Neumann’s principle
+  - classic single processors with one ALU
+  - one instruction on “one” piece of data a time
+- MIMD
+  - classic multicore/parallel computer: multiple SISD
+  - asynchronous execution of several instruction streams (though it might be copies of the same program)
+  - they might work on same data space (shared memory), but the processors do not (automatically) synchronise
+- SIMD
+  - synchronous execution of one single instruction
+  - vector computer: (tiny) vectors
+- MISD
+  - pipelining (we ignore it here)
+
+#### Flynn’s taxonomy: lessons learned/insights
+
+- All three paradigms are often combined (see Haswell above)
+- There is more than one flavour of hardware parallelism
+- There is more than one parallelisation approach
+- MIMD substypes:
+  - shared vs. distributed memory
+  - races vs. data inconsistency
+  - synchronisation vs. explicit data exchange
+
+### Speedup laws
+
+We are usually interested in two metrics:
+- Speedup: Let t(1) be the time used by one processor. t(p) is the time required by p processors. The speedup is
+  $$
+    S(p) = \frac{t(1)}{t(p)}
+  $$
+
+- Efficiency: The efficiency of a parallel application is
+  $$
+    E(p) = \frac{S(p)}{p}
+  $$
+
+Amdahl's Law
+$$
+  t(p)=f\cdot t(1)+(1-f)\frac{t(1)}p
+$$
+Ideas:
+- Focus on simplest model, i.e. neglect overheads, memory, . . .
+- Assume that code splits up into two parts: something that has to run serially (f ) with aremaining code that scales
+- Assume that we know how long it takes to run the problem on one core.
+- Assume that the problem remains the same but the number of cores is scaled up
+
+Remarks:
+- We do not change anything about the setup when we go from one to multiple nodes. This iscalled strong scaling.
+- The speedup then derives directly from the formula.
+- In real world, there is some concurrency overhead (often scaling with p) that is neglected here.
+
+![](imgs/2024-11-19-23-08-10.png)
+
+- Given f as the serial fraction, and $t(p) = t(1)(1 + \frac{1 - f}{p})$
+- Then $S(p) = \frac{1}{f+\frac{1 - f}{p}}$
+- The speedup is limited by the serial fraction: $\lim_{p\rarr\infty}S(p) = \frac{1}{f}$
+
+Gustafson's Law
+$$
+  t(1) = f · t(p) + (1 - f)t(p)·p
+$$
+Ideas:
+- Focus on simplest model, i.e. neglect overheads, memory, . . .
+- Assume that code splits up into two parts (cf. BSP with arbitary cardinality): something that hasto run serially (f ) and the remaining code that scales.
+- Assume that we know how long it takes to run the problem on p ranks.
+- Derive the time required if we used only a single rank.
+
+Remarks:
+- Single node might not be able to handle problem and we assume that original problem is chosensuch that whole machine is exploited, i.e. problem size is scaled. This is called weak scaling.
+- The speedup then derives directly from the formula.
+- In real world, there is some concurrency overhead (often scaling with p) that is neglected here.
+
+![](imgs/2024-11-19-23-12-03.png)
+
+- Perfect weak scaling matches the number of processes to the amount of work to do – giving a constant run time rather than shorter with more processors
+- Given, $t(1) = t(p)f + p(1 - f)t(p)$, then $S(p) = f + (1 - f)p$
+
+Shortcomings of simple performance models
+- These are very simple performance models with a number of assumptions.
+  - That a program can be split into two separate parts which can be treated independently.
+  - That changing a program to run in parallel will not affect the serial part.
+  - That there is no communication overhead, or parallel management which scales with p.
+  - That every processor in p is precisely the same, and experiencing the same environment.
+- Frequently, real programs will change behaviour significantly when made parallel on the same hardware – e.g., due to frequency scaling or cache effects.
+  - Computers are much more than a collection of loose CPU cores!
+  - Phone SoCs are a great example of heterogeneity and ‘the other parts’ leading to dramatically improved performance.
+- Is time the most relevant metric anymore?
+- Some problems simply react differently to parallelisation!
+
+### Parallelisation concepts
+
+Typically in HPC, we have a problem which is well-speciﬁed (e.g. in a serial program) but the current approach is insufﬁcient for some reason:
+1. Serial is too slow; we need a fast solution
+2. Problem is too small; Need to solve a larger or more accurate version
+3. Solution is inefﬁcient; we need it solved more efﬁciently
+
+There are typically three approaches to applying parallel computing to the serial problem (not mutually exclusive):
+- Better align with existing hardware capabilities (e.g., SIMD, caches)
+- Split the computation so that multiple cores can work on subproblems
+- Split the data so that multiple machines can be used to solve parts of the problem simultaneously (distributed memory parallelism)
+
+In every approach, some degree of collaborative of competitive concurrency or parallelism is possible.
+
+Programming techniques: For each parallelisation paradigm, there are many programming techniques/patterns/paradigms.
+
+#### BSP
+
+**BSP**: Bulk-synchronous parallelism is a type of coarse-grain parallelism where interprocessor communication follows the discipline of strict barrier synchronization. Depending on the context, BSP can be re- garded as a computation model for the design and analysis of parallel algorithms, or a programming model for the development of parallel software.
+
+Remarks:
+- Other name: Fork-join model
+- No communication in original model
+- Superstep
+
+Terminology:
+- Bulk
+- Fork
+- Join/Barrier/Barrier synchronisation
+- Grain size (how many subproblems per thread)
+- Superstep
+
+Analysis:
+- Parallel fraction f
+- Max. concurrency
+- Fit to strong and weak scaling
+
+#### SPMD
+
+*SPMD*: Single program multiple data is a type of coarse-grain parallelism where every single compute unit runs exactly the same application (though usually on different data). The may communicate with each other at any time. Depending on the context, SPMD can be regarded as a computation model for the design and analysis of parallel algorithms, or a programming model for the development of parallel software.
+
+#### Pipelining
+
+**Pipelining**: In computing, a pipeline is a set of data processing elements connected in series, where the output of one element is the input of the next one. The elements of a pipeline are often executed in parallel.
+
+Applications:
+- Assembly line
+- Graphics pipeline
+- Instruction pipeline (inside chip) / RISC pipeline
+- Now coming back into fashion (PyTorch, Gpipe; Huang et al) for large ML model training
+
+### OpenMP
+
+- abbreviation for Open Multi Processing
+- allows programmers to annotate their C/FORTRAN code with parallelism specs
+- portability stems from compiler support
+- standard defined by a consortium (www.openmp.org)
+- driven by AMD, IBM, Intel, Cray, HP, Nvidia, . . .
+- “old” thing currently facing its fifth (5.2) generation (1st: 1997, 2nd: 2000; 3rd: 2008; 4th: 2013, 5th: 2018)
+- standard to program embarrassingly parallel accelerators – i.e., GPGPU We’ve come a long way from manual loop unrolls in OpenCL...
+- Way to iteratively parallelise serial code by identifying opportunities for concurrency
+
+```cpp
+const int size = ...
+int a[size];
+#pragma omp parallel for
+for(int i=0; i<size; i++){
+  a[i] = i;
+}
+```
+```bash
+$ gcc -fopenmp test.c
+$ export OMP_NUM_THREADS = 4
+$ ./a.out
+```
+
+- Code runs serially until it hits the #pragma
+- System splits up for loop into chunks (we do not yet know how many)
+- Chunks then are deployed among the available (four) threads
+- All threads wait until loop has terminated on all threads, i.e. it synchronises the threads ) bulk synchronous processing (bsp)
+- Individual threads may execute different instructions from the loop concurrently (designed for MIMD machines)
+
+#### OpenMP execution model
+
+Explicit scoping: 显式作用域
+```cpp
+#pragma opm parallel
+{
+  for(int i=0; i<size; i++){
+    a[i] = i;
+  }
+}
+```
+
+Implicit scoping: 隐式作用域
+```cpp
+#pragma opm parallel
+for(int i=0; i<size; i++){
+  a[i] = i;
+}
+```
+
+- Manager thread vs. worker threads
+  - 管理线程与工作线程
+- Fork/join execution model with implicit synchronisation (barrier) at end of scope
+  - 在范围末尾具有隐式同步（屏障）的分叉/合并执行模型
+- Nested parallel loops possible (though sometimes very expensive)
+  - 可以嵌套并行循环（尽管有时非常昂贵）
+- Shared memory paradigm (everybody may access everything)
+  - 共享内存范例（每个人都可以访问所有内容）
+
+#### Some OMP functions
+
+```cpp
+int numberOfThreads = omp_get_num_procs();
+
+#pragma omp parallel for
+for(int i=0; i<size; i++){
+  int thisLineCodeIsRunningOn = omp_get_thread_num();
+}
+```
+
+- No explicit initialisation of OpenMP required in source code
+  - 源代码中无需显式初始化 OpenMP
+- Abstracted from hardware threads—setting thread count is done by OS
+  - 从硬件线程中抽象出来 — 设置线程数由操作系统完成
+- Error handling (to a greater extent) not specified by standard
+  - 标准未指定错误处理（在更大程度上）
+- Functions almost never required (perhaps for debugging)
+  - 几乎从不需要函数（可能用于调试）
+
+#### OpenMP function example
+
+```cpp
+#include <stdio.h>
+#include <omp.h>
+int main(void)
+{
+  int mthread = omp_get_max_threads();
+  int nthread = omp_get_num_threads();
+  int thread;
+  #pragma omp parallel private(thread) shared(mthread, nthread)
+  {
+    thread = omp_get_thread_num();
+    printf("Hello, World! I am thread %d of %d of %d\n",
+thread, nthread, mthread);
+  }
+  return 0;
+}
+```
+- `omp get max threads()` – maximum number of threads, in this case reads OMP NUM THREADS
+- `omp get num threads()` – current number of threads, in this case 1
+- `omp get thread num()` – current thread index, in this case between 1 & OMP NUM THREADS
+
+#### Parallel loops in action
+
+```cpp
+#pragma omp parallel
+{
+  for(int i=0; i< size; i++){
+    a[i] = a[i]*2;
+  }
+}
+
+#pragma omp parallel for
+{
+  for(int i=0; i< size; i++){
+    a[i] = a[i]*2;
+  }
+}
+```
+
+Observations:  
+观察：
+- Global loop count is either size or threads·size
+  - 全局循环计数为大小或线程·大小
+- We may run into race conditions
+  - 我们可能会遇到竞争条件
+- These result from dependencies (read-write, write-read, write-write) on a[i]
+  - 这些是由 a[i] 上的依赖关系（读写、写读、写写）引起的
+
+#### Parallel loops and BSP
+
+```cpp
+#pragma omp parallel
+{
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    a[i] = a[i]*2;
+  }
+}
+```
+
+- omp parallel triggers fork technically, i.e. spawns the threads
+  - omp parallel 从技术上触发 fork，即生成线程
+- for decomposes the iteration range (logical fork part)
+  - for 分解迭代范围（逻辑 fork 部分）
+- omp parallel for is a shortcut
+  - omp parallel for 是一种快捷方式
+- BSP’s join/barrier is done implicitly at end of the parallel section
+  - BSP 的连接/屏障在并行部分末尾隐式完成
+
+#### Requirements for parallel loops
+
+```cpp
+#pragma omp parallel for
+{
+  for( int i=0; i<size; i++ ) {
+    a[i] = a[i]*2;
+  }
+}
+```
+- Loop has to follow plain initialisation-condition-increment pattern:
+  - 循环必须遵循简单的初始化条件递增模式：
+  - Only integer counters
+    - 仅整数计数器
+  - Only plain comparisons
+    - 仅简单比较
+  - Only increment and decrement (no multiplication or any arithmetics)
+    - 仅递增和递减（无乘法或任何算术）
+- Loop has be countable (otherwise splitting is doomed to fail).
+  - 循环必须是可数的（否则拆分注定会失败）。
+- Loop has to follow single-entry/single-exit pattern.
+  - 循环必须遵循单入口/单出口模式。
+
+```cpp
+#pragma omp parallel
+{
+  #pragma omp for
+  for(int i=0;i<size; i++){
+    a[i] = a[i]*2;
+  }
+}
+```
+
+- No assumptions which statements run technically concurrent
+  - 不假设哪些语句在技术上是并发运行的
+- Shared memory without any consistency model
+  - 共享内存，没有任何一致性模型
+- No inter-thread communication (so far)
+  - 没有线程间通信（到目前为止）
+$\rArr$ Data consistency is developer’s responsibility  
+  $\rArr$ 数据一致性是开发人员的责任
+
+#### Concept of building block: OpenMP Introduction
+
+- Content
+  - OpenMP syntax basics
+  - OpenMP runtime model
+  - OpenMP functions
+- Expected Learning Outcomes
+  - The student can translate and use an application with OpenMP support
+  - The student can explain with the OpenMP execution model
+- Further Reading:
+  - We will not talk about vectorisation (using OpenMP or otherwise) in this course, but a good resource for an introduction (and many other topics!) is here: Algorithmica https://en.algorithmica.org/hpc/
+
+### Loop scheduling
+
+#### Remaining agenda
+
+Starting point:
+- Data analysis allows us to identify candidates for data parallelism/BSP
+- Concurrency analysis plus speedup laws determine potential real-world speedup
+- OpenMP allows us to annotate serial code with BSP logic
+
+Open questions:
+- How is work technically split?
+- How is work assigned to compute cores?
+- What speedup can be expected in practice?
+
+> **Scheduling**: Assign work (loop fragments) to threads.
+>
+> **Pinning**: Assign thread to core.
+
+#### Technical remarks
+
+On threads:
+- A thread is a logically independent application part, i.e. it has its own call stack (local variables, local function history, . . . )
+- All threads share one common heap (pointers are replicated but not the area they are pointing two)
+- OpenMP literally starts new threads when we hit parallel for ) overhead
+- OpenMP hides the scheduling from user code
+
+On cores:
+- Unix cores can host more than one thread though more than two (hyperthreading) becomes inefficient
+- Unix OS may reassign threads from one core to the other ) overhead
+- Unix OS can restrict cores-to-thread mapping (task affinity)
+- Unix OS can be forced to keep cores-to-thread mapping (pinning)
+
+#### Grain size
+
+> **Grain size**: Minimal size of piece of work (loop range, e.g.).
+
+- Concurrency is a theoretical metric, i.e. machine concurrency might/should be smaller
+- Multithreading environment thus wrap up multiple parallel tasks into one job
+- Grain size speciﬁes how many tasks may be fused
+
+Technical mapping of tasks
+- Each thread has a queue of tasks (jobs to do)
+- Each job has at least grain size
+- Each thread processes tasks of its queues (dequeue)
+- When all task queues are empty, BSP joins
+
+#### Static scheduling
+
+Deﬁnition:
+1. Cut problem into pieces (constrained by prescribed grain size)
+2. Distribute work chunks among queues
+3. Disable any work stealing
+
+In OpenMP:
+- Default behaviour of parallel for
+- Trivial grain size of 1 if not speciﬁed differently
+- Problem is divided into OMP NUM THREADS chunks ) at most one task per queue
+
+```cpp
+#pragma omp parallel for schedule(static, 14)
+```
+
+Properties:
+- Overhead
+- Balancing
+- Inﬂexibility w.r.t. inhomogeneous computations
+
+#### Work stealing
+
+> Work stealing: When one thread runs out of work (work queue become empty), it tries to grab (steal) work packages from other threads.
+
+![](imgs/2024-11-21-12-00-48.png)
+
+#### Dynamic scheduling
+
+Deﬁnition:
+1. Cut problem into pieces of prescribed grain size
+2. Distribute all work chunks among queues
+3. Enable work stealing
+In OpenMP:
+- To be explicitly enabled in parallel for
+- Trivial grain size of 1 if not speciﬁed differently
+- Set of chunks is divided among OMP NUM THREADS queues ﬁrst
+
+```cpp
+#pragma omp parallel for schedule(dynamic)
+
+#pragma omp parallel for schedule(dynamic, 14)
+```
+
+Properties:
+- Overhead
+- Balancing
+- Flexibility w.r.t. inhomogeneous computations
+
+#### Guided scheduling
+
+Deﬁnition:
+1. Cut problem into chunks of size N/p constrained by grain size and with p =OMP NUM THREADS
+2. Cut remaining tasks into pieces of (N/(2p)) constrained by grain size
+3. Continue cut process iteratively
+4. Distribute all work chunks among queues; biggest jobs ﬁrst
+5. Enable work stealing
+
+In OpenMP:
+- To be explicitly enabled in parallel for
+- Trivial grain size of 1 if not speciﬁed differently
+- Set of chunks is divided among OMP NUM THREADS queues ﬁrst
+
+```cpp
+#pragma omp parallel for schedule(guided)
+...
+#pragma omp parallel for schedule(guided,14)
+...
+```
+
+Properties:
+- Overhead
+- Balancing
+- Requires domain knowledge
+
+#### Concept of building block: Loop scheduling
+
+- Content
+  - Introduce terminology
+  - Discuss work stealing
+  - Study OpenMP’s scheduling mechanisms
+  - Study OpenMP’s two variants of dynamic scheduling
+  - Conditional parallelisation
+- Expected Learning Outcomes
+  - The student knows technical terms tied to scheduling
+  - The student can explain how work stealing conceptually works
+  - The student can identify problems arising from poor scheduling/too small work packages
+  - The student can use proper scheduling in OpenMP applications
+
+## Week 7
+
+### Race Conditions
+
+- Race conditions arise from interdependency on data access across threads
+- These result from dependencies (read-write, write-read, write-write) on a position in memory
+$\rArr$ These manifest as indeterminacy in your program, and are sensitive to the memory model of your machine and how many threads are used.
+
+#### Race condition example
+
+```cpp
+#include <omp.h>
+#include <stdio.h>
+int main() {
+  int sum=0;
+  const int N=100;
+  #pragma omp parallel for
+  for (int n=1; n<N+1; n++){
+    sum +=n; // Race condition here
+  }
+  printf("Result is %d. It should be %d\n", sum, N*(N+1)/2);
+  return 0;
+}
+```
+- The variable sum is accessed for both reading and writing in parallel  
+  $\rArr$ Thread 0 reads sum into (local) sum  
+  $\rArr$ Thread 1 reads sum into (local) sum  
+  $\rArr$ Thread 0 increments (local) sum by N/p  
+  $\rArr$ Thread 1 increments (local) sum by N/p  
+  $\rArr$ Thread 0 writes (local) sum to sum  
+  $\rArr$ Thread 1 writes (local) sum to sum  
+- So long as the variables are initialised correctly, the race condition means you’ll have sum  N(N + 1)/2.
+
+#### Concept of building block: Race Conditions
+
+- Content
+  - Race conditions
+- Expected Learning Outcomes
+  - The student can identify potential race conditions in an OpenMP parallel code
+  - The student can ameliorate race conditions in simple loops using alternative OpenMP constructions
+
+### Thread communication
+
+We distinguish two different communication types:
+- Communication through the join
+- Communication inside the BSP part
+
+> Critical section: Part or code that is ran by at most one thread at a time – a manual
+serialisation block.
+>
+> Reduction: Join variant, where all the threads reduce a value into one single value.
+
+$\rArr$ Reduction maps a vector of (x0 , x1 , x2 , x3 , . . . , xp1 ) onto one value x, i.e. we have an all-to-one data flow  
+$\rArr$ Inter-thread communication realised by data exchange through shared memory  
+$\rArr$ Fork can be read as one-to-all information propagation (done implicitly by shared memory)  
+
+#### Critical sections
+```cpp
+#pragma omp critical (mycriticalsection)
+{
+  x *= 2;
+}
+...
+#pragma omp critical (anothersection)
+{
+  x *= 2;
+}
+...
+#pragma omp critical (mycriticalsection)
+{
+  x /= 2;
+}
+```
+
+- Name is optional (default name i.e. does not block with other sections with a name)
+- Single point of exit policy ) return, break, . . . not allowed within critical section
+- For operations on built-in/primitive data types, an atomic operation is usually the better, i.e. faster choice
+
+#### critical vs. single regions
+
+- critical sections specify that code is executed by one thread at a time
+- single sections specify that a section of code should be executed by a single thread (not necessarily the manager thread)
+
+```cpp
+for(int i=0; i<size; i++){
+  a[i] = i;
+}
+#pragma omp critical
+{
+  for(int i=0; i<size; i++){
+    a[i] = i * 2;
+  }
+}
+#pragma omp single
+{
+  for(int i=0; i<size; i++){
+    a[i] = i / 2;
+  }
+}
+```
+
+#### Case study: scalar product
+
+Serial starting point:
+```cpp
+double result = 0;
+for(int i = 0l i<size; i++){
+  result += a[i] * b[i];
+}
+```
+
+A parallel variant:
+```cpp
+double result = 0.0;
+#pragma omp parallel
+{
+  double myResult = 0.0;
+  #pragma omp for
+  for(int i=0; i<size; i++){
+    myResult += a[i] * b[i];
+  }
+  #pragma omp critical
+  result += myResult;
+}
+```
+
+Observations:
+- Avoid excessive synchronisation
+- Type of operation is called reduction (as defined before)
+- We may not use result to accumulate because of races
+- We may not hide result as we then loose access to outer variable
+
+#### The shared default clause
+```cpp
+double result = 0;
+#pragma omp parallel for
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i]; // race, don't worry about it here
+}
+```
+```cpp
+double result = 0;
+#pragma omp parallel for shared(result)
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i]; // race, don't worry about it here
+}
+```
+
+- By default, all OpenMP threads share all variables, i.e. variables declared outside are visible to threads
+- This sharing can be made explicit through the clause shared
+- Explicit shared annotation is good practice (improved readability)
+
+#### Thread-local variables
+```cpp
+double result = 0;
+for( int i=0; i<size; i++ ) {
+  double result = 0.0;
+  result += a[i] * b[i];
+}
+```
+Without OpenMP pragma:
+- C/C++ allows us to “redeﬁne” variable in inner scope
+- Hides/shadows outer result
+- We may not forget the second initialisation; otherwise garbage
+
+```cpp
+double result = 0;
+#pragma omp parallel for
+for( int i=0; i<size; i++ ) {
+  double result = 0.0;
+  result += a[i] * b[i];
+}
+```
+
+With OpenMP pragma:
+- OpenMP introduces (concurrent) scope of its own
+- Scope-local variables are thread-local variables
+- These are not shared – private variables in local scope
+
+#### shared vs. private clauses
+
+```cpp
+double result = 0;
+#pragma omp parallel for private(result)
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i];
+}
+```
+- private is the counterpart of shared, i.e. each thread works on its own copy
+- Basically, the copying is similar to the following fragment:
+```cpp
+double result = 0;
+#pragma omp parallel
+{
+  double result;
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    result += a[i] * b[i];
+  }
+}
+```
+$\rArr$ In this example, result within thread is not initialised (garbage)!
+$\rArr$ In this example, data within result is lost throughout join!
+- This code will not do what we want (the inner product of a & b)  
+$\rArr$ We will first look at other copy policies and then come back to properly parallelise the inner product calculation a few different ways next time!
+
+#### default(none) and scoping
+
+```cpp
+double result = 0;
+#pragma omp parallel for default(none) private(result) shared(a,b,size)
+for( int i=0; i<size; i++ ) {
+  result += a[i] * b[i];
+}
+```
+
+- Using default(none) tells the compiler that, by default, the privacy/sharing of all variables is unspeciﬁed.  
+$\rArr$ This means the programmer is responsible for all explicit sharing.
+- This can dramatically improve legibility of your code when using a large number of temporary variables.
+
+#### Copy policies
+
+- default Speciﬁes default visibility of variables
+- firstprivate Variable is private, but initialised with value from surrounding
+- lastprivate Variable is private, but value of very last iteration is copied over to outer variable
+
+#### Concept of building block
+
+- Content
+  - Introduce three types of data ﬂow/usage of shared memory: making memory available to all threads throughout fork, sharing data throughout computation, reducing data at termination
+  - Introduce private variables
+  - Study semantics and usage of critical sections
+- Expected Learning Outcomes
+  - The student can use critical sections
+  - The student knows difference between private and shared variables
+  - The student can identify race conditions and resolve them through critical sections for given code snippet
+
+### Barriers
+
+- Barriers are synchronisation points in your code
+- Places where each threads waits for all other threads to arrive at the barrier before proceeding
+- Lots of implicit barriers when using default constructs in OpenMP
+
+```cpp
+#pragma omp parallel{ // implicit barrier here
+  #pragma omp for
+  for (int i = 0; i < size; i++){
+    a[i] = a[i]*2;
+  } // implicit barrier here
+}
+```
+
+#### Explicit Barriers
+
+```cpp
+// ...
+  #pragma omp parallel
+  {
+    printf("Thread %d prints 1\n", omp_get_thread_num());
+    printf("Thread %d prints 2\n", omp_get_thread_num());
+  }
+// ...
+```
+```cpp
+// ...
+  #pragma omp parallel
+  {
+    printf("Thread %d prints 1\n", omp_get_thread_num());
+    #pragma omp barrier
+    printf("Thread %d prints 2\n", omp_get_thread_num());
+  }
+// ...
+```
+```
+Thread 0 prints 1
+Thread 3 prints 1
+Thread 2 prints 1
+Thread 1 prints 1
+Thread 3 prints 2
+Thread 1 prints 2
+Thread 2 prints 2
+Thread 0 prints 2
+```
+
+#### Barriers and nowait clause
+
+```cpp
+// ...
+#pragma omp parallel
+{
+  #pragma omp for
+  for ... {
+  } // implicit barrier here
+  #pragma omp for
+  for ... {
+  } // implicit barrier here
+}
+// ...
+```
+
+- The implicit barriers here mean all threads complete the first loop before starting the second loop  
+$\rArr$ What if we want the second loop to run as soon as there are threads available to do so?
+
+```cpp
+// ...
+#pragma omp parallel
+{
+  #pragma omp for nowait
+  for ... {
+  } // no more implicit barrier here
+  #pragma omp for
+  for ... {
+  } // still an implicit barrier here
+}
+// ...
+```
+
+- Adding the nowait clause to the first loop means that the threads will immediately progress to the second loop.  
+$\rArr$ Since the #pragma omp for splits the range, the progressing threads will not necessarily work on the same range values in both loops, this can be wuite dangerous!
+
+#### Concept of building block: Barriers
+
+- Content
+  - Barriers
+- Expected Learning Outcomes
+  - The student can identify implicit synchronisation points in an OpenMP parallel code
+  - The student can add explicit synchronisation points in an OpenMP parallel code
+
+### Atomics
+
+#### atomic operations
+- critical directives protect code blocks from parallel access
+- atomic directives protect individual variables from parallel access
+
+Recall the critical resolution of the inner product of a & b:
+```cpp
+double result = 0.0;
+#pragma omp parallel
+{
+  double myResult = 0.0;
+  #pragma omp for
+  for( int i=0; i<size; i++ ) {
+    myResult += a[i] * b[i];
+  }
+  #pragma omp critical
+  result += myResult;
+}
+```
+- The atomic clause tells the compiler that on the next line,
+  - Thread acquires the lock
+  - Thread updates the result
+  - Thread releases the lock
+- If updating different elements, i.e. x[k], then atomic will let x[k] and x[l] update simultaneously when k $\neq$ l (critical does not!).
+
+#### Concept of building block
+
+- Content
+  - Introduce term atomic
+  - Introduce atomic operator syntax
+  - Study (potential) impact of atomic feature
+- Expected Learning Outcomes
+  - The student knows of atomics in OpenMP
+  - The student can identify atomics in given codes
+  - The student can program with atomics
+
+### Reductions
+
+#### Thread communication-replicated
+
+We distinguish two different communication types:
+I Communication through the join
+I Communication inside the BSP part (not “academic” BSP)
+> Critial section: Part or code that is ran by at most one thread at a time.
+>
+> Reduction: Join variant, where all the threads reduce a value into one single value.
+
+$\rArr$ Reduction maps a vector of (x0 , x1 , x2 , x3 , . . . , xp1 ) onto one value x, i.e. we have an all-to-one data flow  
+$\rArr$ Inter-thread communication realised by data exchange through shared memory  
+$\rArr$ Fork can be read as one-to-all information propagation (done implicitly by shared memory)  
+
+#### Collective operations
+
+> Collective operation: A collective operation is an operation that involves multiple cores/threads
+
+
+
+### Tasks
