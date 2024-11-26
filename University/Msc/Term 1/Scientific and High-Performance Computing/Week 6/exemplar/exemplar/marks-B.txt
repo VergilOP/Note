@@ -1,0 +1,41 @@
+Overall the structure is a bit lacking, the report dives in without
+any background or scene-setting, so it's a little hard to follow if
+the reader is not intimately familiar with things.
+
+The description of the algorithms is rather short. In particular the
+matrix-vector algorithm is very terse: I do not think I can really
+follow what it is you do. This section would have been improved by the
+use of a diagram to show how the data move. The discussion of SUMMA
+and CANNON is a little better with the use of some diagrams. A
+reasonable attempt to compare SUMMA and CANNON. One thing to note,
+it looks like you might have copied the diagrams from some other
+notes: this is fine if you reference them properly (but here it does
+not look to be done).
+
+This section could have been improved by adding a discussion of the
+communication and computational complexity, as well as the memory
+scalability (as a function of problem size and process count). This
+would have helped to inform the experimental data later too.
+
+The benchmarking data are not presented very clearly, and the
+experimental setup is not really described at all. For example, I
+don't know what size of problems you run, and there is no
+justification of them. There is some timing data shown as a
+screenshot: prefer using tables to show this kind of data. I am unsure
+how you compute the data for the plots from your data tables. For
+example, the presented data output for weak scaling shows time to
+solution increasing with increasing process count (meaning weak
+scaling speedup is less than 1), but your plots show excellent weak
+scaling speedup. This is, I suspect, the case for all your plots.
+
+You spend some time discussion the comparison between the data and
+Amdahl (for strong scaling) or Gustafson (for weak scaling). I am,
+however, not sure how you come to the conclusion that the data fit the
+theoretical models (there is no evidence of any data fitting being
+done). You could have tried to fit the serial fraction to your data.
+
+
+
+Description of algorithms: 13/25
+Analysis and presentation of benchmarking data: 10/25
+TOTAL: 23/50

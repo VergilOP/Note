@@ -1,0 +1,36 @@
+Overall, the structure dives straight in without setting up the
+problem or providing background. If you had done this, introducing
+some notation for the matrix and vector decomposition, it would have
+made it easier for a reader not intimately familiar with the setting
+to follow. I think it would also have made it easier to talk about the
+algorithms, since you would have been able to be more precise.
+
+The description of algorithms is generally clear, the matrix-vector
+multiplication is easy to follow and you pick out the main points (for
+example needing the full vector on every process). The coverage of
+SUMMA is a little weaker (I was confused by the mention of rank-0
+needing to collect data to form the final matrix), and generally
+suffers a bit from lack of precision in the description. A small
+diagram showing the matrix decomposition and what you mean by rows and
+columns and subblocks would have helped here. This same diagram could
+then also have been reused for the description in Cannon.
+
+You note the memory footprint of your matrix-vector algorithm, but
+don't touch on this any futher. You could have further improved this
+section by adding a discussion of the communication and computational
+complexity, as well as the memory scalability (as a function of
+problem size and process count). This would have helped to inform the
+experimental data later too.
+
+
+There is a very small amount of benchmarking data presented, but not a
+lot of analysis, and no real justification for the choices. I think
+you choose a matrix size for the strong scaling test based on the
+requirement that it fits on the process count you choose, but it's a
+bit unclear. It is also unclear if you're benchmarking matrix-vector
+products or which of the two matrix-matrix algorithms: only one set of
+numbers is provided.
+
+Algorithm description: 15/25
+Benchmarking and analysis: 4/25
+TOTAL: 19/50

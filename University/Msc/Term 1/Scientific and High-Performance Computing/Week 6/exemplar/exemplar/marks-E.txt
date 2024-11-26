@@ -1,0 +1,48 @@
+The report dives in without much background: a paragraph
+setting up the problem would have been nice, I think. Otherwise quite
+well structured.
+
+The description of algorithms is reasonably clear. You recognise that
+the allgather approach for matrix-vector multiplication is not memory
+scalable and propose a reasonable replacement. The pseudocode is
+relatively easy to follow. This section could have been improved a bit
+with some small diagrams showing the data movement through the
+communicator. For example to show the initial data layout of the
+matrix and vector (this would also help when discussing the movement
+of matrix blocks in CANNON and SUMMA). To strengthen this section, it
+would have been good to include an analysis of the communcation and
+computation complexity, as well as memory scalability. This would also
+have helped to guide the benchmarking and analysis.
+
+The discussion of the benchmarking is pretty good. (The sentence about
+deadlocks on p=4 initially confused me, but then I realised you're
+saying you initially implemented with MPI_Send and MPI_Recv before
+changing to MPI_Sendrecv to avoid deadlocks). You choose a reasonable
+size of problem for the strong scaling tests I think, but the weak
+scaling problem size (for both matrix-vector and matrix-matrix runs)
+is quite small. In the weak scaling tests, therefore, I suspect you
+are only really measuring the communication costs. One thing missing
+here is a motivation for the choices. Data is presented pretty well,
+although for the strong scaling it is good to also show efficiency
+(you can do this on the same plot using a second y-axis). Also think
+about making the lines thicker and adding a legend.
+
+The same comments apply to the results for the matrix-matrix
+multiplication. If you either use a logarithmic scale (or additionally
+plot efficiency) it is easier to see how the scaling works.
+
+The analysis discusses some difference between CANNON and SUMMA, and
+generally suggests some reasons for why the weak scaling does not look
+so good. I think that you are misled here by the very small problem
+sizes in the weak scaling case.
+
+Adding some suggestions of other experiments to try (to try and
+understand the performance variability) would have improved this
+section. Similarly, comparing the observed data with a model of the
+computational cost (as is done, for example, in the SUMMA paper) would
+make this stronger.
+
+Description of algorithms: 16/25
+Analysis and presentation of benchmarking data: 16/25
+TOTAL: 32/50
+

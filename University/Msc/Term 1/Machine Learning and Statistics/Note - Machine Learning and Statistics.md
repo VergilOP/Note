@@ -1,3 +1,114 @@
+- [Note - Machine Learning and Statistics](#note---machine-learning-and-statistics)
+  - [Lecture 1](#lecture-1)
+    - [Precise \& accuracy](#precise--accuracy)
+    - [Mean, standard deviation, standard error](#mean-standard-deviation-standard-error)
+    - [Random errors, the normal distribution](#random-errors-the-normal-distribution)
+    - [Reporting results, Confidence limits and error bars](#reporting-results-confidence-limits-and-error-bars)
+    - [Poisson distribution](#poisson-distribution)
+    - [Chauvenet's Criterion](#chauvenets-criterion)
+    - [使用 Chauvenet's Criterion 的步骤：](#使用-chauvenets-criterion-的步骤)
+  - [Lecture 2](#lecture-2)
+    - [Error propagation](#error-propagation)
+      - [Single-variable functions 单变量误差传播](#single-variable-functions-单变量误差传播)
+        - [Functional approach](#functional-approach)
+        - [Calculus-based approach](#calculus-based-approach)
+      - [Multi-variable functions 多变量函数的误差传播](#multi-variable-functions-多变量函数的误差传播)
+        - [Functional approach](#functional-approach-1)
+    - [Least Squares Method 最小二乘法](#least-squares-method-最小二乘法)
+      - [The importance of residuals 残差的重要性](#the-importance-of-residuals-残差的重要性)
+      - [The goodness-of-fit parameter 拟合优度参数](#the-goodness-of-fit-parameter-拟合优度参数)
+      - [Minimisation 最小化](#minimisation-最小化)
+      - [non-uniform error bars](#non-uniform-error-bars)
+  - [Lecture 3](#lecture-3)
+    - [Least-squares fit to an arbitrary function](#least-squares-fit-to-an-arbitrary-function)
+    - [Residuals for a least-squares fit to an arbitrary function](#residuals-for-a-least-squares-fit-to-an-arbitrary-function)
+    - [Durbin-Watson statistic](#durbin-watson-statistic)
+    - [Calculating the error in a least-squares-fit](#calculating-the-error-in-a-least-squares-fit)
+      - [the error surface](#the-error-surface)
+    - [Curvature matrix for straight line fit](#curvature-matrix-for-straight-line-fit)
+    - [The $\\chi^2$ surface for an arbitrary function](#the-chi2-surface-for-an-arbitrary-function)
+    - [How do fitting programs minimise?](#how-do-fitting-programs-minimise)
+    - [Covariance(error) matrix and uncertainties in fit parameters](#covarianceerror-matrix-and-uncertainties-in-fit-parameters)
+    - [Correlation between uncertainties of fit parameters](#correlation-between-uncertainties-of-fit-parameters)
+  - [Lecture 4](#lecture-4)
+    - [Null hypothesis](#null-hypothesis)
+    - [Degrees of freedom](#degrees-of-freedom)
+    - [The $\\chi^2$ probability distribution function](#the-chi2-probability-distribution-function)
+    - [Using $\\chi^2$ as a hypothesis test](#using-chi2-as-a-hypothesis-test)
+    - [The reduced $\\chi^2$ statistic](#the-reduced-chi2-statistic)
+    - [Brief recap](#brief-recap)
+    - [What makes a good fit?](#what-makes-a-good-fit)
+    - [Testing distributions using $\\chi^2$](#testing-distributions-using-chi2)
+    - [Anscombe's quartet](#anscombes-quartet)
+    - [Benford's Law(aka the first digit law)](#benfords-lawaka-the-first-digit-law)
+  - [Lecture 6](#lecture-6)
+    - [Introduction](#introduction)
+      - [Types of problems](#types-of-problems)
+      - [Types of learning](#types-of-learning)
+      - [Learning modes](#learning-modes)
+      - [Instance based vs Model based](#instance-based-vs-model-based)
+      - [Examples of model-based algorithms](#examples-of-model-based-algorithms)
+      - [Examples of instance-based algorithms](#examples-of-instance-based-algorithms)
+    - [Perceptron](#perceptron)
+      - [Classification](#classification)
+      - [Notation](#notation)
+      - [Model](#model)
+      - [Perceptron Algorithm](#perceptron-algorithm)
+      - [Learning rate](#learning-rate)
+      - [Convergence](#convergence)
+      - [Problems with the perceptron algorithm](#problems-with-the-perceptron-algorithm)
+    - [Logistic regression](#logistic-regression)
+      - [Logistic regression](#logistic-regression-1)
+      - [Logistic regression optimisation](#logistic-regression-optimisation)
+      - [Gradient descent](#gradient-descent)
+      - [Gradient descent for logistic regression](#gradient-descent-for-logistic-regression)
+      - [Loss minimization](#loss-minimization)
+      - [Normalising inputs](#normalising-inputs)
+    - [Loss functions](#loss-functions)
+      - [Gaussian noise](#gaussian-noise)
+      - [Two class model](#two-class-model)
+  - [Lecture 7](#lecture-7)
+    - [Loss Functions](#loss-functions-1)
+      - [Gaussian noise](#gaussian-noise-1)
+      - [Two class model](#two-class-model-1)
+      - [Perceptron loss](#perceptron-loss)
+      - [Support vector machine](#support-vector-machine)
+    - [ROC Curve](#roc-curve)
+    - [Support vector machine](#support-vector-machine-1)
+      - [Objective](#objective)
+      - [Training a SVM](#training-a-svm)
+    - [Learning Curves](#learning-curves)
+      - [Testing the model](#testing-the-model)
+      - [Learning Curve](#learning-curve)
+    - [Non-Linear models](#non-linear-models)
+      - [Transforming the features](#transforming-the-features)
+      - [Adding polynomial features](#adding-polynomial-features)
+      - [Higher order polynomial coefficients](#higher-order-polynomial-coefficients)
+    - [Regularisation](#regularisation)
+      - [1D regression example 1D](#1d-regression-example-1d)
+      - [Traning/Validation/Test sets](#traningvalidationtest-sets)
+      - [Cross validation](#cross-validation)
+  - [Lecture 8](#lecture-8)
+    - [Neural networks](#neural-networks)
+      - [Non-linear activation functions](#non-linear-activation-functions)
+      - [Network architectures](#network-architectures)
+      - [Single layer network](#single-layer-network)
+      - [Multi layer network](#multi-layer-network)
+      - [Feedforward step](#feedforward-step)
+      - [Last step](#last-step)
+      - [Multi-class loss function](#multi-class-loss-function)
+      - [Example](#example)
+    - [Variance Bias Trade-off](#variance-bias-trade-off)
+      - [Example](#example-1)
+    - [Neural Network Traning](#neural-network-traning)
+      - [Feedforward step](#feedforward-step-1)
+      - [Training the neural network](#training-the-neural-network)
+      - [Last layer](#last-layer)
+      - [Layer error treatment](#layer-error-treatment)
+      - [Initial weights](#initial-weights)
+      - [Difficulties with network traning](#difficulties-with-network-traning)
+      - [Regularisation](#regularisation-1)
+
 # Note - Machine Learning and Statistics
 
 ## Lecture 1
@@ -1274,3 +1385,274 @@ In k-fold cross-validation we partition the data sample randomly into $k$ subsam
 
 - obtain an estimate of the uncertainty of the model parameters
 - estimate how well the model is going to generalise
+
+## Lecture 8
+
+### Neural networks
+
+Neutral networks started as an attempt to model the human brain. It is composed of neurones
+
+![](imgs/2024-11-26-14-19-41.png)
+
+The model for a neuron was the perceptron:
+![](imgs/2024-11-26-14-20-02.png)
+
+$z = w_0 + \vec{w} · \vec{x};$ $output = \phi(z)$
+
+This is the model of a modern unit in a neural newtwork
+- linear cmbination of inputs units
+- non-linear function to generate the unit's value, called activation function
+
+#### Non-linear activation functions
+
+There are different decision fucntions that can be used
+- the perceptron used a step function
+- logistic regression uses the sigmod function
+- one can also use $\phi(z) = \tanh(z)$ as a decision function
+- various variantions on the hinge function (ReLu)
+
+![](imgs/2024-11-26-14-26-19.png)
+
+#### Network architectures
+
+Neural networks are build by connecting artificial neurons together.
+
+They can be used for classification or regression. Here we will consider the classification case.
+
+#### Single layer network
+
+![](imgs/2024-11-26-14-26-59.png)
+
+#### Multi layer network
+
+![](imgs/2024-11-26-14-27-10.png)
+
+Networks with a large number of layers are referred to as “deep learning”.
+
+They are more difficult to train, recent advances in training algorithms and the use of GPUs have made them much tractable (and popular!).
+
+#### Feedforward step
+
+![](imgs/2024-11-26-14-28-29.png)
+
+To calculate the output of the j-th unit for the i-th data example we calculate
+$$
+{o_j^{(i)}=\phi(z_j^{(i)});,\quad z_j^{(i)}=w_{0j}+\sum_{k=1}^{n_i}w_{kj}\cdot x_k^{(i)}}
+$$
+
+If we have a $n_i$ input nodes and $n_o$ output units we have $(n_i + 1)\times n_o$ parameters $w_{kj}$. We can organise them in a $n_i + 1$ by $n_o$ matrix of parameters $W$ and write the vector of $z$ values for the $n_o$ output units as
+$$
+  z = W^Tx
+$$
+where $x$ is the column vector of input values with a 1 added as the 0-the component
+
+The value $z$ is then passed through the non-linear function
+
+#### Last step
+If we have more that 2 classes we want the last layer's output to be probabilities of belonging to one the $k$ classes in the classifier. For this we replace the sigmoid function witht the softmax function:
+$$
+{s_{i}(z)=\frac{e^{z_{i}}}{\Sigma_{j=1}^{k}e^{z_{j}}}}
+$$
+It is by definition normalised such that the sum adds to one and is the muti-class generalisation of the sigmoid function. $s_i$ is largest for the index $i$ with the largest $z_i$. The classifier predtion will typically be the class $i$ with the largest value $s_i$.
+$$
+\frac{\partial s_i}{\partial z_{j}}=\frac{-e^{z_{i}}e^{z_j}+\delta_{ij}e^{z_{i}}\Sigma_{i=1}^ke^{z_i}}{\left(\Sigma_{j=1}^ke^{z_j}\right)^{2}}={s}\frac{-e^{z_j}+\delta_{ij}\Sigma_{i=1}^{\mathrm{k}}e^{z_i}}{\Sigma_{j=1}^{k}e^{z_j}}={s}\left(\delta_{ij}-s_j\right)
+$$
+
+#### Multi-class loss function
+
+The generalisation of the cross entropy loss for multiple class is given by
+$$
+{J=-\sum_{i,j}y_{j}^{(i)}log(\hat y_{j}^{(i)})}
+$$
+where $y^{(i)}_j$ is 1 if traning sample i is in class j, 0 otherwise
+
+This is called one-hot encoding. The derivative of the loss function with respect to one of hte predictions is given by
+$$
+\frac{\partial J}{\partial \hat y_j^{(i)}}=-\frac{y_j^{(i)}}{\hat y_j^{(i)}}
+$$
+
+#### Example
+
+Using the same circle dataset that we used before, the decision function for a single-layer neural network with 10 hidden units gives the following decision boundary:
+
+![](imgs/2024-11-26-14-45-24.png)
+
+Here is an example using more than two classes
+
+![](imgs/2024-11-26-14-45-55.png)
+
+![](imgs/2024-11-26-14-46-01.png)
+
+### Variance Bias Trade-off
+
+Let's suppose the relationship between $X$ and $Y$ is is described by
+$$
+{Y=\sum_{i}w_{i}^{\star}x^{i}+\epsilon}
+$$
+where $w^*_i$ are the true parameters and $\epsilon$ is some noise.
+
+We will try to model this with 
+$$
+  y = p(x) = \sum_i w_ix^i
+$$
+where now the $w_i$ will be fitted to data
+
+We define
+$$
+\overline{w}_i = \langle w_i\rangle
+$$
+as the expectation value of the parameter $w_i$ when fitted to multiple independent samples drawn from the trun distribution.
+
+We want to calculate the expected deviation of the fitted coefficients form the true coefficient:
+$$
+\langle({w_{i}}-{w^\star_{i}})^{2}\rangle\\\langle({w_{i}}-{w^\star_{i}})^{2}\rangle=\langle({w_{i}}-{w_{i}}+{w_{i}}-{w^\star_{i}})^{2}\rangle\\=\langle({w_{i}}-{w_{i}})^{2}\rangle+\langle({w_{i}}-{w^\star_{i}})^{2}\rangle+2\langle({w_{i}}-{w_{i}})({w_{i}}-{w^\star_{i}})\rangle
+$$
+
+The third term vanishes:
+$$
+\langle(w_{{i}}-w_{{i}})(w_{{i}}-w_{{i}}^{\star})\rangle=\langle(w_{\mathrm{i}}-w_{{i}})\rangle(w_{{i}}-w_{{i}}^{\star})=0
+$$
+
+So we have
+$$
+\langle({w_{i}-w_{i}^{\star}})^{2}\rangle=\langle({w_{i}-w_{i}})^{2}\rangle+\langle({w_{i}-w_{i}^{\star}})^{2}\rangle 
+$$
+
+The first term is the variance term and the second is the bias
+
+#### Example
+
+To illustrate the variance-bias tradeoff we will be using different models to describe data with true relationship between the input $x$ and the outcome
+$$
+Y(x)=1+\frac{1}{5}x^{2}+\epsilon\quad for\quad0\leq x\leq1;,\quad0; \mathrm {otherwise}
+$$
+Where $\epsilon$ is a gaussian noise. We will use the two models
+$$
+  m_1(x) = a + bx
+$$
+and
+$$
+  m_2(x) = a + bx + cx^2 + dx^3
+$$
+Using $m_1$, a model with too few parameters we get
+
+![](imgs/2024-11-26-15-41-44.png)
+
+For low dataset size we see the the variance dominates but as the number of training samples grows the bias dominates. Since the model is not capable of describing the truth the error is not diminishing even though the variance part of the error drops proportional to $1/\sqrt{N}$
+
+For the second model where we have enough freedom to exactly describe the truth we get:
+
+![](imgs/2024-11-26-15-42-19.png)
+
+### Neural Network Traning
+
+#### Feedforward step
+
+![](imgs/2024-11-26-20-39-02.png)
+
+#### Training the neural network
+
+A neural network is trained through back-propagation. It allows to adapt the weights in the layer successively.
+
+Moving from the perceptron to a continuous activation function allows this.
+
+The idea is to start from the end of the network and evaluate the difference between the output of the network and the target from the training set.
+
+We use this as the error for the last layer. We also propagate the error to the last hidden layer and adapt the weights between the last and second-to-last layer accordingly.
+
+![](imgs/2024-11-26-20-39-27.png)
+
+#### Last layer
+
+The last layer is slightly different so we treat it first.
+
+Let’s look at the last set of parameters between the output and the hidden layer.
+
+We have the loss function
+$$
+{J=-\sum_{i,j}y_{j}^{(i)}\log(\hat y_{j}^{(i)})}
+$$
+where $y^{(i)}_j$ is 1 if traning sample $i$ is in class $j$, 0 otherwise $\hat{y}^{(i)}_j$ is the prediction of the model, here
+$$
+\hat y_j^{(i)}=s_j(z_j^{(i)})
+$$
+with $z^{(i)}_j$ the linear combination of the last hidden layer with the last set of coefficients $w_{jk}$
+
+We can calculate the derivative of the loss function with respect to the linear combination in the last layer:
+$$
+\frac{\partial J}{\partial z_{j}^{(i)}} = \sum_{l=1}^{n_o} \frac{\partial J}{\partial \hat y_{l}^{(i)}} \frac{\partial y_{l}^{(i)}}{\partial z_{j}^{(i)}} = \sum_{l=1}^{n_o} \left(-\frac{\hat y_{l}^{(i)}}{y_{l}^{(i)}}\right) s_{l} (\delta_{lj} - s_{j})
+$$
+with $n_0$ the number of units in the output layer
+$$
+\frac{\partial J}{\partial w_{km}} = \sum_{i=1}^{n_d} \sum_{j=1}^{n_o} \frac{\partial J}{\partial z_{j}^{(i)}} \frac{\partial z_{j}^{(i)}}{\partial w_{km}} = \sum_{i=1}^{n_d} \sum_{j=1}^{n_o} \sum_{l=1}^{n_o} \left(-\frac{y_{l}^{(i)}}{\hat y_{l}^{(i)}}\right) s_{l} (\delta_{lj} - s_{j}) \frac{\partial z_{j}^{(i)}}{\partial w_{km}}
+$$
+with
+$$
+\frac{\partial z_{j}^{(i)}}{\partial w_{km}} = x_{k}^{(i)} \bar{\delta}_{mj}
+\frac{\partial z_{j}^{(i)}}{\partial w_{km}} = x_{k}^{(i)} {\delta}_{mj}
+$$
+we get
+$$
+\frac{\partial J}{\partial w_{km}} = \sum_{i=1}^{n_d} \sum_{l=1}^{n_o} \left(-\frac{y_{l}^{(i)}}{\hat y_{l}^{(i)}}\right) s_{l} (\delta_{lm} - s_{m}) x_{k}^{(i)}
+$$
+
+#### Layer error treatment
+
+We now look at a standard layer.
+
+![](imgs/2024-11-26-20-44-54.png)
+
+Now we can consider a normal layer with sigmoid activation with input x , parameters w  and output y . We denote with z  the linear combination of x  that enters the activation function (the sigmoid function).
+$$
+y_j = \phi(z_j)
+$$
+$$
+z = W^Tx
+$$
+We have
+$$
+\frac{\partial y_j}{\partial z_j} = y_j (1 - y_j)
+$$
+and
+$$
+\frac{\partial y_j}{\partial w_{ij}} = \frac{\partial y_j}{\partial z_j} \frac{\partial z_j}{\partial w_{ij}} = \frac{\partial y_j}{\partial z_j} x_i = y_j (1 - y_j) x_i
+$$
+We can now calculate the derivative of the loss function with respect to the parameters of the connections:
+$$
+\frac{\partial J}{\partial w_{ij}} = \frac{\partial J}{\partial y_j} \frac{\partial y_j}{\partial w_{ij}} = \frac{\partial J}{\partial y_j} y_j (1 - y_j) x_i
+$$
+We see that the derivative depends on the gradient of the loss with respect to the outputs of the layer we are considering. This output is the input into the next layer. So it will be useful to be able calculate the derivative of J with respect to the layer input.
+$$
+\frac{\partial J}{\partial x_{i}} = \sum_{j} \frac{\partial J}{\partial z_{j}} \frac{\partial z_{j}}{\partial x_{i}} = \sum_{j} \frac{\partial J}{\partial z_{j}} w_{ij}
+$$
+with
+$$
+\frac{\partial J}{\partial z_j} = \frac{\partial J}{\partial y_j} \frac{\partial y_j}{\partial z_j} = \frac{\partial J}{\partial y_j} y_j (1 - y_j)
+$$
+To adapt the parameters of the network we start with the last layer and do for each layer:
+- calculate the derivatives with respect to the outputs to adapt the weights
+- calculate the derivatives with respect to the inputs to use in the calculation of the parameters of the previous layer.
+
+The parameter adaptation goes in the opposite direction as the prediction, it is called back-propagation.
+
+#### Initial weights
+
+We need to break the symmetry between nodes at initialisation time otherwise all nodes will be updated together.
+
+#### Difficulties with network traning
+
+Training a neural network is challenging because:
+- the loss function is not convex (there are local minima)
+- if weights get too large the argument of the sigmoid activation gets large, which means the derivative get small and convergence is very slow.
+- neural network are prone to overfitting
+
+#### Regularisation
+
+Neural networks have many parameters and can easily overfit. To prevent it there are several options:
+
+- reduce size of the network
+- early stopping: do not allow the network to optimize its weights until a minimum is found
+- add random noise to the weights or to the units activities
+- add a penalty for large weights as we did for other algorithms
+
+

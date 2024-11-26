@@ -1,0 +1,44 @@
+A really nicely formatted and structured report. The introduction and
+notation is clear and makes the algorithm description very easy to
+follow.
+
+The algorithms are clearly described and the pseudocode is easy to
+follow. The rationale for the matrix-vector multiply and how it works
+is nice. I would say that the only thing that would improve this
+section is a short analysis of the communication and computation
+complexity (some of this comes out in your analysis of the weak
+scaling data for the matrix-matrix case). This would have helped to
+motivate the choices of problem sizes for the subsequent scaling
+studies.
+
+A nice introduction to the scaling studies. Reasonable choices for
+problem sizes, although it would have been good to provide some
+motivation for these choices. For example, perhaps it would make more
+sense to run the matrix-vector problem on larger matrices (since it is
+only N^2 rather than N^3 in the matrix size).
+
+Presentation of the data is nice (nice use of booktabs!). A good
+suggestion for how to figure out why the strong scaling performance is
+bad (I wonder if you ran these examples before I figured out that we
+needed to explicitly set OPENBLAS_NUM_THREADS=1). The suggestion to
+try with a larger N is also reasonable (I think especially from
+matrix-vector problems).
+
+Really nice analysis of the weak scaling data, you correctly note that
+when you fix the local matrix size, the work per process does not
+remain constant and so you see this increase in runtime. There is less
+analysis of the matrix-vector calculation. It looks to be scaling fine
+(the work does remain constant in this case), but I suspect because
+the runtimes are so low, you're just observing communication latency.
+
+Interesting observation wrt openblas: it actually doesn't implement
+Strassen (since it's hard to get really good performance out), but
+nice spot: to really confirm that you'd probably need more than two
+data points since those algorithmic limits are in the asymptotic
+regime.
+
+Description of algorithms: 22/25
+Analysis and presentation of benchmarking data: 23/25
+TOTAL: 45/50
+
+

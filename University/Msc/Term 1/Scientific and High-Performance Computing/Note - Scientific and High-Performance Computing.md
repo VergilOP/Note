@@ -2425,3 +2425,673 @@ $\rArr$ Task paradigm is embedded into fork-join model
 - Expected Learning Outcomes
   - The student can analyse OpenMP’s task concept and upcoming features
   - The student can write a task-based OpenMP code
+
+## Week 8
+
+### MPI Basic
+
+#### Starting point
+
+- Shared memory programming:
+  - Multiple threads can access each other’s data
+  - Linux/OS terminology: one process with multiple tasks
+- Distributed memory programming:
+  - Different machines connected through a network or
+  - one (multicore) computer running several processes, as processes do not share memory or
+  - combinations
+- De-facto standard for distributed memory programming: message passing (MPI = message passing interface)
+- Message passing:
+  - works on all/most architectural variants, i.e. is most general (though perhaps slower than OpenMP, e.g.)
+  - requires additional coding, as we have to insert send and receive commands
+  - orthogonal to other approaches, in particular to OpenMP (merger called MPI+X or hybrid)
+
+#### Historic remarks on MPI
+
+- MPI = Message Passing Interface
+- Prescribes a set of functions, and there are several implementations (IBM, Intel, mpich, . . . )
+- Kicked-off 1992–94
+- Open consortium (www.mcs.anl.gov/mpi)
+- Mature and supported on many platforms (de-facto standard)
+- Alive:
+  - Extended by one-sided communication (which does not really fit to name)
+  - C++ extension dropped due to lack of users
+- Huge or small:
+  - Around 125 functions specified
+  - Most applications use only around six
+
+#### A first MPI application
+
+```cpp
+#include <mpi.h>
+#include <stdio.h>
+int main( int argc, char** argv ) {
+  MPI_Init( &argc, &argv );
+  printf("Hello world!\n");
+  MPI_Finalize();
+  return 0;
+}
+```
+
+```bash
+mpicc -O3 myfile.cpp
+mpirun -np 4 ./a.out
+```
+
+- Use mpicc which is a wrapper around your compiler
+- Use mpirun to start application on all computers (SPMD)
+- Exact usage of mpirun differs from machine to machine
+
+- MPI functions become available through one header mpi.h
+- MPI applications are ran in parallel (mpi processes are called ranks to distinguish them from OS processes)
+- MPI code requires explicit initialisation and shutdown
+- MPI functions always start with a prefix MPI and then one uppercase letter
+- MPI realises all return values via pointers
+- MPI’s initialisation is the first thing to do and also initialises argc and argv
+
+#### MPI terminology and environment
+
+> **Rank**: MPI abstracts from processes/threads and calls each SPMD instance a rank. The total number of ranks is given by size.
+
+```cpp
+#include <mpi.h>
+int main( int argc, char** argv ) {
+  MPI_Init( &argc, &argv );
+  int rank, size;
+  MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+  MPI_Comm_size( MPI_COMM_WORLD, &size );
+  MPI_Finalize();
+  return 0;
+}
+```
+
+- See the name conventions and the call-by-pointer policy.
+- Compare to OpenMP which offers exactly these two operations as well.
+- Different to OpenMP, we will however need ranks all the time, as we have to specify senders and receivers.
+- For the time being, rank is a continuous numbering starting from 0.
+
+#### MPI Environment management
+
+```cpp
+#include "mpi.h" // required MPI include file
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+  int numtasks, rank, len, errorcode;
+  char hostname[MPI_MAX_PROCESSOR_NAME];
+  // initialize MPI
+  MPI_Init(&argc,&argv);
+  // get number of tasks
+  MPI_Comm_size(MPI_COMM_WORLD,&numtasks);
+  // get my rank
+  MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+  // this one is obvious
+  MPI_Get_processor_name(hostname, &len);
+  printf ("Number of tasks= %d My rank= %d Running on %s\n", numtasks,rank,hostname);
+  // MPI_Abort(MPI_COMM_WORLD, errorcode);
+  // done with MPI
+  MPI_Finalize();
+  return 0;
+}
+```
+
+#### Concept of building block
+- Content
+  - How does MPI initialise/shutdown
+  - How to compile MPI codes
+  - Find out local SPMD instance’s rank and the global size
+  - MPI conventions
+- Expected Learning Outcomes
+  - The student knows the framework of an mpi application, can compile it and can run it
+  - The student can explain the terms rank and size
+  - The student can identify MPI conventions at hands of given source codes
+
+### Point-to-point Communication
+
+#### Peer-to-peer Message Passing
+
+- The Message Passing of MPI is (largely) borne by two functions:
+  - MPI Send
+  - MPI Recv
+- Which interact through coordination across distinct processes.
+
+```cpp
+// on rank from
+MPI_Send(&data, count, MPI_INT, to, tag, MPI_COMM);
+// on rank to
+MPI_Recv(&data, count, MPI_INT, from, tag, MPI_COMM);
+```
+
+- Most of the hard work of parallelising with MPI is managing the Sends and Recvs consistently.
+- Today we’ll focus on the blocking versions of these calls.
+
+#### Send
+
+```cpp
+int MPI_Send(
+  const void *buffer, int count, MPI_Datatype datatype,
+  int dest, int tag, MPI_Comm comm
+)
+```
+
+- buffer is a pointer to the piece of data you want to send away.
+- count is the numer of items
+- datatype . . . self-explaining
+- dest is the rank (integer) of the destination node
+- comm is the so-called communicator (always MPI COMM WORLD for the time being)
+- Result is an error code, i.e. 0 if successful (UNIX convention)
+
+> Blocking: MPI Send is called blocking as it terminates as soon as you can reuse the buffer, i.e. assign a new value to it, without an impact on MPI.
+
+#### Receive
+
+```cpp
+int MPI_Recv(
+  void *buffer, int count, MPI_Datatype datatype,
+  int source, int tag, MPI_Comm comm,
+  MPI_Status *status
+)
+```
+
+- buffer is a pointer to the variable into which the received data shall be stored.
+- count is the numer of items
+- datatype . . . self-explaining
+- dest is the rank (integer) of the source node (may be MPI ANY)
+- comm is the so-called communicator (always MPI COMM WORLD for the time being)
+- status is a pointer to an instance of MPI Status and holds meta information
+- Result is an error code, i.e. 0 if successful (UNIX convention)
+
+> Blocking: MPI Recv is called blocking as it terminates as soon as you can read the buffer, i.e. MPI has written the whole message into this variable.
+
+#### Blocking communication
+
+- If a blocking operation returns, it does not mean that the corresponding message has been received.
+- Blocking and asynchronous or synchronous execution have nothing to do with each other though a blocking receive never returns before the sender has sent out its data.
+- If a blocking send returns, the data must have been copied to the local network chip.
+- The term blocking just refers to the safety of the local variable.
+- With blocking sends, you never have a guarantee that the data has been received, i.e. blocking sends are not synchronised.
+
+> From Mathematics and Computer Science (MCS) at Argonne National Lab (ANL): MPI has a number of different ”send modes.” These represent different choices of buffering (where is the data kept until it is received) and synchronization (when does a send complete). In the following, I use ”send buffer” for the user-provided buffer to send.
+> 
+> [. . . ]
+> 
+> Note that ”nonblocking” refers ONLY to whether the data buffer is available for reuse after the call. No part of the MPI specification, for example, mandates concurrent operation of data transfers and computation.
+
+#### MPI Datatypes
+
+> Datatypes: Note that the basic C datatypes are not allowed in MPI calls — MPI wraps (some of) these and you must use the MPI wrapper types in MPI calls.
+
+```
+MPI_CHAR
+MPI_SHORT
+MPI_INT
+MPI_LONG
+MPI_FLOAT
+MPI_DOUBLE
+```
+- There are more data types predeﬁned.
+- However, I’ve never used others than these.
+- Note that there is no bool (C++) before MPI-2.
+- In theory, heterogeneous hardware supported.
+- Support for user-deﬁned data types and padded arrays.
+
+#### First code
+
+What are the values of a and b on rank 2?
+```cpp
+if (rank==0) {
+  int a=0;
+  MPI_Send(&a, 1, MPI_INT, 2, 0, MPI_COMM_WORLD);
+  a=1;
+  MPI_Send(&a, 1, MPI_INT, 2, 0, MPI_COMM_WORLD);
+}
+if (rank==2) {
+  MPI_Status status;
+  int a;
+  MPI_Recv(&a, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
+  int b;
+  MPI_Recv(&b, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
+}
+```
+- MPI messages from one rank never overtake.
+- Why is this called SPMD?
+
+#### Other blocking Sends
+
+- MPI Send is effectively the simplest, but not the only, option for Sending blocking peer-to-peer messages.
+- Others include:
+  - MPI Ssend — Synchronous, blocking, send
+  - MPI Bsend — asynchronous, blocking, Buffered send
+  - MPI Rsend — Ready blocking send
+- MPI Send is buffered if the message ﬁts in the MPI-managed buffer (like MPI Bsend), otherwise synchronous (like MPI Ssend)
+- MPI Rsend requires the recipient to have already called MPI Recv
+
+> Usage: MPI Recv is always synchronous — it waits until the buffer is ﬁlled up with the complete received message.
+
+#### Excursus/addendum: Buffered sends
+
+```cpp
+int bufsize;
+char *buf = malloc(bufsize);
+MPI_Buffer_attach( buf, bufsize );
+...
+MPI_Bsend( /*... same as MPI_Send ...*/ );
+...
+MPI_Buffer_detach( &buf, &bufsize );
+```
+
+- If you use many tags, many blocking commands, and so forth, you stress your system buffers (variables, MPI layer, hardware)
+- This might lead to deadlocks though your code semantically is correct
+- MPI provides a send routine that buffers explicitly: MPI Bsend
+- MPI Bsend makes use of a user-provided buffer to save any messages that can not be immediately sent.
+- Buffers explicitly have to be added to MPI and removed at program termination.
+- The MPI Buffer detach call does not complete until all messages are sent.
+
+#### Concept of building block
+- Content
+  - Study MPI send and receive
+  - Discuss term blocking
+  - Introduce predeﬁned data types
+  - Study a simple MPI program
+- Expected Learning Outcomes
+  - The student knows signature and semantics of MPI’s send and receive
+  - The student knows the predeﬁned MPI data types
+  - The student can explain the term blocking
+  - The student can write down a simple correct MPI program (incl. the initialisation and the shutdown)
+- Material & further reading
+  - Gropp et al.: Tutorial on MPI: The Message-Passing Interface https://www.mcs.anl.gov/research/projects/mpi/tutorial/gropp/talk.html
+
+### Tags
+
+> Tag: A tag is a meta attribute of the message when you send it away. The receive command can ﬁlter w.r.t. tags.
+
+> Message arrival: Two MPI messages with the same tag may not overtake.
+
+- With tags, we can make messages overtake each other.
+- Tags are typically used to distinguish messages with different semantics.
+- Tags are arbitrary positive integers. There is no need to explicitly register them.
+- Extreme scale: Too many tags might mess up MPI implementation.
+- For sends, real tag is mandatory. Receives may use MPI ANY Tag (wildcard).
+
+#### A communication classic: Data exchanged in a grid
+
+![](imgs/2024-11-26-17-35-02.png)
+
+#### Concept of building block
+- Content
+  - Introduce deﬁnition of a tag
+  - Make deﬁnition of not-overtaking explicit and study usage
+  - Introduce buffered sends
+- Expected Learning Outcomes
+  - The student knows deﬁnition of tags
+  - The student can explain their semantics w.r.t. message arrival
+  - The student can use tags in MPI statements
+
+### Nonblocking point to point communication
+
+#### Buffers
+
+MPI distinguishes different types of buffers:
+- variables
+- user-level buffers
+- hardware/system buffers  
+MPI implementations are excellent in tuning communication, i.e. avoid copying, but we have to assume that a message runs through all buffers, then through the network, and then bottom-up through all buffers again. This means that Send and Recv are expensive operations. Even worse, two concurrent sends might deadlock (but only for massive message counts or extremely large messages).
+
+$\rArr$ One way to deal with this is to allow MPI to optimize the messaging by giving both Send and Recv commands simultaneously — this is a MPI Sendrecv.
+
+#### Sendrecv
+
+```cpp
+int MPI_Sendrecv(
+  const void *sendbuf, int sendcount,
+  MPI_Datatype sendtype,
+  int dest, int sendtag,
+  void *recvbuf, int recvcount,
+  MPI_Datatype recvtype,
+  int source, int recvtag,
+  MPI_Comm comm, MPI_Status *status
+)
+```
+
+- Shortcut for send followed by receive
+- Allows MPI to optimise aggressively
+- Anticipates that many applications have dedicated compute and data exchange phases  
+$\rArr$ Does not really solve our efficiency concerns, just weaken them
+
+#### MPI_Sendrecv example
+
+We have a program which sends an nentries-length buffer between two process
+```cpp
+if (rank == 0) {
+  MPI_Send(sendbuf, nentries, MPI_INT, 1, 0, ...);
+  MPI_Recv(recvbuf, nentries, MPI_INT, 1, 0, ...);
+} else if (rank == 1) {
+  MPI_Send(sendbuf, nentries, MPI_INT, 0, 0, ...);
+  MPI_Recv(recvbuf, nentries, MPI_INT, 0, 0, ...);
+}
+```
+
+- Recall that MPI Send behaves like MPI Bsend when buffer space is available, and then behaves like MPI Ssend when it is not.
+
+```cpp
+if (rank == 0) {
+  MPI_Sendrecv( sendbuf, nentries, MPI_INT, 1, 0, /* Send */
+                recvbuf, nentries, MPI_INT, 1, 0, /* Recv */ ...);
+} else if (rank == 1) {
+  MPI_Sendrecv( sendbuf, nentries, MPI_INT, 0, 0, /* Send */
+                recvbuf, nentries, MPI_INT, 0, 0, /* Recv */ ...);
+}
+```
+
+#### Nonblocking P2P communication
+
+- Non-blocking commands start with I (immediate return, e.g.)
+- Non-blocking means that operation returns immediately though MPI might not have transferred data (might not even have started)
+- Buffer thus is still in use and we may not overwrite it
+- We explicitly have to validate whether message transfer has completed before we reuse or delete the buffer
+
+```cpp
+// Create helper variable (handle)
+int a = 1;
+// trigger the send
+// do some work
+// check whether communication has completed
+a = 2;
+...
+```
+
+$\rArr$ We now can overlap communication and computation
+
+#### Why non-blocking...?
+
+- Added flexibility of separating posting messages from receiving them.  
+$\rArr$ MPI libraries often have optimisations to complete sends quickly if the matching receive already exists.
+- Sending many messages to one process, which receives them all. . .
+
+```cpp
+int buf1, buf2;
+// ...
+for (int k=0; k<100; k++){
+  if (rank==0){
+    MPI_Recv(&buf2, 1, MPI_INT, k, k, COMM, &status);
+  }else{
+    MPI_Send(&buf1, 1, MPI_INT, 0, k, COMM);
+  }
+}
+```
+- The receiving process waits on each MPI Recv before moving on, because it is blocking.
+- If we used a non-blocking MPI Irecv, then all can complete as each MPI Send arrives and we just need to MPI Wait for the results.
+
+#### Isend & Irecv
+
+- Non-blocking variants of MPI Send and MPI Recv
+- Returns immediately, but buffer is not safe to reuse
+
+```cpp
+int MPI_Isend(const void *buffer, int count, MPI_Datatype dtype,
+        int dest, int tag, MPI_Comm comm, MPI_Request *request);
+int MPI_Irecv(void *buffer, int count, MPI_Datatype dtype,
+        int dest, int tag, MPI_Comm comm, MPI_Request *request);
+```
+
+- Note the request in the send, and the lack of status in recv
+- We need to process that request before we can reuse the buffers
+
+#### Isend
+
+```cpp
+int MPI_Send(const void *buffer, int count, MPI_Datatype datatype,
+        int dest, int tag, MPI_Comm comm
+);
+int MPI_Isend(const void *buf, int count, MPI_Datatype datatype,
+        int dest, int tag, MPI_Comm comm,
+        MPI_Request *request
+);
+int MPI_Test(MPI_Request *request, int *flag, MPI_Status *status);
+int MPI_Wait(MPI_Request *request, MPI_Status *status);
+```
+
+- Pass additional pointer to object of type MPI Request.
+- Non-blocking, i.e. operation returns immediately.
+- Check for send completition with MPI Wait or MPI Test.
+- MPI Irecv analogous.
+- The status object is not required for the receive process, as we have to hand it over to wait or test later.
+
+#### Testing
+
+If we have a request, we can check whether the message it corresponds to has been completed with MPI Test:
+```cpp
+int MPI_Test(MPI_Request *request, int *flag, MPI_Status *status);
+```
+
+- flag will be true (an int of value 1) if the provided request has been completed, and false otherwise.
+- If we don’t want to test for completion, we can instead MPI Wait. . .
+
+#### Waiting
+
+```cpp
+MPI_Request request1, request2;
+MPI_Status status;
+int buffer1[10]; int buffer2[10];
+
+MPI_Send(buffer1, 10, MPI_INT, right, 0, MPI_COMM_WORLD);
+MPI_Recv(buffer2, 10, MPI_INT, left, 0, MPI_COMM_WORLD, &status);
+buffer2[0] = 0;
+
+MPI_Isend(buffer2, 10, MPI_INT, right, 0, MPI_COMM_WORLD, &request1);
+MPI_Irecv(buffer1, 10, MPI_INT, left, 0, MPI_COMM_WORLD, &request2);
+buffer1[0] = 0;
+```
+There is an error in this code, what change do we need to make for it to be correct? Before buffer1[0] = 0;:
+
+MPI_Wait(&request1, &status);  
+MPI_Wait(&request2, &status);
+
+#### P2P communication in action
+
+```cpp
+MPI_Request request1, request2;
+MPI_Status status;
+int buffer1[10]; int buffer2[10];
+// Variant A
+MPI_Recv(buffer1, 10, MPI_INT, left, 0, MPI_COMM_WORLD, &status);
+MPI_Send(buffer2, 10, MPI_INT, right, 0, MPI_COMM_WORLD);
+// Variant B
+//MPI_Send(buffer2, 10, MPI_INT, right, 0, MPI_COMM_WORLD);
+//MPI_Recv(buffer1, 10, MPI_INT, left, 0, MPI_COMM_WORLD, &status);
+// Variant C
+//MPI_Irecv(buffer1, 10, MPI_INT, left, 0, MPI_COMM_WORLD, &request1);
+//MPI_Isend(buffer2, 10, MPI_INT, right, 0, MPI_COMM_WORLD, &request2);
+//MPI_Wait(&request1, &status);
+//MPI_Wait(&request2, &status);
+```
+
+- Does Variant A deadlock? Yes! MPI Recv is always blocking.
+- Does Variant B deadlock? Not for only 10 integers (if not too many messages sent before).
+- Does Variant C deadlock? Is it correct? Is it fast? May we add additional operations before the first wait?
+
+#### Concept of building block
+- Content
+  - Introduce sendrecv
+  - Introduce concept of non-blocking communication
+  - Study variants of P2P communication w.r.t. blocking and call order
+- Expected Learning Outcomes
+  - The student knows difference of blocking and non-blocking operations
+  - The student can explain the idea of non-blocking communication
+  - The student can write MPI code where communication and computation overlap
+
+### Collective Operations
+
+#### Deﬁnition: collective
+
+> **Collective operation**: A collective (MPI) operation is an operation involving many/all nodes/ranks.
+
+- In MPI, a collective operation involves all ranks of one communicator (introduced later)
+- For MPI COMM WORLD, a collective operation involves all ranks
+- Collectives are blocking (though newer (3.1) MPI standard introduces non-blocking collectives)
+- Blocking collectives always synchronise all ranks, i.e. all ranks have to enter the same collective instruction before any rank proceeds
+
+#### A (manual) collective
+
+```cpp
+double a;
+if (myrank==0) {
+  for (int i=1; i<mysize; i++) {
+    double tmp;
+    MPI_Recv(&tmp,1,MPI_DOUBLE, ...);
+    a+=tmp;
+  }
+}
+else {
+  MPI_Send(&a,1,MPI_DOUBLE,0, ...);
+}
+```
+What type of collective operation is realised here?
+```cpp
+double globalSum;
+MPI_Reduce(&a, &globalSum, 1,
+  MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+```
+
+#### Flavours of collective operations in MPI
+
+<table>
+	<tbody>
+		<tr>
+			<th>Type of collective</th>
+			<th>One-to-all</th>
+			<th>All-to-one</th>
+			<th>All-to-all</th>
+		</tr>
+		<tr>
+			<td>Synchronisation</td>
+			<td>Barrier</td>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td>Communication</td>
+			<td>Broadcast, Scatter</td>
+			<td>Gather</td>
+			<td>Allgather</td>
+		</tr>
+		<tr>
+			<td>Computation</td>
+			<td> </td>
+			<td>Reduce</td>
+			<td>Allreduce</td>
+		</tr>
+	</tbody>
+</table>
+
+Insert the following MPI operations into the table (MPI preﬁx and signature neglected):
+- Barrier
+- Broadcast
+- Reduce
+- Allgather
+- Scatter
+- Gather
+- Allreduce  
+$\rArr$ Synchronisation as discussed is simplest kind of collective operation
+
+#### Good reasons to use MPI's collective
+
+![](imgs/2024-11-26-20-19-09.png)
+
+- Simplicity of code
+- Performance through specialised implementations
+- Support through dedicated hardware (cf. BlueGene’s three network topologies: clique, fat tree, ring)
+
+#### MPI Barrier
+
+- Simplest form of collective operation — synchronization of all ranks in comm.
+- Rarely used:  
+$\rArr$ MPI Barrier doesn’t synchronize non-blocking calls  
+$\rArr$ Really meant for telling MPI about calls outside MPI, like IO
+
+```cpp
+int rank, size;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+MPI_Comm_size(MPI_COMM_WORLD, &size);
+for ( int ii = 0; ii < size; ++ii ) {
+  if ( rank == ii ) {
+    // my turn to write to the file
+    writeStuffToTheFile();
+  }
+  MPI_Barrier(MPI_COMM_WORLD);
+}
+```
+
+#### MPI Bcast & MPI Scatter
+
+- MPI Bcast sends the contents of a buffer from root to all other processes.
+- MPI Scatter sends parts of a buffer from root to different processes.
+- MPI Bcast is the inverse of MPI Reduce
+- MPI Scatter is the inverse of MPI Gather
+
+```cpp
+MPI_Comm comm;
+int array[100];
+int root=0;
+//...
+MPI_Bcast(array, 100, MPI_INT, root, comm);
+
+int gsize, *sendbuf;
+int rbuf[100];
+//...
+MPI_Comm_size(comm, &gsize);
+sendbuf = (int *)malloc(gsize*100*sizeof(int));
+//...
+MPI_Scatter(sendbuf, 100, MPI_INT, rbuf, 100, MPI_INT, root, comm);
+```
+
+#### MPI Reduce & MPI Gather
+
+- MPI Reduce reduces a value across ranks to a single value on root using a prescribed reduction operator.
+- MPI Gather concatenates the array pieces from all processes onto the root process.
+
+```cpp
+MPI_Comm comm;
+int sum, root=0;
+//...
+MPI_Reduce(sum, c, 1, MPI_INT, MPI_SUM, root, comm);
+int gsize,sendarray[100];
+int myrank, *rbuf;
+//...
+MPI_Comm_rank(comm, &myrank);
+if (myrank == root) {
+  MPI_Comm_size(comm, &gsize);
+  rbuf = (int *)malloc(gsize*100*sizeof(int));
+}
+MPI_Gather(sendarray, 100, MPI_INT, rbuf, 100, MPI_INT, root, comm);
+```
+
+#### MPI Allgather & MPI Allreduce
+
+- MPI Allgather is an MPI Gather which concatenates the array pieces on all processes.
+- MPI Allreduce is an MPI Reduce which reduces on all processes.
+
+```cpp
+MPI_Comm comm;
+int sum, root=0;
+//...
+MPI_Allreduce(sum, c, 1, MPI_INT, MPI_SUM, comm);
+int gsize,sendarray[100];
+int *rbuf;
+//...
+MPI_Comm_size(comm, &gsize);
+rbuf = (int *)malloc(gsize*100*sizeof(int));
+MPI_Allgather(sendarray, 100, MPI_INT, rbuf, 100, MPI_INT, comm);
+```
+
+- MPI Allgather is used a lot (for better or worse) debugging distributed arrays — serial checks work on one process!
+- MPI Allreduce Is particularly useful for convergence checks — we will see this when we return to the Jacobi iteration problem in MPI.
+
+#### Concept of building block
+- Content
+  - Classify different collectives from MPI
+  - Understand use cases for main forms of MPI collectives
+- Expected Learning Outcomes
+  - The student knows which type of collectives do exist (*)
+  - The student can explain what collectives do (*)
+  - The student can identify collective code fragments (*)
+  - The student can use collectives or implement them manually
+

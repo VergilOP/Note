@@ -1,0 +1,37 @@
+Generally a nicely structured report.
+
+The introduction is nice. Similarly the description of algorithms is
+good. To improve this section, you could have added analysis of the
+communication and computation complexity and memory footprint (for
+example, the matrix-vector implementation requires the full vector on
+every process). This would have helped to guide the benchmarking and
+later data analysis. Some of the figures are a little small (perhaps
+use larger fonts!)
+
+Nice benchmarking and analysis. I like the idea of fitting Amdahl and
+Gustafson to the obtained data to figure out the serial fraction. One
+thing that is missing from the setup is telling us what size of
+matrices you use for the different problems. I see for strong scaling
+that it's proportional to the product of \sqrt{p_i} (or p_i for
+matrix-vector), but I did not see what value of N you end up with.
+Relatedly, you should show time to solution somewhere as well as just
+speedup. For example, I think you end up using quite small local
+problems for the weak scaling, so you might just be measuring
+communication overheads at all process counts.
+
+The discussion is generally good. I was a bit confused by the fat and
+thin core description near the end (When you request a multinode job
+on Hamilton, all the nodes have the same type of CPU). You correctly
+identify that outside of a single node you no longer get any strong
+scaling for SUMMA, but do for CANNON.
+
+
+Minor: When writing words in mathmode in latex, \usepackage{amsmath}
+and put them inside \text. e.g.
+$\text{rank} N/\sqrt{p}$ (this avoids latex thinking that rank is just
+the product of four single-letter variables).
+
+Description of algorithms: 20/25
+Analysis and presentation of benchmarking data: 17/25
+TOTAL: 37/50
+

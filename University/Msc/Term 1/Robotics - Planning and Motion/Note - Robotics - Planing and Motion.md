@@ -1270,3 +1270,398 @@ Suppose there is a function $V$ such that
 - $\dot{V}(x) < 0 \quad \forall x \neq, \dot{V}(0) = 0$
 
 Then,every trajectory of $\dot{x} = f(x)$ converges to zero as $t \rarr \infty$
+
+## Lecture 8
+
+### Objectives
+
+1. Obstacle avoidance
+2. Search algorithms
+   - Breadth-first
+   - Depth-first
+   - Wavefront
+3. Dijkstra's Algorithm
+4. A* Algorithm
+
+### Obstacle Avoidance
+
+- Robot needs to navigate through the environment without running into obstacles.
+- Robot needs to utilize exteroceptive sensors to identify obstacles.
+- Robot needs to know when it reaches the goal
+
+#### Bug 0 Strategy
+
+![](imgs/2024-11-25-09-28-44.png)
+
+- Known direction to goal
+  - Robot can measure distance d(x,y) between pts x and y
+- Otherwise local sensing walls/obstacles
+
+1. head toward goal
+2. follow obstacles until you can head toward the goal again
+3. continue
+
+> Bug 0 won't work well in this map!
+>
+> ![](imgs/2024-11-25-09-36-01.png)
+
+#### Bug 1 Strategy
+
+1. head toward goal
+2. if an obstacle is encountered, circumnavigate it and remember how close you get to the goal
+3. return to that closest point(by wall-following) and continue
+
+![](imgs/2024-11-25-09-37-51.png)
+
+##### Bug 1 Path Bound
+
+D =  straight-line distance from start to goal  
+Pi = perimeter of the i th obstacle
+
+Lower bound: D  
+Upper bound: D + 1.5$\sum_i P_i$
+
+![](imgs/2024-11-25-09-38-34.png)
+
+#### Bug 2 Strategy
+
+1. head toward goal on the m-line
+2. if an obstacle is in the way, follow it until you encounter the m-line again.
+3. Leave the obstacle and continue toward the goal
+
+In this case, re-encountering the m-line brings you back to the start
+
+Implicitly assuming a static strategy for encountering the obstacle (“always turn left”)
+
+![](imgs/2024-11-25-09-40-31.png)
+
+1. head toward goal on the m-line
+2. if an obstacle is in the way, follow it until you encounter the m-line again closer to the goal.
+3. Leave the obstacle and continue toward the goal
+
+D =  straight-line distance from start to goal  
+Pi = perimeter of the i th obstacle
+
+Lower bound: D  
+Upper bound: D + $\sum_i\frac{n_i}{2}P_i$
+
+$n_i$ = # of m-line intersections of the i th obstacle
+
+![](imgs/2024-11-25-09-41-01.png)
+
+#### Bug 1 VS Bug 2
+
+Bug 2 beats Bug 1
+  
+![](imgs/2024-11-25-09-42-25.png)
+
+Bug 1 beats Bug 2
+
+![](imgs/2024-11-25-09-42-57.png)
+
+- BUG 1 is an exhaustive search algorithm
+  - it looks at all choices before commiting
+- BUG 2 is a greedy algorithm
+  - it takes the first thing that looks better
+- In many cases, BUG 2 will outperform BUG 1, but
+- BUG 1 has a more predictable performance overall
+
+#### Configuration Space
+
+Mobile robots operate in either a 2D or 3D Cartesian workspace with between 1 and 6 degrees of freedom.  
+The configuration of a robot completely specifies the robot’s location.  
+The configuration of a robot, C, with 𝑘 DOF can be described with 𝑘 values: C = {𝑞1, 𝑞2, … , 𝑞𝑘}.  
+These values can be considered a point, 𝑝 in a k-dimension space (C-space).
+
+#### C-Space
+
+Wheeled mobile robots can be modelled in such a way that the C-Space maps almost directly to the workspace.
+$$
+  C = \{x, y, \varphi \}
+$$
+The assumption is often made that the robot is holonomic, however this is not the case for differential drive robots. If the orientation of the robot is not important, this assumption is valid.
+
+##### C-Space for Mobile Robots
+
+If we assume a **circular**, **holonomic** robot, the C-space of a mobile robot is almost identical to the physical space.
+
+![](imgs/2024-11-25-09-46-18.png)
+
+##### C-Space Modification
+
+The robot in C-space is represented as a point, however the robot in the physical space has a finite size.  
+To map the obstacles in C-space, they have to be increased in size by the radius of the robot.
+
+![](imgs/2024-11-25-09-47-26.png)
+
+#### Graphs
+
+The standard search methods used for planning a route are based on graphs.
+
+A graph, 𝐺, is an abstract representation which is made up of nodes (Vertices), 𝑉(𝐺), and connections (Edges), 𝐸(𝐺).
+
+![](imgs/2024-11-25-09-48-09.png)
+
+##### Graph Definitions
+
+The graph below has a vertex set: 𝑉 𝐺 = 1,2,3,4,5  
+The degree of a vertex is the number edges with that vertex as an end point (so the degree of node 1 would be 2).  
+An edge connects two vertices and is defined as (𝑖, 𝑗) i.e. connecting vertex 𝑖 to vertex 𝑗.  
+The formal definition of the graph is 𝐺 = (𝑉, 𝐸).
+
+##### Graph Direction
+
+The previous graph is known as an undirected graph, i.e. you can move from node to node in both directions.  
+A directed graph means that you can only travel between nodes in a single direction.
+
+![](imgs/2024-11-25-09-49-56.png)
+
+#### Adjacency Matrix
+
+Graphs can be mathematically represented as an adjacency matrix, A, which is a 𝑉 × 𝑉 matrix with entries indicating if an edge exists between them.
+
+$$
+  a_{ij}=\begin{cases}1&\quad if(i,j)\in E\\0&\quad otherwise\end{cases}
+$$
+
+#### Grid movement
+
+The cell decomposition method approaches the path-planning problem by discretising the environment into cells; each cell can either be an obstacle or free space. Then, a search algorithm is employed to determine the shortest path though these cells to go from the start position to the goal position. This strategy tends to work well in dense environments and some of its algorithms can handle changes in the environment efficiently.
+
+The environment of the robot is a continuous structure that is perceived by the robot sensors. Storing and processing this complex environment in a simple format can be quite challenging. One way to simplify this problem is by discretising the map using a grid. The grid discretises the world of the robot into fixed-cells that are adjacent to each other.
+
+![](imgs/2024-11-25-09-51-53.png)
+
+Grid-based discretisation results in an approximate map of the environment. If any part of the obstacle is inside a cell, then that cell is occupied; otherwise, the cell is considered as free space.
+
+![](imgs/2024-11-25-09-52-11.png)
+
+### Search Algorithms
+
+Search algorithms can be broadly placed into two categories:
+- Uninformed
+  - E.g. Breadth-First, Depth-First, Wavefront
+- Informed
+  - E.g. Dijkstra, A*, D*, variants of both  
+Uninformed searches have no additional information about the environment.  
+Informed searches have additional information through the use of evaluation functions or heuristics.
+
+#### Breadth-First
+
+A basic search algorithm is called Breadth-First which begins at a start node and searches all adjacent nodes first. It then progresses onto the next ‘level’ node and searches all nodes on that level before it progresses. It terminates when it reaches its goal.
+
+This search method provides an optimal path on the assumption that the cost of traversing each edge is the same.
+
+#### Depth-First
+
+DFS is similar to BSF, however the algorithm expands the nodes to the deepest level first.
+
+There is some redundancy in that the algorithm may have to backtrack to previous nodes.
+
+#### Wavefront Expansion
+
+A specific implementation of the BFS algorithm for mobile robots is the Wavefront algorithm (also known as NF1 or grassfire).
+
+This algorithm is used to find routes in fixed cell arrays and works backwards from the goal to the start point.
+
+Wavefront Propagation
+1. Start with a binary grid; ‘0’’s represent free space, ‘1’’s represent obstacles
+2. Set the value of the goal cell to ‘2’
+3. Set all ‘0’-valued grid cells adjacent to the ‘2’ cell with ‘3’
+4. Set all ‘0’-valued grid cells adjacent to the ‘3’ cell with ‘4’
+5. Continue until the wave front reaches the start cell (or has populated the whole grid)
+
+Extract the path using gradient descent
+1. Given the start cell with a value of ‘x’, find the neighbouring grid cell with a value ‘x-1’. Add this cell as a waypoint.
+2. From this waypoint, find the neighbouring grid cell with a value ‘x-2’. Mark this cell as a waypoint.
+3. Continue until you reach the cell with a value of ‘2’
+
+![](imgs/2024-11-25-10-01-01.png)
+
+### Dijkstra's Algorithm
+
+Up till now, the edges of the graphs we have considered have all had the same weight. As observed in the previous example, this doesn’t necessarily provide the optimal route.
+
+Dijkstra's algorithm is similar to the BFS, however edges can take any positive cost.
+
+This algorithm finds the costs to all vertices in the graph rather than just the goal.
+
+This is an informed search where the node with the lowest 𝑓(𝑛) is explored first. 𝑔(𝑛) is the distance from the start.
+
+$$
+  f(n) = g(n)
+$$
+
+1. Initialise vectors
+  a. Distance to all other nodes, 𝑓[𝑛] = Inf  
+  b. Predecessor vector (pred) = Nil (0)  
+  c. Priority vector, Q
+2. For all nodes in the graph
+  a. Find the one with the minimum distance  
+  b. For each of the neighbour nodes  
+    i. If the distance to the node from the start is shorter, update the path distance (if 𝑓[𝑢] + 𝑤(𝑢, 𝑛) < 𝑓[𝑛])
+3. Find the path to the goal based on the shortest distances
+
+Start: 5, Goal: 3  
+Shortest Path = 7  
+Path = 5 -> 4 ->2 -> 3
+
+![](imgs/2024-11-25-10-07-47.png)
+
+### A* Search Algorithm
+
+One of the most popular search algorithms is called A* (A-star)
+
+A* uses heuristics, additional information about the graph, to help find the best route.
+
+$$
+  f(n) = g(n) + h(n)
+$$
+
+𝑛 is the node  
+𝑔(𝑛) is the distance from the start node to 𝑛  
+ℎ(𝑛) is the estimated distance to the goal from 𝑛
+
+Nodes with the lowest cost are explored first.
+
+#### Heuristics
+
+For grid maps, the heuristic function can be calculation a number of ways depending on the type of movement allowed.
+- von Neumann – Manhattan Distance
+- Moore – Octile or Euclidean Distance
+
+The heuristic function should be ‘admissible’, i.e. always underestimate the distance to the goal:
+$$
+  h(n) \leq h^*(n)
+$$
+
+#### A* Pseudo Code
+
+1. Initialise vectors
+  a. Distance to all other nodes, 𝑓[𝑛] = Inf    
+  b. Predecessor vector (pred) = Nil (0)    
+  c. Priority vector, Q
+2. From the starting node to the end node
+  a. Find the node with the minimum 𝑓(𝑛). If there is more than one with the same value, select the node with the smallest ℎ(𝑛)  
+  b. For each of the neighbour nodes  
+    i. If 𝑓(𝑛) is smaller, update the path distance  
+      𝑔[𝑢] + 𝑤(𝑛, 𝑢) + ℎ(𝑛) < 𝑓[𝑛]
+3. Find the path to the goal based on the shortest distances
+
+#### Advanced Planning Algorithms
+
+There are more advanced planning algorithms which increase performance and can operate in dynamic conditions:
+- Anytime Replanning A*
+- D*
+- Anytime D*
+- Potential Fields
+
+## Lecture 8 - Lab
+
+### Learning Objectives
+
+What is ROS?
+- Philosophy
+- Features
+- ROS Wiki
+- Structure
+
+Robotic Operating System: Open Source Set of Libraries Let us Develop and Manage A Modular Framework
+
+### Philosophy
+
+The development of a new robotic ssytem relies on:
+- Modularity: using ready modules (sensors, actuators, etc.) instead of making everything from scratch.
+- Distributed computation: each module (software or hardware) may need an independent computational resource.
+- Robustness and Reliability: it is necessary to ensure all the modules work together consistently regardless of uncertainties or disturbances.
+- Scalability: adding new features, expanding the capability domain, and even making new products based on the current design led us to consider scalability in the development process.
+
+### Features
+
+- Peer-Peer Connection
+- Tools Based
+- Multi-Lingual
+- Community Base
+- Open Source Repositories
+
+Tools
+- Message Passing
+- Simulation
+- Real-Time Task Scheduling
+- Data Logging
+
+### ROS Main Concepts
+
+Node
+- Single-purposed executable programs
+- Independently worked and managed
+- They are written using a ROS library
+
+Message
+- Data structure for communication between nodes
+
+Topics
+- A customised message dedicated to transferer data on the network
+- Nodes can subscribe/publish all the Topics on the network
+
+Service
+- Synchronous inter node transactions
+- (blocking RPC): ask for something and wait for it
+
+Action
+- standardized interface for interfacing with non-interrupting tasks
+
+Parameter Server
+- A shared dictionary that is accessible via network
+- Best used for static data such as configuration parameters
+
+Master
+- Provides connection information to nodes so that they can transmit messages to each other
+
+Packages
+- Software in ROS is organized into packages
+- A package contains one or more nodes, documentation, messages, services, …
+
+### ROS2 Ecosystem
+
+Visualisation Tools(RVIZ)
+
+Simulation Tools(GAZEBO)
+
+Available Cross-Platform libraries and community support
+
+### ROS Applications in robotics:
+
+Algorithms:
+- autonomous navigation, manipulation, and swarm robotics.
+
+Real-world use cases:
+- delivery robots, drones, and healthcare robots
+
+Industrial applications:
+- self-driving cars, precision agriculture, and collaborative robots
+
+Advanced use cases in real-time systems (ROS2)
+
+### ROS2 and its Advantages
+
+- Decentralised Architecture
+- Real-Time Support
+- Data Distribution Service
+- Cross-Platform Compatibility
+- Enhanced Security
+- Modular and Scalable Design
+- Improved Tooling
+- Support for Multi-Domain Applications
+
+### ROS/ROS2 and AI Integration:
+
+- Tools and frameworks for AI integration into robotic systems for tasks like perception, decision-making, and learning
+  - Perception and Computer Vision
+  - Navigation and Decision-Making
+  - Machine Learning in Robotics
+  - AI-Powered Data Processing
+  - Simulation for AI Training
+  - real-time AI processing for embedded processors 
+  - supports NLP frameworks such as Google Dialogflow
+
