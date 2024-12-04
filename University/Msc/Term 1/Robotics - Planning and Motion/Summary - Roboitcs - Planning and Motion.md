@@ -1,200 +1,317 @@
-# Note - Robitcs - Planning and Motion
+- [Summary - Robotics - Planning and Motion](#summary---robotics---planning-and-motion)
+  - [Lecture 1 - Introduction to Robotic](#lecture-1---introduction-to-robotic)
+  - [Lecture 2 - Actuators \& Sensors](#lecture-2---actuators--sensors)
+    - [Actuators 执行器](#actuators-执行器)
+      - [Electromagnetic  电磁](#electromagnetic--电磁)
+      - [Hydraulic  液压](#hydraulic--液压)
+      - [Pneumatic  气动](#pneumatic--气动)
+    - [Sensors 传感器](#sensors-传感器)
+      - [Robotic sensor calssification](#robotic-sensor-calssification)
+      - [Various sensors overview](#various-sensors-overview)
+    - [Components used for Manipulators 机械臂中使用的部件](#components-used-for-manipulators-机械臂中使用的部件)
+  - [Lecture 3 - Manipulators](#lecture-3---manipulators)
+    - [Robotic Manipulators 机械臂](#robotic-manipulators-机械臂)
+    - [joints 关节](#joints-关节)
+    - [Manipulators 机械臂](#manipulators-机械臂)
+  - [Lecture 4 - Kinematics](#lecture-4---kinematics)
+    - [Spatial Description](#spatial-description)
+    - [Transformation](#transformation)
+      - [Rotation](#rotation)
+      - [Translation](#translation)
+      - [General Transformation](#general-transformation)
+      - [Representations](#representations)
+  - [Lecture 5 - Manipulator Kinematics](#lecture-5---manipulator-kinematics)
+    - [Link Description](#link-description)
+      - [Link Connection:](#link-connection)
+      - [First and last links:](#first-and-last-links)
+      - [Frame attachment](#frame-attachment)
+      - [Summary](#summary)
+  - [Lecture 6](#lecture-6)
+- [\\end{bmatrix}](#endbmatrix)
+    - [Dead Recokoning](#dead-recokoning)
+- [\\end{bmatrix}](#endbmatrix-1)
+      - [Gaussian Distributions](#gaussian-distributions)
+      - [Pose covariance matrix](#pose-covariance-matrix)
+- [\\end{bmatrix}](#endbmatrix-2)
+      - [Point Stabilisation](#point-stabilisation)
+- [\\end{pmatrix}](#endpmatrix)
+  - [Lecture 7](#lecture-7)
+    - [Proportional Control](#proportional-control)
+    - [Proportional-Integral(PI) Control](#proportional-integralpi-control)
+    - [Proportional-Integral-Derivative(PID) Control](#proportional-integral-derivativepid-control)
+    - [Summary of Tuning Tendencies](#summary-of-tuning-tendencies)
+      - [Advantages of PID Control](#advantages-of-pid-control)
+      - [Disadvantages of PID Control](#disadvantages-of-pid-control)
+    - [Matrix Exponential](#matrix-exponential)
+    - [Stability of the System](#stability-of-the-system)
+      - [Lyapunov Stability](#lyapunov-stability)
+      - [Asymptotic Stability](#asymptotic-stability)
+      - [Neutral Stability](#neutral-stability)
+      - [Stability of the LTI System](#stability-of-the-lti-system)
+      - [Scalar Exponential Response](#scalar-exponential-response)
+      - [Matrix Exponential Response](#matrix-exponential-response)
+      - [Stability of Nonlinear System](#stability-of-nonlinear-system)
+      - [Positive Definite Functions](#positive-definite-functions)
+      - [Lyapunov Theory](#lyapunov-theory)
+      - [Lyapunov Stability Theorem](#lyapunov-stability-theorem)
+  - [Lecture 8](#lecture-8)
+    - [Obstacle Avoidance](#obstacle-avoidance)
+      - [Bug 0 Strategy](#bug-0-strategy)
+      - [Bug 1 Strategy](#bug-1-strategy)
+        - [Bug 1 Path Bound](#bug-1-path-bound)
+      - [Bug 2 Strategy](#bug-2-strategy)
+      - [Bug 1 VS Bug 2](#bug-1-vs-bug-2)
+      - [Configuration Space](#configuration-space)
+      - [C-Space](#c-space)
+        - [C-Space for Mobile Robots](#c-space-for-mobile-robots)
+        - [C-Space Modification](#c-space-modification)
+      - [Graphs](#graphs)
+        - [Graph Definitions](#graph-definitions)
+        - [Graph Direction](#graph-direction)
+      - [Adjacency Matrix](#adjacency-matrix)
+      - [Grid movement](#grid-movement)
+    - [Search Algorithms](#search-algorithms)
+      - [Breadth-First](#breadth-first)
+      - [Depth-First](#depth-first)
+      - [Wavefront Expansion](#wavefront-expansion)
+    - [Dijkstra's Algorithm](#dijkstras-algorithm)
+    - [A\* Search Algorithm](#a-search-algorithm)
+      - [Heuristics](#heuristics)
+      - [A\* Pseudo Code](#a-pseudo-code)
+      - [Advanced Planning Algorithms](#advanced-planning-algorithms)
+  - [题型预测](#题型预测)
+    - [Week 1-5](#week-1-5)
+    - [Week 6-9](#week-6-9)
+  - [例题](#例题)
+    - [第一部分：Week 1-5 (基础机械臂、矩阵变换)](#第一部分week-1-5-基础机械臂矩阵变换)
+      - [**题目 1: 压力差计算**](#题目-1-压力差计算)
+      - [**题目 2: 冗余度计算**](#题目-2-冗余度计算)
+      - [**题目 3: 矩阵变换**](#题目-3-矩阵变换)
+      - [**题目 4: 末端位置计算**](#题目-4-末端位置计算)
+      - [**题目 5: 冗余机械臂**](#题目-5-冗余机械臂)
+    - [第二部分：Week 6-9 (运动学、控制、SLAM)](#第二部分week-6-9-运动学控制slam)
+      - [**题目 6: 速度计算**](#题目-6-速度计算)
+      - [**题目 7: Jacobian 矩阵**](#题目-7-jacobian-矩阵)
+      - [**题目 8: PID 控制**](#题目-8-pid-控制)
+      - [**题目 9: 稳定性判断**](#题目-9-稳定性判断)
+      - [**题目 10: A* 算法*\*](#题目-10-a-算法)
+
+# Summary - Robotics - Planning and Motion
 
 ## Lecture 1 - Introduction to Robotic
 
-### Learning Objectives
-
-Objectives:
-1. Definition of robotics & it's history  
-    机器人定义以及历史
-2. Current robotic sectors  
-    当前的机器人领域
-3. Industrial robotics & manipulators  
-    工业机器人和操纵者
-
-### Robot Definition
-
-Two common definitions are:
-- (old)An industrial robot is a reprogrammable, multifunctional manipulator designed to move parts, tools or special devices through variable programmed motions for the performance of a variety of tasks  
-    （旧）工业机器人是一种可重新编程的多功能操纵器，旨在通过可变的编程动作移动零件、工具或特殊设备，以执行各种任务
-- A robot is an artificial physical agent that perceives its environment through `sensors` and acts upon that environment through `actuators`.  
-    机器人是一种人工物理代理，它通过传感器感知其环境并通过执行器对该环境采取行动。
-
-### Current Robotic Application Sectors
-
-- Manufacturing  制造业
-- Surgical  外科
-- Service  服务业
-- Military  军事
-- Healthcare  医疗保健
-- Home  家居
-- Space  太空
-- Farming  农业
-- Security/surveillance  安全/监视
-- Rescue  救援
-- Extreme Environments  极端环境
-
 ## Lecture 2 - Actuators & Sensors
 
-### Learning Objectives
+---
 
-Objectives:
-- Different Types of Actuators  不同类型的执行器
-- Sensors  传感器
+### Actuators 执行器
 
-### Actuators
+---
 
-Three commonly used actuator types:
-- Electromagnetic(The most common types of actuators)  电磁
-- Hydraulic  液压
-- Pneumatic  气动
+#### Electromagnetic  电磁
 
-#### Electromagnetic Actuators  电磁执行器
+The most common types of actuators  
+最常见的执行器类型
 
-- Brushed DC Motor  有刷直流电动机
-  - Current flowing through armature generates a magnetic field and permanent magnets torque the armature  
-    通过电枢的电流产生磁场，永久磁铁扭转电枢 
-    - Advantages: Provides variable speeds, low-cost  
-        优点：提供可变速度，成本低
-    - Disadvantages: Brush wear out, low precision  
-        缺点：刷子磨损，精度低
+**Brushed DC Motor** 有刷直流电动机
+- Current flowing through *armature* generates a magnetic field and permanent magnets torque the *armature*.  
+  通过电枢的电流产生磁场，永久磁铁扭转电枢 
+  > - **Advantages**: Provides variable speeds, low-cost  
+  >     优点：提供可变速度，成本低
+  > - **Disadvantages**: Brush wear out, low precision  
+  >     缺点：刷子磨损，精度低
 
-- Brushless DC Motor  无刷直流电动机
-  - Armature is fixed, and permanent magnets rotate    
-    电枢固定，永久磁铁旋转
-    - Advantages: Efficiency, Low noise, Cooling, Water-resistant  
-        优点：效率高、噪音低、散热、耐水
-    - Disadvantages: low percision, costly  
-        缺点：精度低，成本高
+  ![](imgs/2024-11-28-19-04-14.png)
 
-- Stepper Motor  步进电动机
-  - Brushless, synchronous motor that moves in discrete steps  
-    无刷、同步电机，以离散步进运动
-    - Advantage: Precise, quantized control without feedback  
-      优点：精确、量化控制，无需反馈
-    - Disadvantages: Slow and moves in discrete steps, expensive  
-      缺点：速度慢，以离散步进移动，成本高
 
-#### Hydraulic Actuators  液压执行器
+**Brushless DC Motor**  无刷直流电动机
+- *Armature* is fixed, and permanent magnets rotate    
+  电枢固定，永久磁铁旋转
+  > - **Advantages**: Efficiency, Low noise, Cooling, Water-resistant  
+  >     优点：效率高、噪音低、散热、耐水
+  > - **Disadvantages**: low percision, costly  
+  >     缺点：精度低，成本高
 
-- Cylinders(linear actuators):  气缸（线性执行器）
-  - Advantages:
-    - Very powerful that offer very large force capability, but expensive  非常强大，提供极大的力输出，但成本高
-    - High power-to-weight ratio  功率与重量比高
-  - Drawbacks:
-    - Their power supplies are bulky and heavy  电源体积大且沉重
-    - Oil leakage  漏油问题
+  ![](imgs/2024-11-28-19-04-24.png)
 
-- Motors(rotary actuators)  马达（旋转执行器）
 
-- Integrated Smart Hydraulic Actuator  集成智能液压执行器
-  - Usual hydraulic actuator-valve configuration  常见的液压执行器-阀门配置
+**Stepper Motor**  步进电动机
+- Brushless, synchronous motor that moves in discrete steps  
+  无刷、同步电机，以离散步进运动
+  > - Advantage: Precise, quantized control without feedback  
+  >   优点：精确、量化控制，无需反馈
+  > - Disadvantages: Slow and moves in discrete steps, expensive  
+  >   缺点：速度慢，以离散步进移动，成本高
 
-#### Pneumatic Actuators  气动执行器
+  ![](imgs/2024-11-28-19-05-07.png)
 
-- Cylinders(linear actuators)  气缸（线性执行器）
+---
 
-- Motors(rotary actuators)  马达（旋转执行器）
+#### Hydraulic  液压
 
-### Sensors
+（大概率出题）
+**Cylinders(linear actuators)**:  气缸（线性执行器）
+> - Advantages:
+>   - Very powerful that offer very large force capability, but expensive  
+>     非常强大，提供极大的力输出，但成本高
+>   - High power-to-weight ratio  
+>     功率与重量比高
+> - Drawbacks:
+>   - Their power supplies are bulky and heavy  
+>     电源体积大且沉重
+>   - Oil leakage  
+>     漏油问题
 
-#### Motivation
+> $$
+> Force = Pressure * Area
+> $$
+> ![](imgs/2024-11-28-19-01-00.png)
+> 
+> force for extending the rod with max P:  
+> $A1 = \pi R_1^2$  
+> $F = P * A_1$
+> 
+> force for retracting the rod with max P:  
+> $A = \pi R_1^2 - \pi R_2^2$  
+> $F = P * A$
+> 
+> ![](imgs/2024-11-28-19-03-12.png)
 
-A robot would be easily controlled if a complete model of the environment was available for the robot, and if tis actuators could execute motion commands perfectly relative to this model  
-如果机器人拥有完整的环境模型，并且其执行器能够相对于该模型完美执行运动命令，则机器人将更容易控制。
+**Motors(rotary actuators)**  马达（旋转执行器） 
 
-#### Robotic sensor classsification
+![](imgs/2024-11-28-19-03-54.png)
 
-- Proprioceptive  本体感知
-  - Internal state of the robot  机器人的内部状态
-  - Measures values (e.g. wheels position, joint angle, battery level, etc)
-- Exteroceptive  外感知
-  - External state of the system  系统的外部状态
-  - Observing environment, detecting objects, etc
 
-- Active  主动
-  - Emits energy(e.g. radar)
-- Passive  被动
-  - Receives energy(e.g. camera)
+**Integrated Smart Hydraulic Actuator**  
+集成智能液压执行器
+- Usual hydraulic actuator-valve configuration  
+  常见的液压执行器-阀门配置
 
-- Real-world Characteristics of sensors
-  - **Sensitivity**: Ratio of output change to input change  
-    灵敏度：输出变化与输入变化的比率
-  - **Error/Accuracy**: Difference between the sensor's output and the true value  
-    误差/准确度：传感器输出与真实值之间的差异
-    - **Systematic/Deterministic Error**: Caused by factors that can be modelled(in theory), e.g., calibration of a laser sensor  
-        系统/确定性误差：由可建模的因素引起（理论上），如激光传感器的校准
-    - **Random Error**: e.g., hue instability of camera, black level noise of camera  
-        随机误差：如相机色调不稳定、相机的黑电平噪声
-  - **Reproducibility**: Reproducibility of sensor results  
-    再现性：传感器结果的可重复性
+![](imgs/2024-11-28-19-05-45.png)
+
+---
+
+#### Pneumatic  气动
+
+**Cylinders(linear actuators)**  
+气缸（线性执行器）
+
+![](imgs/2024-11-28-19-06-47.png)
+
+**Motors(rotary actuators)**  
+马达（旋转执行器）
+
+![](imgs/2024-11-28-19-06-53.png)
+
+---
+
+### Sensors 传感器
+
+**Motivation**
+- A robot would be easily controlled if a complete model of the environment was available for the robot, and if tis actuators could execute motion commands perfectly relative to this model  
+  如果机器人拥有完整的环境模型，并且其执行器能够相对于该模型完美执行运动命令，则机器人将更容易控制。
+- Sensors only measure a physical quantity
+
+---
+
+#### Robotic sensor calssification
+
+> - **Proprioceptive**  本体感知
+>   - Internal state of the robot  机器人的内部状态
+>   - Measures values (e.g. wheels position, joint angle, battery level, etc)
+> - **Exteroceptive**  外感知
+>   - External state of the system  系统的外部状态
+>   - Observing environment, detecting objects, etc
+
+> - **Active**  主动
+>   - Emits energy(e.g. radar)
+> - **Passive**  被动
+>   - Receives energy(e.g. camera)
+
+![](imgs/2024-11-28-19-07-30.png)
+
+Real-world Characteristics of sensors
+- **Sensitivity**: Ratio of output change to input change  
+  灵敏度：输出变化与输入变化的比率
+- **Error/Accuracy**: Difference between the sensor's output and the true value  
+  误差/准确度：传感器输出与真实值之间的差异
+  - **Systematic/Deterministic Error**: Caused by factors that can be modelled(in theory), e.g., calibration of a laser sensor  
+      系统/确定性误差：由可建模的因素引起（理论上），如激光传感器的校准
+  - **Random Error**: e.g., hue instability of camera, black level noise of camera  
+      随机误差：如相机色调不稳定、相机的黑电平噪声
+- **Reproducibility**: Reproducibility of sensor results  
+  再现性：传感器结果的可重复性
 
 #### Various sensors overview
 
-- A simple On/Off switch
+Mechanical switches 机械开关
+- A simple On/Off switch 简单的开关
 - Titl sensor(mercury titl)  倾斜传感器（汞倾斜）
 - Dual axis inclinometer  双轴倾斜仪
 - Potentiometer  电位器
 - Bumpers  缓冲器
-  - Mechanical switches
 
-- Light sensors
-  - Photoresistors, light dependent resistors(LDR)
-  - Phototransistors  光电晶体管
+Light sensors 光传感器
+- Photoresistors, light dependent resistors(LDR) 光敏电阻(LDR)
+- Phototransistors  光电晶体管
 
-- Thermal sensor
-  - Thermal resistor
-  - Temperature sensors
-    - Analogue
-    - Digital
+Thermal sensor 热传感器
+- Thermal resistor 热敏电阻 
+- Temperature sensors 温度传感器
+  - Analogue 模拟
+  - Digital 数码
 
-- Proximity sensors  接近传感器
-  - Non-contact
-  - Devices that can be used in areas that are near to an object to be sensed
-  - Different types of Proximity Sensors
-    - Infrared
-    - Ultrasonic
-    - Inductive  电感
-    - Capacitive  电容
+Proximity sensors  接近传感器
+- Non-contact 非接触式
+  - Devices that can be used in areas that are near to an object to be sensed  
+    可用于靠近要感测物体的区域的设备
+- Different types of Proximity Sensors  
+  不同类型的近距离传感器
+  - Infrared 红外
+  - Ultrasonic 超声波
+  - Inductive  电感
+  - Capacitive  电容
 
-- Position Sensors
-  - Potentiometer  电位器
-  - Resolver  解算器
-  - Optical Encoders
-    - Relative position
-    - Absolue position
+Position Sensors 位置传感器
+- Potentiometer  电位器
+- Resolver  解析器
+- Optical Encoders 光学编码器
+  - Relative position 相对位置
+  - Absolue position 绝对位置
 
-- Heading sensors:  方位传感器
-  - Heading sensors can be proprioceptive(gyroscope, inclinometer) or exteroceptive(compass)  
-    方位传感器可以是本体感知（陀螺仪、倾角仪）或外感知（指南针）
-  - Used to determine the robots orientation and inclination  
-    用于确定机器人的方位和倾斜角
+Heading sensors:  方位传感器
+- Heading sensors can be proprioceptive(gyroscope, inclinometer) or exteroceptive(compass)  
+  方位传感器可以是本体感知（陀螺仪、倾角仪）或外感知（指南针）
+- Used to determine the robots orientation and inclination  
+  用于确定机器人的方位和倾斜角
 
-- Accelerometer
-  - be made to sense acceleration by simply measuring the force on a mass
+Accelerometer 加速度计
+- be made to sense acceleration by simply measuring the force on a mass  
+  通过简单测量质量上的力来感应加速度
 
-- Gyroscope  陀螺仪
-  - Heading seonsors for measuring and to keep the orientation to a fixed frame  
-    用于测量和保持相对于固定框架的方向的方位传感器
-  - Two methods:
-    - Mechanical(flywheel)
-    - Electronic
+Gyroscope  陀螺仪
+- Heading seonsors for measuring and to keep the orientation to a fixed frame  
+  用于测量和保持相对于固定框架的方向的方位传感器
+- Two methods:
+  - Mechanical(flywheel) 机械(飞轮)
+  - Electronic 电子
 
-### Components used for Manipulators
+---
+
+### Components used for Manipulators 机械臂中使用的部件
+
 - Components in a joint:
-  - Moters(electric or hydraulic)
-  - Moter Encoders
-    - Angle(joint angle)
+  - **Moters**(electric or hydraulic)
+  - **Moter Encoders**
+    - Angle(joint angle)  角度(关节角度)
     - Displacement sensor  位移传感器
   - Gearbox  齿轮箱
 
+---
+
 ## Lecture 3 - Manipulators
 
-### Learning Objectives
-
-Objectives:
-1. Introduction to Manipulators
-2. Manipulators and joints
+---
 
 ### Robotic Manipulators 机械臂
 
@@ -205,31 +322,47 @@ Benefits in repetitive operation:
 - Reduce wastage 减少浪费
 - "Up skilling" of work force 技能提升
 
-> A Return On Investment(ROI 回报率) study would be performed to quatify these factors and justify the investment in a bespoke robotics solution
+> A **Return On Investment**(ROI 回报率) study would be performed to quatify these factors and justify the investment in a bespoke robotics solution
+
+---
 
 ### joints 关节
 
 - Different types of joints
   - Revolute Joint 旋转关节
     - 绕固定轴旋转，自由度(DOF)为1
+    - ![](imgs/2024-11-30-13-09-37.png)
   - Prismatic Joint 伸缩关节
     - 可以沿直线滑动，自由度(DOF)为1
+    - ![](imgs/2024-11-30-13-09-43.png)
   - Cylindrical Joint 圆柱关节
+    - ![](imgs/2024-11-30-13-10-13.png)
   - Spherical Joint 球形关节
+    - ![](imgs/2024-11-30-13-10-23.png)
   - Universal Joint 万向关节
+    - ![](imgs/2024-11-30-13-10-35.png)
+
+---
 
 ### Manipulators 机械臂
 
 - Different types of manipulator:
-  - Cartesian PPP 笛卡尔型
+  - **Cartesian** PPP 笛卡尔型
     - 三个线性关节，适合直线运动
-  - Cylindrical RPP 圆柱型
+    - ![](imgs/2024-11-30-13-11-37.png)
+  - **Cylindrical** RPP 圆柱型
     - 适合具有圆柱形工作空间的任务
-  - Spherical RRP 球型
+    - ![](imgs/2024-11-30-13-11-45.png)
+  - **Spherical** RRP 球型
     - 适合球型工作空间
-  - Articulated RRR 关节型
+    - ![](imgs/2024-11-30-13-11-57.png)
+  - **Articulated** RRR 关节型
     - 更加灵活，常用于需要复杂运动的任务中
+    - ![](imgs/2024-11-30-13-12-06.png)
   - SCARA, RRP (Selective Compliance Assembly Robot Arm 选择顺应性装配机械手臂)
+    - ![](imgs/2024-11-30-13-12-45.png)
+
+![](imgs/2024-11-30-13-15-42.png)
 
 - Links
   - n moving link(s) n个活动连杆
@@ -267,41 +400,46 @@ n links -> 9n parameters (3 vectors: Each vector has 3 parameters)
     > This is for manipulator with fixed base
 
 - End effectors configuration 末端执行器配置
-  - End effector is the last rigid-body and it has all the freedom from previous links
-  - A set of parameters describing position and orientation of the end effector: $(x_1, x_2, x_3, ... , x_m)$ with respect to {0}
-    > $O_{n+1}$: is operational coordinates(task coordinates)
-  - A set of $x_1, x_2, x_3, ... , x_{m_o}$ of $m_o$ independent configuration parameters
-  - $m_o$ is number of DOF of the end effector, max 6 DOF 末端执行器自由度最高为6
+  - End effector is the last rigid-body and it has all the freedom from previous links  
+    末端执行器是最后一个刚体，它具有先前链接的所有自由度
+  - A set of parameters describing position and orientation of the end effector: $(x_1, x_2, x_3, ... , x_m)$ with respect to {0}  
+    一组描述末端执行器位置和方向的参数：$(x_1, x_2, x_3, ... , x_m)$ 相对于 {0}
+    > $O_{n+1}$: is operational coordinates(task coordinates)  
+    > $O_{n+1}$：是操作坐标（任务坐标）
+  - A set of $x_1, x_2, x_3, ... , x_{m_o}$ of $m_o$ independent configuration parameters  
+    一组 $x_1, x_2, x_3, ... , x_{m_o}$ 的 $m_o$ 独立配置参数
+  - $m_o$ is number of DOF of the end effector, max 6 DOF  
+    $m_o$ 是末端执行器的自由度数，最大 6 DOF 终止执行器自由度最高为 6
 
 - End effector, Joint coordination 末端执行器，关节坐标
-  - Joint space (configuration space) is the space that a manipulator is represented as a point.
-  - (x,y) is a vector for position of end effector $\alpha$ defines orientation(angle) of end effector
-  - Defines: operational coordinates -> operational space
+  - Joint space (configuration space) is the space that a manipulator is represented as a point.  
+    关节空间（配置空间）是将操纵器表示为点的空间。
+  - (x,y) is a vector for position of end effector $\alpha$ defines orientation(angle) of end effector  
+    (x,y) 是末端执行器位置的向量 $\alpha$ 定义末端执行器的方向（角度）
+  - Defines: operational coordinates -> operational space  
+    定义：操作坐标 -> 操作空间
 
 - Redundancy 冗余
   - A manipulator is Redundant if 
     $$
-      n>m 
+      n > m 
     $$
-    n number of DOF of the manipulator  
-    m number of DOF of the end effector(operational space)  
-    Degreee of Redundancy: n - m  
+    > n number of DOF of the manipulator  
+    > m number of DOF of the end effector(operational space)  
+    > Degreee of Redundancy: n - m  
+
+---
 
 ## Lecture 4 - Kinematics
 
-### Learning Objectives
-
-Objectives:
-1. Spatial Description
-2. Transformation
-  - Rotation
-  - Translation
+---
 
 ### Spatial Description
 
 - Position of a Point 点的位置
   - With respect to a fixed origin O, the position of a point P is described by the vector OP(p)  
-    相对于固定原点 O，点 P 的位置由向量 OP(p) 描述
+    相对于固定原点 O, 点 P 的位置由向量 OP(p) 描述  
+  ![](imgs/2024-11-30-15-15-32.png)
 
 - Coordinate Frames:
   - Rotation
@@ -313,9 +451,21 @@ Objectives:
 
 > These vectors describe rotation of {B} with respect to {A}
 
+![](imgs/2024-11-30-15-16-03.png)
+
+---
+
 ### Transformation
 
+![](imgs/2024-12-02-16-26-59.png)
+
+![](imgs/2024-12-02-16-30-20.png)
+
+---
+
 #### Rotation
+
+![](imgs/2024-11-30-15-16-45.png)
 
 - Rotation Matrix:
   $$
@@ -379,6 +529,8 @@ $$
     ^AP =\ ^A_BR\ ^BP
   $$
 
+---
+
 #### Translation
 
 ![](./imgs/Translation.png)
@@ -386,6 +538,8 @@ $$
 $$
   ^AP_{OA} = ^AP_{OB} + ^AP_{BOrg}
 $$
+
+---
 
 #### General Transformation
 
@@ -437,23 +591,23 @@ $$
   $$
 
 - Homogeneous Transform Interpretations:
-- Description of a frame  
-  ![](./imgs/Description%20of%20a%20frame.png)
-  $$
-    ^A_BT:\{B\} = \{^A_BR\ \ ^AP_{Borg}\}
-  $$
+  - Description of a frame  
+    ![](./imgs/Description%20of%20a%20frame.png)
+    $$
+      ^A_BT:\{B\} = \{^A_BR\ \ ^AP_{Borg}\}
+    $$
 
-- Transform mapping  
-  ![](./imgs/Transform%20mapping.png)
-  $$
-    ^A_BT:\ ^BP \rarr\ ^AP
-  $$
+  - Transform mapping  
+    ![](./imgs/Transform%20mapping.png)
+    $$
+      ^A_BT:\ ^BP \rarr\ ^AP
+    $$
 
-- Transform operator  
-  ![](./imgs/Transform%20operator.png)
-  $$
-    T: P_1 \rarr P_2
-  $$
+  - Transform operator  
+    ![](./imgs/Transform%20operator.png)
+    $$
+      T: P_1 \rarr P_2
+    $$
 
 - Compound Transformation:
   $$
@@ -481,6 +635,8 @@ $$
     ^A_B T \ ^B_C T \ ^C_D T \ ^D_A T = I
   $$
 
+---
+
 #### Representations
 
 - End-effector Configuration  
@@ -502,14 +658,9 @@ $$
   - Cylindrical: $(\rho, \theta, z)$
   - Spherical: $(r, \theta, \phi)$
 
+---
+
 ## Lecture 5 - Manipulator Kinematics
-
-### Learning Objectives
-
-- Objectives
-  - Link Description
-  - Denavit-Hartenberg(D-H parameters)
-  - Manipulator Kinematics
 
 ### Link Description
 
@@ -548,6 +699,8 @@ $$
 > - $\alpha_i$ and $a_i$ describe the link $i$
 > - $d_i$ and $\theta_i$ connection between the links
 
+![](imgs/2024-11-30-15-39-09.png)
+
 #### Frame attachment
 
 1. Common Normals
@@ -556,6 +709,9 @@ $$
 4. X-axis
 
 ![](./imgs/Frame%20attachment.png)
+
+Intersecting Joint Axes:  
+![](imgs/2024-11-30-15-41-15.png)
 
 #### Summary
 
@@ -592,40 +748,10 @@ $\theta_i$: angle between $x_{i-1}$ and $x_i$ about $z_i$
   - Prismatic joints:  
     ![](./imgs/Prismatic%20joints.png)
 
+![](imgs/2024-11-30-15-54-34.png)
+
+
 ## Lecture 6
-
-### Learning Objectives
-
-- Objectives:
-  1. Differential drive robots
-  2. Localisation
-  3. Motion control
-
-### Differential drive robots
-
-Mobile robots
-- A robot is an artificial physical agent that perceives its environment through sensors and acts upon that perceives its environment through sensors and acts upon that environment through actuators  
-  机器人是一种人工物理代理，它通过传感器感知环境，并通过执行器对环境采取行动。
-
-Divide and Conquer 分而治之
-- The world is dynamic and fundamentally unkown
-- The controller must be able to respond to environmental conditions
-- Instead of building one complicated controller - divide and conquer: Behaviors
-  - Go-to-goal实现目标
-  - Avoid-obstacles避开障碍物
-  - Follow-path遵循路径
-  - Track-target跟踪目标
-  - ...
-
-Differential drive robots
-- Also known as differential wheeled robots, these are mobile robots whose movement is based on two separately driven wheels placed on either side of the robot body. It can thus change its direction by varying the relative rate of rotation of its wheels, thereby requiring no additional steering motion  
-  差速轮机器人又称为差速轮机器人，是一种移动机器人，其运动基于机器人身体两侧的两个独立驱动轮。因此，它可以通过改变轮子的相对旋转速度来改变方向，从而无需额外的转向运动
-
-#### Kinematics of a unicycle
-
-Ignoring balancing concerns, there are two action variables, i.e., direct inputs to the system in the XY plane.
-- The first one is the forward/linear velocity: $v = \omega_u r$, where $\omega_u$ is the wheel angular velocity, $r$ is wheel radius
-- The second one is the steering velocity denoted by $\omega$
 
 Dynamics:
 $$
@@ -639,18 +765,21 @@ $$
   \dot{x}\sin\theta - \dot{y}\cos\theta = 0
 $$
 
-#### Kinematics of a differential drive
+- The resultant forward velocity through $C$(the centre of mass)
+  $$
+    v = r(\frac{\omega_r + \omega_l}{2})
+  $$
+- The steering velocity:
+  $$
+    \omega = r(\frac{\omega_r - \omega_l}{l})
+  $$
 
-- The resultant forward velocity through $C$(the centre of mass) is $v = r(\frac{\omega_r + \omega_l}{2})$
-- The steering velocity is $\omega = r(\frac{\omega_r - \omega_l}{l})$
-
-- Thus, just like the unicycle, the configuration transition equations may be given as
+- The configuration transition equations may be given as
   $$
     \dot{x} = r\frac{\omega_r + \omega_l}{2}\cos\theta\\
     \dot{y} = r\frac{\omega_r + \omega_l}{2}\sin\theta\\
     \dot{\theta} = r\frac{\omega_r - \omega_l}{l}
   $$
-- Comparing the equations for unicycle and for differential drive yields the Transformation
   $$
   \begin{bmatrix}
   v \\
@@ -667,28 +796,7 @@ $$
   \end{bmatrix}
   $$
 
-### Localisation
-
-- The robot needs to know its location in the environment in order to make proper decisions
-- Localisation can be achieved using
-  - Proprioceptive sensors(encoders, IMU). This types of localisation is named dead reckoning localisation.
-  - Exteroceptive sensors(sonar, LiDAR, camera). This type of localisation is named map-based localisation
-  - External sensors(GPS). Not suitable for indoor applications
-
-Probabilistic Localisation
-- In robotics, we deal with localisation probabilistically
-- Three key components:
-  - A robot's belif of where it is (its state)
-  - A robot's motion model
-  - A robot's sensor model
-
-#### Motion-based Localisation(Dead Reckoning)
-
-This technique uses the internal kinematics of the robot to localise it in the environment.
-
-This method is simple to implement, and does not require sophisticated sensors.
-
-However, such technique sufers from the unbounded growth of the uncertainty about the robot pose over time due to the numerical integration and accumulation of Error
+### Dead Recokoning
 
 Kinematic model for a differential robot model
 $$
@@ -710,15 +818,9 @@ v \\
 \end{bmatrix}
 $$
 
-The robot pose 
-$$
-  \mathbf{s}_k=\begin{bmatrix}S_x&&S_y&&S_\theta\end{bmatrix}^T
-$$
+The robot pose: $\mathbf{s}_k=\begin{bmatrix}S_x&&S_y&&S_\theta\end{bmatrix}^T$
 
-The robot inputs
-$$
-  \mathbf{u}_k=\begin{bmatrix}v&\omega\end{bmatrix}^T
-$$
+The robot inputs: $\mathbf{u}_k=\begin{bmatrix}v&\omega\end{bmatrix}^T$
 
 If $\Delta t$ is the sampling time , then it is possible to compute the incremential linear and angular Displacement, $\Delta d$ and $\Delta \theta$, as follows:
 $$
@@ -732,29 +834,17 @@ $$
   \begin{bmatrix}S_{x,k}\\S_{y,k}\\S_{\theta,k}\end{bmatrix}=\begin{bmatrix}S_{x,k-1}\\S_{y,k-1}\\S_{\theta,k-1}\end{bmatrix}+\begin{bmatrix}\Delta d\cos\bigl(s_{\theta,k-1}\bigr)\\\Delta d\sin\bigl(s_{\theta,k-1}\bigr)\\\Delta\theta\end{bmatrix}
 $$
 
-The pose estimation of a mobile robot is always associated with some uncertainty with respect to its state parameters.
-
-From a geometric point of view, the error in differential-drive robots is classified into three groups:
-- Range error: it is associated with the computation of $\Delta d$ over time
-- Turn error: it is associated with the computation of $\Delta \theta$ over time
-- Drift error: it is associated with the difference between the angular speed of the wheels and it affects the error in the angular rotation of the robot.
-
-Due to such uncertainty, it is possible to represent the belief of the robot pose by a Gaussian distribution, where
-- the mean vector $\mu_k$ is the best estimate of the pose, and
-- the covariance matrix $\sum_k$ is the uncertainty of the pose that encapsulates the erros presented in the previous slide  
+#### Gaussian Distributions
 
 The Guassian distribution (or normal distribution) is denoted by
 $$
   \mathbf{s}_k{\sim}\mathcal{N}(\mathbf{\mu}_k,\mathbf{\Sigma}_k).
 $$
 
-#### Gaussian Distributions
-
 A random varibale $X$ is noramlly distributed, or Gaussian, if its probability density function is defined as:
 $$
   p_X(x)=\frac{1}{\sqrt{2\pi\sigma^2}}exp\left(-\frac{(x-\mu_X)^2}{2\sigma^2}\right)
 $$
-where, $\mu_X, \sigma^2$ are the mean and variance, respectively; they are the distribution parameters. The notation $X \sim \mathcal{N} (\boldsymbol{\mu}_X,\boldsymbol{\Sigma}_X)$ means that the random variable $X$ is Gaussian.
 
 **Affine Transformation**
 
@@ -802,14 +892,6 @@ Since the robot motion model is linearised and all uncertainties are Gaussians, 
 $$
 \Sigma_k = H_k \Sigma_{k-1} H_k^T + Q_k
 $$
-
-Thus, the estimated pose at time step $k$ is Gaussian such that $s_k \sim \mathcal{N}(\mu_k, \Sigma_k)$, and it is computed recursively using the pose at time step $k - 1$ and the input vector $\mathbf{u_k}$. The initial robot pose is assumed known such that $\mu_0 = 0$, and $\Sigma_0 = 0$.
-
-The pose uncertainty will always increase every time the robot moves due to the addition of the nondeterministic error represented by $Q_k$, which is positive semi-definite.
-
-The joint uncertainty of $s_x$ and $s_y$ is represented by an ellipsoid around the robot. This ellipsoid is named **Ellipsoid of Confidence**. As the robot moves along the $x$-axis, its uncertainty along the $y$-axis increases faster than the $x$-axis due to the drift error.
-
-The uncertainty ellipsoid is no longer perpendicular to the motion direction as soon as the robot starts to turn.
 
 #### Pose covariance matrix
 
@@ -859,18 +941,6 @@ $$
 \frac{2}{l} & -\frac{2}{l}
 \end{bmatrix}
 $$
-
-### Motion Control
-
-- The motion control for a mobile robot deals with the task of finding the control inputs that need to be applied to the robot such that a predefined goal can be reached in a finite amount of time.
-
-- Control of differential drive robots has been studied from several points of view, but essentially falls into one of the following three categories: point- to-point navigation (or point stabilisation), trajectory tracking, and path following.
-
-- The objective here is to drive the robot to a desired fixed state, say a fixed position and orientation. Point stabilisation presents a true challenge to control system when the vehicle has nonholonomic constraints, since that goal cannot be achieved with smooth time-invariant state-feedback control laws. This control technique will be used in this course.
-
-- The objective is driving the robot into following a time-parameterised state trajectory. In fact, the trajectory tracking problem for fully actuated systems is well understood and satisfactory solutions can be found in advanced nonlinear control textbooks. However, in case of underactuated systems, the problem is still a very active area of research.
-
-- In this case the vehicle is required to converge to and follow a path, without any temporal specifications. The underlying assumption in path following control is that the vehicle’s forward speed tracks a desired speed profile, while the controller acts on the vehicle orientation to drive it to the path. Typically, smoother convergence to a path is achieved and the control signals are less likely pushed to saturation.
 
 #### Point Stabilisation
 
@@ -936,95 +1006,25 @@ Closed-loop control block diagram:
 
 ## Lecture 7
 
-### Objectives:
-
-1. Feedback Systems
-2. Bang-Bang Control
-3. PID Control
-4. State-Space Representation
-5. Stability of the System
-
-### Feedback Systems
-
-#### Robot Control
-
-- Robot control with (almost) no theory
-  - PID Controller
-  - Differential drive robots
-- Control theory(State-space)
-  - Multiple inputs / Multiple outputs
-  - Dynamics of internal states
-
-#### Open-Loop VS Closed-Loop
-
-![](./imgs/Open-Loop.png)
-
-- Easy to implement
-- Large tracking error
-- Difficult to coordinate
-
-![](./imgs/Closed-Loop.png)
-
-- Accurate motion
-- Possible to apply coordination algorithms
-- Robust to disturbance
-- More efforts in controller design and hardware implementation
-
-### Bang-Bang Control
-
-#### Simple control system
-
-Mobile robot with 1-dimensional motion
-- Single Input Single Output (SISO) system
-- Input [𝑢]: DC Motor voltage
-- Output [𝑦]: robot position
-
-![](./imgs/Mobile%20robot%20with%201-dimensional%20motion.png)
-
-Move robot to position 𝑟
-- Reference [𝑟]: The desired value for the output
-- Error [𝑒 = 𝑟 − 𝑦]: Difference between desired and actual output.
-- Input [𝑢 = 𝑐(𝑒)]: Reacts to the error.
-
-![](./imgs/Move%20robot%20to%20position%20r.png)
-
-$$
-  c(e)=\left\{\begin{matrix}u=u_{max},&e>\varepsilon\\u=-u_{max},&e<-\varepsilon\\u=0,&|e|\leq\varepsilon\end{matrix}\right.
-$$
-
-#### Following Another Robot
-
-Control R1 to keep a constant distance $d_r$ from R2
-
-R2 moves at a constant speed $s$
-
-- Input [𝑢]: DC Motor Voltage of R1
-- Output [𝑦]: position of R1
-- Error [𝑒 = 𝑑−𝑑𝑟]: distance to the desired position
-
-$$
-  c(e)=\left\{\begin{matrix}u=u_{max},&e>\varepsilon\\u=-u_{max},&e<-\varepsilon\\u=0,&|e|\leq\varepsilon\end{matrix}\right.
-$$
-
-### PID Control
+### Proportional Control
 
 $$
   c(e) = K_pe
 $$
 
-#### Proportional-Integral(PI) Control
+### Proportional-Integral(PI) Control
 
 $$
   c(e)=K_pe(t)+K_i\int_0^te(t)dt
 $$
 
-#### Proportional-Integral-Derivative (PID) Control
+### Proportional-Integral-Derivative(PID) Control
 
 $$
   c(e)=K_pe(t)+K_i\int_0^te(t)dt+K_d\frac d{dt}e(t)
 $$
 
-#### Summary of Tuning Tendencies
+### Summary of Tuning Tendencies
 
 | Response | Rise Time    | Overshoot   | Settling Time | Steady-State Error |
 |----------|--------------|-------------|---------------|--------------------|
@@ -1058,80 +1058,7 @@ $$
 5. Not Suitable for Some Highly Dynamic Systems: In systems with extremely fast dynamics or systems that require advanced control strategies, such as those in aerospace or high-speed manufacturing, PID control may not be sufficient to achieve the desired performance.  
    不适合某些高动态系统：在具有极快动态的系统或需要高级控制策略的系统中，例如航空航天或高速制造中的系统，PID 控制可能不足以实现所需的性能。
 
-### State-Space Representation
-
-- State [𝒙]: A snapshot description of the system
-- Input [𝒖]: What we can do to modify the state.
-- Output [𝒚]: What we can observe from the system.
-- Dynamics: How the state evolves over time (laws of physics)
-
-![](./imgs/State-Space%20Representation.png)
-
-#### Linear Time Invariant(LTI) systems
-
-- Any system that can be represented in this shape is LTI:
-  $$
-    \dot{x}(t)=Ax(t)+Bu(t)\\\dot{y}(t)=Cx(t)+Du(t)
-  $$
-  where $A,B,C,D$ are constant matrices/vectors
-
-- Linearity:
-  - If input $u_1(t)$ produces output $y_1(t)$
-  - and input $u_2(t)$ produces output $y_2(t)$
-  - then input $a_1u_1(t) + a_2u_2(t)$ produces output $a_1y_1(t) + a_2y_2(t)$
-- Time invariance
-  - If input $u(t)$ produces output $y(t)$
-  - then input $u(t-T)$ produces output $y(t-T)$
-
-#### Single-Integrator System
-
-Mobile robot with 1-dimensional motion
-- State [𝑥]: robot position
-- Input [𝑢]: robot speed
-- Output [𝑦]: robot position
-
-![](./imgs/Single-Integrator%20System.png)
-
-#### Double-Integrator System
-
-Mobile robot with 1-dimensional motion
-- State [𝑥]: robot position
-- State 2 [𝑣]: robot velocity
-- Input [𝑢]: robot acceleration
-- Output [𝑦]: robot position
-
-![](./imgs/Double-Integrator%20System.png)
-
-#### Output of the LTI System
-
-Predict(or simulate) the dynamics of an LTI system
-
-Given
-- A LTI system with known $A,B,C,D$
-- An initial state with $x_0 = x(0)$
-- A known input signal u(t)
-
-Find
-- How state x(t) and output y(t) evolve over time
-
-![](./imgs/Output%20of%20the%20LTI%20System.png)
-
-#### Initial Condition Response
-
-- Consider no control input
-  $$
-    \dot{x} = Ax
-  $$
-- Now, if $A = a$ is a scalar:
-  $$
-    \dot{x} = ax
-  $$
-- The time response is given by
-  $$
-    x(t) = e^{at}x(0)
-  $$
-
-#### Matrix Exponential
+### Matrix Exponential
 
 - Similarly, if A is a matrix, the Taylor expansion of $e^A$ is
   $$
@@ -1276,16 +1203,6 @@ Then,every trajectory of $\dot{x} = f(x)$ converges to zero as $t \rarr \infty$
 
 ## Lecture 8
 
-### Objectives
-
-1. Obstacle avoidance
-2. Search algorithms
-   - Breadth-first
-   - Depth-first
-   - Wavefront
-3. Dijkstra's Algorithm
-4. A* Algorithm
-
 ### Obstacle Avoidance
 
 - Robot needs to navigate through the environment without running into obstacles.
@@ -1413,7 +1330,7 @@ An edge connects two vertices and is defined as (𝑖, 𝑗) i.e. connecting ver
 The formal definition of the graph is 𝐺 = (𝑉, 𝐸).
 
 ##### Graph Direction
-
+  
 The previous graph is known as an undirected graph, i.e. you can move from node to node in both directions.  
 A directed graph means that you can only travel between nodes in a single direction.
 
@@ -1530,8 +1447,8 @@ Nodes with the lowest cost are explored first.
 #### Heuristics
 
 For grid maps, the heuristic function can be calculation a number of ways depending on the type of movement allowed.
-- von Neumann – Manhattan Distance
-- Moore – Octile or Euclidean Distance
+- von Neumann – Manhattan Distance(四方向)
+- Moore – Octile or Euclidean Distance(把方向)
 
 The heuristic function should be ‘admissible’, i.e. always underestimate the distance to the goal:
 $$
@@ -1559,351 +1476,211 @@ There are more advanced planning algorithms which increase performance and can o
 - Anytime D*
 - Potential Fields
 
-## Lecture 8 - Lab
+## 题型预测
 
-### Learning Objectives
+### Week 1-5
 
-What is ROS?
-- Philosophy
-- Features
-- ROS Wiki
-- Structure
+1. Cylinder(linear Actuators) 压力差
+2. DOF, 冗余度, 参数数量, n(number of manipulator), m(number of end-effector)
+3. Transformation
+4. 机械臂的旋转矩阵
 
-Robotic Operating System: Open Source Set of Libraries Let us Develop and Manage A Modular Framework
+### Week 6-9
 
-### Philosophy
+1. 计算kinematics 的 v和 w（week6）
+2. 计算Jacobi Matrix H 或 State transition matrix h（week6）
+3. PID controller 的K参数的影响，可能考选择（week7）
+4. stability 的判断（week7）
+5. bug1 bug2的上界下界（week8）
+6. 广度优先/深度优先最短路径以及路径长度（week8）
+7. 波前扩展wavefront画表（week8）
+8. A* 算法（必考）（week8）
+9. Probabilistic Mapping 的计算，可能计算P(B) 或 P(A|B)（必考）（week9）
 
-The development of a new robotic ssytem relies on:
-- Modularity: using ready modules (sensors, actuators, etc.) instead of making everything from scratch.
-- Distributed computation: each module (software or hardware) may need an independent computational resource.
-- Robustness and Reliability: it is necessary to ensure all the modules work together consistently regardless of uncertainties or disturbances.
-- Scalability: adding new features, expanding the capability domain, and even making new products based on the current design led us to consider scalability in the development process.
+## 例题
 
-### Features
+### 第一部分：Week 1-5 (基础机械臂、矩阵变换)
 
-- Peer-Peer Connection
-- Tools Based
-- Multi-Lingual
-- Community Base
-- Open Source Repositories
+---
 
-Tools
-- Message Passing
-- Simulation
-- Real-Time Task Scheduling
-- Data Logging
+#### **题目 1: 压力差计算**
 
-### ROS Main Concepts
+一个液压缸的直径为 $D = 10 \, \text{cm}$，活塞杆的直径为 $d = 4 \, \text{cm}$，系统的压力 $P = 5 \, \text{MPa}$。  
+计算：
+1. 活塞向外推的力（扩展力）。
+2. 活塞向内拉的力（收缩力）。
 
-Node
-- Single-purposed executable programs
-- Independently worked and managed
-- They are written using a ROS library
+**答案**：
+1. 活塞面积：$A_1 = \pi (D/2)^2 = \pi (0.1/2)^2 = 0.00785 \, \text{m}^2$  
+   扩展力：$F_{\text{out}} = P \cdot A_1 = 5 \cdot 10^6 \cdot 0.00785 = 39.25 \, \text{kN}$
 
-Message
-- Data structure for communication between nodes
+2. 杆面积：$A_2 = \pi (d/2)^2 = \pi (0.04/2)^2 = 0.00126 \, \text{m}^2$  
+   有效面积：$A_{\text{effective}} = A_1 - A_2 = 0.00785 - 0.00126 = 0.00659 \, \text{m}^2$  
+   收缩力：$F_{\text{in}} = P \cdot A_{\text{effective}} = 5 \cdot 10^6 \cdot 0.00659 = 32.95 \, \text{kN}$
 
-Topics
-- A customised message dedicated to transferer data on the network
-- Nodes can subscribe/publish all the Topics on the network
+---
 
-Service
-- Synchronous inter node transactions
-- (blocking RPC): ask for something and wait for it
+#### **题目 2: 冗余度计算**
 
-Action
-- standardized interface for interfacing with non-interrupting tasks
+一个机械臂有 8 个活动连杆和 8 个关节，每个关节只有 1 个自由度（DOF），末端执行器需要 6 个自由度以覆盖所有空间。
 
-Parameter Server
-- A shared dictionary that is accessible via network
-- Best used for static data such as configuration parameters
+问：
+1. 系统总的 DOF 是多少？
+2. 系统的冗余度是多少？
 
-Master
-- Provides connection information to nodes so that they can transmit messages to each other
+**答案**：
+1. 总 DOF：$n = 8 \times 1 = 8$
+2. 冗余度：$n - m = 8 - 6 = 2$
 
-Packages
-- Software in ROS is organized into packages
-- A package contains one or more nodes, documentation, messages, services, …
+---
 
-### ROS2 Ecosystem
+#### **题目 3: 矩阵变换**
 
-Visualisation Tools(RVIZ)
-
-Simulation Tools(GAZEBO)
-
-Available Cross-Platform libraries and community support
-
-### ROS Applications in robotics:
-
-Algorithms:
-- autonomous navigation, manipulation, and swarm robotics.
-
-Real-world use cases:
-- delivery robots, drones, and healthcare robots
-
-Industrial applications:
-- self-driving cars, precision agriculture, and collaborative robots
-
-Advanced use cases in real-time systems (ROS2)
-
-### ROS2 and its Advantages
-
-- Decentralised Architecture
-- Real-Time Support
-- Data Distribution Service
-- Cross-Platform Compatibility
-- Enhanced Security
-- Modular and Scalable Design
-- Improved Tooling
-- Support for Multi-Domain Applications
-
-### ROS/ROS2 and AI Integration:
-
-- Tools and frameworks for AI integration into robotic systems for tasks like perception, decision-making, and learning
-  - Perception and Computer Vision
-  - Navigation and Decision-Making
-  - Machine Learning in Robotics
-  - AI-Powered Data Processing
-  - Simulation for AI Training
-  - real-time AI processing for embedded processors 
-  - supports NLP frameworks such as Google Dialogflow
-
-## Lecture 9
-
-### Learning Objectives
-
-1. Probabilistic mapping
-2. Definition of SLAM
-3. Multi-robot systems
-   - Rendezvous
-   - Formation control
-
-### Autonomous Exploration
-
-#### Mapping
-
-One of the vital, yet challenging, tasks for mobile robots is mapping an environment with unknown structure, where the robot needs to navigate and build a properly represented map.  
-对于移动机器人来说，一项至关重要但又极具挑战性的任务是绘制具有未知结构的环境，其中机器人需要导航并构建正确表示的地图。
-
-Note that the robot has to move while building the map, and since the measurements are usually relative to the robot frame {𝑅}, transformation to the world frame {𝑊} requires an accurate knowledge of the robot pose.  
-请注意，机器人在构建地图时必须移动，并且由于测量值通常相对于机器人坐标系 {𝑅}，因此转换为世界坐标系 {𝑊} 需要准确了解机器人的姿势。
-
-The probabilistic methods for robotic mapping rely on studying the propagation of probabilistic distributions of the sensor noise and the unknown landmark locations.   
-机器人测绘的概率方法依赖于研究传感器噪声和未知地标位置的概率分布的传播。
-
-One of these methods is occupancy **grid mapping**, which relies on **Bayes' theorem** to recursively estimate the map as new measurements become available.  
-其中一种方法是占用网格测绘，它依赖于贝叶斯定理在有新的测量值可用时递归地估计地图。
-
-#### Occupancy grid
-
-- In occupancy grid, the map is represented by a grid over the environment space, e.g., 2D or 3D space, and each cell of the grid corresponds to the probability of the cell being occupied. For example, in a deterministic world, empty cells are stored as ‘0’ and occupied cells as ‘1’.
-  - 在占用网格中，地图由环境空间（例如 2D 或 3D 空间）上的网格表示，网格的每个单元对应于该单元被占用的概率。例如，在确定性世界中，空单元存储为“0”，被占用的单元存储为“1”。
-- Of course, grids with high resolution result in more accurate maps, however, that comes at an expensive computational cost.
-  - 当然，高分辨率的网格会产生更准确的地图，但这需要昂贵的计算成本。
-
-For a 2D space, each cell is denoted by 𝑐𝑖,𝑗 where 𝑖 represents the 𝑥-axis index and 𝑗 represent the 𝑦-axis index. This grid can be represented by a matrix flipped vertically, where 𝑖 corresponds to the column, and 𝑗 corresponds to the row.  
-![](imgs/2024-12-02-15-29-40.png)
-
-![](imgs/2024-12-02-15-29-50.png)
-
-#### Binary mapping
-
-![](imgs/2024-12-02-15-30-05.png)
-
-- If the probability that a cell is occupied is 0%, $𝑐_{𝑖,𝑗} = 0$.
-- If the probability is 100%, $𝑐_{𝑖,𝑗} = 1$.
-- If it is unknown, it is usually set to $𝑐_{𝑖,𝑗} = 0.5$.
-
-- In order to compute the obstacle position 𝐦, the measurement 𝐳𝑘 and the robot pose 𝐬𝑘 are used as follows:
-  $$
-    m_{x}=s_{x,k}+z_{\rho,k}\cos\left(s_{\theta,k}+z_{\alpha,k}\right)\\
-    m_{y}=s_{y,k}+z_{\rho,k}\sin\left(s_{\theta,k}+z_{\alpha,k}\right)
-  $$
-
-#### Probabilistic mapping Based on Sensor Probabilistic Model
-
-Based on Sensor Probabilistic Model
-
-![](imgs/2024-12-02-15-32-15.png)
-
-#### Discrete Random Variables
-
-Let’s define 𝑋 as a random variable.
-
-If this variable is discrete, then 𝑃 𝑋 = 𝑥 is the probability that the R.V., 𝑋, will take the value 𝑥.
-
-Formally, 𝑝 𝑥 = 𝑃(𝑋 = 𝑥) is known as the probability mass function.
+已知刚体旋转的旋转矩阵：
 $$
-  \sum^\infty_{i=1}p(x_i) = 1
+R = \begin{bmatrix}
+0 & -1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+这个矩阵描述了一个物体绕 z 轴旋转的变换角度是多少？
+
+**答案**：
+- 矩阵表示绕 z 轴旋转，$\cos\theta = 0, \sin\theta = 1$。  
+  因此：$\theta = 90^\circ$。
+
+---
+
+#### **题目 4: 末端位置计算**
+
+一个机械臂的 D-H 参数如下：
+- 连杆长度 $a = 0.5$
+- 连杆扭转角 $\alpha = 90^\circ$
+- 关节角 $\theta = 30^\circ$
+- 连杆偏移 $d = 0.2$
+
+计算末端执行器的变换矩阵 $T$。
+
+**答案**：
+$$
+T = \begin{bmatrix}
+\cos\theta & -\sin\theta\cos\alpha & \sin\theta\sin\alpha & a\cos\theta \\
+\sin\theta & \cos\theta\cos\alpha & -\cos\theta\sin\alpha & a\sin\theta \\
+0 & \sin\alpha & \cos\alpha & d \\
+0 & 0 & 0 & 1
+\end{bmatrix}
 $$
 
-#### Joint Distribution
-
-Now let’s have two R.V., 𝑋 and 𝑌.
+代入值：
 $$
-  p(x,y) = p(X=x\text{ and } Y = y)
-$$
-
-If 𝑋 and 𝑌 are independent, i.e. knowing the value of one of them does not change the distribution of the other, then
-$$
-  p(x,y) = p(x)p(y)
+T = \begin{bmatrix}
+\sqrt{3}/2 & -1/2 & 0 & 0.25\sqrt{3} \\
+1/2 & \sqrt{3}/2 & 0 & 0.25 \\
+0 & 0 & 1 & 0.2 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
 $$
 
-#### Conditional Probability
+---
 
-If two R.V. are related, i.e. knowledge of one influences the distribution of the other.
+#### **题目 5: 冗余机械臂**
+
+一个 8 自由度（DOF）机械臂，其末端执行器需要 6 个 DOF。如何分配多余的自由度以优化性能？举出 2 种策略。
+
+**答案**：
+1. **障碍物规避：** 使用多余的 DOF 来调整机械臂路径，使其避开障碍物。
+2. **力优化：** 利用冗余 DOF 最小化关节的力或能量消耗。
+
+---
+
+### 第二部分：Week 6-9 (运动学、控制、SLAM)
+
+---
+
+#### **题目 6: 速度计算**
+
+已知机器人在 $(x, y)$ 位置的速度为：
 $$
-  p(x|y)=p(X=x\text{ knowing that }Y=y)\\
-  p(x|y)=\frac{p(x,y)}{p(y)}
+v_x = 1 \, \text{m/s}, \quad v_y = 1 \, \text{m/s}
+$$
+机器人朝向角 $\theta = 45^\circ$。
+
+计算机器人沿自身方向的速度 $v$ 和角速度 $\omega$。
+
+**答案**：
+1. 机器人速度 $v = \sqrt{v_x^2 + v_y^2} = \sqrt{1^2 + 1^2} = \sqrt{2} \, \text{m/s}$。
+2. 如果没有旋转运动，$\omega = 0$。
+
+---
+
+#### **题目 7: Jacobian 矩阵**
+
+一个机械臂的末端位姿 $(x, y, \theta)$ 与关节角 $(\theta_1, \theta_2)$ 之间关系为：
+$$
+x = l_1\cos\theta_1 + l_2\cos(\theta_1 + \theta_2)
+$$
+$$
+y = l_1\sin\theta_1 + l_2\sin(\theta_1 + \theta_2)
+$$
+计算 Jacobian 矩阵。
+
+**答案**：
+Jacobian 矩阵为：
+$$
+J = \begin{bmatrix}
+-\sin\theta_1 & -\sin(\theta_1 + \theta_2) \\
+\cos\theta_1 & \cos(\theta_1 + \theta_2)
+\end{bmatrix}
 $$
 
-If X and Y are independent
+---
+
+#### **题目 8: PID 控制**
+
+给定以下 PID 控制器参数：
+- $K_p = 5$，$K_i = 2$，$K_d = 1$
+
+初始误差 $e(t) = 3$，误差变化率 $\dot{e}(t) = -1$，累计误差 $\int e(t) dt = 6$。
+
+计算控制器输出 $u(t)$。
+
+**答案**：
 $$
-  p(x|y)=\frac{p(x)p(y)}{p(y)}=p(x)
+u(t) = K_p e(t) + K_i \int e(t) dt + K_d \dot{e}(t)
+$$
+$$
+u(t) = 5 \cdot 3 + 2 \cdot 6 + 1 \cdot (-1) = 15 + 12 - 1 = 26
 $$
 
-#### Bayes Rule
+---
 
-The Bayes Rule relates the conditional probability of two random variable to its inverse and is used in many localisation filtering algorithms (Markov and Kalman for example).
-$$
-  p(x|y)=\frac{p(y|x)p(x)}{p(y)}
-$$
+#### **题目 9: 稳定性判断**
 
-#### Probabilistic Mapping
+一个系统的特征值为 $-2, -1, 0, 1$。判断该系统的稳定性。
 
-- Let 𝑍 be a continuous random variable that corresponds to the true distance between the robot and the obstacle, and let 𝑐𝑖,𝑗 be a discrete random variable that corresponds to the 𝑖𝑗 cell in the grid being empty or occupied.
+**答案**：
+- 系统的特征值中存在正值（1），说明系统**不稳定**。
 
-- Taking into account the nature of the LiDAR where it uses the line-of-sight principle, there are two possible events for each measurement:   
-(i) 𝑍 = 𝑧𝑘, or (ii) 𝑍 < 𝑧𝑘. 
+---
 
-- Moreover, since 𝑐𝑖,𝑗 is discrete random variable, there are only two possible events for the cell:   
-(i) 𝑐𝑖,𝑗 = 𝑜𝑐𝑐𝑢𝑝𝑖𝑒𝑑, or (ii) 𝑐𝑖,𝑗 ≠ 𝑜𝑐𝑐𝑢𝑝𝑖𝑒𝑑.
+#### **题目 10: A* 算法**
 
-Sensor model – four different probabilities
+在以下网格中，计算从起点 $S$ 到目标 $G$ 的最短路径。使用 A* 算法，启发式为曼哈顿距离。
 
-![](imgs/2024-12-02-15-41-42.png)
+```
+S  1  1  G
+1  1  1  1
+```
 
-#### Sensor Characteristics
+权重：
+- 节点间的代价均为 1。
 
-1) The probability of correctly detecting the obstacle given that there is an obstacle at 𝑐𝑖,𝑗. This sensor characteristic is named sensor true positive. This is a measure of ‘**how good**’ the sensor is.
-  $$
-    \Pr(Z=-z_k\mid c_{i,j}=\mathrm{оссиріеd~})
-  $$
+**答案**：
+1. 启发式函数 $h(n)$：曼哈顿距离。
+2. $g(n)$：从起点到当前节点的代价。
+3. 总代价：$f(n) = g(n) + h(n)$。
 
-2) Probability of correctly detecting free space given that the cell 𝑐𝑖,𝑗 is not occupied. This sensor characteristic is named sensor true negative. This is also a measure of ‘**how good**’ the sensor is.
-  $$
-    \Pr(Z<-z_k\mid c_{i,j}\neq\mathrm{оссиріеd~})
-  $$
-
-3) Probability of detecting an obstacle at 𝑐𝑖,𝑗 given there is no obstacle. This sensor characteristic is named sensor false positive. Because the sensor can also do mistakes, this is a measure of ‘**how bad**’ the sensor is.
-  $$
-    \Pr(Z=-z_k\mid c_{i,j}\neq\mathrm{оссиріеd~})
-  $$
-
-4) Probability of detecting free space given that there is obstacle at cell 𝑐𝑖,𝑗. This sensor characteristic is named sensor false negative. This is also a measure of ‘**how bad**’ the sensor is.
-  $$
-    \Pr(Z<-z_k\mid c_{i,j}=\mathrm{оссиріеd~})
-  $$
-
-#### Probabilistic Occupancy
-
-Using Bayes’ theorem:
-$$
-  P_r(A|B) = \frac{P_r(B|A)P_r(A)}{P_r(B)}
-$$
-where the event A is related to the probability of the cell of being occupied, and the event B is the probability related to the measurement from the sensor.
-
-#### Probabilistic Mapping
-
-- Computing $\Pr(c_{i,j}=occupied|Z=z_k)$
-  $$
-    \Pr(c_{i,j}=occupied|Z=z_k)=\frac{\Pr(Z=z_k|c_{i,j}=occupied)\cdot\Pr(c_{i,j}=occupied)}{\Pr(Z=z_k)}
-  $$
-  The law of total probability for two events A and B is:
-  $$
-    P_{r}(B)=P_{r}(B|A)P_{r}(A)+P_{r}(B|\bar{A})P_{r}(\bar{A})\\
-    P_{r}(Z=z_{k})=P_{r}\left(Z=z_{k}|c_{i,j}=occupied\right)\cdot P_{r}(c_{i,j}=occupied)\\
-    +P_{r}\left(Z=z_{k}|c_{i,j}\neq occupied\right)\cdot P_{r}(c_{i,j}\neq occupied)
-  $$
-
-- Numerical values
-  $$ 
-  \begin{aligned}
-   & P_{r}(c_{i,j}=occupied)=0.5\quad\leftarrow \text{prior probability} \\
-   & P_{r}\left(Z=z_{k}|c_{i,j}=occupied\right)=0.85\leftarrow \text{sensor true positive} \\
-   & P_{r}\left(Z=z_{k}|c_{i,j}\neq occupied\right)=0.22\leftarrow \text{sensor false positive}
-  \end{aligned}
-  $$
-
-### Definition of SLAM
-
-#### Autonomous Robots
-
-The ultimate goal of an autonomous mobile robot is to move around an unknown or dynamic environment without any human intervention.
-
-To be able to do this, the robot needs to be able to build up a map of the environment and localise itself within it.
-
-The process of doing this is known as Simultaneous Localisation And Mapping or SLAM.
-
-#### SLAM Definition
-SLAM is the process of constructing a map of the environment based on knowledge of the path of the robot and measurements of the surrounding area.
-
-The process is limited to only using sensors on the robot itself, either proprioceptive (odometry) or exteroceptive (laser scanners).
-
-Given input readings from odometry, $𝑈_𝑇$, and environmental sensor readings, $𝑍_𝑇$, SLAM is the process of recovering the robot path, $𝑋_𝑇$, and the map of the environment, $𝑀_𝑇$.
-
-### Multi-robot systems
-
-Definition:
-- A system consisted of multiple robots which can cooperate with each other to achieve a common goal.
-
-#### Centralized vs Distributed
-
-![](imgs/2024-12-02-15-52-08.png)
-
-Centralized
-- One control unit communicates with all robots to issue commands
-- Require synchronized and reliable communication channels
-- Suffer from single-point failures
-
-![](imgs/2024-12-02-15-52-38.png)
-
-Distributed
-- Each robot only needs to communicate with its neighbors
-- Scalable and robust to failure
-- Reduce the bandwidth requirement
-
-#### Communication Topologies
-
-Basic graph theory
-- An edge rooted at the $𝑗^{𝑡ℎ}$ node and ended at the $𝑖^{𝑡ℎ}$ node is denoted by 𝑗, 𝑖 , which means information can flow from node 𝑖 to node 𝑗. $𝑎_{𝑖𝑗}$ =1 is the weight of edge 𝑗, 𝑖 .
-
-  ![](imgs/2024-12-02-15-53-49.png)
-
-#### Rendezvous of Multiple Robots
-
-The setup:
-- Given a collection of mobile robots who can only measure the relative displacement of their neighbors (no global coordinates)  
-  ![](imgs/2024-12-02-15-55-05.png)
-- Problem: Have all the robots meet at the same position
-
-- Robot dynamics:
-  $$
-    \dot{x}_i = u_i
-  $$
-- Rendezvous control protocol design:
-  $$
-    u_i=-K\sum_{j=1}^Na_{ij}(x_i-x_j)
-  $$
-- Assumption:
-  - The communication graph among all the robots is connected.
-  - ![](imgs/2024-12-02-15-57-00.png)
-
-#### Extension to Formation Control
-
-Formation control is a coordinated control for a fleet of robots to follow a predefined trajectory while maintaining a desired spatial pattern.
-
-- Formation control protocol design:
-  - $u_i=-K\sum_{j=0}^Na_{ij}[(x_i-h_i)-(x_j-h_j)]$
-
+路径：
+- $S \to (1,2) \to (1,3) \to G$，总代价 $3$。
 
