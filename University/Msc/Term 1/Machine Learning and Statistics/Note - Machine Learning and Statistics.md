@@ -108,6 +108,24 @@
       - [Initial weights](#initial-weights)
       - [Difficulties with network traning](#difficulties-with-network-traning)
       - [Regularisation](#regularisation-1)
+  - [Lecture 9](#lecture-9)
+    - [K-Neighbours](#k-neighbours)
+      - [Regularisation](#regularisation-2)
+      - [Example](#example-2)
+      - [Digits example](#digits-example)
+    - [Principal Component Analysis](#principal-component-analysis)
+      - [Correlated vs uncorreclated](#correlated-vs-uncorreclated)
+      - [Finding the principal components](#finding-the-principal-components)
+      - [Signular value decomposition](#signular-value-decomposition)
+      - [Data sample variance](#data-sample-variance)
+      - [Explained variance](#explained-variance)
+      - [Example: 8x8 digits pictures](#example-8x8-digits-pictures)
+      - [Data visualisation](#data-visualisation)
+      - [digits in the plane of the two highest eigenvectors](#digits-in-the-plane-of-the-two-highest-eigenvectors)
+    - [The curse of dimensionality](#the-curse-of-dimensionality)
+      - [How many points are in the center of the cube?](#how-many-points-are-in-the-center-of-the-cube)
+      - [Average distance between two random points](#average-distance-between-two-random-points)
+      - [Proximity to edges](#proximity-to-edges)
 
 # Note - Machine Learning and Statistics
 
@@ -1655,4 +1673,242 @@ Neural networks have many parameters and can easily overfit. To prevent it there
 - add random noise to the weights or to the units activities
 - add a penalty for large weights as we did for other algorithms
 
+
+## Lecture 9
+
+### K-Neighbours
+
+The k-neighbours method is an instance-based learning algorithm. It remembers the training set and when a new data point is presented it looks for the closest k samples from the traning set and returns
+- the average of the target values of these k values for regression
+- the class of the majority of the k training examples. (using some procedure to break ties)
+
+#### Regularisation
+
+The parameter k can be used to control overfitting
+- With $k=1$ the algorithm is likely to overfit
+- Large values of k can lead to underfitting
+
+#### Example
+
+We can use the iris dataset:  
+![](imgs/2024-12-03-14-29-56.png)
+
+k=1  
+![](imgs/2024-12-03-14-30-11.png)
+
+k=3  
+![](imgs/2024-12-03-14-30-20.png)
+
+k=10  
+![](imgs/2024-12-03-14-30-30.png)
+
+k=20  
+![](imgs/2024-12-03-14-30-37.png)
+
+#### Digits example
+
+We can use the 8x8 digits picture example after applying PCA to reduce it to 2 dimensions:  
+![](imgs/2024-12-03-14-30-51.png)
+
+k=1  
+![](imgs/2024-12-03-14-33-12.png)
+
+k=3  
+![](imgs/2024-12-03-14-33-19.png)
+
+k=5  
+![](imgs/2024-12-03-14-33-27.png)
+
+k=20  
+![](imgs/2024-12-03-14-33-36.png)
+
+### Principal Component Analysis
+
+If we have many features, odds are that many are correlated. If there are strong relationships between features, we might not need all of them.
+
+With principal component analysis we want to extract the most relevant/independant combination of features.
+
+It is important to realise that PCA only looks at the features without looking at the labels, it is an example of unsupervised learning.
+
+#### Correlated vs uncorreclated
+
+Correlated features  
+![](imgs/2024-12-03-15-04-31.png)
+
+Uncorrelated features:  
+![](imgs/2024-12-03-15-31-58.png)
+
+The idea for PCA is to project the data on a subspace with fewer dimensions.  
+![](imgs/2024-12-03-15-32-08.png)
+
+The data is standardised.  
+If we project onto the first component we get variance 1:  
+![](imgs/2024-12-03-15-32-21.png)
+
+If we project onto the second component we also get variance 1:  
+![](imgs/2024-12-03-15-32-31.png)
+
+But projecting onto a different direction gives a different variance, here larger than 1:  
+![](imgs/2024-12-03-15-32-57.png)
+
+And here smaller than one:  
+![](imgs/2024-12-03-15-33-08.png)
+
+Performing PCA gives a new basis in feature space that include the direction of largest and smallest variance.
+
+There is no guarantee that the most relevant features for a given classification tasks are going to have the largest variance.
+
+If there is a strong linear relationship between features it will correspond to a component with a small variance, so dropping it will not lead to a large loss of variance but will reduce the dimensionality of the model.
+
+#### Finding the principal components
+
+The first step is to normalise and center the features
+$$
+  x_i \rarr ax_i + b
+$$
+such that 
+$$
+  \langle x_i \rangle = 0;,  \langle x_i^2 \rangle = 1
+$$
+The covariance matrix of the data is then given by
+$$
+  \sigma = X^TX
+$$
+If X is the $n_d×n_f$ data matrix of the $n_d$ training samples with $n_f$ features. The covariance matrix is a $n_f×n_f$ matrix.
+
+If we diagonalize σ
+$$
+  \sigma = SDS^{-1}
+$$
+where the columns of $S$ are the eigenvectors of $\sigma$
+
+the eigenvectors with the highest eigenvalues correspond to the axis with the highest variance. PCA reduces the dimensionality of the data by projecting unto the subspace spanned by the eignevectors with the k highest eigenvalues.
+$$
+  X_k = XS_k
+$$
+where $S_k$ is the $n_f \times k$ matrix composed of the $k$ highest eigenvectors.
+
+#### Signular value decomposition
+
+There is a shortcut to computing the full data variance to calculate the principal component analysis. Using singular value decomposition, we can write X as
+$$
+  X = U\Sigma V
+$$
+where $U$ is an orthogonal $n_d \times n_d$ matrix, $\Sigma$ is a $n_d \times n_f$ matrix with non-vanishing elements only on the diagonal and $V$ is a $n_f \times n_f$ orthogonal matrix
+
+Using this decomposition we have
+$$
+  X^TX = V^T\Sigma^TU^TU\Sigma V = V^{-1}\Sigma^T\Sigma V
+$$
+The combination $Σ^TΣ$ is diagonal so we see that the matrix V is the change of basis needed to diagonalise $X^TX$. So we only need to perform the SVD of X to find the eigenvectors of $X^TX$.
+
+#### Data sample variance
+
+The total variance of a data (zero-centered) sample is given by
+$$
+  \sigma_{tot} = \left\langle\sum_i X_i^2\right\rangle = \frac{1}{N-1}\sum_{sample}\sum_i x_i^2 = \frac{1}{N-1} {\rm Tr} (X^T X) ;.
+$$
+
+The trace is invariant under rotations in the feature space so it is equal to the trace of the diagonalised matrix ${\rm Tr}(\sigma)=\sum E_j$ where $E_j$ are the eigenvalues of $X^TX$
+
+If we have the SVD decomposition of X we can express these eigenvalues in term of the diagonal elements $\epsilon_j$ of $\Sigma$
+$$
+  {\rm Tr}(\sigma)=\sum E_j = \sum_j \epsilon_j^2
+$$
+
+#### Explained variance
+
+When we only consider the k principal axis of a dataset we will loose some of the variance of the dataset.
+
+Assuming the eigenvalues are ordered in size we have
+
+$$
+\sigma_k\equiv {\rm{Tr}}(X_k^T X_k) = \sum\limits_{j=1}^k \epsilon_j^2
+$$
+
+$\sigma_k$ is the variance our reduced dataset retained from the original, it is often referred as the explained variance.
+
+#### Example: 8x8 digits pictures
+
+We consider a dataset of handwritten digits, compressed to an 8x8 image:
+
+![](imgs/2024-12-04-22-58-41.png)
+
+These have a 64-dimensional space but this is clearly far larger than the true dimension of the space:
+- only a very limited subset of 8x8 pictures represent digits
+- the corners are largely irrelevant hardly ever used
+- digits are lines, so there is a large correlation between neighbouring pixels.
+
+PCA should help us limit our features to things that are likely to be relevant.
+
+Performing PCA we can see how many eigenvectors are needed to reproduce a given fraction of the dataset variance:
+
+![](imgs/2024-12-04-23-01-56.png)
+
+We can keep 50% of the dataset variance with less than 10 features.
+
+The eight most relevant eigenvectors are:
+
+![](imgs/2024-12-04-23-02-37.png)
+
+The least relevant eigenvectors are:
+
+![](imgs/2024-12-04-23-02-50.png)
+
+#### Data visualisation
+
+If we reduce the data to be 2-dimensional or 3-dimensional we can get a visualisation of the data.
+
+![](imgs/2024-12-04-23-03-13.png)
+
+#### digits in the plane of the two highest eigenvectors
+
+![](imgs/2024-12-04-23-03-29.png)
+
+### The curse of dimensionality
+
+One would think that the more features one has to describe samples in a dataset the better one would be able to perform a classification task. Unfortunately with the increase of the number of features comes the difficulty of fitting a multi-dimensional model.
+
+This is generally referred to as the curse of dimensionality and we will see a few surprising effects that explain why more features can make life difficult.
+
+#### How many points are in the center of the cube?
+
+We can ask the question “In the hypercube $-1≤x_i≤1$, how many points are no further apart to the center than 1?”
+
+This is equivalent to asking what is the ratio of the unit “ball” to the volume of the smallest “cube” enclosing it.
+
+![](imgs/2024-12-04-23-06-50.png)
+
+In high dimensions most points are in “corners” rather than in the “centre”.
+
+#### Average distance between two random points
+
+Looking at the unit cube, we can calculate the average distance between any two points.
+
+$$
+  d=\sqrt{\sum_i x_i^2}
+$$
+
+![](imgs/2024-12-04-23-07-21.png)
+
+The average distance increases with the dimension.
+
+We can also plot the distribution of distances:
+
+![](imgs/2024-12-04-23-07-33.png)
+
+The likelihood of small distances drops as the dimension increases.
+
+#### Proximity to edges
+
+One interesting question to ask is how close to the edges points are. To quantify it we will calculate what is the thickness t of the outer layer of the unit cube that contain half the points if the points are randomly distributed.
+
+The volume inside is given by
+$$
+  V_i = (1-2t)^d  \qquad  V_i=\frac12 \Rightarrow t = \frac{1-2^{-1/d}}{2}
+$$
+
+![](imgs/2024-12-04-23-08-25.png)
+
+In 35 dimensions half of the points are in a outer layer 0.01 thin.
 
