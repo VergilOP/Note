@@ -95,6 +95,32 @@
       - [**题目 8: PID 控制**](#题目-8-pid-控制)
       - [**题目 9: 稳定性判断**](#题目-9-稳定性判断)
       - [**题目 10: A* 算法*\*](#题目-10-a-算法)
+    - [**定位 (Localization, Week 6)**](#定位-localization-week-6)
+      - [**问题 1:**](#问题-1)
+    - [**控制 (Control, Week 7)**](#控制-control-week-7)
+      - [**问题 2:**](#问题-2)
+      - [**问题 3:**](#问题-3)
+    - [**规划 (Planning, Week 8)**](#规划-planning-week-8)
+      - [**问题 4:**](#问题-4)
+      - [**问题 5:**](#问题-5)
+    - [**映射 (Mapping, Week 9)**](#映射-mapping-week-9)
+      - [**问题 6:**](#问题-6)
+      - [**问题 7:**](#问题-7)
+    - [**综合题目**](#综合题目)
+      - [**问题 8:**](#问题-8)
+      - [**问题 9:**](#问题-9)
+      - [**问题 10:**](#问题-10)
+    - [Localization (Week 6)](#localization-week-6)
+    - [Control (Week 7)](#control-week-7)
+    - [Planning (Week 8)](#planning-week-8)
+    - [Mapping (Week 9)](#mapping-week-9)
+    - [Multi-topic Advanced](#multi-topic-advanced)
+    - [**Week 6: Localization (定位)**](#week-6-localization-定位)
+    - [**Week 7: Control (控制)**](#week-7-control-控制)
+    - [**Week 8: Planning (规划)**](#week-8-planning-规划)
+    - [**Week 9: Mapping (映射)**](#week-9-mapping-映射)
+    - [**综合建议**](#综合建议)
+    - [**重点高频知识点**](#重点高频知识点)
 
 # Summary - Robotics - Planning and Motion
 
@@ -831,8 +857,10 @@ To compute the pose of the robot at any given time step, the kinematic model mus
 
 This approximation follows the **Markov assumption** where the current robot pose depends only on the previous pose and the input velocities
 $$
-  \begin{bmatrix}S_{x,k}\\S_{y,k}\\S_{\theta,k}\end{bmatrix}=\begin{bmatrix}S_{x,k-1}\\S_{y,k-1}\\S_{\theta,k-1}\end{bmatrix}+\begin{bmatrix}\Delta d\cos\bigl(s_{\theta,k-1}\bigr)\\\Delta d\sin\bigl(s_{\theta,k-1}\bigr)\\\Delta\theta\end{bmatrix}
-$$
+  \begin{bmatrix}
+    S_{x,k}\\S_{y,k}\\S_{\theta,k}\end{bmatrix}=\begin{bmatrix}S_{x,k-1}\\S_{y,k-1}\\S_{\theta,k-1}\end{bmatrix}+\begin{bmatrix}\Delta d\cos\bigl(s_{\theta,k-1}\bigr)\\\Delta d\sin\bigl(s_{\theta,k-1}\bigr)\\\Delta\theta
+  \end{bmatrix}
+  $$
 
 #### Gaussian Distributions
 
@@ -1137,7 +1165,14 @@ $$
   ![](./imgs/Scalar%20Exponential%20Response%20-%20neutrally%20stable.png)
 
 #### Matrix Exponential Response
-  
+
+又或者直接
+$$
+\lambda_1 + \lambda_2 = trace(A)\\
+\lambda_1 * \lambda_2 = det(A)
+$$
+也就是主对角线元素之和 与 行列式（∣A∣）
+
 - If 𝐴 is a matrix, a matrix 𝐴 is diagonalisable if there is an invertible matrix 𝑇 and a diagonal matrix 𝛬 such that:
   $$
     \Lambda=T^{-1}AT=\begin{bmatrix}\lambda_1&0&\cdots&0\\0&\lambda_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\lambda_n\end{bmatrix}
@@ -1683,4 +1718,354 @@ S  1  1  G
 
 路径：
 - $S \to (1,2) \to (1,3) \to G$，总代价 $3$。
+
+以下是我之前给出的10道题目及其中文讲解：
+
+---
+
+### **定位 (Localization, Week 6)**
+
+#### **问题 1:**  
+**运动模型和观测模型在概率机器人中的区别是什么？它们是如何用于定位过程的？**
+
+**解答:**  
+- **运动模型**：描述机器人根据运动指令从一个状态转移到下一个状态的过程，用于预测机器人的位置（先验）。
+- **观测模型**：描述传感器测量值与机器人当前位置的关系，用于结合传感器数据更新预测（后验）。
+- **在定位过程中**，运动模型通过控制指令估计机器人下一步的位置，而观测模型根据传感器数据修正估计，得到更准确的机器人位置。
+
+---
+
+### **控制 (Control, Week 7)**
+
+#### **问题 2:**  
+**描述PID控制器是如何调整机器人系统的控制输入的。P、I 和 D 这三项分别起到什么作用？**
+
+**解答:**  
+- **P（比例项）**：根据当前误差进行调整，误差越大，调整幅度越大。
+- **I（积分项）**：积累历史误差，解决系统偏差问题。
+- **D（微分项）**：预测未来误差变化趋势，减小振荡，增加稳定性。
+
+#### **问题 3:**  
+**一个PID控制系统的响应存在较大超调且稳定时间较长。你会如何调整PID参数来改善系统性能？**
+
+**解答:**  
+- **减小 P 项**：降低响应强度，减少超调。
+- **增加 D 项**：提高阻尼效果，减少振荡。
+- **减小 I 项**：减少对历史误差的累积反应，避免过度修正。
+
+---
+
+### **规划 (Planning, Week 8)**
+
+#### **问题 4:**  
+**对于如下图的图（假设有边权重），使用Dijkstra算法计算从节点1到节点11的最短路径，展示每一步的更新过程。**
+
+**解答:**  
+（需要提供图和边权重）  
+- 初始化距离表，起点距离为0，其余节点为无穷大。
+- 逐步更新与当前节点相连的邻接节点的最短距离，直到目标节点距离更新完成。
+
+#### **问题 5:**  
+**比较 Bug 1 和 Bug 2 障碍物规避算法在路径效率和内存使用方面的区别。**
+
+**解答:**  
+- **Bug 1**：遍历障碍物整个边界找到离目标最近的点，路径效率较低但内存开销较高。
+- **Bug 2**：沿障碍物移动，直到重新回到直线路径，计算简单，但可能选择非最优路径。
+
+---
+
+### **映射 (Mapping, Week 9)**
+
+#### **问题 6:**  
+**已知以下概率：**
+- $P(Z = z_k | c_{i,j} = \text{occupied}) = 0.85$
+- $P(Z = z_k | c_{i,j} \neq \text{occupied}) = 0.22$
+- $P(c_{i,j} = \text{occupied}) = 0.5$
+
+计算后验概率 $P(c_{i,j} = \text{occupied} | Z = z_k)$。
+
+**解答:**  
+应用贝叶斯定理：
+$$
+P(c_{i,j} = \text{occupied} | Z = z_k) = \frac{P(Z = z_k | c_{i,j} = \text{occupied}) P(c_{i,j} = \text{occupied})}{P(Z = z_k)}
+$$
+其中：
+$$
+P(Z = z_k) = P(Z = z_k | c_{i,j} = \text{occupied}) P(c_{i,j} = \text{occupied}) + P(Z = z_k | c_{i,j} \neq \text{occupied}) P(c_{i,j} \neq \text{occupied})
+$$
+计算得：
+$$
+P(Z = z_k) = (0.85)(0.5) + (0.22)(0.5) = 0.535
+$$
+$$
+P(c_{i,j} = \text{occupied} | Z = z_k) = \frac{(0.85)(0.5)}{0.535} \approx 0.794
+$$
+
+#### **问题 7:**  
+**解释传感器的真阳性率（True Positive Rate, TPR）和假阳性率（False Positive Rate, FPR）在概率映射中的作用。**
+
+**解答:**  
+- **真阳性率 (TPR)**：传感器正确检测障碍物为已占用状态的概率，反映传感器的准确性。
+- **假阳性率 (FPR)**：传感器错误检测未占用区域为占用状态的概率，影响地图的误差累积。
+
+---
+
+### **综合题目**
+
+#### **问题 8:**  
+**解释SLAM如何将定位和映射结合到一个框架中。实现实时SLAM的主要挑战是什么？**
+
+**解答:**  
+- SLAM同时估计机器人的位置和构建环境地图，利用运动模型预测机器人位置，用观测模型更新地图。
+- 挑战：
+  - 计算量大，难以实时完成。
+  - 传感器噪声和数据不确定性。
+  - 需要闭环检测来避免位置和地图的不一致。
+
+#### **问题 9:**  
+**应用波前算法，计算从起点到目标点的最短路径。请展示路径上的标记值。**
+
+**解答:**  
+- 从目标点开始赋值0。
+- 邻接点标记为1，以此类推，直到起点标记完成。
+- 回溯标记值最小的路径得到最短路径。
+
+#### **问题 10:**  
+**描述如何通过数学模型定义队形控制中的Leader-Follower机制，并解释如何保证其稳定性。**
+
+**解答:**  
+- **数学模型：**
+  $$
+  u_i = -K \sum_{j=0}^N a_{ij} \big[(x_i - h_i) - (x_j - h_j)\big]
+  $$
+  其中 $K > 0$ 是控制增益，$a_{ij}$ 是邻接矩阵值，$h_i$ 是理想队形位置偏移。
+- **稳定性：**  
+  保证 $K > 0$，调整参数确保误差收敛，使用Lyapunov函数证明系统稳定性。
+
+Based on the provided slides, here are 10 advanced questions and their answers across the topics of localization, control, planning, and mapping:
+
+---
+
+### Localization (Week 6)
+**Question 1:**  
+Explain the difference between the motion model and the observation model in probabilistic robotics. How are these models used in the localization process?
+
+**Answer:**  
+- The **motion model** describes the robot's state transition based on its control inputs, predicting the next state of the robot given the current state and motion commands.
+- The **observation model** relates the measurements taken by the robot's sensors to its current state, providing a way to update the belief about the state.
+- In localization, the motion model predicts the robot's pose (prior), and the observation model updates this prediction using sensor data (posterior).
+
+---
+
+### Control (Week 7)
+**Question 2:**  
+Describe how a PID controller adjusts the control input when applied to a robotic system. What role does each term (P, I, and D) play?
+
+**Answer:**  
+- **Proportional (P):** Reacts to the current error, providing a correction proportional to the magnitude of the error.
+- **Integral (I):** Accounts for past errors by integrating them over time, correcting for systematic biases.
+- **Derivative (D):** Predicts future error by considering the rate of error change, damping oscillations and overshoot.
+
+**Question 3:**  
+A system using a PID controller has overshoot and takes too long to stabilize. What adjustments would you recommend for the PID parameters to mitigate this?
+
+**Answer:**  
+- Reduce the **Proportional (P)** gain to decrease the overshoot.
+- Increase the **Derivative (D)** gain to improve damping and reduce overshoot further.
+- Decrease the **Integral (I)** gain to avoid excessive correction for accumulated errors.
+
+---
+
+### Planning (Week 8)
+**Question 4:**  
+For the following graph, calculate the shortest path from Node 1 to Node 11 using Dijkstra's algorithm. The graph's weights are provided. Show each step.
+
+**Answer:**  
+(Detailed path calculation omitted due to lack of graph weights in the text. This question prompts practical application.)
+
+**Question 5:**  
+Compare and contrast the Bug 1 and Bug 2 obstacle avoidance strategies in terms of path efficiency and memory usage.
+
+**Answer:**  
+- **Bug 1:** Tracks the entire perimeter of an obstacle to find the closest point to the goal, using more memory and computation but ensuring completeness.
+- **Bug 2:** Follows the obstacle until it re-encounters the direct line to the goal, making it less computationally intensive but prone to suboptimal paths.
+
+---
+
+### Mapping (Week 9)
+**Question 6:**  
+Given the following probabilities:
+- $$P(Z = z_k | c_{i,j} = \text{occupied}) = 0.85$$
+- $$P(Z = z_k | c_{i,j} \neq \text{occupied}) = 0.22$$
+- $$P(c_{i,j} = \text{occupied}) = 0.5$$
+
+Calculate the posterior probability $$P(c_{i,j} = \text{occupied} | Z = z_k)$$.
+
+**Answer:**  
+Using Bayes' theorem:
+$$ P(c_{i,j} = \text{occupied} | Z = z_k) = \frac{P(Z = z_k | c_{i,j} = \text{occupied}) P(c_{i,j} = \text{occupied})}{P(Z = z_k)} $$
+Where:
+$$ P(Z = z_k) = P(Z = z_k | c_{i,j} = \text{occupied}) P(c_{i,j} = \text{occupied}) + P(Z = z_k | c_{i,j} \neq \text{occupied}) P(c_{i,j} \neq \text{occupied}) $$
+
+$$ P(Z = z_k) = (0.85)(0.5) + (0.22)(0.5) = 0.535 $$
+
+$$ P(c_{i,j} = \text{occupied} | Z = z_k) = \frac{(0.85)(0.5)}{0.535} = 0.794 $$
+
+---
+
+**Question 7:**  
+Explain the role of the sensor's true positive rate and false positive rate in probabilistic mapping.
+
+**Answer:**  
+- The **true positive rate** represents the likelihood that the sensor correctly detects an occupied cell when it is truly occupied, contributing to the reliability of positive measurements.
+- The **false positive rate** indicates the likelihood that the sensor incorrectly identifies a free cell as occupied, which can introduce uncertainty and reduce map accuracy.
+
+---
+
+### Multi-topic Advanced
+**Question 8:**  
+Explain how SLAM combines localization and mapping into a single framework. What are the challenges of solving SLAM in real-time?
+
+**Answer:**  
+- SLAM simultaneously estimates the robot's pose and builds a map of the environment using only on-board sensors.
+- Challenges include:
+  - High computational demand for real-time operation.
+  - Managing sensor noise and uncertainties in measurements.
+  - Loop closure detection to correctly identify previously visited areas.
+
+**Question 9:**  
+Using the wavefront algorithm, fill in the missing values in the following 2D grid to calculate
+
+the shortest path to the goal. Assume the goal is located at cell (5,5) and the grid starts with the goal marked as 0.
+
+**Answer:**  
+- Start at the goal cell (5,5) with value 0.
+- Mark all adjacent cells with value 1.
+- For each subsequent layer, increment the value by 1 for all unvisited adjacent cells.
+- Repeat until all cells are filled.
+
+(Detailed grid values depend on the problem setup provided. The exercise prompts practical application.)
+
+---
+
+**Question 10:**  
+Describe how a leader-follower mechanism in formation control can be modeled mathematically. How is stability ensured in such systems?
+
+**Answer:**  
+- **Modeling:**  
+  The leader's position is defined, and each follower's control law is based on the leader's state and their relative positions:
+  $$
+  u_i = -K \sum_{j=0}^N a_{ij} \big[(x_i - h_i) - (x_j - h_j)\big]
+  $$
+  Where $$K$$ is the control gain, $$a_{ij}$$ denotes adjacency in the graph, and $$h_i$$ is the desired offset.
+
+- **Stability:**  
+  Stability is achieved by ensuring the control gain $$K > 0$$ and proper tuning of the parameters to minimize error convergence between the leader and the followers, maintaining the desired formation. Lyapunov functions can be used to prove stability. 
+
+---
+
+### **Week 6: Localization (定位)**
+
+1. **运动模型和观测模型：**
+   - 确保理解两者的作用：
+     - **运动模型**：估计机器人下一步的位置（预测）。
+     - **观测模型**：修正估计，结合传感器数据得出后验分布。
+   - 熟悉贝叶斯公式在SLAM中的应用：
+     $$
+     P(X|Z) = \frac{P(Z|X)P(X)}{P(Z)}
+     $$
+     - $X$：机器人位置
+     - $Z$：观测值
+
+2. **概率和误差传播：**
+   - 熟悉 **Pose Covariance Matrix** 的公式推导，理解噪声如何影响位置估计的不确定性。
+   - 学会处理高斯分布的线性变换，例如状态转移矩阵和观测矩阵的推导。
+
+---
+
+### **Week 7: Control (控制)**
+
+1. **PID 控制器：**
+   - 知道 P、I、D 参数分别对系统响应的影响：
+     - **P 增大**：加快响应，但可能引起振荡。
+     - **I 增大**：消除稳态误差，但可能增加超调。
+     - **D 增大**：减小振荡，提高稳定性。
+   - 对比不同控制器（P、PI、PID）的优缺点，特别是它们的收敛速度和稳定性。
+
+2. **稳定性分析：**
+   - 熟悉 Lyapunov 稳定性条件：
+     - $V(x) > 0$ 表示正定函数。
+     - $\dot{V}(x) < 0$ 表示系统趋于稳定。
+   - 理解 Asymptotic Stability 和 Neutral Stability 的区别：
+     - **渐近稳定**：误差逐渐减小，最终趋于零。
+     - **中性稳定**：误差保持在一定范围内，但不减小。
+
+---
+
+### **Week 8: Planning (规划)**
+
+1. **路径搜索算法：**
+   - **A***:
+     - 熟悉 $f(n) = g(n) + h(n)$ 的定义：
+       - $g(n)$：起点到当前节点的实际代价。
+       - $h(n)$：当前节点到目标节点的启发式估计代价。
+     - 确保理解不同启发函数（曼哈顿、欧几里得距离）如何影响搜索效率。
+     - 注意算法在选择节点时的顺序（根据 $f(n)$ 值）。
+
+   - **Dijkstra 和波前算法：**
+     - Dijkstra 是 A* 的特例（启发值 $h(n) = 0$）。
+     - 波前算法用于栅格地图，熟悉它如何标记和回溯路径。
+
+2. **障碍物规避算法：**
+   - 熟悉 Bug1 和 Bug2 的区别：
+     - Bug1 的完整边界遍历。
+     - Bug2 在遇到障碍物时直接回归主路径。
+
+---
+
+### **Week 9: Mapping (映射)**
+
+1. **概率映射：**
+   - 理解先验概率、后验概率的计算：
+     $$
+     P(c_{i,j} = \text{occupied}|Z) = \frac{P(Z|c_{i,j} = \text{occupied}) P(c_{i,j} = \text{occupied})}{P(Z)}
+     $$
+   - 掌握如何从传感器数据计算栅格的占用概率。
+
+2. **SLAM 原理：**
+   - 熟悉 SLAM 中定位与映射的结合：
+     - **预测**：运动模型更新机器人位置。
+     - **修正**：观测模型更新地图。
+   - 理解闭环检测（Loop Closure）的重要性。
+
+---
+
+### **综合建议**
+
+1. **公式推导和简化：**
+   - 考试中可能要求推导关键公式（如 A* 的估计函数、PID 的动态方程、SLAM 中概率公式）。
+   - 熟悉公式的每一项含义，避免记错。
+
+2. **应用题训练：**
+   - 计算题：如 SLAM 中后验概率的计算，A* 的路径搜索。
+   - 理论题：解释控制器设计、稳定性分析的基本原理。
+
+3. **注意单位和边界条件：**
+   - 控制参数 $K_p, K_i, K_d$ 的大小是否合理。
+   - 地图栅格的占用概率是否符合边界值（如在 $[0,1]$ 内）。
+
+4. **阅读题干，明确问题：**
+   - 如果是算法题，明确输入和输出，例如 A* 的初始节点、目标节点、代价函数。
+   - 如果是推导题，检查步骤的数学合理性。
+
+---
+
+### **重点高频知识点**
+- **SLAM 的概率更新公式**。
+- **PID 参数对系统性能的影响**。
+- **A* 和波前算法的差异和适用场景**。
+- **Lyapunov 稳定性的定义和应用**。
+- **Mapping 中后验概率计算及假阳性率的影响**。
+
+---
 
