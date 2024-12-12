@@ -3,8 +3,8 @@
     "world": "world01.json",
     "robot": "puzzlebot01.json",
     "pose": "0.0, 0.0, 0.0",
-    "module": "test_localisation",
-    "real": true,
+    "module": "driveToGoal",
+    "real": false,
     "path": true,
     "sensor": true,
     "robot_gui": "Puzzlebot"

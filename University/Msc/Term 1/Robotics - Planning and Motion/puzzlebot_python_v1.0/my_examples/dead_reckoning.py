@@ -43,29 +43,25 @@ class DeadReckoning():
 
         # Compute linear and angular velocities of the robot
 
-        v = (self.R / 2) * (self.w_r + self.w_l)
-        omega = (self.R / self.L) * (self.w_r - self.w_l)
+        v     = self.R * (self.w_r + self.w_l) / 2
+        omega = self.R * (self.w_r - self.w_l) / self.L
 
         # Update pose (self.pose)
 
         x, y, theta = self.pose
-        x += v * math.cos(theta) * dt
-        y += v * math.sin(theta) * dt
-        theta += omega * dt
+        x     += v * math.cos(theta) * dt
+        y     += v * math.sin(theta) * dt
+        theta = (theta + omega * dt + math.pi) % (2 * math.pi) - math.pi
         self.pose = [x, y, theta]
 
         # Computer robot coveriance Sig (self.Sig), using the jacobian matrix H and the covariance matrix Q.
 
         H = np.array([
-            [1, 0, -v * math.sin(theta) * dt],
-            [0, 1, v * math.cos(theta) * dt],
+            [1, 0, - dt * v * math.sin(theta)],
+            [0, 1, dt * v * math.cos(theta)],
             [0, 0, 1]
         ])
-        Q = np.array([
-            [0.01, 0, 0],
-            [0, 0.01, 0],
-            [0, 0, 0.01]
-        ])
+        Q = np.diag([self.k, self.k, self.k])
         self.Sig = H @ self.Sig @ H.T + Q
 
         # ====================================================================================================

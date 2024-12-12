@@ -13,8 +13,12 @@ class DriveToGoal():
         self.dead_reckon = dr.DeadReckoning()
 
         # Target points        
-        self.target_x = 2
-        self.target_y = 1
+        # self.target_x = 2
+        # self.target_y = 1
+        # self.target_x = -3
+        # self.target_y = 2
+        self.target_x = 4
+        self.target_y = -2
         
         self.v_max = 0.2
         self.w_max = 2
@@ -57,6 +61,12 @@ class DriveToGoal():
     
         self.L = 0.09
         self.R = 0.05
+
+        # Linear velocity v = (w_setR * R + w_setL * R) / 2
+        # Angular velocity w = (w_setR * R - w_setL * R) / L
+        # Solving these equations for w_setR and w_setL:
+        # w_setR = (2 * v + w * L) / (2 * R)
+        # w_setL = (2 * v - w * L) / (2 * R)
         self.w_setR = (2 * v + w * self.L) / (2 * self.R)
         self.w_setL = (2 * v - w * self.L) / (2 * self.R)
 

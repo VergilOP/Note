@@ -193,7 +193,7 @@ The most common types of actuators
 > $$
 > ![](imgs/2024-11-28-19-01-00.png)
 > 
-> force for extending the rod with max P:  
+> force for extending the rod with max P:   
 > $A1 = \pi R_1^2$  
 > $F = P * A_1$
 > 
